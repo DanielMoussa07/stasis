@@ -20,7 +20,7 @@ struct ChargingSettingsView: View {
     private let capabilities: DeviceCapabilities
 
     private let logger = Logger(
-        subsystem: "com.srimanachanta.stasis",
+        subsystem: "com.dinanathdash.stasis",
         category: "ChargingSettingsView"
     )
 

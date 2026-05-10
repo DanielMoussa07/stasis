@@ -14,6 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var menu: NSMenu!
     private var settingsObservation: Task<Void, Never>?
     private var adapterObservation: Task<Void, Never>?
+    private var isMenuOpen = false
+    private var needsMenuRebuild = false
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Exit the app immediately if the device doesn't have a battery
@@ -91,7 +93,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func rebuildMenu() {
+        guard !isMenuOpen else {
+            needsMenuRebuild = true
+            return
+        }
         menuBuilder.populateMenu(menu)
+        needsMenuRebuild = false
     }
 
     private func requestNotificationPermissions() {
@@ -101,10 +108,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     func menuWillOpen(_ menu: NSMenu) {
+        isMenuOpen = true
         viewModel.menuWillOpen()
     }
 
     func menuDidClose(_ menu: NSMenu) {
+        isMenuOpen = false
+        if needsMenuRebuild {
+            rebuildMenu()
+        }
         viewModel.menuDidClose()
     }
 }

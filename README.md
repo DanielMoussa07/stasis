@@ -15,7 +15,13 @@ Stasis gives you real-time insight into your MacBook's power system and lets you
 ### Homebrew (Recommended)
 
 ```bash
-brew install --cask --no-quarantine srimanachanta/tap/stasis
+brew install --cask srimanachanta/tap/stasis
+```
+
+If macOS blocks launch after install, remove quarantine manually:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/Stasis.app
 ```
 
 ### Direct Download

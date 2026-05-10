@@ -28,6 +28,7 @@ class MenuViewModel {
     var systemPower: Double = 0
     var powerSource: PowerSource = .battery
     var isCharging: Bool = false
+    var isLowPowerModeEnabled: Bool = ProcessInfo.processInfo.isLowPowerModeEnabled
 
     var chargeLimitOverrideActive: Bool { chargeManager.chargeLimitOverrideActive }
     var forceDischargeActive: Bool { chargeManager.forceDischargeActive }
@@ -37,6 +38,8 @@ class MenuViewModel {
     private var metricsObservation: Task<Void, Never>?
     private var settingsObservation: Task<Void, Never>?
     private var uptimeTask: Task<Void, Never>?
+    private var powerModeObservation: Task<Void, Never>?
+    private var trendSample: (date: Date, percentage: Int, isCharging: Bool)?
 
     init(batteryService: BatteryService, chargeManager: ChargeManager) {
         self.batteryService = batteryService
@@ -44,6 +47,7 @@ class MenuViewModel {
         self.bootTimestamp = SystemService.bootTimestamp()
         startObservingMetrics()
         startObservingSettings()
+        startObservingPowerMode()
     }
 
     private func startObservingMetrics() {
@@ -80,6 +84,17 @@ class MenuViewModel {
         }
     }
 
+    private func startObservingPowerMode() {
+        powerModeObservation = Task { [weak self] in
+            guard let self else { return }
+            for await _ in NotificationCenter.default.notifications(
+                named: .NSProcessInfoPowerStateDidChange
+            ) {
+                self.isLowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+            }
+        }
+    }
+
     func toggleChargeLimitOverride() {
         chargeManager.toggleChargeLimitOverride()
     }
@@ -98,21 +113,22 @@ class MenuViewModel {
 
         let derivedPowerSource = derivePowerSource(battery: metrics, adapter: adapter)
 
-        switch derivedPowerSource {
-        case .battery:
-            powerSourceText = "Battery"
-        case .acAdapter:
-            powerSourceText = "Power Adapter"
-        case .both:
-            powerSourceText = "Battery & Power Adapter"
-        }
+        powerSourceText = formatPowerSourceText(
+            source: derivedPowerSource,
+            adapterCapacityWatts: adapter.adapterCapacityWatts
+        )
 
-        let formatted = formatTimeRemaining(minutes: metrics.timeRemaining)
-        timeRemainingText = formatted.isEmpty ? "Calculating..." : formatted
+        timeRemainingText = formatTimeRemaining(
+            reportedMinutes: metrics.timeRemaining,
+            powerSource: derivedPowerSource,
+            isCharging: metrics.isCharging,
+            adapterConnected: adapter.adapterConnected,
+            batteryPercentage: percentage
+        )
 
         updateUptimeText()
 
-        if derivedPowerSource == .acAdapter {
+        if adapter.adapterConnected {
             if metrics.isCharging {
                 chargingMode = .charging
                 batteryModeText = "Charging"
@@ -151,9 +167,7 @@ class MenuViewModel {
     private func derivePowerSource(battery: BatteryMetrics, adapter: AdapterMetrics) -> PowerSource {
         guard adapter.adapterConnected else { return .battery }
 
-        if adapter.adapterPower == 0 {
-            return .battery
-        } else if battery.batteryPower >= 0 {
+        if battery.batteryPower >= 0 {
             return .acAdapter
         } else {
             return .both
@@ -166,10 +180,18 @@ class MenuViewModel {
             return
         }
 
-        let uptime = Date().timeIntervalSince(bootTimestamp)
-        let hours = Int(uptime) / 3600
-        let minutes = (Int(uptime) % 3600) / 60
-        uptimeText = String(format: "%02d:%02d", hours, minutes)
+        let uptime = max(0, Int(Date().timeIntervalSince(bootTimestamp)))
+        let days = uptime / 86_400
+        let hours = (uptime % 86_400) / 3_600
+        let minutes = (uptime % 3_600) / 60
+
+        if days > 0 {
+            uptimeText = "\(days)D \(hours)H \(minutes)M"
+        } else if hours > 0 {
+            uptimeText = "\(hours)H \(minutes)M"
+        } else {
+            uptimeText = "\(minutes)M"
+        }
     }
 
     private func startUptimeTimer() {
@@ -203,13 +225,131 @@ class MenuViewModel {
         NSApplication.shared.terminate(nil)
     }
 
-    private func formatTimeRemaining(minutes: Int) -> String {
-        if minutes < 0 {
-            return ""
+    private func formatTimeRemaining(minutes: Int, powerSource: PowerSource, isCharging: Bool) -> String {
+        formatTimeRemaining(
+            reportedMinutes: minutes,
+            powerSource: powerSource,
+            isCharging: isCharging,
+            adapterConnected: powerSource != .battery,
+            batteryPercentage: displayPercentage
+        )
+    }
+
+    private func formatTimeRemaining(
+        reportedMinutes: Int,
+        powerSource: PowerSource,
+        isCharging: Bool,
+        adapterConnected: Bool,
+        batteryPercentage: Int
+    ) -> String {
+        if adapterConnected && !isCharging {
+            return "N/A"
         }
-        let hours = minutes / 60
-        let mins = minutes % 60
+
+        let adjustedReportedMinutes = adjustedReportedMinutesToTarget(
+            reportedMinutes: reportedMinutes,
+            isCharging: isCharging,
+            batteryPercentage: batteryPercentage
+        )
+
+        let fallbackMinutes = estimateMinutesFromTrend(
+            batteryPercentage: batteryPercentage,
+            isCharging: isCharging,
+            adapterConnected: adapterConnected
+        )
+
+        let effectiveMinutes = adjustedReportedMinutes >= 0 ? adjustedReportedMinutes : fallbackMinutes
+        guard let effectiveMinutes, effectiveMinutes >= 0 else {
+            return "Calculating..."
+        }
+
+        let hours = effectiveMinutes / 60
+        let mins = effectiveMinutes % 60
         return String(format: "%02d:%02d", hours, mins)
+    }
+
+    private func adjustedReportedMinutesToTarget(
+        reportedMinutes: Int,
+        isCharging: Bool,
+        batteryPercentage: Int
+    ) -> Int {
+        guard reportedMinutes >= 0 else { return -1 }
+        guard isCharging else { return reportedMinutes }
+
+        let targetPercentage = chargingTargetPercentage
+        if batteryPercentage >= targetPercentage {
+            return 0
+        }
+
+        if targetPercentage >= 100 || batteryPercentage >= 100 {
+            return reportedMinutes
+        }
+
+        let remainingToTarget = max(0, targetPercentage - batteryPercentage)
+        let remainingToFull = max(1, 100 - batteryPercentage)
+        let scaled = Double(reportedMinutes) * Double(remainingToTarget) / Double(remainingToFull)
+        return Int(ceil(scaled))
+    }
+
+    private var chargingTargetPercentage: Int {
+        if Defaults[.manageCharging] && !chargeLimitOverrideActive {
+            return Defaults[.chargeLimit]
+        }
+        return 100
+    }
+
+    private func estimateMinutesFromTrend(
+        batteryPercentage: Int,
+        isCharging: Bool,
+        adapterConnected: Bool
+    ) -> Int? {
+        let now = Date()
+        defer {
+            trendSample = (date: now, percentage: batteryPercentage, isCharging: isCharging)
+        }
+
+        guard !(adapterConnected && !isCharging) else { return nil }
+        guard let previous = trendSample else { return nil }
+        guard previous.isCharging == isCharging else { return nil }
+
+        let elapsedMinutes = now.timeIntervalSince(previous.date) / 60
+        guard elapsedMinutes >= 0.5 else { return nil }
+
+        let deltaPercent = batteryPercentage - previous.percentage
+        guard deltaPercent != 0 else { return nil }
+
+        let percentPerMinute = abs(Double(deltaPercent) / elapsedMinutes)
+        guard percentPerMinute > 0 else { return nil }
+
+        let remainingPercent: Int = {
+            if isCharging {
+                return max(0, chargingTargetPercentage - batteryPercentage)
+            }
+            return max(0, batteryPercentage)
+        }()
+
+        if remainingPercent == 0 {
+            return 0
+        }
+
+        let minutes = Double(remainingPercent) / percentPerMinute
+        return Int(ceil(minutes))
+    }
+
+    private func formatPowerSourceText(source: PowerSource, adapterCapacityWatts: Int) -> String {
+        let hasCapacity = adapterCapacityWatts > 0
+        switch source {
+        case .battery:
+            return "Battery"
+        case .acAdapter:
+            return hasCapacity
+                ? "Power Adapter (\(adapterCapacityWatts) W)"
+                : "Power Adapter"
+        case .both:
+            return hasCapacity
+                ? "Battery & Power Adapter (\(adapterCapacityWatts) W)"
+                : "Battery & Power Adapter"
+        }
     }
 
     deinit {
@@ -217,6 +357,7 @@ class MenuViewModel {
             metricsObservation?.cancel()
             settingsObservation?.cancel()
             uptimeTask?.cancel()
+            powerModeObservation?.cancel()
         }
     }
 }

@@ -13,7 +13,7 @@ class IOKitService {
     private var continuation: AsyncStream<(BatteryMetrics, AdapterMetrics)>.Continuation?
 
     private let logger = Logger(
-        subsystem: "com.srimanachanta.stasis",
+        subsystem: "com.dinanathdash.stasis",
         category: "IOKitService"
     )
 
@@ -129,7 +129,9 @@ class IOKitService {
         batteryMetrics.externalConnected =
             getPropertyValue(batteryService, key: "ExternalConnected") ?? false
 
-        adapterMetrics.adapterConnected = isAdapterConnected()
+        let adapterRatedWatts = getAdapterRatedWatts()
+        adapterMetrics.adapterCapacityWatts = adapterRatedWatts ?? 0
+        adapterMetrics.adapterConnected = (adapterRatedWatts ?? 0) > 0
 
         if let temp = getBatteryTemperature(powerInfo: powerInfo) {
             batteryMetrics.batteryTemperature = temp
@@ -212,13 +214,15 @@ class IOKitService {
         return timeToFull
     }
 
-    private func isAdapterConnected() -> Bool {
-        guard let adapterDetails: [String: Any] = getPropertyValue(batteryService, key: "AdapterDetails"),
-              let watts = adapterDetails["Watts"] as? Int else {
-            return false
+    private func getAdapterRatedWatts() -> Int? {
+        guard
+            let adapterDetails: [String: Any] = getPropertyValue(batteryService, key: "AdapterDetails"),
+            let watts = adapterDetails["Watts"] as? Int,
+            watts > 0
+        else {
+            return nil
         }
-
-        return watts > 0
+        return watts
     }
 
     private func getBatteryTemperature(powerInfo: [String: Any]?) -> Double? {
