@@ -125,7 +125,6 @@ jobs:
             --ed-key-file "build/keys/sparkle_private_key" \
             --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
             --release-notes-url-prefix "https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}/" \
-            --versions "${{ steps.tag_version.outputs.new_version }}" \
             --maximum-versions 25 \
             -o "releases/appcast/appcast.xml" \
             "build/sparkle-input"

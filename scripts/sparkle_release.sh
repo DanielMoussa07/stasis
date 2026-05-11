@@ -82,7 +82,6 @@ fi
   --ed-key-file "${SPARKLE_PRIVATE_KEY_PATH}" \
   --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
   --release-notes-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/" \
-  --versions "${VERSION}" \
   --maximum-versions 25 \
   -o "${APPCAST_OUT}" \
   "${ROOT_DIR}/build"
