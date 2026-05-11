@@ -1,0 +1,111 @@
+name: Build, Release, and Update Homebrew
+
+on:
+  push:
+    branches:
+      - main # Triggers on merge/push to main branch
+
+jobs:
+  release:
+    name: Build DMG & Update Cask
+    runs-on: macos-latest
+    permissions:
+      contents: write # Needed to push release and commit updates
+      pull-requests: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required to calculate semantic version tags
+
+      - name: Calculate Semantic Version
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          release_branches: main
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Update Xcode App Version
+        run: |
+          # The semantic version without 'v' (e.g. 1.0.1)
+          APP_VERSION=${{ steps.tag_version.outputs.new_version }}
+          
+          # Replace MARKETING_VERSION in all targets in the pbxproj
+          sed -i '' 's/MARKETING_VERSION = .*/MARKETING_VERSION = '$APP_VERSION';/' stasis.xcodeproj/project.pbxproj
+          
+          # Also increment the CURRENT_PROJECT_VERSION (build number) using GitHub Run ID to be unique
+          sed -i '' 's/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = '${{ github.run_number }}';/' stasis.xcodeproj/project.pbxproj
+
+      - name: Build and Archive
+        run: |
+          xcodebuild archive \
+            -workspace stasis.xcworkspace \
+            -scheme "stasis-release" \
+            -configuration Release \
+            -archivePath $PWD/build/Stasis.xcarchive \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=YES \
+            CODE_SIGNING_ALLOWED=YES
+
+      - name: Export Archive
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath $PWD/build/Stasis.xcarchive \
+            -exportPath $PWD/build/export \
+            -exportOptionsPlist exportOptions.plist
+
+      - name: Install create-dmg
+        run: brew install create-dmg
+
+      - name: Create DMG
+        run: |
+          cd build/export
+          create-dmg \
+            --volname "Stasis" \
+            --window-pos 200 120 \
+            --window-size 600 400 \
+            --icon-size 100 \
+            --background "../../dmg-background.png" \
+            --icon "Stasis.app" 123 185 \
+            --hide-extension "Stasis.app" \
+            --app-drop-link 436 200 \
+            "../../Stasis.dmg" \
+            "Stasis.app"
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          files: Stasis.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculate SHA256
+        id: shasum
+        run: |
+          echo "sha256=$(shasum -a 256 Stasis.dmg | awk '{print $1}')" >> $GITHUB_ENV
+          echo "version=${{ steps.tag_version.outputs.new_version }}" >> $GITHUB_ENV
+
+      - name: Update Homebrew Cask and Commit
+        run: |
+          # Replace version in stasis.rb
+          sed -i '' 's/version ".*"/version "'${{ env.version }}'"/' Casks/stasis.rb
+          # Replace sha256 in stasis.rb
+          sed -i '' 's/sha256 ".*"/sha256 "'${{ env.sha256 }}'"/' Casks/stasis.rb
+          
+          # Commit the updated ruby file and pbxproj to the repository
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/stasis.rb
+          git add stasis.xcodeproj/project.pbxproj
+          git commit -m "chore: bump version to v${{ env.version }} and update Homebrew Cask [skip ci]"
+          git push origin main

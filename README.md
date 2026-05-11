@@ -8,14 +8,14 @@ Stasis gives you real-time insight into your MacBook's power system and lets you
 >
 > Requires **macOS 14.8+**.
 
-![Stasis Menu Bar](https://github.com/srimanachanta/Stasis/wiki/images/FullApp.jpg)
+![Stasis Menu Bar](https://github.com/DinanathDash/Stasis/wiki/images/FullApp.jpg)
 
 ## Installation
 
 ### Homebrew (Recommended)
 
 ```bash
-brew install --cask srimanachanta/tap/stasis
+brew install --cask dinanathdash/tap/stasis
 ```
 
 If macOS blocks launch after install, remove quarantine manually:
@@ -26,7 +26,7 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 
 ### Direct Download
 
-1. Download from [GitHub Releases](https://github.com/srimanachanta/Stasis/releases).
+1. Download from [GitHub Releases](https://github.com/DinanathDash/Stasis/releases).
 2. Open the `.zip` and drag Stasis into `/Applications`.
 3. Remove the quarantine flag:
    ```bash
@@ -46,12 +46,12 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 
 ## Documentation
 
-For detailed feature explanations, settings walkthroughs, architecture info, and FAQ, see the **[Stasis Wiki](https://github.com/srimanachanta/Stasis/wiki)**.
+For detailed feature explanations, settings walkthroughs, architecture info, and FAQ, see the **[Stasis Wiki](https://github.com/DinanathDash/Stasis/wiki)**.
 
 ## Building from Source
 
 ```bash
-git clone https://github.com/srimanachanta/Stasis.git
+git clone https://github.com/DinanathDash/Stasis.git
 cd Stasis
 open stasis.xcodeproj
 ```
