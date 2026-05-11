@@ -72,7 +72,7 @@ jobs:
             --window-pos 200 120 \
             --window-size 600 400 \
             --icon-size 100 \
-            --background "../../dmg-background.png" \
+            --background "../../assets/dmg-background.png" \
             --icon "Stasis.app" 123 185 \
             --hide-extension "Stasis.app" \
             --app-drop-link 436 200 \
