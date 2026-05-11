@@ -67,7 +67,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showPowerSource, .showTimeTillDischarge, .showBatteryCycleCount,
                     .showBatteryHealth, .showBatteryTemperature, .showUptime,
                     .showBatteryMode, .showInternalPower, .showExternalPower,
-                    .showPowerDistribution, .manageCharging,
+                    .showPowerDistribution,
+                    .showOutputPortsText, .outputVisualizationMode,
+                    .manageCharging,
                 ],
                 initial: false
             ) {

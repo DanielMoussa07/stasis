@@ -11,6 +11,7 @@ class IOKitService {
     private var batteryService: io_service_t = 0
 
     private var continuation: AsyncStream<(BatteryMetrics, AdapterMetrics)>.Continuation?
+    private var refreshTask: Task<Void, Never>?
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
@@ -82,9 +83,12 @@ class IOKitService {
         }
 
         emitMetrics()
+        startRefreshLoop()
     }
 
     private func stop() {
+        refreshTask?.cancel()
+        refreshTask = nil
         if interestNotification != 0 {
             IOObjectRelease(interestNotification)
             interestNotification = 0
@@ -128,6 +132,9 @@ class IOKitService {
 
         batteryMetrics.externalConnected =
             getPropertyValue(batteryService, key: "ExternalConnected") ?? false
+        batteryMetrics.systemInputPower = getSystemInputPowerWatts()
+        batteryMetrics.outputPorts = getOutputPortPowers()
+        batteryMetrics.outputPower = batteryMetrics.outputPorts.reduce(0) { $0 + $1.powerWatts }
 
         let adapterRatedWatts = getAdapterRatedWatts()
         adapterMetrics.adapterCapacityWatts = adapterRatedWatts ?? 0
@@ -261,5 +268,76 @@ class IOKitService {
             getPropertyValue(batteryService, key: "DesignCapacity") ?? 0
 
         return (currentCapacity, maxCapacity, designCapacity)
+    }
+
+    private func getSystemInputPowerWatts() -> Double {
+        guard
+            let telemetry: [String: Any] = getPropertyValue(
+                batteryService,
+                key: "PowerTelemetryData"
+            )
+        else {
+            return 0
+        }
+
+        if let systemPowerMilliwatts = telemetry["SystemPowerIn"] as? NSNumber {
+            return max(0, systemPowerMilliwatts.doubleValue / 1000.0)
+        }
+
+        if let systemLoadMilliwatts = telemetry["SystemLoad"] as? NSNumber {
+            return max(0, systemLoadMilliwatts.doubleValue / 1000.0)
+        }
+
+        return 0
+    }
+
+    private func getOutputPowerWatts() -> Double {
+        getOutputPortPowers().reduce(0) { $0 + $1.powerWatts }
+    }
+
+    private func getOutputPortPowers() -> [OutputPortPower] {
+        guard
+            let powerOutDetails: [[String: Any]] = getPropertyValue(
+                batteryService,
+                key: "PowerOutDetails"
+            )
+        else {
+            return []
+        }
+
+        return powerOutDetails.compactMap { detail in
+            guard let portIndex = (detail["PortIndex"] as? NSNumber)?.intValue else {
+                return nil
+            }
+
+            let milliwatts: Double
+            if let wattsMilliwatts = detail["Watts"] as? NSNumber {
+                milliwatts = wattsMilliwatts.doubleValue
+            } else if let currentMilliamps = detail["Current"] as? NSNumber,
+                let voltageMillivolts = detail["AdapterVoltage"] as? NSNumber
+            {
+                milliwatts = currentMilliamps.doubleValue * voltageMillivolts.doubleValue / 1000.0
+            } else {
+                milliwatts = 0
+            }
+
+            let watts = max(0, milliwatts / 1000.0)
+            guard watts > 0.1 else { return nil }
+            return OutputPortPower(portIndex: portIndex, powerWatts: watts)
+        }
+        .sorted { $0.portIndex < $1.portIndex }
+    }
+
+    private func startRefreshLoop() {
+        guard refreshTask == nil else { return }
+        refreshTask = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(500))
+                guard !Task.isCancelled else { break }
+                await MainActor.run {
+                    self?.emitMetrics()
+                }
+            }
+        }
     }
 }

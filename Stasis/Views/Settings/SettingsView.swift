@@ -23,11 +23,11 @@ enum SettingsTab: String, CaseIterable, Identifiable {
         case .general:
             return "gearshape"
         case .dashboard:
-            return "chart.xyaxis.line"
+            return "square.grid.2x2"
         case .charging:
             return "battery.100.bolt"
         case .advanced:
-            return "slider.horizontal.3"
+            return "gearshape.2"
         }
     }
 }

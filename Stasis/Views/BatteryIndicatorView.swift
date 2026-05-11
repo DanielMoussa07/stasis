@@ -135,14 +135,14 @@ struct BatteryIndicatorView: View {
                                     .foregroundStyle(insidePercentageColor)
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        } else if chargingMode == .charging {
+                        } else if showState && chargingMode == .charging {
                             Image(systemName: "bolt.fill")
                                 .font(.system(size: 10, weight: .black))
                                 .foregroundStyle(.white)
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)
-                        } else if chargingMode == .pluggedIn {
+                        } else if showState && chargingMode == .pluggedIn {
                             Image(systemName: "powerplug.fill")
                                 .font(.system(size: 10, weight: .black))
                                 .rotationEffect(.degrees(-90))

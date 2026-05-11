@@ -1,5 +1,12 @@
 import Foundation
 
+struct OutputPortPower: Codable, Equatable, Identifiable {
+    var portIndex: Int
+    var powerWatts: Double
+
+    var id: Int { portIndex }
+}
+
 struct BatteryMetrics: Codable, Equatable {
     var batteryPercentage: Int = 0
     var hardwareBatteryPercentage: Int = 0
@@ -9,6 +16,9 @@ struct BatteryMetrics: Codable, Equatable {
     var batteryVoltage: Double = 0
     var batteryCurrent: Double = 0
     var batteryPower: Double = 0
+    var systemInputPower: Double = 0
+    var outputPower: Double = 0
+    var outputPorts: [OutputPortPower] = []
     var batteryTemperature: Double = 0
 
     var batteryHealth: Int = 0
