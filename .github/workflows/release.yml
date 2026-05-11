@@ -67,8 +67,11 @@ jobs:
       - name: Create DMG
         run: |
           cd build/export
+          mkdir -p dmg_root
+          cp -R "Stasis.app" dmg_root/
           create-dmg \
             --volname "Stasis" \
+            --volicon "Stasis.app/Contents/Resources/AppIcon.icns" \
             --window-pos 200 120 \
             --window-size 600 400 \
             --icon-size 100 \
@@ -77,7 +80,7 @@ jobs:
             --hide-extension "Stasis.app" \
             --app-drop-link 436 200 \
             "../../Stasis.dmg" \
-            "Stasis.app"
+            "dmg_root"
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
