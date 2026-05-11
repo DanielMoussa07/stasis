@@ -46,7 +46,7 @@ jobs:
       - name: Build and Archive
         run: |
           xcodebuild archive \
-            -workspace stasis.xcworkspace \
+            -project stasis.xcodeproj \
             -scheme "stasis-release" \
             -configuration Release \
             -archivePath $PWD/build/Stasis.xcarchive \
