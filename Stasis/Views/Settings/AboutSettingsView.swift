@@ -57,7 +57,7 @@ struct AboutSettingsView: View {
                 Button("Check for updates now") {
                     updaterService.checkForUpdates()
                     if updaterService.updaterAvailable {
-                        updateStatusMessage = "Update check started."
+                        updateStatusMessage = "Update check started for this build."
                     } else {
                         updateStatusMessage = "Updater framework is not linked in this build yet."
                     }
