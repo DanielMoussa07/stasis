@@ -84,8 +84,7 @@ fi
   --link "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/${VERSION}.html" \
   --versions "${VERSION}" \
   --maximum-versions 25 \
-  --output-file "${APPCAST_OUT}" \
-  "${ROOT_DIR}/build"
+  "${ROOT_DIR}/build" > "${APPCAST_OUT}"
 
 echo "Created: ${ZIP_PATH}"
 echo "Created: ${APPCAST_OUT}"

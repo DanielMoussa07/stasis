@@ -127,8 +127,7 @@ jobs:
             --link "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/${{ steps.tag_version.outputs.new_version }}.html" \
             --versions "${{ steps.tag_version.outputs.new_version }}" \
             --maximum-versions 25 \
-            --output-file "releases/appcast/appcast.xml" \
-            "build/sparkle-input"
+            "build/sparkle-input" > "releases/appcast/appcast.xml"
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
