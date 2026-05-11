@@ -45,6 +45,12 @@ final class UpdaterService: NSObject {
         UserDefaults.standard.set(mode.sparkleAutomaticallyInstalls, forKey: "SUAllowsAutomaticUpdates")
     }
 
+    func startIfAvailable() {
+        #if canImport(Sparkle)
+        _ = updaterController
+        #endif
+    }
+
     #if canImport(Sparkle)
     private lazy var updaterController: SPUStandardUpdaterController = {
         SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)

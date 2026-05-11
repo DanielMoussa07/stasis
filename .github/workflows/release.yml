@@ -77,11 +77,58 @@ jobs:
             --window-size 600 400 \
             --icon-size 100 \
             --background "../../assets/dmg-background.png" \
-            --icon "Stasis.app" 123 205 \
+            --icon "Stasis.app" 123 215 \
             --hide-extension "Stasis.app" \
-            --app-drop-link 430 205 \
+            --app-drop-link 430 220 \
             "../../Stasis.dmg" \
             "dmg_root"
+
+      - name: Package Sparkle ZIP
+        run: |
+          cd build/export
+          ditto -c -k --sequesterRsrc --keepParent "Stasis.app" "../Stasis-${{ steps.tag_version.outputs.new_version }}.zip"
+
+      - name: Resolve Sparkle tools
+        id: sparkle_tools
+        run: |
+          SPARKLE_BIN_DIR="$(find "$HOME/Library/Developer/Xcode/DerivedData" -path '*SourcePackages/artifacts/sparkle/Sparkle/bin' -type d | head -n 1)"
+          if [ -z "$SPARKLE_BIN_DIR" ]; then
+            echo "Sparkle tools not found in DerivedData"
+            exit 1
+          fi
+          echo "bin_dir=$SPARKLE_BIN_DIR" >> "$GITHUB_OUTPUT"
+
+      - name: Sign Sparkle update archive
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: |
+          if [ -z "${SPARKLE_PRIVATE_KEY}" ]; then
+            echo "Missing SPARKLE_PRIVATE_KEY secret"
+            exit 1
+          fi
+          mkdir -p build/keys
+          printf '%s\n' "$SPARKLE_PRIVATE_KEY" > build/keys/sparkle_private_key
+          chmod 600 build/keys/sparkle_private_key
+          "${{ steps.sparkle_tools.outputs.bin_dir }}/sign_update" "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" -f "build/keys/sparkle_private_key"
+
+      - name: Generate Sparkle appcast
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: |
+          SPARKLE_DOWNLOAD_BASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}"
+          mkdir -p releases/notes releases/appcast build/sparkle-input
+          if [ ! -f "releases/notes/${{ steps.tag_version.outputs.new_version }}.html" ]; then
+            printf '%s\n' '<!doctype html><html><body><h1>Stasis ${{ steps.tag_version.outputs.new_version }}</h1><p>Release notes coming soon.</p></body></html>' > "releases/notes/${{ steps.tag_version.outputs.new_version }}.html"
+          fi
+          cp "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" "build/sparkle-input/"
+          "${{ steps.sparkle_tools.outputs.bin_dir }}/generate_appcast" \
+            --ed-key-file "build/keys/sparkle_private_key" \
+            --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
+            --link "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/${{ steps.tag_version.outputs.new_version }}.html" \
+            --versions "${{ steps.tag_version.outputs.new_version }}" \
+            --maximum-versions 25 \
+            --output-file "releases/appcast/appcast.xml" \
+            "build/sparkle-input"
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
@@ -89,7 +136,11 @@ jobs:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-          files: Stasis.dmg
+          files: |
+            Stasis.dmg
+            build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip
+            releases/appcast/appcast.xml
+            releases/notes/${{ steps.tag_version.outputs.new_version }}.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

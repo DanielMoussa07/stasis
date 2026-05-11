@@ -49,6 +49,8 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 
 For detailed feature explanations, settings walkthroughs, architecture info, and FAQ, see the **[Stasis Wiki](https://github.com/DinanathDash/Stasis/wiki)**.
 
+For Sparkle updater setup and release automation, see [docs/SPARKLE_SETUP.md](docs/SPARKLE_SETUP.md).
+
 ## Building from Source
 
 ```bash
