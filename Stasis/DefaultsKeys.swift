@@ -66,4 +66,11 @@ extension Defaults.Keys {
         "heatProtectionMagSafeLEDState", default: MagSafeLEDState.blinkOrangeSlow)
     // Advanced
     static let useHardwarePercentage = Key<Bool>("useHardwarePercentage", default: false)
+
+    // Updates
+    static let automaticallyCheckForUpdates = Key<Bool>("automaticallyCheckForUpdates", default: true)
+    static let updateAutomationMode = Key<UpdaterService.UpdateAutomationMode>(
+        "updateAutomationMode",
+        default: .notify
+    )
 }

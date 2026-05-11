@@ -77,9 +77,9 @@ jobs:
             --window-size 600 400 \
             --icon-size 100 \
             --background "../../assets/dmg-background.png" \
-            --icon "Stasis.app" 123 185 \
+            --icon "Stasis.app" 123 205 \
             --hide-extension "Stasis.app" \
-            --app-drop-link 436 200 \
+            --app-drop-link 430 205 \
             "../../Stasis.dmg" \
             "dmg_root"
 

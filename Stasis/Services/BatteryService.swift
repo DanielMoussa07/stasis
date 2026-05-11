@@ -20,6 +20,11 @@ enum XPCError: LocalizedError {
 @MainActor
 @Observable
 class BatteryService {
+    private enum ChargingTransitionCandidate {
+        case charging
+        case notCharging
+    }
+
     var metrics = BatteryMetrics()
     var adapterMetrics = AdapterMetrics()
     private(set) var controlState = BatteryControlState()
@@ -38,6 +43,11 @@ class BatteryService {
     private var ioKitMonitorTask: Task<Void, Never>?
     private var smcPollTask: Task<Void, Never>?
     private var delayedPollTask: Task<Void, Never>?
+    private var chargingTransitionCandidate: ChargingTransitionCandidate?
+    private var chargingTransitionCandidateCount: Int = 0
+
+    private let chargingPowerEpsilonWatts: Double = 0.8
+    private let transitionConfirmationSamples: Int = 2
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
@@ -198,10 +208,16 @@ class BatteryService {
         updatedAdapter.adapterCurrent = adapterReading.adapterCurrent
         updatedAdapter.adapterPower = adapterReading.adapterPower
 
-        // SMC reports faster than IOKit can update, so refine isCharging
-        // using the actual power flow direction.
+        // SMC reports faster than IOKit can update. Refine isCharging
+        // with hysteresis around 0W to avoid near-zero state flapping.
         if updatedAdapter.adapterConnected {
-            updatedBattery.isCharging = batteryReading.batteryPower > 0
+            updatedBattery.isCharging = stabilizedChargingState(
+                current: updatedBattery.isCharging,
+                batteryPower: batteryReading.batteryPower
+            )
+        } else {
+            chargingTransitionCandidate = nil
+            chargingTransitionCandidateCount = 0
         }
 
         if updatedBattery != metrics {
@@ -221,6 +237,11 @@ class BatteryService {
         updatedBattery.batteryCurrent = metrics.batteryCurrent
         updatedBattery.batteryPower = metrics.batteryPower
 
+        if !adapterUpdate.adapterConnected {
+            chargingTransitionCandidate = nil
+            chargingTransitionCandidateCount = 0
+        }
+
         if updatedBattery != metrics {
             metrics = updatedBattery
         }
@@ -235,6 +256,40 @@ class BatteryService {
         }
 
         updateControlState(from: updatedBattery, adapter: updatedAdapter)
+    }
+
+    private func stabilizedChargingState(current: Bool, batteryPower: Double) -> Bool {
+        if batteryPower > chargingPowerEpsilonWatts {
+            return confirmChargingTransition(to: .charging, fallback: current)
+        }
+
+        if batteryPower < -chargingPowerEpsilonWatts {
+            return confirmChargingTransition(to: .notCharging, fallback: current)
+        }
+
+        chargingTransitionCandidate = nil
+        chargingTransitionCandidateCount = 0
+        return current
+    }
+
+    private func confirmChargingTransition(
+        to candidate: ChargingTransitionCandidate,
+        fallback current: Bool
+    ) -> Bool {
+        if chargingTransitionCandidate == candidate {
+            chargingTransitionCandidateCount += 1
+        } else {
+            chargingTransitionCandidate = candidate
+            chargingTransitionCandidateCount = 1
+        }
+
+        guard chargingTransitionCandidateCount >= transitionConfirmationSamples else {
+            return current
+        }
+
+        chargingTransitionCandidate = nil
+        chargingTransitionCandidateCount = 0
+        return candidate == .charging
     }
 
     private func updateControlState(from metrics: BatteryMetrics, adapter: AdapterMetrics) {

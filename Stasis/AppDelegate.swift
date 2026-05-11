@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var chargeManager: ChargeManager!
     private var settingsWindowController: SettingsWindowController!
     private var menu: NSMenu!
+    private let updaterService = UpdaterService.shared
     private var settingsObservation: Task<Void, Never>?
     private var adapterObservation: Task<Void, Never>?
     private var isMenuOpen = false
@@ -45,7 +46,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             chargeManager: chargeManager
         )
         settingsWindowController = SettingsWindowController(
-            capabilities: batteryService.deviceCapabilities)
+            capabilities: batteryService.deviceCapabilities,
+            updaterService: updaterService
+        )
         menuBuilder = MenuBuilder(
             viewModel: viewModel,
             settingsWindowController: settingsWindowController

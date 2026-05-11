@@ -129,6 +129,7 @@ struct PowerSankeyView: View {
 
     @ViewBuilder
     private var leftNodes: some View {
+        let hasAnyOutput = outputPower > 0
         VStack(spacing: 0) {
             switch powerSource {
             case .acAdapter:
@@ -140,18 +141,32 @@ struct PowerSankeyView: View {
                     )
                     .frame(height: Layout.largeNodeHeight)
                 } else {
-                    NodeView(
-                        icon: "powerplug.fill",
-                        value: nil,
-                        isLeftSide: true
-                    )
+                    if hasAnyOutput {
+                        NodeView(
+                            icon: "powerplug.fill",
+                            value: nil,
+                            isLeftSide: true
+                        )
+                        .frame(height: Layout.largeNodeHeight)
+                    } else {
+                        NodeView(
+                            icon: "powerplug.fill",
+                            value: nil,
+                            isLeftSide: true
+                        )
+                    }
                 }
             case .both:
                 NodeView(icon: "battery.100", value: nil, isLeftSide: true)
                 Spacer(minLength: Layout.spacerHeight)
                 NodeView(icon: "powerplug.fill", value: nil, isLeftSide: true)
             case .battery:
-                NodeView(icon: "battery.100", value: nil, isLeftSide: true)
+                if hasAnyOutput {
+                    NodeView(icon: "battery.100", value: nil, isLeftSide: true)
+                        .frame(height: Layout.largeNodeHeight)
+                } else {
+                    NodeView(icon: "battery.100", value: nil, isLeftSide: true)
+                }
             }
         }
     }

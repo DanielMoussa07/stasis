@@ -10,6 +10,12 @@
     "%lld°C" : {
 
     },
+    "About" : {
+
+    },
+    "About Stasis" : {
+
+    },
     "Adapter" : {
       "localizations" : {
         "de" : {
@@ -128,6 +134,12 @@
     "Approve Stasis in System Settings → Login Items to continue." : {
 
     },
+    "Auto-download and auto-install" : {
+
+    },
+    "Auto-download, ask to install" : {
+
+    },
     "Automatic discharge" : {
       "localizations" : {
         "de" : {
@@ -155,6 +167,9 @@
           }
         }
       }
+    },
+    "Automatically check for updates" : {
+
     },
     "Automatically resume charging when the battery drops below the threshold relative to your charge limit." : {
 
@@ -186,6 +201,9 @@
           }
         }
       }
+    },
+    "Battery and charging control for MacBook." : {
+
     },
     "Battery Health" : {
       "localizations" : {
@@ -362,6 +380,9 @@
 
     },
     "Blinking Orange Slow" : {
+
+    },
+    "Built with a focus on practical battery health and charging workflows." : {
 
     },
     "Charge limit" : {
@@ -647,6 +668,9 @@
         }
       }
     },
+    "Check for updates now" : {
+
+    },
     "Control when Stasis sends you notifications." : {
       "localizations" : {
         "de" : {
@@ -758,6 +782,12 @@
           }
         }
       }
+    },
+    "Developer" : {
+
+    },
+    "Dinanath Dash" : {
+
     },
     "Disable all notifications" : {
       "localizations" : {
@@ -1139,6 +1169,9 @@
         }
       }
     },
+    "macOS security prompts and Gatekeeper rules still apply. Stasis will not bypass system security." : {
+
+    },
     "MagSafe LED Control" : {
       "localizations" : {
         "de" : {
@@ -1307,6 +1340,9 @@
         }
       }
     },
+    "Notify only" : {
+
+    },
     "Off" : {
       "localizations" : {
         "de" : {
@@ -1390,6 +1426,9 @@
           }
         }
       }
+    },
+    "Originally forked from an open-source base, then developed further with new features." : {
+
     },
     "Output Ports" : {
 
@@ -1673,6 +1712,12 @@
         }
       }
     },
+    "Stasis" : {
+
+    },
+    "Stasis can check, download, and install updates based on your preference." : {
+
+    },
     "Stasis Settings" : {
       "localizations" : {
         "de" : {
@@ -1819,6 +1864,9 @@
     "Time until discharge" : {
 
     },
+    "Updates" : {
+
+    },
     "Uptime" : {
       "localizations" : {
         "de" : {
@@ -1880,6 +1928,9 @@
           }
         }
       }
+    },
+    "When updates are found" : {
+
     }
   },
   "version" : "1.1"

@@ -8,7 +8,7 @@ Stasis gives you real-time insight into your MacBook's power system and lets you
 >
 > Requires **macOS 14.8+**.
 
-![Stasis Menu Bar](https://github.com/DinanathDash/Stasis/wiki/images/FullApp.jpg)
+![Stasis Menu Bar](assets/images/FullApp.jpg)
 
 ## Installation
 
