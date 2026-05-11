@@ -73,7 +73,7 @@ jobs:
           create-dmg \
             --volname "Stasis" \
             --volicon "Stasis.app/Contents/Resources/AppIcon.icns" \
-            --window-pos 200 120 \
+            --window-pos 340 200 \
             --window-size 600 400 \
             --icon-size 100 \
             --background "../../assets/dmg-background.png" \
@@ -124,10 +124,11 @@ jobs:
           "${{ steps.sparkle_tools.outputs.bin_dir }}/generate_appcast" \
             --ed-key-file "build/keys/sparkle_private_key" \
             --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
-            --link "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/${{ steps.tag_version.outputs.new_version }}.html" \
+            --release-notes-url-prefix "https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}/" \
             --versions "${{ steps.tag_version.outputs.new_version }}" \
             --maximum-versions 25 \
-            "build/sparkle-input" > "releases/appcast/appcast.xml"
+            -o "releases/appcast/appcast.xml" \
+            "build/sparkle-input"
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2

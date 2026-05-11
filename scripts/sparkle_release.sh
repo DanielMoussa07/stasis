@@ -81,10 +81,11 @@ fi
 "${SPARKLE_BIN_DIR}/generate_appcast" \
   --ed-key-file "${SPARKLE_PRIVATE_KEY_PATH}" \
   --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
-  --link "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/${VERSION}.html" \
+  --release-notes-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}/../notes/" \
   --versions "${VERSION}" \
   --maximum-versions 25 \
-  "${ROOT_DIR}/build" > "${APPCAST_OUT}"
+  -o "${APPCAST_OUT}" \
+  "${ROOT_DIR}/build"
 
 echo "Created: ${ZIP_PATH}"
 echo "Created: ${APPCAST_OUT}"
