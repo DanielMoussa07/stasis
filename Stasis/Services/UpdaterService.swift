@@ -53,7 +53,7 @@ final class UpdaterService: NSObject {
 
     #if canImport(Sparkle)
     private lazy var updaterController: SPUStandardUpdaterController = {
-        SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
+        SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: self, userDriverDelegate: nil)
     }()
 
     func checkForUpdates() {
@@ -73,3 +73,17 @@ final class UpdaterService: NSObject {
     }
     #endif
 }
+
+#if canImport(Sparkle)
+extension UpdaterService: SPUUpdaterDelegate {
+    func feedURLString(for updater: SPUUpdater) -> String? {
+        if let feedURL = Bundle.main.object(forInfoDictionaryKey: "SUFeedURL") as? String,
+            !feedURL.isEmpty
+        {
+            return feedURL
+        }
+
+        return "https://github.com/DinanathDash/Stasis/releases/latest/download/appcast.xml"
+    }
+}
+#endif
