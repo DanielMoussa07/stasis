@@ -69,6 +69,7 @@ jobs:
           cd build/export
           mkdir -p dmg_root
           cp -R "Stasis.app" dmg_root/
+          codesign --force --deep --sign - "dmg_root/Stasis.app"
           create-dmg \
             --volname "Stasis" \
             --volicon "Stasis.app/Contents/Resources/AppIcon.icns" \
