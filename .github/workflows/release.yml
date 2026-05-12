@@ -89,7 +89,7 @@ jobs:
       - name: Package Sparkle ZIP
         run: |
           cd build/export
-          ditto -c -k --sequesterRsrc --keepParent "Stasis.app" "../Stasis-${{ steps.tag_version.outputs.new_version }}.zip"
+          ditto -c -k --sequesterRsrc --keepParent "dmg_root/Stasis.app" "../Stasis-${{ steps.tag_version.outputs.new_version }}.zip"
 
       - name: Resolve Sparkle tools
         id: sparkle_tools
