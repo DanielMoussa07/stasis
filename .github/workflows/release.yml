@@ -61,8 +61,8 @@ jobs:
             -exportPath $PWD/build/export \
             -exportOptionsPlist exportOptions.plist
 
-      - name: Install create-dmg
-        run: brew install create-dmg
+      - name: Install Tools
+        run: brew install create-dmg fileicon
 
       - name: Create DMG
         run: |
@@ -82,6 +82,9 @@ jobs:
             --app-drop-link 430 220 \
             "../../Stasis.dmg" \
             "dmg_root"
+          
+          # Set the custom icon on the DMG file itself
+          fileicon set "../../Stasis.dmg" "Stasis.app/Contents/Resources/AppIcon.icns"
 
       - name: Package Sparkle ZIP
         run: |
