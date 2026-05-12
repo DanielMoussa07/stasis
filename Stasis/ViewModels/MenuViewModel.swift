@@ -167,8 +167,7 @@ class MenuViewModel {
             return max(0, -metrics.batteryPower)
         }()
         let preferredOutputPower = max(0, metrics.outputPower)
-        let inferredOutputPower = max(0, totalLoadPower - max(0, metrics.systemInputPower))
-        let rawOutputPower = preferredOutputPower > 0 ? preferredOutputPower : inferredOutputPower
+        let rawOutputPower = preferredOutputPower
 
         let now = Date()
         if metrics.outputPorts.isEmpty, now < outputPortsHoldUntil, !stableOutputPorts.isEmpty {

@@ -129,6 +129,17 @@ jobs:
             -o "releases/appcast/appcast.xml" \
             "build/sparkle-input"
 
+      - name: Validate Sparkle appcast
+        run: |
+          APPCAST="releases/appcast/appcast.xml"
+          TAG="${{ steps.tag_version.outputs.new_tag }}"
+
+          test -f "$APPCAST" || { echo "Missing appcast.xml"; exit 1; }
+
+          grep -q "<item>" "$APPCAST" || { echo "Appcast has no <item> entries"; exit 1; }
+          grep -q "sparkle:edSignature=" "$APPCAST" || { echo "Missing sparkle:edSignature in enclosure"; exit 1; }
+          grep -q "/releases/download/${TAG}/" "$APPCAST" || { echo "Enclosure URL missing tag path /releases/download/${TAG}/"; exit 1; }
+
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
         with:
