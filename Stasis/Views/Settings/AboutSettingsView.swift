@@ -49,8 +49,7 @@ struct AboutSettingsView: View {
 
                 Picker("When updates are found", selection: $updateAutomationMode) {
                     Text("Notify only").tag(UpdaterService.UpdateAutomationMode.notify)
-                    Text("Auto-download, ask to install").tag(UpdaterService.UpdateAutomationMode.autoDownload)
-                    Text("Auto-download and auto-install").tag(UpdaterService.UpdateAutomationMode.autoInstall)
+                    Text("Auto-download to Downloads folder").tag(UpdaterService.UpdateAutomationMode.autoDownload)
                 }
                 .disabled(!automaticallyCheckForUpdates)
 

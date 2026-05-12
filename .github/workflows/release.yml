@@ -86,72 +86,6 @@ jobs:
           # Set the custom icon on the DMG file itself
           fileicon set "../../Stasis.dmg" "Stasis.app/Contents/Resources/AppIcon.icns"
 
-      - name: Package Sparkle ZIP
-        run: |
-          cd build/export
-          ditto -c -k --sequesterRsrc --keepParent "dmg_root/Stasis.app" "../Stasis-${{ steps.tag_version.outputs.new_version }}.zip"
-
-      - name: Resolve Sparkle tools
-        id: sparkle_tools
-        run: |
-          SPARKLE_BIN_DIR="$(find "$HOME/Library/Developer/Xcode/DerivedData" -path '*SourcePackages/artifacts/sparkle/Sparkle/bin' -type d | head -n 1)"
-          if [ -z "$SPARKLE_BIN_DIR" ]; then
-            echo "Sparkle tools not found in DerivedData"
-            exit 1
-          fi
-          echo "bin_dir=$SPARKLE_BIN_DIR" >> "$GITHUB_OUTPUT"
-
-      - name: Sign Sparkle update archive
-        env:
-          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
-        run: |
-          if [ -z "${SPARKLE_PRIVATE_KEY}" ]; then
-            echo "Missing SPARKLE_PRIVATE_KEY secret"
-            exit 1
-          fi
-          mkdir -p build/keys
-          printf '%s\n' "$SPARKLE_PRIVATE_KEY" > build/keys/sparkle_private_key
-          chmod 600 build/keys/sparkle_private_key
-          "${{ steps.sparkle_tools.outputs.bin_dir }}/sign_update" "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" -f "build/keys/sparkle_private_key" | tee build/sign_update_output.txt
-
-      - name: Generate Sparkle appcast
-        env:
-          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
-        run: |
-          SPARKLE_DOWNLOAD_BASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}/"
-          mkdir -p releases/notes releases/appcast build/sparkle-input
-          if [ ! -f "releases/notes/${{ steps.tag_version.outputs.new_version }}.html" ]; then
-            printf '%s\n' '<!doctype html><html><body><h1>Stasis ${{ steps.tag_version.outputs.new_version }}</h1><p>Release notes coming soon.</p></body></html>' > "releases/notes/${{ steps.tag_version.outputs.new_version }}.html"
-          fi
-          cp "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" "build/sparkle-input/"
-          "${{ steps.sparkle_tools.outputs.bin_dir }}/generate_appcast" \
-            --ed-key-file "build/keys/sparkle_private_key" \
-            --download-url-prefix "${SPARKLE_DOWNLOAD_BASE_URL}" \
-            --release-notes-url-prefix "https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}/" \
-            --maximum-versions 25 \
-            -o "releases/appcast/appcast.xml" \
-            "build/sparkle-input"
-
-          # Fallback: if generate_appcast omits enclosure signature, inject from sign_update output
-          SIG="$(sed -n 's/.*sparkle:edSignature="\([^"]*\)".*/\1/p' build/sign_update_output.txt | tail -n 1)"
-          if [ -n "$SIG" ]; then
-            perl -0777 -i -pe 's#(<enclosure\s+)(?![^>]*sparkle:(?:edSignature|signature)=)([^>]*)(/>)#$1$2 sparkle:edSignature="'"$SIG"'"$3#g' releases/appcast/appcast.xml
-          fi
-
-      - name: Validate Sparkle appcast
-        run: |
-          APPCAST="releases/appcast/appcast.xml"
-          TAG="${{ steps.tag_version.outputs.new_tag }}"
-
-          test -f "$APPCAST" || { echo "Missing appcast.xml"; exit 1; }
-
-          grep -q "<item>" "$APPCAST" || { echo "Appcast has no <item> entries"; exit 1; }
-          if ! grep -q "sparkle:edSignature=" "$APPCAST" && ! grep -q "sparkle:signature=" "$APPCAST"; then
-            echo "Missing Sparkle enclosure signature (sparkle:edSignature or sparkle:signature)"
-            exit 1
-          fi
-          grep -q "/releases/download/${TAG}/" "$APPCAST" || { echo "Enclosure URL missing tag path /releases/download/${TAG}/"; exit 1; }
-
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
         with:
@@ -160,9 +94,6 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
           files: |
             Stasis.dmg
-            build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip
-            releases/appcast/appcast.xml
-            releases/notes/${{ steps.tag_version.outputs.new_version }}.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

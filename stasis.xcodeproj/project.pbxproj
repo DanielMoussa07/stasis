@@ -14,7 +14,6 @@
 		A68B3E292F19ABCB00F115E4 /* helper.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = A68B3E1E2F19ABCB00F115E4 /* helper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6AE19892F480D41003B09FA /* smc_power.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D62CE2F44067C00B996E7 /* smc_power.framework */; };
 		A6AE198A2F480D41003B09FA /* smc_power.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A66D62CE2F44067C00B996E7 /* smc_power.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6B7C101315AA0010099AA11 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A6B7C100315AA0010099AA11 /* Sparkle */; };
 		A6E6D7322F3A00000069CF9F /* charging-helper in Copy Helper Tools */ = {isa = PBXBuildFile; fileRef = A6E6D71E2F39DD350069CF9F /* charging-helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -161,7 +160,6 @@
 			files = (
 				A6AE19892F480D41003B09FA /* smc_power.framework in Frameworks */,
 				A6638F812F1C0FD60047FA8E /* Defaults in Frameworks */,
-				A6B7C101315AA0010099AA11 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +307,6 @@
 			name = stasis;
 			packageProductDependencies = (
 				A6638F802F1C0FD60047FA8E /* Defaults */,
-				A6B7C100315AA0010099AA11 /* Sparkle */,
 			);
 			productName = stasis;
 			productReference = A68B3E0C2F19AB4B00F115E4 /* stasis.app */;
@@ -399,7 +396,6 @@
 			packageReferences = (
 				A6638F7F2F1C0FD60047FA8E /* XCRemoteSwiftPackageReference "Defaults" */,
 				A6ECE4EC2F39E247007F3EDF /* XCRemoteSwiftPackageReference "SMCKit" */,
-				A6B7C102315AA0010099AA11 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A68B3E0D2F19AB4B00F115E4 /* Products */;
@@ -754,8 +750,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_SUFeedURL = "https://github.com/DinanathDash/Stasis/releases/latest/download/appcast.xml";
-				INFOPLIST_KEY_SUPublicEDKey = "q259SeFUiuniAFmoW4fv4BwGZvmZHQ1P2g/15790bss=";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -793,8 +787,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_SUFeedURL = "https://github.com/DinanathDash/Stasis/releases/latest/download/appcast.xml";
-				INFOPLIST_KEY_SUPublicEDKey = "q259SeFUiuniAFmoW4fv4BwGZvmZHQ1P2g/15790bss=";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -996,14 +988,6 @@
 				minimumVersion = 9.0.6;
 			};
 		};
-		A6B7C102315AA0010099AA11 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.4;
-			};
-		};
 		A6ECE4EC2F39E247007F3EDF /* XCRemoteSwiftPackageReference "SMCKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/srimanachanta/SMCKit";
@@ -1024,11 +1008,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A6ECE4EC2F39E247007F3EDF /* XCRemoteSwiftPackageReference "SMCKit" */;
 			productName = SMCKit;
-		};
-		A6B7C100315AA0010099AA11 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A6B7C102315AA0010099AA11 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
