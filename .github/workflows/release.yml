@@ -109,7 +109,7 @@ jobs:
           mkdir -p build/keys
           printf '%s\n' "$SPARKLE_PRIVATE_KEY" > build/keys/sparkle_private_key
           chmod 600 build/keys/sparkle_private_key
-          "${{ steps.sparkle_tools.outputs.bin_dir }}/sign_update" "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" -f "build/keys/sparkle_private_key"
+          "${{ steps.sparkle_tools.outputs.bin_dir }}/sign_update" "build/Stasis-${{ steps.tag_version.outputs.new_version }}.zip" -f "build/keys/sparkle_private_key" | tee build/sign_update_output.txt
 
       - name: Generate Sparkle appcast
         env:
@@ -128,6 +128,12 @@ jobs:
             --maximum-versions 25 \
             -o "releases/appcast/appcast.xml" \
             "build/sparkle-input"
+
+          # Fallback: if generate_appcast omits enclosure signature, inject from sign_update output
+          SIG="$(sed -n 's/.*sparkle:edSignature=\"\\([^\"]*\\)\".*/\\1/p' build/sign_update_output.txt | tail -n 1)"
+          if [ -n "$SIG" ]; then
+            perl -0777 -i -pe 's#(<enclosure\\s+)(?![^>]*sparkle:(?:edSignature|signature)=)([^>]*)(/>)#$1$2 sparkle:edSignature=\"'"$SIG"'\"$3#g' releases/appcast/appcast.xml
+          fi
 
       - name: Validate Sparkle appcast
         run: |
