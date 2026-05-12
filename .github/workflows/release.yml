@@ -115,7 +115,7 @@ jobs:
         env:
           SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
         run: |
-          SPARKLE_DOWNLOAD_BASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}"
+          SPARKLE_DOWNLOAD_BASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.tag_version.outputs.new_tag }}/"
           mkdir -p releases/notes releases/appcast build/sparkle-input
           if [ ! -f "releases/notes/${{ steps.tag_version.outputs.new_version }}.html" ]; then
             printf '%s\n' '<!doctype html><html><body><h1>Stasis ${{ steps.tag_version.outputs.new_version }}</h1><p>Release notes coming soon.</p></body></html>' > "releases/notes/${{ steps.tag_version.outputs.new_version }}.html"
