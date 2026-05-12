@@ -137,7 +137,10 @@ jobs:
           test -f "$APPCAST" || { echo "Missing appcast.xml"; exit 1; }
 
           grep -q "<item>" "$APPCAST" || { echo "Appcast has no <item> entries"; exit 1; }
-          grep -q "sparkle:edSignature=" "$APPCAST" || { echo "Missing sparkle:edSignature in enclosure"; exit 1; }
+          if ! grep -q "sparkle:edSignature=" "$APPCAST" && ! grep -q "sparkle:signature=" "$APPCAST"; then
+            echo "Missing Sparkle enclosure signature (sparkle:edSignature or sparkle:signature)"
+            exit 1
+          fi
           grep -q "/releases/download/${TAG}/" "$APPCAST" || { echo "Enclosure URL missing tag path /releases/download/${TAG}/"; exit 1; }
 
       - name: Release to GitHub
