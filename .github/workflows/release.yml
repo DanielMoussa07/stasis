@@ -130,9 +130,9 @@ jobs:
             "build/sparkle-input"
 
           # Fallback: if generate_appcast omits enclosure signature, inject from sign_update output
-          SIG="$(sed -n 's/.*sparkle:edSignature=\"\\([^\"]*\\)\".*/\\1/p' build/sign_update_output.txt | tail -n 1)"
+          SIG="$(sed -n 's/.*sparkle:edSignature="\([^"]*\)".*/\1/p' build/sign_update_output.txt | tail -n 1)"
           if [ -n "$SIG" ]; then
-            perl -0777 -i -pe 's#(<enclosure\\s+)(?![^>]*sparkle:(?:edSignature|signature)=)([^>]*)(/>)#$1$2 sparkle:edSignature=\"'"$SIG"'\"$3#g' releases/appcast/appcast.xml
+            perl -0777 -i -pe 's#(<enclosure\s+)(?![^>]*sparkle:(?:edSignature|signature)=)([^>]*)(/>)#$1$2 sparkle:edSignature="'"$SIG"'"$3#g' releases/appcast/appcast.xml
           fi
 
       - name: Validate Sparkle appcast
