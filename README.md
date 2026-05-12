@@ -8,8 +8,6 @@ Stasis gives you real-time insight into your MacBook's power system and lets you
 >
 > Requires **macOS 14.8+**.
 
-![badge](https://shieldcn.dev/github/DinanathDash/Stasis/release.svg?variant=branded&size=default&mode=light&font=geist-mono)
-
 ![Stasis Menu Bar](assets/images/FullApp.jpg)
 
 ## Installation
@@ -30,7 +28,7 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 ### Direct Download
 
 1. Download from [GitHub Releases](https://github.com/DinanathDash/Stasis/releases).
-2. Open the `.zip` and drag Stasis into `/Applications`.
+2. Open the `.dmg` and drag Stasis into `/Applications`.
 3. Remove the quarantine flag:
    ```bash
    xattr -cr /Applications/Stasis.app
@@ -50,8 +48,6 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 ## Documentation
 
 For detailed feature explanations, settings walkthroughs, architecture info, and FAQ, see the **[Stasis Wiki](https://github.com/DinanathDash/Stasis/wiki)**.
-
-For Sparkle updater setup and release automation, see [docs/SPARKLE_SETUP.md](docs/SPARKLE_SETUP.md).
 
 ## Building from Source
 

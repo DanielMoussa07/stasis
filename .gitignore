@@ -8,5 +8,3 @@ playground.xcworkspace
 build/
 .claude/
 .DS_Store
-.env
-releases/keys/

@@ -38,11 +38,6 @@ final class UpdaterService: NSObject {
         super.init()
     }
 
-    func applyPreferencesToSystemDefaults() {
-        // No longer needed for Sparkle, but we keep the method signature
-        // to avoid breaking AboutSettingsView and AppDelegate.
-    }
-
     func startIfAvailable() {
         if Defaults[.automaticallyCheckForUpdates] {
             checkForUpdates(automatic: true)
@@ -71,7 +66,7 @@ final class UpdaterService: NSObject {
                 guard let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return }
                 
                 if latestVersion.compare(currentVersion, options: .numeric) == .orderedDescending {
-                    await handleUpdateFound(release: release)
+                    await handleUpdateFound(release: release, automatic: automatic, currentVersion: currentVersion)
                 } else if !automatic {
                     await showUpToDateAlert()
                 }
@@ -84,22 +79,22 @@ final class UpdaterService: NSObject {
         }
     }
 
-    private func handleUpdateFound(release: GitHubRelease) async {
+    private func handleUpdateFound(release: GitHubRelease, automatic: Bool, currentVersion: String) async {
         let mode = Defaults[.updateAutomationMode]
         
         guard let dmgAsset = release.assets.first(where: { $0.name.hasSuffix(".dmg") }),
               let downloadURL = URL(string: dmgAsset.browserDownloadUrl) else {
             // Fallback to opening the release page if no DMG found
             if mode == .autoDownload || mode == .notify {
-                await showNotifyAlert(releaseURL: URL(string: release.htmlUrl)!, version: release.tagName)
+                await showNotifyAlert(releaseURL: URL(string: release.htmlUrl)!, version: release.tagName, currentVersion: currentVersion)
             }
             return
         }
         
-        if mode == .autoDownload {
+        if mode == .autoDownload && automatic {
             await downloadAndNotify(url: downloadURL, version: release.tagName)
         } else {
-            await showNotifyAlertWithDownload(downloadURL: downloadURL, version: release.tagName)
+            await showNotifyAlertWithDownload(downloadURL: downloadURL, version: release.tagName, currentVersion: currentVersion)
         }
     }
 
@@ -140,10 +135,10 @@ final class UpdaterService: NSObject {
         alert.runModal()
     }
 
-    private func showNotifyAlert(releaseURL: URL, version: String) async {
+    private func showNotifyAlert(releaseURL: URL, version: String, currentVersion: String) async {
         let alert = NSAlert()
         alert.messageText = "A new version of Stasis is available!"
-        alert.informativeText = "Version \(version) is available. Would you like to view the release page?"
+        alert.informativeText = "Version \(version) is available (You have \(currentVersion)). Would you like to view the release page?"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "View Release")
         alert.addButton(withTitle: "Cancel")
@@ -153,10 +148,10 @@ final class UpdaterService: NSObject {
         }
     }
 
-    private func showNotifyAlertWithDownload(downloadURL: URL, version: String) async {
+    private func showNotifyAlertWithDownload(downloadURL: URL, version: String, currentVersion: String) async {
         let alert = NSAlert()
         alert.messageText = "A new version of Stasis is available!"
-        alert.informativeText = "Version \(version) is available. Would you like to download it now?"
+        alert.informativeText = "Version \(version) is available (You have \(currentVersion)). Would you like to download it now?"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Download")
         alert.addButton(withTitle: "Cancel")
@@ -204,7 +199,4 @@ final class UpdaterService: NSObject {
         }
     }
 
-    var updaterAvailable: Bool {
-        true
-    }
 }

@@ -134,10 +134,7 @@
     "Approve Stasis in System Settings → Login Items to continue." : {
 
     },
-    "Auto-download and auto-install" : {
-
-    },
-    "Auto-download, ask to install" : {
+    "Auto-download to Downloads folder" : {
 
     },
     "Automatic discharge" : {
@@ -1169,9 +1166,6 @@
         }
       }
     },
-    "macOS security prompts and Gatekeeper rules still apply. Stasis will not bypass system security." : {
-
-    },
     "MagSafe LED Control" : {
       "localizations" : {
         "de" : {
@@ -1715,7 +1709,7 @@
     "Stasis" : {
 
     },
-    "Stasis can check, download, and install updates based on your preference." : {
+    "Stasis can check and download updates to your Downloads folder." : {
 
     },
     "Stasis Settings" : {

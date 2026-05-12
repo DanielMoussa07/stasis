@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             await setupServices()
             setupMenu()
             requestNotificationPermissions()
-            updaterService.applyPreferencesToSystemDefaults()
             updaterService.startIfAvailable()
         }
     }

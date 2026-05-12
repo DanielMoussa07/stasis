@@ -11,7 +11,6 @@ jobs:
     runs-on: macos-latest
     permissions:
       contents: write # Needed to push release and commit updates
-      pull-requests: read
 
     steps:
       - name: Checkout Code
@@ -39,9 +38,6 @@ jobs:
           
           # Replace MARKETING_VERSION in all targets in the pbxproj
           sed -i '' 's/MARKETING_VERSION = .*/MARKETING_VERSION = '$APP_VERSION';/' stasis.xcodeproj/project.pbxproj
-          
-          # Also increment the CURRENT_PROJECT_VERSION (build number) using GitHub Run ID to be unique
-          sed -i '' 's/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = '${{ github.run_number }}';/' stasis.xcodeproj/project.pbxproj
 
       - name: Build and Archive
         run: |
@@ -91,11 +87,10 @@ jobs:
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          generate_release_notes: true
           files: |
             Stasis.dmg
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Calculate SHA256
         id: shasum
