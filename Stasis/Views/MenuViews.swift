@@ -11,6 +11,7 @@ struct BatteryMainInfo: View {
             Text(value)
                 .foregroundStyle(.primary)
                 .font(.body)
+                .monospacedDigit()
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
@@ -28,6 +29,7 @@ struct BatteryAdditionalInfo: View {
             Text(value)
                 .multilineTextAlignment(.trailing)
                 .lineLimit(2)
+                .monospacedDigit()
         }
         .foregroundColor(.secondary)
         .font(.callout)

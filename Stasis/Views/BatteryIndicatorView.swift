@@ -72,6 +72,7 @@ struct BatteryIndicatorView: View {
                 Text("\(batteryLevel)%")
                     .font(menuBarPercentageFont)
                     .fontWeight(.regular)
+                    .monospacedDigit()
             }
 
             HStack(spacing: 0) {

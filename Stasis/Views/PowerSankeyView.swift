@@ -385,6 +385,7 @@ struct PowerLabel: View {
     var body: some View {
         Text(String(format: "%.0f W", abs(power)))
             .font(.system(size: 13, weight: .medium))
+            .monospacedDigit()
             .foregroundStyle(.secondary)
     }
 }
@@ -424,6 +425,7 @@ struct NodeView: View {
                 if let value {
                     Text(String(format: "%.0f W", value))
                         .font(.system(size: 11, weight: .medium))
+                        .monospacedDigit()
                         .foregroundStyle(.secondary)
                 }
             }
