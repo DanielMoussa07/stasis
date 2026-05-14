@@ -151,12 +151,13 @@ class MenuViewModel {
 
         let voltageFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
         let currentFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
+        let powerFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
 
         externalInputText =
-            "\(adapter.adapterVoltage.formatted(voltageFormat))V @ \(adapter.adapterCurrent.formatted(currentFormat))A"
+            "\(adapter.adapterVoltage.formatted(voltageFormat))V @ \(adapter.adapterCurrent.formatted(currentFormat))A (\(adapter.adapterPower.formatted(powerFormat))W)"
 
         internalInputText =
-            "\(metrics.batteryVoltage.formatted(voltageFormat))V @ \(metrics.batteryCurrent.formatted(currentFormat))A"
+            "\(metrics.batteryVoltage.formatted(voltageFormat))V @ \(metrics.batteryCurrent.formatted(currentFormat))A (\(abs(metrics.batteryPower).formatted(powerFormat))W)"
 
         batteryPower = metrics.batteryPower
         adapterPower = adapter.adapterPower
