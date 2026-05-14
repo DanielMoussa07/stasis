@@ -4,6 +4,13 @@ import Foundation
 
 @MainActor
 final class UpdaterService: NSObject {
+    enum UpdateCheckInterval: String, CaseIterable, Defaults.Serializable {
+        case atStart
+        case daily
+        case weekly
+        case monthly
+    }
+
     enum UpdateAutomationMode: String, CaseIterable, Defaults.Serializable {
         case notify
         case autoDownload
@@ -34,13 +41,48 @@ final class UpdaterService: NSObject {
     static let shared = UpdaterService()
     private var isChecking = false
 
+    private var checkTimer: Timer?
+
     private override init() {
         super.init()
     }
 
     func startIfAvailable() {
+        checkTimer?.invalidate()
         if Defaults[.automaticallyCheckForUpdates] {
-            checkForUpdates(automatic: true)
+            let interval = Defaults[.updateCheckInterval]
+            let timeInterval: TimeInterval
+            switch interval {
+            case .atStart:
+                timeInterval = 0 // Will only check once below
+            case .daily:
+                timeInterval = 86400
+            case .weekly:
+                timeInterval = 604800
+            case .monthly:
+                timeInterval = 2592000
+            }
+            
+            // Check if we need to check immediately
+            var shouldCheckNow = true
+            if interval != .atStart, let lastCheck = Defaults[.lastUpdateCheckDate] {
+                if Date().timeIntervalSince(lastCheck) < timeInterval {
+                    shouldCheckNow = false
+                }
+            }
+            
+            if shouldCheckNow {
+                checkForUpdates(automatic: true)
+            }
+            
+            if interval != .atStart {
+                // Schedule next checks
+                checkTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { [weak self] _ in
+                    Task { @MainActor in
+                        self?.checkForUpdates(automatic: true)
+                    }
+                }
+            }
         }
     }
 
@@ -55,6 +97,10 @@ final class UpdaterService: NSObject {
         Task {
             defer { isChecking = false }
             do {
+                if automatic {
+                    Defaults[.lastUpdateCheckDate] = Date()
+                }
+                
                 let url = URL(string: "https://api.github.com/repos/DinanathDash/Stasis/releases/latest")!
                 var request = URLRequest(url: url)
                 request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")

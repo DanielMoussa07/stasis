@@ -69,6 +69,8 @@ extension Defaults.Keys {
 
     // Updates
     static let automaticallyCheckForUpdates = Key<Bool>("automaticallyCheckForUpdates", default: true)
+    static let updateCheckInterval = Key<UpdaterService.UpdateCheckInterval>("updateCheckInterval", default: .daily)
+    static let lastUpdateCheckDate = Key<Date?>("lastUpdateCheckDate", default: nil)
     static let updateAutomationMode = Key<UpdaterService.UpdateAutomationMode>(
         "updateAutomationMode",
         default: .notify
