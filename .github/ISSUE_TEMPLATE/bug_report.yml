@@ -1,0 +1,71 @@
+name: Bug Report
+description: Create a report to help us improve Stasis
+labels: ["bug"]
+assignees:
+  - DinanathDash
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: version
+    attributes:
+      label: Stasis Version
+      description: What version of Stasis are you running? (e.g., 1.0.0)
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS Version
+      description: What version of macOS are you running? (e.g., macOS 14.8, 15.0)
+    validations:
+      required: true
+  - type: input
+    id: mac_model
+    attributes:
+      label: Mac Model
+      description: What model of MacBook are you using? (e.g., M1 MacBook Air 2020)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: Please share any relevant logs from the Console app or terminal output.
+    validations:
+      required: false

@@ -1,0 +1,17 @@
+name: Question
+description: Ask a question about Stasis or get help
+labels: ["question"]
+assignees:
+  - DinanathDash
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking a question! Please provide as much detail as possible.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+    validations:
+      required: true

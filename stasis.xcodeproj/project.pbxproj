@@ -182,36 +182,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A8739F82FB2731000241673 /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = scripts;
-			sourceTree = "<group>";
-		};
-		1A8739F92FB2731400241673 /* releases */ = {
-			isa = PBXGroup;
-			children = (
-				1A8739FA2FB2731500241673 /* notes */,
-				1A8739FB2FB2731500241673 /* appcast */,
-			);
-			path = releases;
-			sourceTree = "<group>";
-		};
-		1A8739FA2FB2731500241673 /* notes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = notes;
-			sourceTree = "<group>";
-		};
-		1A8739FB2FB2731500241673 /* appcast */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = appcast;
-			sourceTree = "<group>";
-		};
 		A68B3E032F19AB4B00F115E4 = {
 			isa = PBXGroup;
 			children = (
@@ -222,8 +192,6 @@
 				A66D62CF2F44067C00B996E7 /* SMCPower */,
 				A68B3E532F1A942600F115E4 /* Frameworks */,
 				A68B3E0D2F19AB4B00F115E4 /* Products */,
-				1A8739F82FB2731000241673 /* scripts */,
-				1A8739F92FB2731400241673 /* releases */,
 			);
 			sourceTree = "<group>";
 		};

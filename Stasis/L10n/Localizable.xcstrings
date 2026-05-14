@@ -134,6 +134,9 @@
     "Approve Stasis in System Settings → Login Items to continue." : {
 
     },
+    "At start" : {
+
+    },
     "Auto-download to Downloads folder" : {
 
     },
@@ -666,6 +669,12 @@
       }
     },
     "Check for updates now" : {
+
+    },
+    "Check frequency" : {
+
+    },
+    "Community" : {
 
     },
     "Control when Stasis sends you notifications." : {
@@ -1393,6 +1402,15 @@
         }
       }
     },
+    "Once per day" : {
+
+    },
+    "Once per month" : {
+
+    },
+    "Once per week" : {
+
+    },
     "Orange" : {
       "localizations" : {
         "de" : {
@@ -1603,6 +1621,12 @@
           }
         }
       }
+    },
+    "Report a bug" : {
+
+    },
+    "Request a feature" : {
+
     },
     "Sailing Mode" : {
 
@@ -1893,6 +1917,9 @@
 
     },
     "Use the raw battery percentage instead of the macOS calibrated value." : {
+
+    },
+    "View on GitHub" : {
 
     },
     "Visuals" : {
