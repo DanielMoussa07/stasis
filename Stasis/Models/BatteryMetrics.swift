@@ -24,6 +24,9 @@ struct BatteryMetrics: Codable, Equatable {
     var batteryHealth: Int = 0
     var cycleCount: Int = 0
 
+    var currentCapacity: Int = 0
+    var maxCapacity: Int = 0
+
     var externalConnected: Bool = false
 }
 

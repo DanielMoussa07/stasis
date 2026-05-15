@@ -125,6 +125,8 @@ class IOKitService {
         }
 
         let capacities = getBatteryCapacities()
+        batteryMetrics.currentCapacity = capacities.current
+        batteryMetrics.maxCapacity = capacities.max
         batteryMetrics.batteryHealth =
             capacities.design > 0
             ? (capacities.max * 100) / capacities.design
