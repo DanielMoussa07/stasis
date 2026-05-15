@@ -921,6 +921,7 @@
 
     },
     "Failed to install charging helper" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -947,6 +948,9 @@
           }
         }
       }
+    },
+    "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **100%** in **System Settings → Battery**." : {
+
     },
     "Force Discharge" : {
 
@@ -1409,6 +1413,9 @@
 
     },
     "Once per week" : {
+
+    },
+    "Open Settings" : {
 
     },
     "Orange" : {

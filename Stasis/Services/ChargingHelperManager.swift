@@ -26,12 +26,12 @@ class ChargingHelperManager {
     private(set) var helperStatus: ChargingHelperStatus
 
     var isInstalled: Bool {
-        service.status == .enabled
+        SMAppService.daemon(plistName: Self.plistName).status == .enabled
     }
 
     private init() {
         service = SMAppService.daemon(plistName: Self.plistName)
-        switch service.status {
+        switch SMAppService.daemon(plistName: Self.plistName).status {
         case .enabled: helperStatus = .installed
         case .requiresApproval: helperStatus = .requiresApproval
         default: helperStatus = .notInstalled
@@ -47,7 +47,8 @@ class ChargingHelperManager {
             // register() commonly throws "Operation not permitted" while macOS
             // processes the background item notification, even though the
             // registration advanced to requiresApproval or enabled.
-            if service.status != .enabled && service.status != .requiresApproval {
+            let currentStatus = SMAppService.daemon(plistName: Self.plistName).status
+            if currentStatus != .enabled && currentStatus != .requiresApproval {
                 throw error
             }
         }
@@ -63,7 +64,8 @@ class ChargingHelperManager {
     }
 
     func refreshStatus() {
-        switch service.status {
+        let currentStatus = SMAppService.daemon(plistName: Self.plistName).status
+        switch currentStatus {
         case .enabled: helperStatus = .installed
         case .requiresApproval: helperStatus = .requiresApproval
         default: helperStatus = .notInstalled
