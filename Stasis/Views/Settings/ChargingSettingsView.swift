@@ -1,5 +1,6 @@
 import Defaults
 import SwiftUI
+import ServiceManagement
 import os.log
 import smc_power
 
@@ -15,7 +16,8 @@ struct ChargingSettingsView: View {
     @Default(.manageMagSafeLED) var manageMagSafeLED
     @Default(.heatProtectionMagSafeLEDState) var heatProtectionMagSafeLEDState
     @State private var helperManager = ChargingHelperManager.shared
-    @State private var installError: String?
+    @State private var alertTitle: String = ""
+    @State private var alertMessage: String?
 
     private let capabilities: DeviceCapabilities
 
@@ -64,8 +66,13 @@ struct ChargingSettingsView: View {
 
                 if helperManager.helperStatus == .requiresApproval {
                     LabeledContent {
-                        Button("Check Again") {
-                            checkApprovalStatus()
+                        HStack {
+                            Button("Open Settings") {
+                                SMAppService.openSystemSettingsLoginItems()
+                            }
+                            Button("Check Again") {
+                                checkApprovalStatus()
+                            }
                         }
                     } label: {
                         Text("Approve Stasis in System Settings \u{2192} Login Items to continue.")
@@ -102,6 +109,8 @@ struct ChargingSettingsView: View {
             } footer: {
                 if !hasAnyControl {
                     Text("Charge management is not supported on this device.")
+                } else if manageCharging {
+                    Text("For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **100%** in **System Settings → Battery**.")
                 }
             }
 
@@ -253,16 +262,16 @@ struct ChargingSettingsView: View {
         .animation(.default, value: manageMagSafeLED)
         .animation(.default, value: helperManager.helperStatus)
         .alert(
-            "Failed to install charging helper",
+            alertTitle,
             isPresented: Binding(
-                get: { installError != nil },
-                set: { if !$0 { installError = nil } }
+                get: { alertMessage != nil },
+                set: { if !$0 { alertMessage = nil } }
             )
         ) {
-            Button("Ok") { installError = nil }
+            Button("Ok") { alertMessage = nil }
         } message: {
-            if let installError {
-                Text(installError)
+            if let alertMessage {
+                Text(alertMessage)
             }
         }
     }
@@ -273,6 +282,8 @@ struct ChargingSettingsView: View {
                 try helperManager.install()
                 if helperManager.helperStatus == .installed {
                     manageCharging = true
+                    Defaults[.launchAtLogin] = true
+                    LaunchAtLoginService.shared.setLaunchAtLogin(true)
                 }
             } else {
                 try helperManager.uninstall()
@@ -280,14 +291,29 @@ struct ChargingSettingsView: View {
             }
         } catch {
             logger.error("Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)")
-            installError = error.localizedDescription
+            alertTitle = "Failed to install charging helper"
+            alertMessage = error.localizedDescription
         }
     }
 
     private func checkApprovalStatus() {
         helperManager.refreshStatus()
         if helperManager.helperStatus == .installed {
+            do {
+                try helperManager.install()
+            } catch {
+                logger.error("Failed to install helper after approval: \(error)")
+            }
             manageCharging = true
+            Defaults[.launchAtLogin] = true
+            LaunchAtLoginService.shared.setLaunchAtLogin(true)
+            
+            alertTitle = "Success"
+            alertMessage = "Stasis background helper has been successfully approved and background charging is now active!"
+        } else {
+            alertTitle = "Approval Required"
+            alertMessage = "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."
+            SMAppService.openSystemSettingsLoginItems()
         }
     }
 }
