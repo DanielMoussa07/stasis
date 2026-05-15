@@ -196,8 +196,6 @@ struct PowerSankeyView: View {
                             value: nil,
                             isLeftSide: false
                         )
-                    } else {
-                        Spacer(minLength: Layout.spacerHeight)
                     }
                 } else {
                     NodeView(
@@ -233,8 +231,10 @@ struct PowerSankeyView: View {
                 NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
                 if outputPower > 0 {
                     if hasTwoOutputs {
-                        NodeView(icon: "iphone", value: nil, isLeftSide: false)
-                        NodeView(icon: "display", value: nil, isLeftSide: false)
+                        Spacer(minLength: Layout.spacerHeight)
+                        NodeView(icon: twoOutputIcons.first, value: nil, isLeftSide: false)
+                        Spacer(minLength: Layout.spacerHeight)
+                        NodeView(icon: twoOutputIcons.second, value: nil, isLeftSide: false)
                     } else {
                         Spacer(minLength: Layout.spacerHeight)
                         NodeView(icon: "iphone", value: nil, isLeftSide: false)
