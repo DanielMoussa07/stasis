@@ -1941,6 +1941,9 @@
     "Use hardware percentage" : {
 
     },
+    "Use raw hardware health" : {
+
+    },
     "Use the raw battery percentage instead of the macOS calibrated value." : {
 
     },

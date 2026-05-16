@@ -21,7 +21,8 @@ struct BatteryMetrics: Codable, Equatable {
     var outputPorts: [OutputPortPower] = []
     var batteryTemperature: Double = 0
 
-    var batteryHealth: Int = 0
+    var rawBatteryHealth: Int = 0
+    var calibratedBatteryHealth: Int? = nil
     var cycleCount: Int = 0
 
     var currentCapacity: Int = 0

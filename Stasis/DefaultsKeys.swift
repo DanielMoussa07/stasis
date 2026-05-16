@@ -112,6 +112,10 @@ extension Defaults.Keys {
         "useHardwarePercentage",
         default: false
     )
+    static let useRawHardwareHealth = Key<Bool>(
+        "useRawHardwareHealth",
+        default: false
+    )
 
     // Updates
     static let automaticallyCheckForUpdates = Key<Bool>(
