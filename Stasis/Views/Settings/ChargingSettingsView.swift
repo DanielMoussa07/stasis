@@ -1,6 +1,6 @@
 import Defaults
-import SwiftUI
 import ServiceManagement
+import SwiftUI
 import os.log
 import smc_power
 
@@ -62,7 +62,7 @@ struct ChargingSettingsView: View {
                         }
                     )
                 )
-                .disabled(!hasAnyControl || helperManager.helperStatus == .requiresApproval)
+                .disabled(!hasAnyControl)
 
                 if helperManager.helperStatus == .requiresApproval {
                     LabeledContent {
@@ -75,20 +75,24 @@ struct ChargingSettingsView: View {
                             }
                         }
                     } label: {
-                        Text("Approve Stasis in System Settings \u{2192} Login Items to continue.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text(
+                            "Approve Stasis in System Settings \u{2192} Login Items to continue."
+                        )
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                     }
                 }
 
-                if manageCharging {
+                if manageCharging && helperManager.helperStatus == .installed {
                     LabeledContent {
                         HStack(spacing: 8) {
                             Slider(
                                 value: Binding(
                                     get: { Double(chargeLimit) },
                                     set: { chargeLimit = Int($0) }
-                                ), in: 50...100, step: 5
+                                ),
+                                in: 50...100,
+                                step: 5
                             )
                             Text("\(chargeLimit)%")
                                 .monospacedDigit()
@@ -102,19 +106,25 @@ struct ChargingSettingsView: View {
             } header: {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Charge Management")
-                    Text("Limit the maximum charge level to extend battery lifespan.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    Text(
+                        "Limit the maximum charge level to extend battery lifespan."
+                    )
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 }
             } footer: {
                 if !hasAnyControl {
                     Text("Charge management is not supported on this device.")
-                } else if manageCharging {
-                    Text("For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **100%** in **System Settings → Battery**.")
+                } else if manageCharging
+                    && helperManager.helperStatus == .installed
+                {
+                    Text(
+                        "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **100%** in **System Settings → Battery**."
+                    )
                 }
             }
 
-            if manageCharging {
+            if manageCharging && helperManager.helperStatus == .installed {
                 Section {
                     Toggle("Automatic discharge", isOn: $automaticDischarge)
                         .disabled(!hasAdapterControl)
@@ -134,7 +144,10 @@ struct ChargingSettingsView: View {
                 }
 
                 Section {
-                    Toggle("Disable sleep until charge limit", isOn: $disableSleepUntilChargeLimit)
+                    Toggle(
+                        "Disable sleep until charge limit",
+                        isOn: $disableSleepUntilChargeLimit
+                    )
                 } header: {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Sleep Prevention")
@@ -157,7 +170,9 @@ struct ChargingSettingsView: View {
                                     value: Binding(
                                         get: { Double(sailingModeLimit) },
                                         set: { sailingModeLimit = Int($0) }
-                                    ), in: 1...20, step: 1
+                                    ),
+                                    in: 1...20,
+                                    step: 1
                                 )
                                 Text("\(sailingModeLimit)%")
                                     .monospacedDigit()
@@ -185,13 +200,18 @@ struct ChargingSettingsView: View {
                     }
                 } footer: {
                     if !hasChargingControl {
-                        Text("Charging control is not supported on this device.")
+                        Text(
+                            "Charging control is not supported on this device."
+                        )
                     }
                 }
 
                 Section {
-                    Toggle("Enable heat protection", isOn: $enableHeatProtectionMode)
-                        .disabled(!hasChargingControl)
+                    Toggle(
+                        "Enable heat protection",
+                        isOn: $enableHeatProtectionMode
+                    )
+                    .disabled(!hasChargingControl)
 
                     if enableHeatProtectionMode {
                         LabeledContent {
@@ -200,7 +220,9 @@ struct ChargingSettingsView: View {
                                     value: Binding(
                                         get: { Double(heatProtectionLimit) },
                                         set: { heatProtectionLimit = Int($0) }
-                                    ), in: 30...50, step: 1
+                                    ),
+                                    in: 30...50,
+                                    step: 1
                                 )
                                 Text("\(heatProtectionLimit)°C")
                                     .monospacedDigit()
@@ -214,13 +236,17 @@ struct ChargingSettingsView: View {
                 } header: {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Heat Protection")
-                        Text("Pause charging when the battery temperature exceeds the threshold.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text(
+                            "Pause charging when the battery temperature exceeds the threshold."
+                        )
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                     }
                 } footer: {
                     if !hasChargingControl {
-                        Text("Charging control is not supported on this device.")
+                        Text(
+                            "Charging control is not supported on this device."
+                        )
                     }
                 }
 
@@ -238,8 +264,12 @@ struct ChargingSettingsView: View {
                                     Text("Off").tag(MagSafeLEDState.off)
                                     Text("Green").tag(MagSafeLEDState.green)
                                     Text("Orange").tag(MagSafeLEDState.orange)
-                                    Text("Blinking Orange Slow").tag(MagSafeLEDState.blinkOrangeSlow)
-                                    Text("Blinking Orange Fast").tag(MagSafeLEDState.blinkOrangeFast)
+                                    Text("Blinking Orange Slow").tag(
+                                        MagSafeLEDState.blinkOrangeSlow
+                                    )
+                                    Text("Blinking Orange Fast").tag(
+                                        MagSafeLEDState.blinkOrangeFast
+                                    )
                                 }
                             }
                         }
@@ -247,7 +277,9 @@ struct ChargingSettingsView: View {
                         Text("MagSafe LED Control")
                     } footer: {
                         if !capabilities.magsafeLEDControl {
-                            Text("MagSafe LED control is not supported on this device.")
+                            Text(
+                                "MagSafe LED control is not supported on this device."
+                            )
                         }
                     }
                 }
@@ -284,13 +316,19 @@ struct ChargingSettingsView: View {
                     manageCharging = true
                     Defaults[.launchAtLogin] = true
                     LaunchAtLoginService.shared.setLaunchAtLogin(true)
+                } else if helperManager.helperStatus == .requiresApproval {
+                    // Store the user's intent to enable charging management so the toggle
+                    // reflects a natural ON state (with handle) while waiting for approval.
+                    manageCharging = true
                 }
             } else {
                 try helperManager.uninstall()
                 manageCharging = false
             }
         } catch {
-            logger.error("Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)")
+            logger.error(
+                "Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)"
+            )
             alertTitle = "Failed to install charging helper"
             alertMessage = error.localizedDescription
         }
@@ -302,17 +340,21 @@ struct ChargingSettingsView: View {
             do {
                 try helperManager.install()
             } catch {
-                logger.error("Failed to install helper after approval: \(error)")
+                logger.error(
+                    "Failed to install helper after approval: \(error)"
+                )
             }
             manageCharging = true
             Defaults[.launchAtLogin] = true
             LaunchAtLoginService.shared.setLaunchAtLogin(true)
-            
+
             alertTitle = "Success"
-            alertMessage = "Stasis background helper has been successfully approved and background charging is now active!"
+            alertMessage =
+                "Stasis background helper has been successfully approved and background charging is now active!"
         } else {
             alertTitle = "Approval Required"
-            alertMessage = "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."
+            alertMessage =
+                "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."
             SMAppService.openSystemSettingsLoginItems()
         }
     }

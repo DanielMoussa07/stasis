@@ -128,6 +128,9 @@
         }
       }
     },
+    "All preferences have been successfully restored to their defaults." : {
+
+    },
     "Always" : {
 
     },
@@ -1406,6 +1409,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "Once per day" : {
 
     },
@@ -1598,6 +1604,9 @@
         }
       }
     },
+    "Preferences Reset" : {
+
+    },
     "Prevent your Mac from sleeping while charging towards the charge limit. Sleep is re-enabled once the limit is reached or the adapter is disconnected." : {
 
     },
@@ -1633,6 +1642,15 @@
 
     },
     "Request a feature" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Reset all preferences" : {
+
+    },
+    "Reset Preferences" : {
 
     },
     "Sailing Mode" : {

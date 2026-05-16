@@ -14,34 +14,64 @@ enum OutputVisualizationMode: String, CaseIterable, Defaults.Serializable {
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
+    static let storedAppVersion = Key<String>("storedAppVersion", default: "")
+    static let firstRun = Key<Bool>("firstRun", default: false)
 
     // Status Icon
     static let showBatteryPercentageInStatusIcon = Key<Bool>(
-        "showBatteryPercentageInStatusIcon", default: false)
+        "showBatteryPercentageInStatusIcon",
+        default: false
+    )
     static let showBatteryPercentageInsideIconOnBattery = Key<Bool>(
-        "showBatteryPercentageInsideIconOnBattery", default: false)
+        "showBatteryPercentageInsideIconOnBattery",
+        default: false
+    )
     static let showBatteryPercentageOutsideIconWhenPowered = Key<Bool>(
-        "showBatteryPercentageOutsideIconWhenPowered", default: true)
+        "showBatteryPercentageOutsideIconWhenPowered",
+        default: true
+    )
     static let showBatteryStateInStatusIcon = Key<Bool>(
-        "showBatteryStateInStatusIcon", default: true)
+        "showBatteryStateInStatusIcon",
+        default: true
+    )
 
     // Notifications
-    static let disableNotifications = Key<Bool>("disableNotifications", default: false)
+    static let disableNotifications = Key<Bool>(
+        "disableNotifications",
+        default: false
+    )
     static let showChargingStatusChangedNotification = Key<Bool>(
-        "showChargingStatusChangedNotification", default: true)
+        "showChargingStatusChangedNotification",
+        default: true
+    )
 
     // Menu Dashboard
-    static let showTimeTillDischarge = Key<Bool>("showTimeTillDischarge", default: true)
-    static let showBatteryCycleCount = Key<Bool>("showBatteryCycleCount", default: true)
+    static let showTimeTillDischarge = Key<Bool>(
+        "showTimeTillDischarge",
+        default: true
+    )
+    static let showBatteryCycleCount = Key<Bool>(
+        "showBatteryCycleCount",
+        default: true
+    )
     static let showBatteryHealth = Key<Bool>("showBatteryHealth", default: true)
-    static let showBatteryTemperature = Key<Bool>("showBatteryTemperature", default: false)
+    static let showBatteryTemperature = Key<Bool>(
+        "showBatteryTemperature",
+        default: false
+    )
     static let showPowerSource = Key<Bool>("showPowerSource", default: false)
     static let showUptime = Key<Bool>("showUptime", default: true)
     static let showBatteryMode = Key<Bool>("showBatteryMode", default: true)
     static let showInternalPower = Key<Bool>("showInternalPower", default: true)
     static let showExternalPower = Key<Bool>("showExternalPower", default: true)
-    static let showPowerDistribution = Key<Bool>("showPowerDistribution", default: false)
-    static let showOutputPortsText = Key<Bool>("showOutputPortsText", default: true)
+    static let showPowerDistribution = Key<Bool>(
+        "showPowerDistribution",
+        default: false
+    )
+    static let showOutputPortsText = Key<Bool>(
+        "showOutputPortsText",
+        default: true
+    )
     static let outputVisualizationMode = Key<OutputVisualizationMode>(
         "outputVisualizationMode",
         default: .always
@@ -52,25 +82,50 @@ extension Defaults.Keys {
     static let chargeLimit = Key<Int>("chargeLimit", default: 80)
     static let sailingMode = Key<Bool>("sailingMode", default: true)
     static let sailingModeLimit = Key<Int>("sailingModeLimit", default: 5)
-    static let automaticDischarge = Key<Bool>("automaticDischarge", default: true)
-    static let disableSleepUntilChargeLimit = Key<Bool>("disableSleepUntilChargeLimit", default: false)
+    static let automaticDischarge = Key<Bool>(
+        "automaticDischarge",
+        default: true
+    )
+    static let disableSleepUntilChargeLimit = Key<Bool>(
+        "disableSleepUntilChargeLimit",
+        default: false
+    )
 
     // Charging - Heat Protection
     static let enableHeatProtectionMode = Key<Bool>(
-        "enableHeatProtectionMode", default: true)
-    static let heatProtectionLimit = Key<Int>("heatProtectionLimit", default: 40)
+        "enableHeatProtectionMode",
+        default: true
+    )
+    static let heatProtectionLimit = Key<Int>(
+        "heatProtectionLimit",
+        default: 40
+    )
 
     // Charging - MagSafe LED Control
     static let manageMagSafeLED = Key<Bool>("manageMagSafeLED", default: true)
     static let heatProtectionMagSafeLEDState = Key<MagSafeLEDState>(
-        "heatProtectionMagSafeLEDState", default: MagSafeLEDState.blinkOrangeSlow)
+        "heatProtectionMagSafeLEDState",
+        default: MagSafeLEDState.blinkOrangeSlow
+    )
     // Advanced
-    static let useHardwarePercentage = Key<Bool>("useHardwarePercentage", default: false)
+    static let useHardwarePercentage = Key<Bool>(
+        "useHardwarePercentage",
+        default: false
+    )
 
     // Updates
-    static let automaticallyCheckForUpdates = Key<Bool>("automaticallyCheckForUpdates", default: true)
-    static let updateCheckInterval = Key<UpdaterService.UpdateCheckInterval>("updateCheckInterval", default: .daily)
-    static let lastUpdateCheckDate = Key<Date?>("lastUpdateCheckDate", default: nil)
+    static let automaticallyCheckForUpdates = Key<Bool>(
+        "automaticallyCheckForUpdates",
+        default: true
+    )
+    static let updateCheckInterval = Key<UpdaterService.UpdateCheckInterval>(
+        "updateCheckInterval",
+        default: .daily
+    )
+    static let lastUpdateCheckDate = Key<Date?>(
+        "lastUpdateCheckDate",
+        default: nil
+    )
     static let updateAutomationMode = Key<UpdaterService.UpdateAutomationMode>(
         "updateAutomationMode",
         default: .notify
