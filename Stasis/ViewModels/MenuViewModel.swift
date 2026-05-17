@@ -31,9 +31,12 @@ class MenuViewModel {
     var outputPortDetailsText: String = "None"
     var powerSource: PowerSource = .battery
     var isCharging: Bool = false
-    var isLowPowerModeEnabled: Bool = ProcessInfo.processInfo.isLowPowerModeEnabled
+    var isLowPowerModeEnabled: Bool = ProcessInfo.processInfo
+        .isLowPowerModeEnabled
 
-    var chargeLimitOverrideActive: Bool { chargeManager.chargeLimitOverrideActive }
+    var chargeLimitOverrideActive: Bool {
+        chargeManager.chargeLimitOverrideActive
+    }
     var forceDischargeActive: Bool { chargeManager.forceDischargeActive }
     var manageChargingEnabled: Bool { Defaults[.manageCharging] }
     var adapterConnected: Bool = false
@@ -46,7 +49,7 @@ class MenuViewModel {
     private var currentTrendMinutes: Int?
     private var stableOutputPorts: [OutputPortPower] = []
     private var outputPortsHoldUntil: Date = .distantPast
-    
+
     private var lastAdapterConnected: Bool = false
     private var isChargingHoldUntil: Date = .distantPast
     private var stableIsCharging: Bool = false
@@ -84,7 +87,10 @@ class MenuViewModel {
 
     private func startObservingSettings() {
         settingsObservation = Task { [weak self] in
-            for await _ in Defaults.updates([.useHardwarePercentage], initial: false) {
+            for await _ in Defaults.updates(
+                [.useHardwarePercentage, .useRawHardwareHealth],
+                initial: false
+            ) {
                 guard let self else { return }
                 self.updateFormattedValues(
                     from: self.batteryService.metrics,
@@ -100,7 +106,8 @@ class MenuViewModel {
             for await _ in NotificationCenter.default.notifications(
                 named: .NSProcessInfoPowerStateDidChange
             ) {
-                self.isLowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+                self.isLowPowerModeEnabled =
+                    ProcessInfo.processInfo.isLowPowerModeEnabled
             }
         }
     }
@@ -113,7 +120,10 @@ class MenuViewModel {
         chargeManager.toggleForceDischarge()
     }
 
-    private func updateFormattedValues(from metrics: BatteryMetrics, adapter: AdapterMetrics) {
+    private func updateFormattedValues(
+        from metrics: BatteryMetrics,
+        adapter: AdapterMetrics
+    ) {
         var safeMetrics = metrics
         let now = Date()
 
@@ -136,11 +146,15 @@ class MenuViewModel {
         let useHardware = Defaults[.useHardwarePercentage]
         let percentage =
             useHardware
-            ? safeMetrics.hardwareBatteryPercentage : safeMetrics.batteryPercentage
+            ? safeMetrics.hardwareBatteryPercentage
+            : safeMetrics.batteryPercentage
         displayPercentage = percentage
         batteryPercentageText = "\(percentage)%"
 
-        let derivedPowerSource = derivePowerSource(battery: safeMetrics, adapter: adapter)
+        let derivedPowerSource = derivePowerSource(
+            battery: safeMetrics,
+            adapter: adapter
+        )
 
         powerSourceText = formatPowerSourceText(
             source: derivedPowerSource,
@@ -176,9 +190,15 @@ class MenuViewModel {
         batteryTemperatureText =
             "\(safeMetrics.batteryTemperature.formatted(.number.precision(.fractionLength(1))))°C"
 
-        let voltageFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
-        let currentFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
-        let powerFormat = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(2))
+        let voltageFormat = FloatingPointFormatStyle<Double>.number.precision(
+            .fractionLength(2)
+        )
+        let currentFormat = FloatingPointFormatStyle<Double>.number.precision(
+            .fractionLength(2)
+        )
+        let powerFormat = FloatingPointFormatStyle<Double>.number.precision(
+            .fractionLength(2)
+        )
 
         externalInputText =
             "\(adapter.adapterVoltage.formatted(voltageFormat))V @ \(adapter.adapterCurrent.formatted(currentFormat))A (\(adapter.adapterPower.formatted(powerFormat))W)"
@@ -197,7 +217,9 @@ class MenuViewModel {
         let preferredOutputPower = max(0, safeMetrics.outputPower)
         let rawOutputPower = preferredOutputPower
 
-        if safeMetrics.outputPorts.isEmpty, now < outputPortsHoldUntil, !stableOutputPorts.isEmpty {
+        if safeMetrics.outputPorts.isEmpty, now < outputPortsHoldUntil,
+            !stableOutputPorts.isEmpty
+        {
             outputPortPowers = stableOutputPorts
         } else {
             outputPortPowers = metrics.outputPorts
@@ -208,14 +230,20 @@ class MenuViewModel {
         }
 
         let portsOutputPower = outputPortPowers.reduce(0) { $0 + $1.powerWatts }
-        outputPower = min(totalLoadPower, max(portsOutputPower, min(totalLoadPower, rawOutputPower)))
+        outputPower = min(
+            totalLoadPower,
+            max(portsOutputPower, min(totalLoadPower, rawOutputPower))
+        )
         systemPower = max(0, totalLoadPower - outputPower)
 
         if outputPortPowers.isEmpty {
             outputPortDetailsText = "None"
         } else {
-            outputPortDetailsText = outputPortPowers
-                .map { "Port \($0.portIndex): \(Int($0.powerWatts.rounded())) W" }
+            outputPortDetailsText =
+                outputPortPowers
+                .map {
+                    "Port \($0.portIndex): \(Int($0.powerWatts.rounded())) W"
+                }
                 .joined(separator: " • ")
         }
         powerSource = derivedPowerSource
@@ -223,10 +251,24 @@ class MenuViewModel {
         adapterConnected = adapter.adapterConnected
 
         cycleCountText = "\(metrics.cycleCount)"
-        batteryHealthText = "\(metrics.batteryHealth)%"
+
+        let healthToShow: Int = {
+            if Defaults[.useRawHardwareHealth] {
+                return metrics.rawBatteryHealth
+            }
+            if let calibrated = metrics.calibratedBatteryHealth {
+                return calibrated
+            }
+            return metrics.rawBatteryHealth
+        }()
+
+        batteryHealthText = "\(healthToShow)%"
     }
 
-    private func derivePowerSource(battery: BatteryMetrics, adapter: AdapterMetrics) -> PowerSource {
+    private func derivePowerSource(
+        battery: BatteryMetrics,
+        adapter: AdapterMetrics
+    ) -> PowerSource {
         guard adapter.adapterConnected else { return .battery }
 
         if battery.batteryPower >= 0 {
@@ -287,7 +329,11 @@ class MenuViewModel {
         NSApplication.shared.terminate(nil)
     }
 
-    private func formatTimeRemaining(minutes: Int, powerSource: PowerSource, isCharging: Bool) -> String {
+    private func formatTimeRemaining(
+        minutes: Int,
+        powerSource: PowerSource,
+        isCharging: Bool
+    ) -> String {
         formatTimeRemaining(
             reportedMinutes: minutes,
             currentCapacity: 0,
@@ -334,7 +380,9 @@ class MenuViewModel {
             adapterConnected: adapterConnected
         )
 
-        let effectiveMinutes = adjustedReportedMinutes >= 0 ? adjustedReportedMinutes : (capacityMinutes ?? trendMinutes)
+        let effectiveMinutes =
+            adjustedReportedMinutes >= 0
+            ? adjustedReportedMinutes : (capacityMinutes ?? trendMinutes)
         guard let effectiveMinutes, effectiveMinutes >= 0 else {
             return "Calculating..."
         }
@@ -363,7 +411,9 @@ class MenuViewModel {
 
         let remainingToTarget = max(0, targetPercentage - batteryPercentage)
         let remainingToFull = max(1, 100 - batteryPercentage)
-        let scaled = Double(reportedMinutes) * Double(remainingToTarget) / Double(remainingToFull)
+        let scaled =
+            Double(reportedMinutes) * Double(remainingToTarget)
+            / Double(remainingToFull)
         return Int(ceil(scaled))
     }
 
@@ -382,15 +432,17 @@ class MenuViewModel {
         batteryPercentage: Int
     ) -> Int? {
         guard currentCapacity > 0, maxCapacity > 0 else { return nil }
-        
+
         let targetPercentage = chargingTargetPercentage
-        let targetCapacity = Int(Double(maxCapacity) * Double(targetPercentage) / 100.0)
+        let targetCapacity = Int(
+            Double(maxCapacity) * Double(targetPercentage) / 100.0
+        )
 
         if isCharging {
             guard batteryCurrent > 0.05 else { return nil }
             let remainingCapacity = targetCapacity - currentCapacity
             if remainingCapacity <= 0 { return 0 }
-            
+
             // batteryCurrent is in Amps (e.g. 1.5). Capacity is in mAh (e.g. 4000).
             // Convert Amps to mA
             let chargeRate_mA = batteryCurrent * 1000.0
@@ -420,13 +472,17 @@ class MenuViewModel {
         }
 
         guard let previous = trendSample else {
-            trendSample = (date: now, percentage: batteryPercentage, isCharging: isCharging)
+            trendSample = (
+                date: now, percentage: batteryPercentage, isCharging: isCharging
+            )
             currentTrendMinutes = nil
             return nil
         }
 
         if previous.isCharging != isCharging {
-            trendSample = (date: now, percentage: batteryPercentage, isCharging: isCharging)
+            trendSample = (
+                date: now, percentage: batteryPercentage, isCharging: isCharging
+            )
             currentTrendMinutes = nil
             return nil
         }
@@ -439,7 +495,10 @@ class MenuViewModel {
                 if percentPerMinute > 0 {
                     let remainingPercent: Int = {
                         if isCharging {
-                            return max(0, chargingTargetPercentage - batteryPercentage)
+                            return max(
+                                0,
+                                chargingTargetPercentage - batteryPercentage
+                            )
                         }
                         return max(0, batteryPercentage)
                     }()
@@ -447,17 +506,24 @@ class MenuViewModel {
                     if remainingPercent == 0 {
                         currentTrendMinutes = 0
                     } else {
-                        currentTrendMinutes = Int(ceil(Double(remainingPercent) / percentPerMinute))
+                        currentTrendMinutes = Int(
+                            ceil(Double(remainingPercent) / percentPerMinute)
+                        )
                     }
                 }
             }
-            trendSample = (date: now, percentage: batteryPercentage, isCharging: isCharging)
+            trendSample = (
+                date: now, percentage: batteryPercentage, isCharging: isCharging
+            )
         }
 
         return currentTrendMinutes
     }
 
-    private func formatPowerSourceText(source: PowerSource, adapterCapacityWatts: Int) -> String {
+    private func formatPowerSourceText(
+        source: PowerSource,
+        adapterCapacityWatts: Int
+    ) -> String {
         let hasCapacity = adapterCapacityWatts > 0
         switch source {
         case .battery:

@@ -19,6 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var needsMenuRebuild = false
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Perform first‑run / version‑upgrade reset of user defaults
+        resetStasisPreferencesIfNeeded()
         // Exit the app immediately if the device doesn't have a battery
         let batteryIOService = IOServiceGetMatchingService(
             kIOMainPortDefault,
@@ -58,6 +60,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func setupMenu() {
+        // Ensure the helper manager status is refreshed after potential reset
+        // (no‑op if already correct)
+        // This call is safe even if called multiple times.
+        //
+        // Note: The reset logic is performed earlier in `applicationDidFinishLaunching`.
+        //
+        // ---
+        // Added methods for resetting defaults on first run / version change.
+        // See `resetStasisPreferencesIfNeeded()` below.
+
         menu = menuBuilder.buildMenu()
         menu.delegate = self
         statusBarManager.setMenu(menu)
@@ -68,7 +80,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         settingsObservation = Task { [weak self] in
             for await _ in Defaults.updates(
                 [
-                    .showPowerSource, .showTimeTillDischarge, .showBatteryCycleCount,
+                    .showPowerSource, .showTimeTillDischarge,
+                    .showBatteryCycleCount,
                     .showBatteryHealth, .showBatteryTemperature, .showUptime,
                     .showBatteryMode, .showInternalPower, .showExternalPower,
                     .showPowerDistribution,
@@ -108,9 +121,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func requestNotificationPermissions() {
+        // Request permission for user notifications (no changes)
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound]
         ) { _, _ in }
+    }
+
+    // MARK: - First‑run / version‑upgrade preferences reset
+    private func resetStasisPreferencesIfNeeded() {
+        // Bundle identifier for the app (fallback to known identifier)
+        let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
+        // Current app version
+        let currentVersion =
+            Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            ?? ""
+        // If this is the first launch or the app has been updated, clear stored defaults
+        if Defaults[.firstRun] || Defaults[.storedAppVersion] != currentVersion
+        {
+            // Remove all persisted defaults for this bundle
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            // Reset tracking keys to appropriate values
+            Defaults[.firstRun] = false
+            Defaults[.storedAppVersion] = currentVersion
+        }
     }
 
     func menuWillOpen(_ menu: NSMenu) {

@@ -1,3 +1,4 @@
+import Defaults
 import Foundation
 import IOKit
 import IOKit.ps
@@ -10,13 +11,17 @@ class IOKitService {
     private var interestNotification: io_object_t = 0
     private var batteryService: io_service_t = 0
 
-    private var continuation: AsyncStream<(BatteryMetrics, AdapterMetrics)>.Continuation?
+    private var continuation:
+        AsyncStream<(BatteryMetrics, AdapterMetrics)>.Continuation?
     private var refreshTask: Task<Void, Never>?
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
         category: "IOKitService"
     )
+
+    private var calibratedHealthCache: Int? = nil
+    private var lastCalibratedFetch: Date = .distantPast
 
     func metricsStream() -> AsyncStream<(BatteryMetrics, AdapterMetrics)> {
         AsyncStream { continuation in
@@ -51,7 +56,9 @@ class IOKitService {
             return
         }
 
-        let notificationSource = IONotificationPortGetRunLoopSource(notificationPort).takeUnretainedValue()
+        let notificationSource = IONotificationPortGetRunLoopSource(
+            notificationPort
+        ).takeUnretainedValue()
         CFRunLoopAddSource(CFRunLoopGetMain(), notificationSource, .commonModes)
 
         let context = UnsafeMutableRawPointer(
@@ -77,7 +84,9 @@ class IOKitService {
         )
 
         if result == KERN_SUCCESS {
-            logger.info("IORegistry interest notification registered for AppleSmartBattery")
+            logger.info(
+                "IORegistry interest notification registered for AppleSmartBattery"
+            )
         } else {
             logger.error("Failed to register interest notification: \(result)")
         }
@@ -94,7 +103,8 @@ class IOKitService {
             interestNotification = 0
         }
         if let notificationPort {
-            let source = IONotificationPortGetRunLoopSource(notificationPort).takeUnretainedValue()
+            let source = IONotificationPortGetRunLoopSource(notificationPort)
+                .takeUnretainedValue()
             CFRunLoopRemoveSource(CFRunLoopGetMain(), source, .commonModes)
             IONotificationPortDestroy(notificationPort)
             self.notificationPort = nil
@@ -108,6 +118,7 @@ class IOKitService {
 
     private func emitMetrics() {
         logger.debug("IOKit notification triggered")
+        fetchCalibratedHealthIfNeeded()
 
         let powerInfo = getPowerSourceInfo() as? [String: Any]
         var batteryMetrics = BatteryMetrics()
@@ -117,26 +128,34 @@ class IOKitService {
         batteryMetrics.batteryPercentage = percentages.displayed
         batteryMetrics.hardwareBatteryPercentage = percentages.hardware
 
-        batteryMetrics.isCharging = powerInfo?[kIOPSIsChargingKey] as? Bool ?? false
+        batteryMetrics.isCharging =
+            powerInfo?[kIOPSIsChargingKey] as? Bool ?? false
         if batteryMetrics.isCharging {
-            batteryMetrics.timeRemaining = getTimeToFull(powerInfo: powerInfo) ?? -1
+            batteryMetrics.timeRemaining =
+                getTimeToFull(powerInfo: powerInfo) ?? -1
         } else {
-            batteryMetrics.timeRemaining = getTimeRemaining(powerInfo: powerInfo) ?? -1
+            batteryMetrics.timeRemaining =
+                getTimeRemaining(powerInfo: powerInfo) ?? -1
         }
 
         let capacities = getBatteryCapacities()
         batteryMetrics.currentCapacity = capacities.current
         batteryMetrics.maxCapacity = capacities.max
-        batteryMetrics.batteryHealth =
+        // Raw health (max capacity vs design)
+        batteryMetrics.rawBatteryHealth =
             capacities.design > 0
             ? (capacities.max * 100) / capacities.design
             : 100
+        // Calibrated health (cached from system_profiler)
+        batteryMetrics.calibratedBatteryHealth = calibratedHealthCache
 
         batteryMetrics.externalConnected =
             getPropertyValue(batteryService, key: "ExternalConnected") ?? false
         batteryMetrics.systemInputPower = getSystemInputPowerWatts()
         batteryMetrics.outputPorts = getOutputPortPowers()
-        batteryMetrics.outputPower = batteryMetrics.outputPorts.reduce(0) { $0 + $1.powerWatts }
+        batteryMetrics.outputPower = batteryMetrics.outputPorts.reduce(0) {
+            $0 + $1.powerWatts
+        }
 
         let adapterRatedWatts = getAdapterRatedWatts()
         adapterMetrics.adapterCapacityWatts = adapterRatedWatts ?? 0
@@ -150,7 +169,7 @@ class IOKitService {
             getPropertyValue(batteryService, key: "CycleCount") ?? 0
 
         logger.debug(
-            "IOKit metrics: battery=\(batteryMetrics.batteryPercentage)%, hardwareBattery=\(batteryMetrics.hardwareBatteryPercentage)%, health=\(batteryMetrics.batteryHealth)%, charging=\(batteryMetrics.isCharging), temp=\(batteryMetrics.batteryTemperature)°C, cycles=\(batteryMetrics.cycleCount), timeRemaining=\(batteryMetrics.timeRemaining), externalConnected=\(batteryMetrics.externalConnected), adapterConnected=\(adapterMetrics.adapterConnected)"
+            "IOKit metrics: battery=\(batteryMetrics.batteryPercentage)%, hardwareBattery=\(batteryMetrics.hardwareBatteryPercentage)%, rawHealth=\(batteryMetrics.rawBatteryHealth)%, calibratedHealth=\(batteryMetrics.calibratedBatteryHealth.map(String.init) ?? "nil")%, charging=\(batteryMetrics.isCharging), temp=\(batteryMetrics.batteryTemperature)°C, cycles=\(batteryMetrics.cycleCount), timeRemaining=\(batteryMetrics.timeRemaining), externalConnected=\(batteryMetrics.externalConnected), adapterConnected=\(adapterMetrics.adapterConnected)"
         )
 
         continuation?.yield((batteryMetrics, adapterMetrics))
@@ -165,7 +184,10 @@ class IOKitService {
             .takeUnretainedValue()
     }
 
-    private nonisolated func getPropertyValue<T>(_ service: io_service_t, key: String) -> T? {
+    private nonisolated func getPropertyValue<T>(
+        _ service: io_service_t,
+        key: String
+    ) -> T? {
         guard
             let prop = IORegistryEntryCreateCFProperty(
                 service,
@@ -203,10 +225,67 @@ class IOKitService {
         return (displayedPercent, hardwarePercent)
     }
 
+    private func fetchCalibratedHealthIfNeeded() {
+        // Run only once per hour or on first start
+        let oneHourAgo = Date().addingTimeInterval(-3600)
+        guard calibratedHealthCache == nil || lastCalibratedFetch < oneHourAgo
+        else { return }
+
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+
+            // Run `system_profiler SPPowerDataType`
+            let proc = Process()
+            proc.executableURL = URL(
+                fileURLWithPath: "/usr/sbin/system_profiler"
+            )
+            proc.arguments = ["SPPowerDataType"]
+            let outPipe = Pipe()
+            proc.standardOutput = outPipe
+
+            do {
+                try proc.run()
+            } catch {
+                // If the command cannot run, just keep the old cache.
+                return
+            }
+
+            // Read output (small; OK to read to end)
+            let data = outPipe.fileHandleForReading.readDataToEndOfFile()
+            proc.waitUntilExit()
+
+            guard let output = String(data: data, encoding: .utf8) else {
+                return
+            }
+
+            // Look for:  Maximum Capacity: 92%
+            let regex = try? NSRegularExpression(
+                pattern: #"Maximum Capacity:\s+(\d+)%"#,
+                options: .caseInsensitive
+            )
+            if let match = regex?.firstMatch(
+                in: output,
+                options: [],
+                range: NSRange(output.startIndex..., in: output)
+            ),
+                let range = Range(match.range(at: 1), in: output),
+                let percent = Int(output[range])
+            {
+
+                // Update cache on the main actor (UI‑safe)
+                Task { @MainActor in
+                    self.calibratedHealthCache = percent
+                    self.lastCalibratedFetch = Date()
+                }
+            }
+        }
+    }
+
     private func getTimeRemaining(powerInfo: [String: Any]?) -> Int? {
         guard let timeToEmpty = powerInfo?[kIOPSTimeToEmptyKey] as? Int,
-              timeToEmpty > 0,
-              timeToEmpty != Int(kIOPSTimeRemainingUnknown) else {
+            timeToEmpty > 0,
+            timeToEmpty != Int(kIOPSTimeRemainingUnknown)
+        else {
             return nil
         }
 
@@ -215,8 +294,9 @@ class IOKitService {
 
     private func getTimeToFull(powerInfo: [String: Any]?) -> Int? {
         guard let timeToFull = powerInfo?[kIOPSTimeToFullChargeKey] as? Int,
-              timeToFull > 0,
-              timeToFull != Int(kIOPSTimeRemainingUnknown) else {
+            timeToFull > 0,
+            timeToFull != Int(kIOPSTimeRemainingUnknown)
+        else {
             return nil
         }
 
@@ -225,7 +305,10 @@ class IOKitService {
 
     private func getAdapterRatedWatts() -> Int? {
         guard
-            let adapterDetails: [String: Any] = getPropertyValue(batteryService, key: "AdapterDetails"),
+            let adapterDetails: [String: Any] = getPropertyValue(
+                batteryService,
+                key: "AdapterDetails"
+            ),
             let watts = adapterDetails["Watts"] as? Int,
             watts > 0
         else {
@@ -260,7 +343,8 @@ class IOKitService {
         return (0...80).contains(celsius) ? celsius : nil
     }
 
-    private func getBatteryCapacities() -> (current: Int, max: Int, design: Int) {
+    private func getBatteryCapacities() -> (current: Int, max: Int, design: Int)
+    {
         let currentCapacity: Int =
             getPropertyValue(batteryService, key: "AppleRawCurrentCapacity")
             ?? 0
@@ -308,7 +392,8 @@ class IOKitService {
         }
 
         return powerOutDetails.compactMap { detail in
-            guard let portIndex = (detail["PortIndex"] as? NSNumber)?.intValue else {
+            guard let portIndex = (detail["PortIndex"] as? NSNumber)?.intValue
+            else {
                 return nil
             }
 
@@ -318,7 +403,9 @@ class IOKitService {
             } else if let currentMilliamps = detail["Current"] as? NSNumber,
                 let voltageMillivolts = detail["AdapterVoltage"] as? NSNumber
             {
-                milliwatts = currentMilliamps.doubleValue * voltageMillivolts.doubleValue / 1000.0
+                milliwatts =
+                    currentMilliamps.doubleValue * voltageMillivolts.doubleValue
+                    / 1000.0
             } else {
                 milliwatts = 0
             }
