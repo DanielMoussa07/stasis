@@ -5,26 +5,27 @@ struct BatteryIndicatorView: View {
     let batteryLevel: Int
     let chargingMode: ChargingMode
     var isLowPowerModeEnabled: Bool = false
-    var showPercentage: Bool = false
-    var showPercentageInsideIconOnBattery: Bool = false
-    var showPercentageOutsideIconWhenPowered: Bool = true
+    var batteryPercentageVisibility: BatteryPercentageVisibility = .nextToIcon
     var showState: Bool = false
 
     private var isPowered: Bool { chargingMode != .discharging }
 
     private var shouldShowInsidePercentage: Bool {
-        showPercentage
-            && showPercentageInsideIconOnBattery
+        (batteryPercentageVisibility == .insideIcon || batteryPercentageVisibility == .insideIconAndNextToItWhenPowered)
             && chargingMode == .discharging
     }
 
     private var shouldShowOutsidePercentage: Bool {
-        guard showPercentage else { return false }
-        guard showPercentageInsideIconOnBattery else { return true }
-        if isPowered {
-            return showPercentageOutsideIconWhenPowered
+        switch batteryPercentageVisibility {
+        case .hidden:
+            return false
+        case .nextToIcon:
+            return true
+        case .insideIcon:
+            return false
+        case .insideIconAndNextToItWhenPowered:
+            return isPowered
         }
-        return false
     }
 
     private var fillColor: Color {
@@ -32,7 +33,7 @@ struct BatteryIndicatorView: View {
             return .red
         }
         if isLowPowerModeEnabled {
-            return .yellow
+            return Color(red: 1.0, green: 214 / 255, blue: 0.0)
         }
         return .primary
     }

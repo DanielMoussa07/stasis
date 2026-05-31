@@ -295,6 +295,9 @@
     "Battery Only" : {
 
     },
+    "Battery percentage" : {
+
+    },
     "Battery Power Metrics" : {
       "localizations" : {
         "de" : {
@@ -532,6 +535,7 @@
       }
     },
     "Charging Paused" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -560,6 +564,7 @@
       }
     },
     "Charging Resumed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1685,6 +1690,7 @@
       }
     },
     "Show battery percentage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1716,12 +1722,6 @@
 
     },
     "Show outgoing output" : {
-
-    },
-    "Show outside percentage when on power" : {
-
-    },
-    "Show percentage inside icon on battery" : {
 
     },
     "Sleep Prevention" : {
