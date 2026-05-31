@@ -63,15 +63,17 @@ jobs:
           cd build/export
           mkdir -p dmg_root
           cp -R "Stasis.app" dmg_root/
-          # Create a custom requirement file so that SMAppService can validate the app without a Team ID
+          # 1. Explicitly sign the helper daemon first (it needs its own default requirement, not the main app's)
+          codesign --force --sign - "dmg_root/Stasis.app/Contents/Library/LaunchServices/com.dinanathdash.stasis.charging-helper"
+          
+          # 2. Deep sign the app to recursively sign frameworks/XPCs with their default requirements
+          codesign --force --deep --sign - "dmg_root/Stasis.app"
+          
+          # 3. Create a custom requirement file so that SMAppService can validate the app without a Team ID
           echo 'designated => identifier "com.dinanathdash.stasis"' > req.txt
           
-          # Explicitly sign the helper daemon first
-          codesign --force --sign - -r req.txt "dmg_root/Stasis.app/Contents/Library/LaunchServices/com.dinanathdash.stasis.charging-helper"
-          
-          # Sign all internal frameworks and XPC services with deep
-          # But we also enforce the requirement on the main app
-          codesign --force --deep --sign - -r req.txt "dmg_root/Stasis.app"
+          # 4. Shallow sign the main app bundle to inject the custom requirement, leaving nested items intact
+          codesign --force --sign - -r req.txt "dmg_root/Stasis.app"
           create-dmg \
             --volname "Stasis" \
             --volicon "Stasis.app/Contents/Resources/AppIcon.icns" \
