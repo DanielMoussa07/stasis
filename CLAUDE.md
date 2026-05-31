@@ -22,3 +22,16 @@
 * UI Updates: Ensure all state changes affecting the UI are performed on the `@MainActor`.
 * UI Framework: Use SwiftUI for all interface elements.
 * This project targets macOS 14.8+ and Swift 6+. Concurrency features should be implemented to target and be optimized for these platforms.
+
+## Build and Test Workflow
+
+When the user asks you to build and test the application, DO NOT write out manual xcodebuild, pkill, rm, and cp commands every time. 
+Instead, always run the included script:
+`./build_and_install.sh`
+
+This script will automatically:
+1. Build the latest changes using xcodebuild.
+2. Kill the currently running pid of the app.
+3. Remove the old version from `/Applications`.
+4. Copy the newly built version to `/Applications`.
+5. Launch the newly built app for testing.
