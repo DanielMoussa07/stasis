@@ -77,6 +77,10 @@ extension Defaults.Keys {
         "outputVisualizationMode",
         default: .always
     )
+    static let showAdvancedChargingControls = Key<Bool>(
+        "showAdvancedChargingControls",
+        default: false
+    )
 
     // Charging
     static let manageCharging = Key<Bool>("manageCharging", default: false)

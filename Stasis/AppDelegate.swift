@@ -86,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showBatteryMode, .showInternalPower, .showExternalPower,
                     .showPowerDistribution,
                     .showOutputPortsText, .outputVisualizationMode,
-                    .manageCharging,
+                    .manageCharging, .showAdvancedChargingControls
                 ],
                 initial: false
             ) {
@@ -108,6 +108,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     }
                 }
             }
+        }
+
+        NSWorkspace.shared.notificationCenter.addObserver(
+            forName: NSWorkspace.didWakeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            self.chargeManager.forceSyncSettings()
+            self.batteryService.scheduleSinglePoll()
         }
     }
 

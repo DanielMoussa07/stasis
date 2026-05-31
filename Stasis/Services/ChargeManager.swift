@@ -15,6 +15,8 @@ class ChargeManager {
 
     private(set) var chargeLimitOverrideActive = false
     private(set) var forceDischargeActive = false
+    private(set) var chargeToLimitActive = false
+    private(set) var daemonSyncError = false
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
@@ -44,6 +46,10 @@ class ChargeManager {
         }
     }
 
+    func forceSyncSettings() {
+        syncSettingsToDaemon()
+    }
+
     private func syncSettingsToDaemon() {
         let settings: [String: NSObject & Sendable] = [
             "manageCharging": Defaults[.manageCharging] as NSNumber,
@@ -65,6 +71,7 @@ class ChargeManager {
                 do {
                     try await batteryService.setSettings(settings: settings)
                     logger.info("Successfully synced settings to daemon on attempt \(attempt)")
+                    daemonSyncError = false
                     // Once settings are synced, trigger a single poll to update UI immediately
                     batteryService.scheduleSinglePoll(delay: .milliseconds(500))
                     break
@@ -72,6 +79,8 @@ class ChargeManager {
                     logger.error("Failed to sync settings to daemon (attempt \(attempt)): \(error.localizedDescription)")
                     if attempt < maxRetries {
                         try? await Task.sleep(for: .milliseconds(500))
+                    } else {
+                        daemonSyncError = true
                     }
                 }
             }
@@ -108,6 +117,26 @@ class ChargeManager {
             } catch {
                 logger.error("Failed to toggle force discharge: \(error.localizedDescription)")
                 forceDischargeActive.toggle() // revert on failure
+            }
+        }
+    }
+
+    func toggleChargeToLimit() {
+        chargeToLimitActive.toggle()
+        Task {
+            do {
+                if chargeToLimitActive {
+                    try await batteryService.chargeToLimit()
+                } else {
+                    // Turn off top-up logic by telling the daemon to either disable charging or resume whatever manageCharging specifies
+                    try await batteryService.disableCharging()
+                    // Alternatively, we could sync settings to reset the default behavior
+                    syncSettingsToDaemon()
+                }
+                batteryService.scheduleSinglePoll()
+            } catch {
+                logger.error("Failed to toggle charge to limit: \(error.localizedDescription)")
+                chargeToLimitActive.toggle() // revert on failure
             }
         }
     }
