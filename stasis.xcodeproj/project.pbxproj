@@ -885,7 +885,7 @@
 					"$(SRCROOT)/ChargingHelper/launchd.plist",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dinanathdash.stasis.charging-helper";
-				PRODUCT_NAME = "com.dinanathdash.stasis.charging-helper";
+				PRODUCT_NAME = "com.dinanathdash.stasis.charging-helper"; INFOPLIST_FILE = "ChargingHelper/Info.plist";
 				SKIP_INSTALL = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -915,7 +915,7 @@
 					"$(SRCROOT)/ChargingHelper/launchd.plist",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dinanathdash.stasis.charging-helper";
-				PRODUCT_NAME = "com.dinanathdash.stasis.charging-helper";
+				PRODUCT_NAME = "com.dinanathdash.stasis.charging-helper"; INFOPLIST_FILE = "ChargingHelper/Info.plist";
 				SKIP_INSTALL = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
