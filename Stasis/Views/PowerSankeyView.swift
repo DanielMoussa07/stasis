@@ -179,7 +179,7 @@ struct PowerSankeyView: View {
             case .acAdapter:
                 if batteryPower > 0 {
                     NodeView(
-                        icon: isCharging ? "battery.100.bolt" : "battery.100",
+                        icon: "battery.100.bolt",
                         value: nil,
                         isLeftSide: false
                     )
