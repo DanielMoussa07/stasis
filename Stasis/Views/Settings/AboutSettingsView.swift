@@ -196,16 +196,19 @@ struct AboutSettingsView: View {
 
     // MARK: - Preferences reset helper
     private func resetAllPreferences() {
+        // Uninstall the helper daemon
+        do {
+            try ChargingHelperManager.shared.uninstall()
+        } catch {
+            print("Failed to uninstall charging helper: \(error)")
+        }
+
+        // Disable launch at login
+        LaunchAtLoginService.shared.setLaunchAtLogin(false)
+
         // Remove all persisted defaults for this app bundle
         let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
         UserDefaults.standard.removePersistentDomain(forName: bundleID)
-        // Reset tracking keys
-        Defaults[.firstRun] = false
-        if let currentVersion = Bundle.main.infoDictionary?[
-            "CFBundleShortVersionString"
-        ] as? String {
-            Defaults[.storedAppVersion] = currentVersion
-        }
     }
 }
 

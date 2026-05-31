@@ -6,9 +6,6 @@
 	<string>com.dinanathdash.stasis.charging-helper</string>
 	<key>AssociatedBundleIdentifiers</key>
 	<string>com.dinanathdash.stasis</string>
-	<key>BundleProgram</key>
-	<string>Contents/Library/LaunchServices/com.dinanathdash.stasis.charging-helper</string>
-
 	<key>MachServices</key>
 	<dict>
 		<key>com.dinanathdash.stasis.charging-helper</key>

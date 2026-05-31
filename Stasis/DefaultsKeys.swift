@@ -11,6 +11,15 @@ enum OutputVisualizationMode: String, CaseIterable, Defaults.Serializable {
     case always
 }
 
+enum BatteryPercentageVisibility: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case hidden = "Hidden"
+    case nextToIcon = "Next to icon"
+    case insideIcon = "Inside icon"
+    case insideIconAndNextToItWhenPowered = "Inside (Outside on power)"
+    
+    var id: Self { self }
+}
+
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
@@ -18,17 +27,9 @@ extension Defaults.Keys {
     static let firstRun = Key<Bool>("firstRun", default: false)
 
     // Status Icon
-    static let showBatteryPercentageInStatusIcon = Key<Bool>(
-        "showBatteryPercentageInStatusIcon",
-        default: false
-    )
-    static let showBatteryPercentageInsideIconOnBattery = Key<Bool>(
-        "showBatteryPercentageInsideIconOnBattery",
-        default: false
-    )
-    static let showBatteryPercentageOutsideIconWhenPowered = Key<Bool>(
-        "showBatteryPercentageOutsideIconWhenPowered",
-        default: true
+    static let batteryPercentageVisibility = Key<BatteryPercentageVisibility>(
+        "batteryPercentageVisibility",
+        default: .nextToIcon
     )
     static let showBatteryStateInStatusIcon = Key<Bool>(
         "showBatteryStateInStatusIcon",
@@ -66,15 +67,19 @@ extension Defaults.Keys {
     static let showExternalPower = Key<Bool>("showExternalPower", default: true)
     static let showPowerDistribution = Key<Bool>(
         "showPowerDistribution",
-        default: false
+        default: true
     )
     static let showOutputPortsText = Key<Bool>(
         "showOutputPortsText",
-        default: true
+        default: false
     )
     static let outputVisualizationMode = Key<OutputVisualizationMode>(
         "outputVisualizationMode",
         default: .always
+    )
+    static let showAdvancedChargingControls = Key<Bool>(
+        "showAdvancedChargingControls",
+        default: false
     )
 
     // Charging
@@ -106,6 +111,10 @@ extension Defaults.Keys {
     static let heatProtectionMagSafeLEDState = Key<MagSafeLEDState>(
         "heatProtectionMagSafeLEDState",
         default: MagSafeLEDState.blinkOrangeSlow
+    )
+    static let chargingOnHoldMagSafeLEDState = Key<MagSafeLEDState>(
+        "chargingOnHoldMagSafeLEDState",
+        default: MagSafeLEDState.orange
     )
     // Advanced
     static let useHardwarePercentage = Key<Bool>(

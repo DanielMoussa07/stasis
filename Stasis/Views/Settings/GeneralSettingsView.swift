@@ -3,9 +3,7 @@ import SwiftUI
 
 struct GeneralSettingsView: View {
     @Default(.launchAtLogin) var launchAtLogin
-    @Default(.showBatteryPercentageInStatusIcon) var showBatteryPercentageInStatusIcon
-    @Default(.showBatteryPercentageInsideIconOnBattery) var showBatteryPercentageInsideIconOnBattery
-    @Default(.showBatteryPercentageOutsideIconWhenPowered) var showBatteryPercentageOutsideIconWhenPowered
+    @Default(.batteryPercentageVisibility) var batteryPercentageVisibility
     @Default(.showBatteryStateInStatusIcon) var showBatteryStateInStatusIcon
     @Default(.disableNotifications) var disableNotifications
     @Default(.showChargingStatusChangedNotification) var showChargingStatusChangedNotification
@@ -17,20 +15,11 @@ struct GeneralSettingsView: View {
             }
 
             Section {
-                Toggle("Show battery percentage", isOn: $showBatteryPercentageInStatusIcon)
-                Toggle(
-                    "Show percentage inside icon on battery",
-                    isOn: $showBatteryPercentageInsideIconOnBattery
-                )
-                .disabled(!showBatteryPercentageInStatusIcon)
-                Toggle(
-                    "Show outside percentage when on power",
-                    isOn: $showBatteryPercentageOutsideIconWhenPowered
-                )
-                .disabled(
-                    !showBatteryPercentageInStatusIcon
-                        || !showBatteryPercentageInsideIconOnBattery
-                )
+                Picker("Battery percentage", selection: $batteryPercentageVisibility) {
+                    ForEach(BatteryPercentageVisibility.allCases) { visibility in
+                        Text(visibility.rawValue).tag(visibility)
+                    }
+                }
                 Toggle("Show battery state", isOn: $showBatteryStateInStatusIcon)
             } header: {
                 VStack(alignment: .leading, spacing: 2) {

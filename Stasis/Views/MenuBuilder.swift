@@ -24,6 +24,12 @@ class MenuBuilder {
     func populateMenu(_ menu: NSMenu) {
         menu.removeAllItems()
 
+        if viewModel.daemonSyncError {
+            let errorItem = createMenuItem(view: DaemonErrorView())
+            menu.addItem(errorItem)
+            menu.addItem(NSMenuItem.separator())
+        }
+
         let mainInfoItem = createMenuItem(
             view: BatteryMainInfoView(viewModel: viewModel)
         )
@@ -44,9 +50,12 @@ class MenuBuilder {
         }
 
         if viewModel.manageChargingEnabled && viewModel.adapterConnected {
-            menu.addItem(NSMenuItem.separator())
-            menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
-            menu.addItem(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
+            if Defaults[.showAdvancedChargingControls] {
+                menu.addItem(NSMenuItem.separator())
+                menu.addItem(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
+                menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
+                menu.addItem(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
+            }
         }
 
         menu.addItem(NSMenuItem.separator())
@@ -302,7 +311,7 @@ struct ChargeLimitOverrideToggleView: View {
             .labelsHidden()
             .toggleStyle(.switch)
             .controlSize(.mini)
-            .disabled(viewModel.forceDischargeActive)
+            .disabled(viewModel.forceDischargeActive || viewModel.chargeToLimitActive)
         }
         .foregroundColor(.secondary)
         .font(.callout)
@@ -328,10 +337,52 @@ struct ForceDischargeToggleView: View {
             .labelsHidden()
             .toggleStyle(.switch)
             .controlSize(.mini)
-            .disabled(viewModel.chargeLimitOverrideActive)
+            .disabled(viewModel.chargeLimitOverrideActive || viewModel.chargeToLimitActive)
         }
         .foregroundColor(.secondary)
         .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct ChargeToLimitToggleView: View {
+    let viewModel: MenuViewModel
+
+    var body: some View {
+        HStack {
+            Text("Top-up to Limit")
+            Spacer(minLength: 20)
+            Toggle(
+                "Top-up to Limit",
+                isOn: Binding(
+                    get: { viewModel.chargeToLimitActive },
+                    set: { _ in viewModel.toggleChargeToLimit() }
+                )
+            )
+            .labelsHidden()
+            .toggleStyle(.switch)
+            .controlSize(.mini)
+            .disabled(viewModel.chargeLimitOverrideActive || viewModel.forceDischargeActive)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct DaemonErrorView: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundColor(.red)
+            Text("Daemon Error - Settings Not Synced")
+                .foregroundColor(.red)
+                .font(.callout)
+                .bold()
+            Spacer()
+        }
         .padding(.horizontal, 14)
         .padding(.vertical, 4)
     }

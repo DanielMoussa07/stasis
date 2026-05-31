@@ -35,11 +35,8 @@ class ServiceDelegate: NSObject, NSXPCListenerDelegate {
 
         logger.info("XPC connection accepted")
 
-        newConnection.invalidationHandler = { [weak self] in
-            guard let self else { return }
-            logger.info("XPC connection invalidated, resetting SMC keys to defaults")
-            self.helper.resetToDefaults()
-            exit(0)
+        newConnection.invalidationHandler = {
+            logger.info("XPC connection invalidated, but daemon stays alive")
         }
 
         newConnection.resume()
@@ -54,5 +51,24 @@ let listener = NSXPCListener(
 )
 listener.delegate = delegate
 listener.resume()
+
+// Initialize the SMC Power state controller
+ChargingPowerState.initialize(battery: battery, adapter: adapter)
+
+// Start monitoring power events in the background
+ChargingPowerEvents.start()
+
+// Setup graceful teardown
+let termSource = DispatchSource.makeSignalSource(
+    signal: SIGTERM,
+    queue: DispatchQueue.main
+)
+termSource.setEventHandler {
+    ChargingPowerState.restoreDefaults()
+    ChargingPowerEvents.stop()
+    exit(0)
+}
+termSource.resume()
+signal(SIGTERM, SIG_IGN)
 
 dispatchMain()

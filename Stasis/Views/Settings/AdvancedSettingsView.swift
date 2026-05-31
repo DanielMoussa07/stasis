@@ -4,6 +4,7 @@ import SwiftUI
 struct AdvancedSettingsView: View {
     @Default(.useHardwarePercentage) var useHardwarePercentage
     @Default(.useRawHardwareHealth) var useRawHardwareHealth
+    @Default(.showAdvancedChargingControls) var showAdvancedChargingControls
 
     var body: some View {
         Form {
@@ -22,6 +23,10 @@ struct AdvancedSettingsView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 }
+            }
+
+            Section("Menu Controls") {
+                Toggle("Show manual charging controls", isOn: $showAdvancedChargingControls)
             }
         }
         .formStyle(.grouped)

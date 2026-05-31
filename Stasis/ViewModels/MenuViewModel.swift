@@ -38,6 +38,8 @@ class MenuViewModel {
         chargeManager.chargeLimitOverrideActive
     }
     var forceDischargeActive: Bool { chargeManager.forceDischargeActive }
+    var chargeToLimitActive: Bool { chargeManager.chargeToLimitActive }
+    var daemonSyncError: Bool { chargeManager.daemonSyncError }
     var manageChargingEnabled: Bool { Defaults[.manageCharging] }
     var adapterConnected: Bool = false
 
@@ -118,6 +120,10 @@ class MenuViewModel {
 
     func toggleForceDischarge() {
         chargeManager.toggleForceDischarge()
+    }
+
+    func toggleChargeToLimit() {
+        chargeManager.toggleChargeToLimit()
     }
 
     private func updateFormattedValues(

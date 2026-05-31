@@ -42,6 +42,7 @@ class BatteryService {
 
     private var ioKitMonitorTask: Task<Void, Never>?
     private var smcPollTask: Task<Void, Never>?
+    private var backgroundPollTask: Task<Void, Never>?
     private var delayedPollTask: Task<Void, Never>?
     private var chargingTransitionCandidate: ChargingTransitionCandidate?
     private var chargingTransitionCandidateCount: Int = 0
@@ -57,7 +58,9 @@ class BatteryService {
     init() {
         logger.info("BatteryService initialized")
         xpcManager.connect()
+        // Start monitoring right away
         startIOKitMonitoring()
+        startBackgroundPolling()
     }
 
     func loadCapabilities() async {
@@ -110,6 +113,18 @@ class BatteryService {
             for await (newBatteryMetrics, newAdapterMetrics) in self.ioKitService.metricsStream() {
                 guard !Task.isCancelled else { break }
                 self.handleIOKitUpdate(newBatteryMetrics, adapterUpdate: newAdapterMetrics)
+            }
+        }
+    }
+
+    private func startBackgroundPolling() {
+        backgroundPollTask = Task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(10))
+                guard !Task.isCancelled else { break }
+                if self.smcPollTask == nil {
+                    await self.pollSMCOnce()
+                }
             }
         }
     }
@@ -313,7 +328,7 @@ class BatteryService {
         }
     }
 
-    func manageBatteryCharging(enabled: Bool) async throws {
+    func setSettings(settings: [String: NSObject & Sendable]) async throws {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
                 continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
@@ -322,7 +337,7 @@ class BatteryService {
                 return
             }
 
-            helper.manageBatteryCharging(enabled: enabled) { success, errorMessage in
+            helper.setSettings(settings: settings) { success, errorMessage in
                 if success {
                     continuation.resume(returning: ())
                 } else {
@@ -333,7 +348,7 @@ class BatteryService {
         }
     }
 
-    func manageExternalPower(enabled: Bool) async throws {
+    func chargeToLimit() async throws {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
                 continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
@@ -342,7 +357,87 @@ class BatteryService {
                 return
             }
 
-            helper.manageExternalPower(enabled: enabled) { success, errorMessage in
+            helper.chargeToLimit { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error"))
+                }
+            }
+        }
+    }
+
+    func chargeToFull() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.chargeToFull { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error"))
+                }
+            }
+        }
+    }
+
+    func disableCharging() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.disableCharging { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error"))
+                }
+            }
+        }
+    }
+
+    func disablePowerAdapter() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.disablePowerAdapter { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error"))
+                }
+            }
+        }
+    }
+
+    func enablePowerAdapter() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.enablePowerAdapter { success, errorMessage in
                 if success {
                     continuation.resume(returning: ())
                 } else {

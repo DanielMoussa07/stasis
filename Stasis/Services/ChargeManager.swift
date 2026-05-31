@@ -11,17 +11,12 @@ import smc_power
 class ChargeManager {
     private let batteryService: BatteryService
 
-    private var metricsObservation: Task<Void, Never>?
     private var settingsObservation: Task<Void, Never>?
-
-    private var lastAdapterConnected: Bool?
-    private var lastManageChargingEnabled: Bool?
-    private var hasReachedChargeLimit = false
-    private var lastNotifiedChargingState: Bool?
 
     private(set) var chargeLimitOverrideActive = false
     private(set) var forceDischargeActive = false
-    private var sleepAssertionID: IOPMAssertionID = IOPMAssertionID(kIOPMNullAssertionID)
+    private(set) var chargeToLimitActive = false
+    private(set) var daemonSyncError = false
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
@@ -30,26 +25,7 @@ class ChargeManager {
 
     init(batteryService: BatteryService) {
         self.batteryService = batteryService
-        startObservingMetrics()
         startObservingSettings()
-    }
-
-    private func startObservingMetrics() {
-        metricsObservation = Task { [weak self] in
-            guard let self else { return }
-            while !Task.isCancelled {
-                self.evaluate(controlState: self.batteryService.controlState)
-                await withCheckedContinuation { continuation in
-                    withObservationTracking {
-                        _ = self.batteryService.controlState
-                    } onChange: {
-                        Task { @MainActor in
-                            continuation.resume()
-                        }
-                    }
-                }
-            }
-        }
     }
 
     private func startObservingSettings() {
@@ -57,257 +33,116 @@ class ChargeManager {
             for await _ in Defaults.updates(
                 [
                     .manageCharging, .sailingMode, .automaticDischarge,
-                    .disableSleepUntilChargeLimit,
-                    .enableHeatProtectionMode, .manageMagSafeLED, .useHardwarePercentage,
+                    .enableHeatProtectionMode, .manageMagSafeLED,
                     .chargeLimit, .sailingModeLimit, .heatProtectionLimit,
-                    .heatProtectionMagSafeLEDState,
+                    .disableSleepUntilChargeLimit, .chargingOnHoldMagSafeLEDState,
+                    .heatProtectionMagSafeLEDState
                 ],
-                initial: false
+                initial: true
             ) {
                 guard let self else { return }
-                self.evaluate(controlState: self.batteryService.controlState)
+                self.syncSettingsToDaemon()
             }
         }
     }
 
-    private func evaluate(controlState: BatteryControlState) {
-        var stateWasCleared = false
-
-        if controlState.adapterConnected != lastAdapterConnected {
-            logger.info("Adapter connection changed: \(controlState.adapterConnected)")
-            lastAdapterConnected = controlState.adapterConnected
-            clearCachedState()
-            stateWasCleared = true
-        }
-
-        guard Defaults[.manageCharging], controlState.adapterConnected else {
-            if chargeLimitOverrideActive, !controlState.adapterConnected {
-                chargeLimitOverrideActive = false
-            }
-            if forceDischargeActive, !controlState.adapterConnected {
-                forceDischargeActive = false
-            }
-            resetToDefaults()
-            return
-        }
-
-        if lastManageChargingEnabled != true {
-            lastManageChargingEnabled = true
-            clearCachedState()
-            stateWasCleared = true
-        }
-
-        let chargeLimit = chargeLimitOverrideActive ? 100 : Defaults[.chargeLimit]
-        let batteryPercentage =
-            Defaults[.useHardwarePercentage]
-            ? controlState.hardwareBatteryPercentage : controlState.batteryPercentage
-
-        if stateWasCleared && Defaults[.sailingMode]
-            && batteryPercentage >= chargeLimit - Defaults[.sailingModeLimit] {
-            hasReachedChargeLimit = true
-        }
-
-        var desiredCharging: Bool?
-        var desiredAdapter: Bool?
-        var desiredLED: MagSafeLEDState?
-        var chargingStateReason: String?
-
-        if batteryPercentage > chargeLimit {
-            hasReachedChargeLimit = true
-            desiredCharging = false
-            desiredAdapter = Defaults[.automaticDischarge] ? false : true
-            desiredLED = Defaults[.manageMagSafeLED] ? .green : nil
-            chargingStateReason = "Battery is above the charge limit of \(chargeLimit)%"
-        } else if batteryPercentage == chargeLimit {
-            hasReachedChargeLimit = true
-            desiredCharging = false
-            desiredAdapter = true
-            desiredLED = Defaults[.manageMagSafeLED] ? .green : nil
-            chargingStateReason = "Battery has reached the charge limit of \(chargeLimit)%"
-        } else if Defaults[.sailingMode] {
-            let sailingThreshold = chargeLimit - Defaults[.sailingModeLimit]
-            let inSailingRange = batteryPercentage >= sailingThreshold
-
-            if inSailingRange && hasReachedChargeLimit {
-                desiredCharging = false
-                desiredAdapter = true
-                desiredLED = Defaults[.manageMagSafeLED] ? .green : nil
-                chargingStateReason = "Sailing mode is maintaining charge below \(chargeLimit)%"
-            } else {
-                hasReachedChargeLimit = false
-                desiredCharging = true
-                desiredAdapter = true
-                desiredLED = Defaults[.manageMagSafeLED] ? .orange : nil
-                chargingStateReason =
-                    inSailingRange
-                    ? "Charging to reach charge limit of \(chargeLimit)%"
-                    : "Battery dropped below sailing threshold of \(sailingThreshold)%"
-            }
-        } else {
-            desiredCharging = true
-            desiredAdapter = true
-            desiredLED = Defaults[.manageMagSafeLED] ? .orange : nil
-            chargingStateReason = "Battery is below the charge limit of \(chargeLimit)%"
-        }
-
-        if Defaults[.enableHeatProtectionMode]
-            && controlState.batteryTemperature > Double(Defaults[.heatProtectionLimit])
-        {
-            desiredCharging = false
-            chargingStateReason =
-                "Battery temperature exceeds \(Defaults[.heatProtectionLimit])°C"
-            if Defaults[.manageMagSafeLED] {
-                desiredLED = Defaults[.heatProtectionMagSafeLEDState]
-            }
-        }
-
-        if forceDischargeActive {
-            desiredCharging = false
-            desiredAdapter = false
-        }
-
-        let capabilities = batteryService.deviceCapabilities
-
-        if let desiredCharging, capabilities.chargingControl {
-            setCharging(enabled: desiredCharging)
-            sendChargingStateNotification(
-                charging: desiredCharging, reason: chargingStateReason
-            )
-        }
-        if let desiredAdapter, capabilities.adapterControl {
-            setAdapter(enabled: desiredAdapter)
-        }
-        if let desiredLED, capabilities.hasMagSafe, capabilities.magsafeLEDControl {
-            setLED(state: desiredLED)
-        }
-
-        let shouldPreventSleep = Defaults[.disableSleepUntilChargeLimit]
-            && desiredCharging == true
-        updateSleepAssertion(shouldPreventSleep: shouldPreventSleep)
+    func forceSyncSettings() {
+        syncSettingsToDaemon()
     }
 
-    private func clearCachedState() {
-        lastNotifiedChargingState = nil
-        hasReachedChargeLimit = false
-    }
+    private func syncSettingsToDaemon() {
+        let settings: [String: NSObject & Sendable] = [
+            "manageCharging": Defaults[.manageCharging] as NSNumber,
+            "chargeLimit": Defaults[.chargeLimit] as NSNumber,
+            "sailingMode": Defaults[.sailingMode] as NSNumber,
+            "sailingModeLimit": Defaults[.sailingModeLimit] as NSNumber,
+            "automaticDischarge": Defaults[.automaticDischarge] as NSNumber,
+            "enableHeatProtectionMode": Defaults[.enableHeatProtectionMode] as NSNumber,
+            "heatProtectionLimit": Defaults[.heatProtectionLimit] as NSNumber,
+            "disableSleepUntilChargeLimit": Defaults[.disableSleepUntilChargeLimit] as NSNumber,
+            "manageMagSafeLED": Defaults[.manageMagSafeLED] as NSNumber,
+            "chargingOnHoldMagSafeLEDState": Defaults[.chargingOnHoldMagSafeLEDState].rawValue as NSNumber,
+            "heatProtectionMagSafeLEDState": Defaults[.heatProtectionMagSafeLEDState].rawValue as NSNumber
+        ]
 
-    private func resetToDefaults() {
-        hasReachedChargeLimit = false
-        lastManageChargingEnabled = false
-        updateSleepAssertion(shouldPreventSleep: false)
-        guard ChargingHelperManager.shared.isInstalled else { return }
-        let capabilities = batteryService.deviceCapabilities
-        if capabilities.chargingControl {
-            setCharging(enabled: true)
-        }
-        if capabilities.adapterControl {
-            setAdapter(enabled: true)
-        }
-        if capabilities.hasMagSafe, capabilities.magsafeLEDControl {
-            setLED(state: .reset)
-        }
-    }
-
-    private func setCharging(enabled: Bool) {
-        logger.info("Setting charging: \(enabled)")
         Task {
-            do {
-                try await batteryService.manageBatteryCharging(enabled: enabled)
-                batteryService.scheduleSinglePoll()
-            } catch {
-                logger.error("Failed to set charging to \(enabled): \(error)")
-            }
-        }
-    }
-
-    private func setAdapter(enabled: Bool) {
-        logger.info("Setting adapter: \(enabled)")
-        Task {
-            do {
-                try await batteryService.manageExternalPower(enabled: enabled)
-                batteryService.scheduleSinglePoll()
-            } catch {
-                logger.error("Failed to set adapter to \(enabled): \(error)")
-            }
-        }
-    }
-
-    private func setLED(state: MagSafeLEDState) {
-        logger.info("Setting MagSafe LED: \(String(describing: state))")
-        Task {
-            do {
-                try await batteryService.manageMagsafeLED(target: state)
-            } catch {
-                logger.error("Failed to set LED to \(String(describing: state)): \(error)")
-            }
-        }
-    }
-
-    private func updateSleepAssertion(shouldPreventSleep: Bool) {
-        let assertionActive = sleepAssertionID != IOPMAssertionID(kIOPMNullAssertionID)
-
-        if shouldPreventSleep && !assertionActive {
-            let result = IOPMAssertionCreateWithName(
-                kIOPMAssertPreventUserIdleSystemSleep as CFString,
-                IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                "Stasis: Charging towards charge limit" as CFString,
-                &sleepAssertionID
-            )
-            if result == kIOReturnSuccess {
-                logger.info("Sleep assertion created")
-            } else {
-                logger.error("Failed to create sleep assertion: \(result)")
-            }
-        } else if !shouldPreventSleep && assertionActive {
-            IOPMAssertionRelease(sleepAssertionID)
-            sleepAssertionID = IOPMAssertionID(kIOPMNullAssertionID)
-            logger.info("Sleep assertion released")
-        }
-    }
-
-    private func sendChargingStateNotification(charging: Bool, reason: String?) {
-        guard charging != lastNotifiedChargingState else { return }
-        lastNotifiedChargingState = charging
-
-        guard !Defaults[.disableNotifications],
-            Defaults[.showChargingStatusChangedNotification]
-        else { return }
-
-        let content = UNMutableNotificationContent()
-        content.title = charging ? String(localized: "Charging Resumed") : String(localized: "Charging Paused")
-        if let reason {
-            content.body = reason
-        }
-        content.sound = .default
-
-        let request = UNNotificationRequest(
-            identifier: "chargingStateChanged",
-            content: content,
-            trigger: nil
-        )
-
-        UNUserNotificationCenter.current().add(request) { [logger] error in
-            if let error {
-                logger.error("Failed to deliver notification: \(error)")
+            let maxRetries = 5
+            for attempt in 1...maxRetries {
+                do {
+                    try await batteryService.setSettings(settings: settings)
+                    logger.info("Successfully synced settings to daemon on attempt \(attempt)")
+                    daemonSyncError = false
+                    // Once settings are synced, trigger a single poll to update UI immediately
+                    batteryService.scheduleSinglePoll(delay: .milliseconds(500))
+                    break
+                } catch {
+                    logger.error("Failed to sync settings to daemon (attempt \(attempt)): \(error.localizedDescription)")
+                    if attempt < maxRetries {
+                        try? await Task.sleep(for: .milliseconds(500))
+                    } else {
+                        daemonSyncError = true
+                    }
+                }
             }
         }
     }
 
     func toggleChargeLimitOverride() {
         chargeLimitOverrideActive.toggle()
-        evaluate(controlState: batteryService.controlState)
+        Task {
+            do {
+                if chargeLimitOverrideActive {
+                    try await batteryService.chargeToFull()
+                } else {
+                    try await batteryService.disableCharging()
+                }
+                batteryService.scheduleSinglePoll()
+            } catch {
+                logger.error("Failed to toggle charge limit override: \(error.localizedDescription)")
+                chargeLimitOverrideActive.toggle() // revert on failure
+            }
+        }
     }
 
     func toggleForceDischarge() {
         forceDischargeActive.toggle()
-        evaluate(controlState: batteryService.controlState)
+        Task {
+            do {
+                if forceDischargeActive {
+                    try await batteryService.disablePowerAdapter()
+                } else {
+                    try await batteryService.enablePowerAdapter()
+                }
+                batteryService.scheduleSinglePoll()
+            } catch {
+                logger.error("Failed to toggle force discharge: \(error.localizedDescription)")
+                forceDischargeActive.toggle() // revert on failure
+            }
+        }
+    }
+
+    func toggleChargeToLimit() {
+        chargeToLimitActive.toggle()
+        Task {
+            do {
+                if chargeToLimitActive {
+                    try await batteryService.chargeToLimit()
+                } else {
+                    // Turn off top-up logic by telling the daemon to either disable charging or resume whatever manageCharging specifies
+                    try await batteryService.disableCharging()
+                    // Alternatively, we could sync settings to reset the default behavior
+                    syncSettingsToDaemon()
+                }
+                batteryService.scheduleSinglePoll()
+            } catch {
+                logger.error("Failed to toggle charge to limit: \(error.localizedDescription)")
+                chargeToLimitActive.toggle() // revert on failure
+            }
+        }
     }
 
     func stop() {
-        metricsObservation?.cancel()
-        metricsObservation = nil
         settingsObservation?.cancel()
         settingsObservation = nil
-        updateSleepAssertion(shouldPreventSleep: false)
     }
 }
