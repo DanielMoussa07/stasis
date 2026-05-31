@@ -15,6 +15,7 @@ struct ChargingSettingsView: View {
     @Default(.heatProtectionLimit) var heatProtectionLimit
     @Default(.manageMagSafeLED) var manageMagSafeLED
     @Default(.heatProtectionMagSafeLEDState) var heatProtectionMagSafeLEDState
+    @Default(.chargingOnHoldMagSafeLEDState) var chargingOnHoldMagSafeLEDState
     @State private var helperManager = ChargingHelperManager.shared
     @State private var alertTitle: String = ""
     @State private var alertMessage: String?
