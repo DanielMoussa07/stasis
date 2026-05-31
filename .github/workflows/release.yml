@@ -50,12 +50,10 @@ jobs:
             CODE_SIGNING_REQUIRED=YES \
             CODE_SIGNING_ALLOWED=YES
 
-      - name: Export Archive
+      - name: Export App
         run: |
-          xcodebuild -exportArchive \
-            -archivePath $PWD/build/Stasis.xcarchive \
-            -exportPath $PWD/build/export \
-            -exportOptionsPlist exportOptions.plist
+          mkdir -p $PWD/build/export
+          cp -R $PWD/build/Stasis.xcarchive/Products/Applications/stasis.app $PWD/build/export/Stasis.app
 
       - name: Install Tools
         run: brew install create-dmg fileicon
