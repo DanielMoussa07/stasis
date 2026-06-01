@@ -7,8 +7,6 @@ struct AboutSettingsView: View {
     @Default(.updateCheckInterval) var updateCheckInterval
     @Default(.updateAutomationMode) var updateAutomationMode
     @State private var showResetSuccessAlert = false
-    @State private var showHelperAlert = false
-    @State private var helperAlertMessage = ""
 
     private let updaterService: UpdaterService
 
@@ -165,15 +163,14 @@ struct AboutSettingsView: View {
                         do {
                             if installing {
                                 try helperManager.install()
-                                helperAlertMessage = "Helper daemon successfully installed."
+                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
                             } else {
                                 try helperManager.uninstall()
-                                helperAlertMessage = "Helper daemon successfully uninstalled."
+                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled.")
                             }
-                            showHelperAlert = true
                         } catch {
-                            helperAlertMessage = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
-                            showHelperAlert = true
+                            let msg = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
+                            NSAlert.show(title: "Helper Status", message: msg, style: .warning)
                         }
                     }
                     .buttonStyle(.bordered)
@@ -191,7 +188,7 @@ struct AboutSettingsView: View {
                     Spacer()
                     Button("Reset") {
                         resetAllPreferences()
-                        showResetSuccessAlert = true  // Trigger the alert
+                        NSAlert.show(title: "Preferences Reset", message: "All preferences have been successfully restored to their defaults.")
                     }
                     .foregroundColor(.red)
                 }
@@ -202,18 +199,6 @@ struct AboutSettingsView: View {
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
         .contentMargins(.top, 0)
-        .alert("Preferences Reset", isPresented: $showResetSuccessAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(
-                "All preferences have been successfully restored to their defaults."
-            )
-        }
-        .alert("Helper Status", isPresented: $showHelperAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(helperAlertMessage)
-        }
         .onChange(of: automaticallyCheckForUpdates) { _, _ in
             updaterService.startIfAvailable()
         }
@@ -246,6 +231,20 @@ struct AboutSettingsView: View {
         // Remove all persisted defaults for this app bundle
         let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
         UserDefaults.standard.removePersistentDomain(forName: bundleID)
+    }
+}
+
+@MainActor
+extension NSAlert {
+    static func show(title: String, message: String, style: NSAlert.Style = .informational) {
+        let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
+        alert.messageText = title
+        alert.informativeText = message
+        alert.alertStyle = style
+        alert.addButton(withTitle: "OK")
+        NSSound.beep()
+        alert.runModal()
     }
 }
 

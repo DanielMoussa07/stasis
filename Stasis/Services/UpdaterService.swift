@@ -165,30 +165,36 @@ final class UpdaterService: NSObject {
 
     private func showUpToDateAlert() async {
         let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "You're up to date!"
         alert.informativeText = "Stasis \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "") is currently the newest version available."
         alert.alertStyle = .informational
         alert.addButton(withTitle: "OK")
+        NSSound.beep()
         alert.runModal()
     }
 
     private func showErrorAlert(error: Error) async {
         let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "Update Check Failed"
         alert.informativeText = "Could not check for updates. \(error.localizedDescription)"
         alert.alertStyle = .warning
         alert.addButton(withTitle: "OK")
+        NSSound.beep()
         alert.runModal()
     }
 
     private func showNotifyAlert(releaseURL: URL, version: String, currentVersion: String) async {
         let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "A new version of Stasis is available!"
         alert.informativeText = "Version \(version) is available (You have \(currentVersion)). Would you like to view the release page?"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "View Release")
         alert.addButton(withTitle: "Cancel")
         
+        NSSound.beep()
         if alert.runModal() == .alertFirstButtonReturn {
             NSWorkspace.shared.open(releaseURL)
         }
@@ -196,12 +202,14 @@ final class UpdaterService: NSObject {
 
     private func showNotifyAlertWithDownload(downloadURL: URL, version: String, currentVersion: String) async {
         let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "A new version of Stasis is available!"
         alert.informativeText = "Version \(version) is available (You have \(currentVersion)). Would you like to download it now?"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Download")
         alert.addButton(withTitle: "Cancel")
         
+        NSSound.beep()
         if alert.runModal() == .alertFirstButtonReturn {
             await downloadAndNotify(url: downloadURL, version: version)
         }
@@ -209,6 +217,7 @@ final class UpdaterService: NSObject {
 
     private func showReadyToInstallAlert(dmgURL: URL) async {
         let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "Update Downloaded"
         let command = "xattr -cr /Applications/Stasis.app"
         
@@ -228,6 +237,7 @@ final class UpdaterService: NSObject {
         alert.addButton(withTitle: "Copy Command")
         alert.addButton(withTitle: "Show in Finder")
         
+        NSSound.beep()
         let response = alert.runModal()
         
         if response == .alertSecondButtonReturn {
@@ -237,8 +247,10 @@ final class UpdaterService: NSObject {
             
             // Show a quick notification that it was copied
             let copiedAlert = NSAlert()
+            copiedAlert.icon = NSImage(named: "AppIcon")
             copiedAlert.messageText = "Command Copied"
             copiedAlert.informativeText = "The Terminal command has been copied to your clipboard."
+            NSSound.beep()
             copiedAlert.runModal()
         } else if response == .alertThirdButtonReturn {
             NSWorkspace.shared.activateFileViewerSelecting([dmgURL])

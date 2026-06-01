@@ -1,3 +1,4 @@
+import AppKit
 import Defaults
 import Foundation
 import IOKit.pwr_mgt
@@ -5,6 +6,7 @@ import Observation
 import UserNotifications
 import os.log
 import smc_power
+import ServiceManagement
 
 @MainActor
 @Observable
@@ -17,6 +19,7 @@ class ChargeManager {
     private(set) var forceDischargeActive = false
     private(set) var chargeToLimitActive = false
     private(set) var daemonSyncError = false
+    private var hasShownDaemonErrorAlert = false
 
     private let logger = Logger(
         subsystem: "com.dinanathdash.stasis",
@@ -72,6 +75,7 @@ class ChargeManager {
                     try await batteryService.setSettings(settings: settings)
                     logger.info("Successfully synced settings to daemon on attempt \(attempt)")
                     daemonSyncError = false
+                    hasShownDaemonErrorAlert = false
                     // Once settings are synced, trigger a single poll to update UI immediately
                     batteryService.scheduleSinglePoll(delay: .milliseconds(500))
                     break
@@ -81,9 +85,30 @@ class ChargeManager {
                         try? await Task.sleep(for: .milliseconds(500))
                     } else {
                         daemonSyncError = true
+                        showDaemonErrorAlertIfNeeded()
                     }
                 }
             }
+        }
+    }
+
+    private func showDaemonErrorAlertIfNeeded() {
+        guard !hasShownDaemonErrorAlert else { return }
+        hasShownDaemonErrorAlert = true
+        
+        let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
+        alert.messageText = "Background Helper Disconnected"
+        alert.informativeText = "Stasis lost connection to its background helper. Please go to System Settings > General > Login Items, turn Stasis off and back on under 'Allow in the Background', and restart the app."
+        alert.alertStyle = .critical
+        alert.addButton(withTitle: "Open Settings")
+        alert.addButton(withTitle: "Dismiss")
+        
+        NSSound.beep()
+        // Use runModal on main thread
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            SMAppService.openSystemSettingsLoginItems()
         }
     }
 

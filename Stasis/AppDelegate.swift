@@ -40,6 +40,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
 
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
+        alert.messageText = "Quit Stasis?"
+        alert.informativeText = "Quitting Stasis will stop the background helper services. Battery charging limits and protections will no longer work."
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Don't Quit")
+        alert.addButton(withTitle: "Quit Anyway")
+
+        NSSound.beep()
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            return .terminateCancel
+        } else {
+            return .terminateNow
+        }
+    }
+
     private func setupServices() async {
         batteryService = BatteryService()
         await batteryService.loadCapabilities()

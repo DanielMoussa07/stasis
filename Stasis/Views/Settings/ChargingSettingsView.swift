@@ -17,8 +17,6 @@ struct ChargingSettingsView: View {
     @Default(.heatProtectionMagSafeLEDState) var heatProtectionMagSafeLEDState
     @Default(.chargingOnHoldMagSafeLEDState) var chargingOnHoldMagSafeLEDState
     @State private var helperManager = ChargingHelperManager.shared
-    @State private var alertTitle: String = ""
-    @State private var alertMessage: String?
 
     private let capabilities: DeviceCapabilities
 
@@ -294,19 +292,6 @@ struct ChargingSettingsView: View {
         .animation(.default, value: enableHeatProtectionMode)
         .animation(.default, value: manageMagSafeLED)
         .animation(.default, value: helperManager.helperStatus)
-        .alert(
-            alertTitle,
-            isPresented: Binding(
-                get: { alertMessage != nil },
-                set: { if !$0 { alertMessage = nil } }
-            )
-        ) {
-            Button("Ok") { alertMessage = nil }
-        } message: {
-            if let alertMessage {
-                Text(alertMessage)
-            }
-        }
     }
 
     private func toggleManageCharging(_ enabled: Bool) {
@@ -330,8 +315,9 @@ struct ChargingSettingsView: View {
             logger.error(
                 "Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)"
             )
-            alertTitle = "Failed to \(enabled ? "install" : "uninstall") charging helper"
-            alertMessage = error.localizedDescription + "\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
+            let title = "Failed to \(enabled ? "install" : "uninstall") charging helper"
+            let msg = error.localizedDescription + "\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
+            NSAlert.show(title: title, message: msg, style: .warning)
         }
     }
 
@@ -349,13 +335,16 @@ struct ChargingSettingsView: View {
             Defaults[.launchAtLogin] = true
             LaunchAtLoginService.shared.setLaunchAtLogin(true)
 
-            alertTitle = "Success"
-            alertMessage =
-                "Stasis background helper has been successfully approved and background charging is now active!"
+            NSAlert.show(
+                title: "Success",
+                message: "Stasis background helper has been successfully approved and background charging is now active!"
+            )
         } else {
-            alertTitle = "Approval Required"
-            alertMessage =
-                "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."
+            NSAlert.show(
+                title: "Approval Required",
+                message: "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'.",
+                style: .informational
+            )
             SMAppService.openSystemSettingsLoginItems()
         }
     }
