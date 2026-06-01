@@ -330,8 +330,8 @@ struct ChargingSettingsView: View {
             logger.error(
                 "Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)"
             )
-            alertTitle = "Failed to install charging helper"
-            alertMessage = error.localizedDescription
+            alertTitle = "Failed to \(enabled ? "install" : "uninstall") charging helper"
+            alertMessage = error.localizedDescription + "\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
         }
     }
 

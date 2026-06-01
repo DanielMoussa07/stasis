@@ -1,4 +1,5 @@
 import Foundation
+import IOKit
 import IOKit.ps
 import IOKit.pwr_mgt
 
@@ -30,10 +31,16 @@ enum IOKitHelper {
     }
 
     static func isDrawingUnlimitedPower() -> Bool {
-        guard let info = getPowerSourceInfo() as? [String: Any],
-              let powerSourceState = info[kIOPSPowerSourceStateKey] as? String else {
+        let batteryService = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("AppleSmartBattery"))
+        guard batteryService != 0 else { return false }
+        defer { IOObjectRelease(batteryService) }
+        
+        let prop = IORegistryEntryCreateCFProperty(batteryService, "AdapterDetails" as CFString, kCFAllocatorDefault, 0)
+        guard let adapterDetails = prop?.takeRetainedValue() as? [String: Any],
+              let watts = adapterDetails["Watts"] as? Int else {
             return false
         }
-        return powerSourceState == kIOPSACPowerValue
+        
+        return watts > 0
     }
 }

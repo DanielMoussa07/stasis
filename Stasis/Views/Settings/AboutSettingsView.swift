@@ -7,6 +7,8 @@ struct AboutSettingsView: View {
     @Default(.updateCheckInterval) var updateCheckInterval
     @Default(.updateAutomationMode) var updateAutomationMode
     @State private var showResetSuccessAlert = false
+    @State private var showHelperAlert = false
+    @State private var helperAlertMessage = ""
 
     private let updaterService: UpdaterService
 
@@ -155,6 +157,36 @@ struct AboutSettingsView: View {
 
             Section {
                 HStack {
+                    let helperManager = ChargingHelperManager.shared
+                    Text(helperManager.isInstalled ? "Uninstall helper daemon" : "Install helper daemon")
+                    Spacer()
+                    Button(helperManager.isInstalled ? "Uninstall" : "Install") {
+                        let installing = !helperManager.isInstalled
+                        do {
+                            if installing {
+                                try helperManager.install()
+                                helperAlertMessage = "Helper daemon successfully installed."
+                            } else {
+                                try helperManager.uninstall()
+                                helperAlertMessage = "Helper daemon successfully uninstalled."
+                            }
+                            showHelperAlert = true
+                        } catch {
+                            helperAlertMessage = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
+                            showHelperAlert = true
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(helperManager.isInstalled ? .red : .accentColor)
+                }
+            } header: {
+                Text("Privileged Helper")
+            } footer: {
+                Text("The helper daemon runs in the background to manage battery charging states.")
+            }
+
+            Section {
+                HStack {
                     Text("Reset all preferences")
                     Spacer()
                     Button("Reset") {
@@ -176,6 +208,11 @@ struct AboutSettingsView: View {
             Text(
                 "All preferences have been successfully restored to their defaults."
             )
+        }
+        .alert("Helper Status", isPresented: $showHelperAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(helperAlertMessage)
         }
         .onChange(of: automaticallyCheckForUpdates) { _, _ in
             updaterService.startIfAvailable()
