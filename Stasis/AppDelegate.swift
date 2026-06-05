@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var chargeManager: ChargeManager!
     private var settingsWindowController: SettingsWindowController!
     private var menu: NSMenu!
-    private let updaterService = UpdaterService.shared
+    private let updaterManager = UpdaterManager.shared
     private var settingsObservation: Task<Void, Never>?
     private var adapterObservation: Task<Void, Never>?
     private var isMenuOpen = false
@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             await setupServices()
             setupMenu()
             requestNotificationPermissions()
-            updaterService.startIfAvailable()
+            updaterManager.start()
         }
     }
 
@@ -67,8 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             chargeManager: chargeManager
         )
         settingsWindowController = SettingsWindowController(
-            capabilities: batteryService.deviceCapabilities,
-            updaterService: updaterService
+            capabilities: batteryService.deviceCapabilities
         )
         menuBuilder = MenuBuilder(
             viewModel: viewModel,
@@ -163,13 +162,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let currentVersion =
             Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
             ?? ""
-        // If this is the first launch or the app has been updated, clear stored defaults
-        if Defaults[.firstRun] || Defaults[.storedAppVersion] != currentVersion
-        {
-            // Remove all persisted defaults for this bundle
-            UserDefaults.standard.removePersistentDomain(forName: bundleID)
-            // Reset tracking keys to appropriate values
+        // If this is the first launch, just record it
+        if Defaults[.firstRun] {
             Defaults[.firstRun] = false
+            Defaults[.storedAppVersion] = currentVersion
+        } else if Defaults[.storedAppVersion] != currentVersion {
+            // App was updated, just record the new version without wiping preferences
             Defaults[.storedAppVersion] = currentVersion
         }
     }

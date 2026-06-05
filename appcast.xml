@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>Stasis</title>
+        <description>Most recent changes for Stasis.</description>
+        <language>en</language>
+        <item>
+            <title>0.6.5</title>
+            <pubDate>Fri, 05 Jun 2026 15:44:57 +0000</pubDate>
+            <sparkle:version>36</sparkle:version>
+            <sparkle:shortVersionString>0.6.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.6.5/Stasis.dmg" length="2483587" type="application/octet-stream" sparkle:edSignature="n3X6AHP8YmfEwSTJlL8uDX3l/PNPAsKC/sT+WfTxN7FUrg0tKXKuOGDhIZ6d0glYvo0d2PBnDlX4LHAy/uxrAg=="/>
+        </item>
+        <item>
+            <title>0.6.2</title>
+            <pubDate>Fri, 05 Jun 2026 15:18:43 +0000</pubDate>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>0.6.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.6.4/Stasis.dmg" length="2483567" type="application/octet-stream" sparkle:edSignature="wpG7yHuPk5VfWGDmbDVvPphAb0XnF8hcb0C7MyLRBmTC4C350PE9G+kqUeAjWZWHwWz66CRJcIakqelzUIk/BA=="/>
+        </item>
+    </channel>
+</rss>
