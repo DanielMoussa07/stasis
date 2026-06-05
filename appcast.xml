@@ -4,5 +4,13 @@
         <title>Stasis</title>
         <description>Most recent changes for Stasis.</description>
         <language>en</language>
+        <item>
+            <title>0.7.0</title>
+            <pubDate>Fri, 05 Jun 2026 17:45:37 +0000</pubDate>
+            <sparkle:version>37</sparkle:version>
+            <sparkle:shortVersionString>0.7.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.7.0/Stasis.dmg" length="2497112" type="application/octet-stream" sparkle:edSignature="rv1DfAP5PLnbtN+QY8Xu1InpUtHiVWw+wXpWbG1uHnm0ULNJqKosfQ8n6Nz2Iu8i6WQgL8woRjzsWqesCkUjAw=="/>
+        </item>
     </channel>
 </rss>
