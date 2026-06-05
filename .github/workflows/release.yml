@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main # Triggers on merge/push to main branch
+  workflow_dispatch: # Allows manual triggering from the Actions tab
 
 jobs:
   release:
