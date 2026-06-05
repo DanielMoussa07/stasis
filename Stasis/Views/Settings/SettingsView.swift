@@ -56,6 +56,8 @@ struct SettingsView: View {
             }
             .navigationSplitViewColumnWidth(min: 180, ideal: 180, max: 200)
             .listStyle(.sidebar)
+            .scrollEdgeEffectStyleSoftIfAvailable()
+        .padding(.top, -16)
         } detail: {
             Group {
                 switch selectedTab {
@@ -72,6 +74,7 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle(selectedTab.title)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
         .frame(minWidth: 700, minHeight: 450)
     }
@@ -86,4 +89,15 @@ struct SettingsView: View {
             magsafeLEDControl: true
         )
     )
+}
+
+extension View {
+    @ViewBuilder
+    func scrollEdgeEffectStyleSoftIfAvailable() -> some View {
+        if #available(macOS 26.0, *) {
+            scrollEdgeEffectStyle(.soft, for: .all)
+        } else {
+            self
+        }
+    }
 }

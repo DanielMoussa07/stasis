@@ -18,6 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var isMenuOpen = false
     private var needsMenuRebuild = false
 
+    @objc func showSettingsWindow() {
+        settingsWindowController?.showSettings()
+    }
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Perform first‑run / version‑upgrade reset of user defaults
         resetStasisPreferencesIfNeeded()

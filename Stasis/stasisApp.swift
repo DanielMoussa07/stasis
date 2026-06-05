@@ -8,5 +8,15 @@ struct StasisApp: App {
         Settings {
             EmptyView()
         }
+        .commands {
+            CommandGroup(replacing: .appSettings) {
+                Button {
+                    appDelegate.showSettingsWindow()
+                } label: {
+                    Label("Settings...", systemImage: "gearshape")
+                }
+                .keyboardShortcut(",", modifiers: .command)
+            }
+        }
     }
 }
