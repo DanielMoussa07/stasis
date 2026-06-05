@@ -44,6 +44,9 @@ xattr -dr com.apple.quarantine /Applications/Stasis.app
 - **Power Dashboard** — Live voltage, current, wattage, temperature, health, and cycle count in the menu bar.
 - **Power Flow Diagram** — Sankey visualization of real-time power distribution.
 - **MagSafe LED Control** — Green at limit, orange while charging.
+- **Auto-Updates** — Seamless background updates directly from GitHub Releases via Sparkle.
+- **Liquid Glass Interface** — Modern macOS Tahoe inspired translucent settings UI.
+- **Native Dialogs** — Beautifully styled system-native dialog boxes.
 
 ## Documentation
 
@@ -68,6 +71,8 @@ PRs welcome. Please open an issue first for large changes.
 - [SMCKit](https://github.com/srimanachanta/SMCKit) — SMC access library
 - [AsahiLinux](https://asahilinux.org/) — SMC key reverse engineering
 - [Battery-Toolkit](https://github.com/mhaeuser/Battery-Toolkit) — SMC key documentation
+- [Sparkle](https://sparkle-project.org/) — Secure and reliable software updates
+- [Defaults](https://github.com/sindresorhus/Defaults) — Strongly-typed UserDefaults
 
 ## License
 
