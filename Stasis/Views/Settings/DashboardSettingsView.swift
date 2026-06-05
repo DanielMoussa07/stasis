@@ -59,7 +59,9 @@ struct DashboardSettingsView: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .contentMargins(.top, 0)
+        .contentMargins(.top, 4, for: .scrollContent)
+        .scrollEdgeEffectStyleSoftIfAvailable()
+        .padding(.top, -16)
     }
 }
 

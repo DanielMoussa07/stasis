@@ -47,7 +47,9 @@ struct GeneralSettingsView: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .contentMargins(.top, 0)
+        .contentMargins(.top, 4, for: .scrollContent)
+        .scrollEdgeEffectStyleSoftIfAvailable()
+        .padding(.top, -16)
         .onChange(of: launchAtLogin) { _, newValue in
             LaunchAtLoginService.shared.setLaunchAtLogin(newValue)
         }
