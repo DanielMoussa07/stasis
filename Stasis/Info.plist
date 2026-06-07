@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
 	<key>SUFeedURL</key>
 	<string>https://raw.githubusercontent.com/DinanathDash/Stasis/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>q259SeFUiuniAFmoW4fv4BwGZvmZHQ1P2g/15790bss=</string>
-	<key>SUEnableInstallerLauncherService</key>
-	<true/>
 </dict>
 </plist>

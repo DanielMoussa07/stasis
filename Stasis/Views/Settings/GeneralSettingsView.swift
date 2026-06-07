@@ -17,7 +17,7 @@ struct GeneralSettingsView: View {
             Section {
                 Picker("Battery percentage", selection: $batteryPercentageVisibility) {
                     ForEach(BatteryPercentageVisibility.allCases) { visibility in
-                        Text(visibility.rawValue).tag(visibility)
+                        Text(LocalizedStringKey(visibility.rawValue)).tag(visibility)
                     }
                 }
                 Toggle("Show battery state", isOn: $showBatteryStateInStatusIcon)
@@ -49,7 +49,6 @@ struct GeneralSettingsView: View {
         .scrollContentBackground(.hidden)
         .contentMargins(.top, 4, for: .scrollContent)
         .scrollEdgeEffectStyleSoftIfAvailable()
-        .padding(.top, -16)
         .onChange(of: launchAtLogin) { _, newValue in
             LaunchAtLoginService.shared.setLaunchAtLogin(newValue)
         }

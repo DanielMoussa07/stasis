@@ -184,7 +184,6 @@ struct AboutSettingsView: View {
         .scrollContentBackground(.hidden)
         .contentMargins(.top, 4, for: .scrollContent)
         .scrollEdgeEffectStyleSoftIfAvailable()
-        .padding(.top, -16)
 
     }
 

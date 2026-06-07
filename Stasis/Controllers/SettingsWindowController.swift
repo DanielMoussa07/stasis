@@ -49,10 +49,10 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         let newWindow = NSWindow(contentViewController: hostingController)
         newWindow.title = String(localized: "Stasis Settings")
         newWindow.styleMask = [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView]
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.titlebarSeparatorStyle = .none
+        newWindow.titleVisibility = .visible
+        newWindow.titlebarAppearsTransparent = false
         newWindow.toolbarStyle = .automatic
-        newWindow.toolbar = NSToolbar() // Required for the liquid glass effect
+        newWindow.isMovableByWindowBackground = true
         newWindow.center()
         newWindow.setFrameAutosaveName("SettingsWindow")
         newWindow.isReleasedWhenClosed = false

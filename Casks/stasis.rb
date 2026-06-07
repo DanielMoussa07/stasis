@@ -7,6 +7,8 @@ cask "stasis" do
   desc "Battery management tool (Dinanath's Fork)"
   homepage "https://github.com/DinanathDash/Stasis"
 
+  auto_updates true
+
   app "Stasis.app"
 
   uninstall quit:      "com.dinanathdash.stasis",

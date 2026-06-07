@@ -136,9 +136,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            guard let self else { return }
-            self.chargeManager.forceSyncSettings()
-            self.batteryService.scheduleSinglePoll()
+            Task { @MainActor in
+                guard let self else { return }
+                self.chargeManager.forceSyncSettings()
+                self.batteryService.scheduleSinglePoll()
+            }
         }
     }
 
@@ -161,7 +163,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - First‑run / version‑upgrade preferences reset
     private func resetStasisPreferencesIfNeeded() {
         // Bundle identifier for the app (fallback to known identifier)
-        let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
+        _ = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
         // Current app version
         let currentVersion =
             Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
