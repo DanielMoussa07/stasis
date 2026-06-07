@@ -128,19 +128,13 @@
         }
       }
     },
-    "All preferences have been successfully restored to their defaults." : {
-
-    },
     "Always" : {
 
     },
     "Approve Stasis in System Settings → Login Items to continue." : {
 
     },
-    "At start" : {
-
-    },
-    "Auto-download to Downloads folder" : {
+    "Auto-download" : {
 
     },
     "Automatic discharge" : {
@@ -769,6 +763,12 @@
         }
       }
     },
+    "Daemon Error - Settings Not Synced" : {
+
+    },
+    "Daily" : {
+
+    },
     "Dashboard" : {
       "localizations" : {
         "de" : {
@@ -1103,6 +1103,12 @@
         }
       }
     },
+    "Install" : {
+
+    },
+    "Install helper daemon" : {
+
+    },
     "Launch at login" : {
       "localizations" : {
         "de" : {
@@ -1327,6 +1333,12 @@
         }
       }
     },
+    "Menu Controls" : {
+
+    },
+    "Monthly" : {
+
+    },
     "Notifications" : {
       "localizations" : {
         "de" : {
@@ -1387,6 +1399,7 @@
       }
     },
     "Ok" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1413,18 +1426,6 @@
           }
         }
       }
-    },
-    "OK" : {
-
-    },
-    "Once per day" : {
-
-    },
-    "Once per month" : {
-
-    },
-    "Once per week" : {
-
     },
     "Open Settings" : {
 
@@ -1609,10 +1610,10 @@
         }
       }
     },
-    "Preferences Reset" : {
+    "Prevent your Mac from sleeping while charging towards the charge limit. Sleep is re-enabled once the limit is reached or the adapter is disconnected." : {
 
     },
-    "Prevent your Mac from sleeping while charging towards the charge limit. Sleep is re-enabled once the limit is reached or the adapter is disconnected." : {
+    "Privileged Helper" : {
 
     },
     "Quit" : {
@@ -1689,6 +1690,9 @@
         }
       }
     },
+    "Settings..." : {
+
+    },
     "Show battery percentage" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1719,6 +1723,9 @@
       }
     },
     "Show battery state" : {
+
+    },
+    "Show manual charging controls" : {
 
     },
     "Show outgoing output" : {
@@ -1758,9 +1765,6 @@
     "Stasis" : {
 
     },
-    "Stasis can check and download updates to your Downloads folder." : {
-
-    },
     "Stasis Settings" : {
       "localizations" : {
         "de" : {
@@ -1788,6 +1792,9 @@
           }
         }
       }
+    },
+    "Stasis uses Sparkle to handle automatic updates." : {
+
     },
     "Status" : {
       "localizations" : {
@@ -1873,6 +1880,9 @@
         }
       }
     },
+    "The helper daemon runs in the background to manage battery charging states." : {
+
+    },
     "Threshold below limit" : {
 
     },
@@ -1905,6 +1915,15 @@
       }
     },
     "Time until discharge" : {
+
+    },
+    "Top-up to Limit" : {
+
+    },
+    "Uninstall" : {
+
+    },
+    "Uninstall helper daemon" : {
 
     },
     "Updates" : {
@@ -1977,6 +1996,9 @@
           }
         }
       }
+    },
+    "Weekly" : {
+
     },
     "When updates are found" : {
 

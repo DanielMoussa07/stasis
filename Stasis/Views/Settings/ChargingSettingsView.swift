@@ -288,7 +288,6 @@ struct ChargingSettingsView: View {
         .scrollContentBackground(.hidden)
         .contentMargins(.top, 4, for: .scrollContent)
         .scrollEdgeEffectStyleSoftIfAvailable()
-        .padding(.top, -16)
         .animation(.default, value: manageCharging)
         .animation(.default, value: sailingMode)
         .animation(.default, value: enableHeatProtectionMode)

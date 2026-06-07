@@ -38,6 +38,9 @@ enum SettingsTab: String, CaseIterable, Identifiable {
 
 struct SettingsView: View {
     @State private var selectedTab: SettingsTab = .general
+    @State private var navigationHistory: [SettingsTab] = [.general]
+    @State private var historyIndex = 0
+    @State private var isHistoryNavigation = false
 
     private let capabilities: DeviceCapabilities
     init(capabilities: DeviceCapabilities) {
@@ -45,7 +48,7 @@ struct SettingsView: View {
     }
 
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: .constant(.all)) {
             List(SettingsTab.allCases, selection: $selectedTab) { tab in
                 Label {
                     Text(tab.title)
@@ -57,7 +60,7 @@ struct SettingsView: View {
             .navigationSplitViewColumnWidth(min: 180, ideal: 180, max: 200)
             .listStyle(.sidebar)
             .scrollEdgeEffectStyleSoftIfAvailable()
-        .padding(.top, -16)
+            .navigationTitle("Settings")
         } detail: {
             Group {
                 switch selectedTab {
@@ -76,7 +79,64 @@ struct SettingsView: View {
             .navigationTitle(selectedTab.title)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
+        .navigationTitle("Settings")
+        .navigationSplitViewStyle(.balanced)
         .frame(minWidth: 700, minHeight: 450)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigation) {
+                Button {
+                    goBack()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+                .disabled(!canGoBack)
+
+                Button {
+                    goForward()
+                } label: {
+                    Image(systemName: "chevron.right")
+                }
+                .disabled(!canGoForward)
+            }
+        }
+        .onChange(of: selectedTab) { _, _ in
+            recordNavigation()
+        }
+    }
+
+    private var canGoBack: Bool {
+        historyIndex > 0
+    }
+
+    private var canGoForward: Bool {
+        historyIndex < navigationHistory.count - 1
+    }
+
+    private func goBack() {
+        guard canGoBack else { return }
+        isHistoryNavigation = true
+        historyIndex -= 1
+        selectedTab = navigationHistory[historyIndex]
+        DispatchQueue.main.async { isHistoryNavigation = false }
+    }
+
+    private func goForward() {
+        guard canGoForward else { return }
+        isHistoryNavigation = true
+        historyIndex += 1
+        selectedTab = navigationHistory[historyIndex]
+        DispatchQueue.main.async { isHistoryNavigation = false }
+    }
+
+    private func recordNavigation() {
+        guard !isHistoryNavigation else { return }
+        let tab = selectedTab
+        if navigationHistory.last == tab { return }
+        if historyIndex < navigationHistory.count - 1 {
+            navigationHistory = Array(navigationHistory.prefix(historyIndex + 1))
+        }
+        navigationHistory.append(tab)
+        historyIndex = navigationHistory.count - 1
     }
 }
 
