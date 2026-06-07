@@ -30,7 +30,7 @@ jobs:
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: latest-stable
+          xcode-version: latest
 
       - name: Update Xcode App Version
         run: |
@@ -41,6 +41,14 @@ jobs:
           sed -i '' 's/MARKETING_VERSION = .*/MARKETING_VERSION = '$APP_VERSION';/' stasis.xcodeproj/project.pbxproj
           sed -i '' 's/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = '${{ github.run_number }}';/' stasis.xcodeproj/project.pbxproj
 
+      - name: Workaround actool crash for Stasis.icon
+        run: |
+          # Backup the version-bumped pbxproj and Stasis.icon
+          cp stasis.xcodeproj/project.pbxproj /tmp/project.pbxproj.bak
+          mv Stasis.icon /tmp/Stasis.icon.bak
+          # Remove Stasis.icon references from pbxproj so actool ignores it
+          sed -i '' '/Stasis.icon/d' stasis.xcodeproj/project.pbxproj
+
       - name: Build and Archive
         run: |
           xcodebuild archive \
@@ -48,14 +56,24 @@ jobs:
             -scheme "stasis-release" \
             -configuration Release \
             -archivePath $PWD/build/Stasis.xcarchive \
+            CODE_SIGN_STYLE="Manual" \
+            DEVELOPMENT_TEAM="" \
             CODE_SIGN_IDENTITY="-" \
             CODE_SIGNING_REQUIRED=YES \
             CODE_SIGNING_ALLOWED=YES
 
+      - name: Restore Stasis.icon
+        run: |
+          # Restore the version-bumped pbxproj and Stasis.icon folder
+          cp /tmp/project.pbxproj.bak stasis.xcodeproj/project.pbxproj
+          mv /tmp/Stasis.icon.bak Stasis.icon
+
       - name: Export App
         run: |
           mkdir -p $PWD/build/export
-          cp -R $PWD/build/Stasis.xcarchive/Products/Applications/stasis.app $PWD/build/export/Stasis.app
+          cp -R $PWD/build/Stasis.xcarchive/Products/Applications/Stasis.app $PWD/build/export/Stasis.app
+          # Inject the pre-compiled icns to replace the missing icon
+          cp assets/Stasis.icns $PWD/build/export/Stasis.app/Contents/Resources/Stasis.icns
 
       - name: Install Tools
         run: brew install create-dmg fileicon
@@ -78,7 +96,7 @@ jobs:
           codesign --force --sign - -r req.txt "dmg_root/Stasis.app"
           create-dmg \
             --volname "Stasis" \
-            --volicon "Stasis.app/Contents/Resources/AppIcon.icns" \
+            --volicon "Stasis.app/Contents/Resources/Stasis.icns" \
             --window-pos 340 200 \
             --window-size 600 400 \
             --icon-size 100 \
@@ -90,7 +108,7 @@ jobs:
             "dmg_root"
           
           # Set the custom icon on the DMG file itself
-          fileicon set "../../Stasis.dmg" "Stasis.app/Contents/Resources/AppIcon.icns"
+          fileicon set "../../Stasis.dmg" "Stasis.app/Contents/Resources/Stasis.icns"
 
       - name: Release to GitHub
         uses: softprops/action-gh-release@v2
