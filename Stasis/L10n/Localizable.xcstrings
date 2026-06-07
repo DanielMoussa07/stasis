@@ -1854,6 +1854,7 @@
       }
     },
     "Hidden" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1882,6 +1883,7 @@
       }
     },
     "Inside (Outside on power)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1910,6 +1912,7 @@
       }
     },
     "Inside icon" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2274,6 +2277,7 @@
       }
     },
     "Next to icon" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

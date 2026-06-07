@@ -15,6 +15,7 @@
 		A6AE19892F480D41003B09FA /* smc_power.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D62CE2F44067C00B996E7 /* smc_power.framework */; };
 		A6AE198A2F480D41003B09FA /* smc_power.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A66D62CE2F44067C00B996E7 /* smc_power.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E6D7322F3A00000069CF9F /* com.dinanathdash.stasis.charging-helper in Copy Helper Tools */ = {isa = PBXBuildFile; fileRef = A6E6D71E2F39DD350069CF9F /* com.dinanathdash.stasis.charging-helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D28947482FD59FFF004E47D7 /* Stasis.icon in Resources */ = {isa = PBXBuildFile; fileRef = D28947472FD59FFF004E47D7 /* Stasis.icon */; };
 		E848EAF049F1CF475276533E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F195F982B58740F53BD3914B /* Sparkle */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		A68B3E0C2F19AB4B00F115E4 /* Stasis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stasis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68B3E1E2F19ABCB00F115E4 /* helper.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = helper.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E6D71E2F39DD350069CF9F /* com.dinanathdash.stasis.charging-helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.dinanathdash.stasis.charging-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D28947472FD59FFF004E47D7 /* Stasis.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Stasis.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -197,6 +199,7 @@
 		A68B3E032F19AB4B00F115E4 = {
 			isa = PBXGroup;
 			children = (
+				D28947472FD59FFF004E47D7 /* Stasis.icon */,
 				A67470412FA4F4EA00925FF2 /* README.md */,
 				A68B3E0E2F19AB4B00F115E4 /* Stasis */,
 				A68B3E1F2F19ABCB00F115E4 /* Helper */,
@@ -400,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28947482FD59FFF004E47D7 /* Stasis.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +720,7 @@
 		A68B3E182F19AB4C00F115E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Stasis;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
@@ -755,7 +759,7 @@
 		A68B3E192F19AB4C00F115E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Stasis;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
