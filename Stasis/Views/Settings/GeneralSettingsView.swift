@@ -17,7 +17,7 @@ struct GeneralSettingsView: View {
             Section {
                 Picker("Battery percentage", selection: $batteryPercentageVisibility) {
                     ForEach(BatteryPercentageVisibility.allCases) { visibility in
-                        Text(visibility.rawValue).tag(visibility)
+                        Text(LocalizedStringKey(visibility.rawValue)).tag(visibility)
                     }
                 }
                 Toggle("Show battery state", isOn: $showBatteryStateInStatusIcon)
