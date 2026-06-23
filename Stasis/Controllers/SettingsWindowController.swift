@@ -30,14 +30,28 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
     }
 
     func showSettings() {
+        let activeScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) } ?? NSScreen.main
+        
+        let positionWindow: (NSWindow) -> Void = { win in
+            if let screen = activeScreen {
+                let screenRect = screen.visibleFrame
+                let windowRect = win.frame
+                let newX = screenRect.origin.x + (screenRect.width - windowRect.width) / 2
+                let newY = screenRect.origin.y + (screenRect.height - windowRect.height) / 2
+                win.setFrameOrigin(NSPoint(x: newX, y: newY))
+            } else {
+                win.center()
+            }
+        }
+
         if let existingWindow = window {
             let wasVisible = existingWindow.isVisible
-            existingWindow.makeKeyAndOrderFront(nil)
             if !wasVisible {
                 AppActivationPolicy.enter()
-            } else {
-                NSApp.activate(ignoringOtherApps: true)
             }
+            positionWindow(existingWindow)
+            existingWindow.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
             return
         }
 
@@ -53,13 +67,16 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         newWindow.titlebarAppearsTransparent = false
         newWindow.toolbarStyle = .automatic
         newWindow.isMovableByWindowBackground = true
-        newWindow.center()
         newWindow.setFrameAutosaveName("SettingsWindow")
         newWindow.isReleasedWhenClosed = false
+        newWindow.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
         newWindow.delegate = self
-        newWindow.makeKeyAndOrderFront(nil)
-
+        
+        positionWindow(newWindow)
+        
         AppActivationPolicy.enter()
+        newWindow.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
 
         self.window = newWindow
     }
