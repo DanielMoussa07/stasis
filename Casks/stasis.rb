@@ -1,6 +1,6 @@
 cask "stasis" do
-  version "0.8.2"
-  sha256 "64b79f381800e504f73eb1b8a72b005d1e8911ed02b179e3cd046c32eb1ea9bb"
+  version "0.9.0"
+  sha256 "0ab5626ac376a9c7c787dc9c3ae2ebc39021d59432b6a8227335b6daa634e2a8"
 
   url "https://github.com/DinanathDash/Stasis/releases/download/v#{version}/Stasis.dmg"
   name "Stasis"
