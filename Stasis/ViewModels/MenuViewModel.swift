@@ -31,6 +31,9 @@ class MenuViewModel {
     var outputPortDetailsText: String = "None"
     var powerSource: PowerSource = .battery
     var isCharging: Bool = false
+    var hasMultiPort: Bool = false
+    var connectedAccessories: [AccessoryType] = []
+    var outputIcons: [String] = []
     var isLowPowerModeEnabled: Bool = ProcessInfo.processInfo
         .isLowPowerModeEnabled
 
@@ -252,6 +255,51 @@ class MenuViewModel {
                 }
                 .joined(separator: " • ")
         }
+        
+        // Smart map accessories to output ports based on power
+        var matchedIcons: [String] = []
+        var availableAccessories = safeMetrics.connectedAccessories
+        
+        // Priority for matching
+        let accessoryPriority: [AccessoryType] = [.hub, .display, .phone, .network, .storage, .printer, .unknown]
+        availableAccessories.sort { a, b in
+            let idxA = accessoryPriority.firstIndex(of: a) ?? 100
+            let idxB = accessoryPriority.firstIndex(of: b) ?? 100
+            return idxA < idxB
+        }
+        
+        let sortedPorts = outputPortPowers.sorted { $0.powerWatts > $1.powerWatts }
+        var portIconMap: [Int: String] = [:]
+        
+        for port in sortedPorts {
+            let p = port.powerWatts
+            var selectedIcon = "cable.connector" // Generic fallback
+            
+            if p > 15.0 {
+                selectedIcon = "externaldrive.fill"
+            } else {
+                selectedIcon = "iphone" // default medium
+            }
+            
+            if !availableAccessories.isEmpty {
+                let acc = availableAccessories.removeFirst()
+                switch acc {
+                case .display: selectedIcon = "display"
+                case .phone: selectedIcon = "iphone"
+                case .storage: selectedIcon = "externaldrive.fill"
+                case .network: selectedIcon = "network"
+                case .printer: selectedIcon = "printer.fill"
+                case .hub: selectedIcon = "HubIcon"
+                case .unknown: selectedIcon = "cable.connector"
+                }
+            }
+            portIconMap[port.portIndex] = selectedIcon
+        }
+        
+        outputIcons = outputPortPowers.map { portIconMap[$0.portIndex] ?? "cable.connector" }
+        
+        hasMultiPort = safeMetrics.hasMultiPort
+        connectedAccessories = safeMetrics.connectedAccessories
         powerSource = derivedPowerSource
         isCharging = metrics.isCharging
         adapterConnected = adapter.adapterConnected
