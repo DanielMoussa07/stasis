@@ -1,5 +1,15 @@
 import Foundation
 
+enum AccessoryType: String, Codable, Equatable {
+    case phone
+    case storage
+    case network
+    case printer
+    case display
+    case hub
+    case unknown
+}
+
 struct OutputPortPower: Codable, Equatable, Identifiable {
     var portIndex: Int
     var powerWatts: Double
@@ -29,6 +39,8 @@ struct BatteryMetrics: Codable, Equatable {
     var maxCapacity: Int = 0
 
     var externalConnected: Bool = false
+    var hasMultiPort: Bool = false
+    var connectedAccessories: [AccessoryType] = []
 }
 
 struct AdapterMetrics: Equatable {

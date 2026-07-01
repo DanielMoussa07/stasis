@@ -289,7 +289,10 @@ struct PowerSankeyViewWrapper: View {
             outputPower: shouldShowOutput ? viewModel.outputPower : 0,
             outputPortPowers: shouldShowOutput
                 ? viewModel.outputPortPowers.map(\.powerWatts)
-                : []
+                : [],
+            outputIcons: shouldShowOutput ? viewModel.outputIcons : [],
+            hasMultiPort: viewModel.hasMultiPort,
+            connectedAccessories: viewModel.connectedAccessories
         )
     }
 }

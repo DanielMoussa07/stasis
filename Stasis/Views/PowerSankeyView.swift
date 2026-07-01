@@ -8,12 +8,15 @@ struct PowerSankeyView: View {
     let systemPower: Double
     let outputPower: Double
     let outputPortPowers: [Double]
+    let outputIcons: [String]
+    var hasMultiPort: Bool = false
+    var connectedAccessories: [AccessoryType] = []
 
-    private var twoOutputIcons: (first: String, second: String) {
-        guard outputPortPowers.count >= 2 else { return ("iphone", "display") }
-        return outputPortPowers[0] >= outputPortPowers[1]
-            ? ("iphone", "display")
-            : ("display", "iphone")
+    private func safeIcon(at index: Int) -> String {
+        if index < outputIcons.count {
+            return outputIcons[index]
+        }
+        return "cable.connector"
     }
 
     private enum Layout {
@@ -192,7 +195,7 @@ struct PowerSankeyView: View {
                     if outputPower > 0 {
                         Spacer(minLength: Layout.spacerHeight)
                         NodeView(
-                            icon: "iphone",
+                            icon: safeIcon(at: 0),
                             value: nil,
                             isLeftSide: false
                         )
@@ -206,14 +209,14 @@ struct PowerSankeyView: View {
                     if outputPower > 0 {
                         Spacer(minLength: Layout.spacerHeight)
                         NodeView(
-                            icon: hasTwoOutputs ? twoOutputIcons.first : "iphone",
+                            icon: safeIcon(at: 0),
                             value: nil,
                             isLeftSide: false
                         )
                         if hasTwoOutputs {
                             Spacer(minLength: Layout.spacerHeight)
                             NodeView(
-                                icon: twoOutputIcons.second,
+                                icon: safeIcon(at: 1),
                                 value: nil,
                                 isLeftSide: false
                             )
@@ -232,12 +235,12 @@ struct PowerSankeyView: View {
                 if outputPower > 0 {
                     if hasTwoOutputs {
                         Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: twoOutputIcons.first, value: nil, isLeftSide: false)
+                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
                         Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: twoOutputIcons.second, value: nil, isLeftSide: false)
+                        NodeView(icon: safeIcon(at: 1), value: nil, isLeftSide: false)
                     } else {
                         Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: "iphone", value: nil, isLeftSide: false)
+                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
                     }
                 }
             }
@@ -419,9 +422,17 @@ struct NodeView: View {
             .frame(width: 60)
 
             VStack(spacing: 4) {
-                Image(systemName: icon)
-                    .font(.system(size: 16))
-                    .foregroundStyle(.secondary)
+                if icon == "HubIcon" {
+                    Image("HubIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 28)
+                        .foregroundStyle(.secondary)
+                } else {
+                    Image(systemName: icon)
+                        .font(.system(size: 16))
+                        .foregroundStyle(.secondary)
+                }
                 if let value {
                     Text(String(format: "%.0f W", value))
                         .font(.system(size: 11, weight: .medium))
@@ -461,7 +472,8 @@ struct NodeView: View {
                 adapterPower: item.3,
                 systemPower: item.4,
                 outputPower: item.5,
-                outputPortPowers: item.6
+                outputPortPowers: item.6,
+                outputIcons: []
             )
             .frame(height: 125)
         }
