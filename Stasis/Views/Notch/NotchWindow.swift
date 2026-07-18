@@ -22,7 +22,7 @@ class NotchWindow: NSPanel {
         )
 
         isFloatingPanel = true
-        level = NSWindow.Level(rawValue: NSWindow.Level.mainMenu.rawValue + 10)
+        level = NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
         isOpaque = false
         backgroundColor = .clear
         hasShadow = false
@@ -37,10 +37,8 @@ class NotchWindow: NSPanel {
     /// The window is positioned at `CGShieldingWindowLevel` (above everything)
     /// centered at the top of the target screen, flush with the top edge.
     func showNotch<Content: View>(on screen: NSScreen, content: Content) {
-        // Place above the menu bar but not so high that WindowServer forces it behind
-        // the menu bar (a known issue with CGShieldingWindowLevel on modern macOS).
-        // .mainMenu + 10 is the standard hack used by other notch apps to stay on top.
-        level = NSWindow.Level(rawValue: NSWindow.Level.mainMenu.rawValue + 10)
+        // Use CGShieldingWindowLevel to appear above the lock screen and other HUD apps
+        level = NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
         collectionBehavior = [.stationary, .canJoinAllSpaces, .fullScreenAuxiliary, .ignoresCycle]
 
         // Use the entire screen width so the SwiftUI view can center itself naturally
@@ -60,6 +58,7 @@ class NotchWindow: NSPanel {
 
         alphaValue = 1
         orderFrontRegardless()
+        TopWindowElevator.shared.elevate(window: self)
     }
 
     /// Show as a floating pill at the bottom of the screen (fallback for non-notch Macs).
@@ -84,6 +83,7 @@ class NotchWindow: NSPanel {
 
         alphaValue = 1
         orderFrontRegardless()
+        TopWindowElevator.shared.elevate(window: self)
     }
 
     /// Hide with a fade-out animation.

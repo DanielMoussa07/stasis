@@ -171,14 +171,21 @@ class NotchHUDManager {
         guard let targetScreen = targetScreens.first else { return }
         let isPill = !NotchWindow.hasNotch(screen: targetScreen)
 
-        // Update state to trigger animation
+        let wasVisible = window.isVisible
+        
+        // Ensure state starts collapsed if window is not visible
+        if !wasVisible {
+            state.isVisible = false
+        }
+
+        // Update state content
         state.statusText = text
         state.batteryLevel = viewModel.displayPercentage
         state.chargingMode = viewModel.chargingMode
         state.isLowPowerModeEnabled = viewModel.isLowPowerModeEnabled
         
         // Ensure the window is shown with the view bound to our state
-        if window.contentView == nil || !window.isVisible {
+        if window.contentView == nil || !wasVisible {
             let contentView = ChargingNotchView(state: state)
             if !isPill {
                 window.contentHeight = targetScreen.safeAreaInsets.top
@@ -187,9 +194,15 @@ class NotchHUDManager {
                 window.contentHeight = 36
                 window.showPill(on: targetScreen, content: contentView)
             }
+            
+            // Trigger animation on next runloop tick so view is in hierarchy
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(50))
+                self.state.isVisible = true
+            }
+        } else {
+            state.isVisible = true
         }
-        
-        state.isVisible = true
 
         // Cancel existing hide task
         hideTask?.cancel()
