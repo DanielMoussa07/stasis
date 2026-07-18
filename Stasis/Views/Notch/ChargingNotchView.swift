@@ -47,10 +47,11 @@ struct ChargingNotchView: View {
             Text(state.statusText)
                 .font(.system(size: 13, weight: .medium))
                 .foregroundColor(.white) // Always dark theme
+                .fixedSize(horizontal: true, vertical: false) // Prevent truncation during animation
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 16)
-                .opacity(state.isVisible ? 1 : 0) // Smooth fade in
                 .frame(width: state.isVisible ? state.leftContentWidth : 0)
+                .clipped()
 
             // CENTER: The physical notch width
             Spacer()
@@ -65,22 +66,20 @@ struct ChargingNotchView: View {
                 showState: true
             )
             .colorScheme(.dark) // Always dark theme
+            .fixedSize(horizontal: true, vertical: false)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 16)
-            .opacity(state.isVisible ? 1 : 0)
             .frame(width: state.isVisible ? state.rightContentWidth : 0)
+            .clipped()
         }
         // Use dynamically calculated asymmetric width that perfectly wraps content
-        .frame(width: state.dynamicWidth, height: nil)
+        .frame(width: state.dynamicWidth)
+        .frame(maxHeight: .infinity)
+        // Background and clip shape MUST be applied BEFORE offset so they perfectly wrap the asymmetric content
+        .background(NotchShape().fill(.black))
+        .clipShape(NotchShape())
         // Offset the entire capsule so the 180 gap remains perfectly dead center on the physical hardware notch
         .offset(x: state.correctionOffset)
-        .frame(maxHeight: .infinity)
-        .background(
-            // Pure pitch black always, offset so it moves with the content!
-            Rectangle().fill(Color(red: 0, green: 0, blue: 0))
-                .clipShape(NotchShape())
-                .offset(x: state.correctionOffset)
-        )
         // Improved bouncy spring animation (response: 0.4, dampingFraction: 0.6)
         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: state.isVisible)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
