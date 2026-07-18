@@ -10,6 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var viewModel: MenuViewModel!
     private var menuBuilder: MenuBuilder!
     private var chargeManager: ChargeManager!
+    private var notchHUDManager: NotchHUDManager!
     private var settingsWindowController: SettingsWindowController!
     private var menu: NSMenu!
     private let updaterManager = UpdaterManager.shared
@@ -78,6 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             settingsWindowController: settingsWindowController
         )
         statusBarManager = StatusBarManager(viewModel: viewModel)
+        notchHUDManager = NotchHUDManager(viewModel: viewModel)
     }
 
     private func setupMenu() {

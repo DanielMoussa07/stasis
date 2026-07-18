@@ -1,5 +1,6 @@
 import Defaults
 import SwiftUI
+import ServiceManagement
 
 struct AboutSettingsView: View {
     @Environment(\.openURL) private var openURL
@@ -150,7 +151,8 @@ struct AboutSettingsView: View {
                                 NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
                             } else {
                                 try helperManager.uninstall()
-                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled.")
+                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled. The app will now restart.")
+                                restartApp()
                             }
                         } catch {
                             let msg = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
@@ -172,7 +174,8 @@ struct AboutSettingsView: View {
                     Spacer()
                     Button("Reset") {
                         resetAllPreferences()
-                        NSAlert.show(title: "Preferences Reset", message: "All preferences have been successfully restored to their defaults.")
+                        NSAlert.show(title: "Preferences Reset", message: "All preferences have been successfully restored to their defaults. The app will now restart.")
+                        restartApp()
                     }
                     .foregroundColor(.red)
                 }
@@ -201,19 +204,38 @@ struct AboutSettingsView: View {
 
     // MARK: - Preferences reset helper
     private func resetAllPreferences() {
-        // Uninstall the helper daemon
+        // Uninstall the helper daemon (this handles SMC reset internally)
         do {
             try ChargingHelperManager.shared.uninstall()
         } catch {
             print("Failed to uninstall charging helper: \(error)")
         }
 
-        // Disable launch at login
+        // Disable launch at login and actively unregister to clear OS cache
         LaunchAtLoginService.shared.setLaunchAtLogin(false)
-
+        try? SMAppService.mainApp.unregister()
+        
         // Remove all persisted defaults for this app bundle
         let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
         UserDefaults.standard.removePersistentDomain(forName: bundleID)
+        UserDefaults.standard.synchronize() // Force write
+        
+        // Reset system permissions (Accessibility, Background Items, etc.) to force OS cache flush
+        let tccProcess = Process()
+        tccProcess.launchPath = "/usr/bin/tccutil"
+        tccProcess.arguments = ["reset", "All", bundleID]
+        try? tccProcess.run()
+        tccProcess.waitUntilExit()
+    }
+    
+    private func restartApp() {
+        let url = Bundle.main.bundleURL
+        let task = Process()
+        task.launchPath = "/usr/bin/open"
+        task.arguments = ["-n", url.path]
+        try? task.run()
+        
+        exit(0)
     }
 }
 
@@ -226,6 +248,10 @@ extension NSAlert {
         alert.informativeText = message
         alert.alertStyle = style
         alert.addButton(withTitle: "OK")
+        
+        // Force the app to the foreground so the alert isn't hidden behind other windows
+        NSApp.activate(ignoringOtherApps: true)
+        
         NSSound.beep()
         alert.runModal()
     }

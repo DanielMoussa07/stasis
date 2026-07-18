@@ -26,7 +26,7 @@ class ChargingHelperManager {
     private(set) var helperStatus: ChargingHelperStatus
 
     var isInstalled: Bool {
-        SMAppService.daemon(plistName: Self.plistName).status == .enabled
+        helperStatus == .installed
     }
 
     private init() {
@@ -58,9 +58,23 @@ class ChargingHelperManager {
 
     func uninstall() throws {
         logger.info("Unregistering charging helper daemon")
+        // Reset the SMC to its default state before uninstalling so the Mac isn't stuck at 80%
+        if let helper = getHelper(errorHandler: { _ in }) {
+            let semaphore = DispatchSemaphore(value: 0)
+            helper.resetToDefaults { _, _ in
+                semaphore.signal()
+            }
+            // Wait briefly for the reset to complete before we destroy the daemon
+            _ = semaphore.wait(timeout: .now() + 2.0)
+        }
+        
         disconnect()
         try service.unregister()
         helperStatus = .notInstalled
+        
+        // Force the UI toggle off since the helper is gone
+        UserDefaults.standard.set(false, forKey: "isChargingManagementEnabled")
+        UserDefaults.standard.synchronize()
     }
 
     func refreshStatus() {

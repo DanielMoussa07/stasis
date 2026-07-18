@@ -30,26 +30,13 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
     }
 
     func showSettings() {
-        let activeScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) } ?? NSScreen.main
-        
-        let positionWindow: (NSWindow) -> Void = { win in
-            if let screen = activeScreen {
-                let screenRect = screen.visibleFrame
-                let windowRect = win.frame
-                let newX = screenRect.origin.x + (screenRect.width - windowRect.width) / 2
-                let newY = screenRect.origin.y + (screenRect.height - windowRect.height) / 2
-                win.setFrameOrigin(NSPoint(x: newX, y: newY))
-            } else {
-                win.center()
-            }
-        }
-
+        // Window positioning is now handled by .center()
         if let existingWindow = window {
             let wasVisible = existingWindow.isVisible
             if !wasVisible {
                 AppActivationPolicy.enter()
             }
-            positionWindow(existingWindow)
+            existingWindow.center()
             existingWindow.makeKeyAndOrderFront(nil)
             NSApp.activate(ignoringOtherApps: true)
             return
@@ -58,6 +45,7 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         let settingsView = SettingsView(
             capabilities: capabilities
         )
+
         let hostingController = NSHostingController(rootView: settingsView)
 
         let newWindow = NSWindow(contentViewController: hostingController)
@@ -67,12 +55,16 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         newWindow.titlebarAppearsTransparent = false
         newWindow.toolbarStyle = .automatic
         newWindow.isMovableByWindowBackground = true
-        newWindow.setFrameAutosaveName("SettingsWindow")
+        newWindow.minSize = NSSize(width: 750, height: 540)
+        newWindow.setContentSize(NSSize(width: 750, height: 540))
         newWindow.isReleasedWhenClosed = false
-        newWindow.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
-        newWindow.delegate = self
+        newWindow.collectionBehavior = [.moveToActiveSpace, .fullScreenPrimary]
         
-        positionWindow(newWindow)
+        newWindow.center() // Center it on first launch after reset
+
+        newWindow.delegate = self
+        window = newWindow
+        newWindow.setFrameAutosaveName("SettingsWindow")
         
         AppActivationPolicy.enter()
         newWindow.makeKeyAndOrderFront(nil)
