@@ -20,6 +20,13 @@ enum BatteryPercentageVisibility: String, CaseIterable, Defaults.Serializable, I
     var id: Self { self }
 }
 
+enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case macDisplayOnly = "Mac Display Only"
+    case allDisplays = "All Displays"
+    
+    var id: Self { self }
+}
+
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
@@ -45,6 +52,18 @@ extension Defaults.Keys {
         "showChargingStatusChangedNotification",
         default: true
     )
+    static let enableNotchHUD = Key<Bool>(
+        "enableNotchHUD",
+        default: true
+    )
+    static let showNotchHUDOnLockScreen = Key<Bool>(
+        "showNotchHUDOnLockScreen",
+        default: true
+    )
+    static let notchHUDDisplayMode = Key<NotchHUDDisplayMode>(
+        "notchHUDDisplayMode",
+        default: .macDisplayOnly
+    )
 
     // Menu Dashboard
     static let showTimeTillDischarge = Key<Bool>(
@@ -60,7 +79,7 @@ extension Defaults.Keys {
         "showBatteryTemperature",
         default: false
     )
-    static let showPowerSource = Key<Bool>("showPowerSource", default: false)
+    static let showPowerSource = Key<Bool>("showPowerSource", default: true)
     static let showUptime = Key<Bool>("showUptime", default: true)
     static let showBatteryMode = Key<Bool>("showBatteryMode", default: true)
     static let showInternalPower = Key<Bool>("showInternalPower", default: true)

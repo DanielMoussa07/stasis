@@ -58,6 +58,7 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         let settingsView = SettingsView(
             capabilities: capabilities
         )
+
         let hostingController = NSHostingController(rootView: settingsView)
 
         let newWindow = NSWindow(contentViewController: hostingController)
@@ -67,12 +68,15 @@ class SettingsWindowController: NSObject, NSWindowDelegate {
         newWindow.titlebarAppearsTransparent = false
         newWindow.toolbarStyle = .automatic
         newWindow.isMovableByWindowBackground = true
-        newWindow.setFrameAutosaveName("SettingsWindow")
+        newWindow.minSize = NSSize(width: 750, height: 540)
         newWindow.isReleasedWhenClosed = false
-        newWindow.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
-        newWindow.delegate = self
+        newWindow.collectionBehavior = [.moveToActiveSpace, .fullScreenPrimary]
         
-        positionWindow(newWindow)
+        positionWindow(newWindow) // Center it on first launch after reset
+
+        newWindow.delegate = self
+        window = newWindow
+        newWindow.setFrameAutosaveName("SettingsWindow")
         
         AppActivationPolicy.enter()
         newWindow.makeKeyAndOrderFront(nil)

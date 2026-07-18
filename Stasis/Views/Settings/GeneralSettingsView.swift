@@ -7,6 +7,9 @@ struct GeneralSettingsView: View {
     @Default(.showBatteryStateInStatusIcon) var showBatteryStateInStatusIcon
     @Default(.disableNotifications) var disableNotifications
     @Default(.showChargingStatusChangedNotification) var showChargingStatusChangedNotification
+    @Default(.enableNotchHUD) var enableNotchHUD
+    @Default(.showNotchHUDOnLockScreen) var showNotchHUDOnLockScreen
+    @Default(.notchHUDDisplayMode) var notchHUDDisplayMode
 
     var body: some View {
         Form {
@@ -40,6 +43,25 @@ struct GeneralSettingsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Notifications")
                     Text("Control when Stasis sends you notifications.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Section {
+                Toggle("Show charging state in Notch HUD", isOn: $enableNotchHUD)
+                if enableNotchHUD {
+                    Toggle("Show on lock screen", isOn: $showNotchHUDOnLockScreen)
+                    Picker("Display mode", selection: $notchHUDDisplayMode) {
+                        ForEach(NotchHUDDisplayMode.allCases) { mode in
+                            Text(LocalizedStringKey(mode.rawValue)).tag(mode)
+                        }
+                    }
+                }
+            } header: {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Notch HUD")
+                    Text("Display a floating Dynamic Island-style HUD when the charging state changes.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
