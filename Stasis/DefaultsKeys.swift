@@ -27,6 +27,13 @@ enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifia
     var id: Self { self }
 }
 
+enum CalibrationStatus: String, Defaults.Serializable, Equatable {
+    case idle
+    case discharging
+    case charging
+    case resting
+}
+
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
@@ -63,6 +70,10 @@ extension Defaults.Keys {
     static let notchHUDDisplayMode = Key<NotchHUDDisplayMode>(
         "notchHUDDisplayMode",
         default: .macDisplayOnly
+    )
+    static let notchHUDDisplayDuration = Key<Double>(
+        "notchHUDDisplayDuration",
+        default: 3.0
     )
 
     // Menu Dashboard
@@ -145,4 +156,38 @@ extension Defaults.Keys {
         default: false
     )
 
+    // Calibration
+    static let enableAutomaticCalibration = Key<Bool>(
+        "enableAutomaticCalibration",
+        default: false
+    )
+    static let calibrationIntervalDays = Key<Int>(
+        "calibrationIntervalDays",
+        default: 30
+    )
+    static let calibrationTimeOfDay = Key<Date>(
+        "calibrationTimeOfDay",
+        default: {
+            var components = DateComponents()
+            components.hour = 9
+            components.minute = 0
+            return Calendar.current.date(from: components) ?? Date()
+        }()
+    )
+    static let lastCalibrationDate = Key<Date?>(
+        "lastCalibrationDate",
+        default: nil
+    )
+    static let calibrationStatus = Key<CalibrationStatus>(
+        "calibrationStatus",
+        default: .idle
+    )
+    static let calibrationStepStartTime = Key<Date?>(
+        "calibrationStepStartTime",
+        default: nil
+    )
+    static let calibrationSnoozeUntil = Key<Date?>(
+        "calibrationSnoozeUntil",
+        default: nil
+    )
 }

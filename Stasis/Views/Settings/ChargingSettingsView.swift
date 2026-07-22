@@ -16,6 +16,14 @@ struct ChargingSettingsView: View {
     @Default(.manageMagSafeLED) var manageMagSafeLED
     @Default(.heatProtectionMagSafeLEDState) var heatProtectionMagSafeLEDState
     @Default(.chargingOnHoldMagSafeLEDState) var chargingOnHoldMagSafeLEDState
+    
+    // Calibration settings
+    @Default(.enableAutomaticCalibration) var enableAutomaticCalibration
+    @Default(.calibrationIntervalDays) var calibrationIntervalDays
+    @Default(.calibrationTimeOfDay) var calibrationTimeOfDay
+    @Default(.calibrationStatus) var calibrationStatus
+    @Default(.lastCalibrationDate) var lastCalibrationDate
+
     @State private var helperManager = ChargingHelperManager.shared
 
     private let capabilities: DeviceCapabilities
@@ -282,6 +290,77 @@ struct ChargingSettingsView: View {
                         }
                     }
                 }
+
+                Section {
+                    Toggle("Enable automatic calibration", isOn: $enableAutomaticCalibration)
+                        .disabled(!hasAnyControl)
+
+                    if enableAutomaticCalibration {
+                        Picker("Interval", selection: Binding(
+                            get: { self.calibrationIntervalDays },
+                            set: { self.calibrationIntervalDays = $0 }
+                        )) {
+                            Text("Every 7 days").tag(7)
+                            Text("Every 14 days").tag(14)
+                            Text("Every 30 days").tag(30)
+                            Text("Every 60 days").tag(60)
+                        }
+                        
+                        DatePicker("Time of Day", selection: Binding(
+                            get: { self.calibrationTimeOfDay },
+                            set: { self.calibrationTimeOfDay = $0 }
+                        ), displayedComponents: .hourAndMinute)
+                    }
+                    
+                    LabeledContent("Status") {
+                        switch calibrationStatus {
+                        case .idle:
+                            if let last = lastCalibrationDate {
+                                Text("Last calibrated on \(last.formatted(date: .abbreviated, time: .shortened))")
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Text("Never calibrated")
+                                    .foregroundStyle(.secondary)
+                            }
+                        case .discharging:
+                            Text("Discharging to 15%...")
+                                .foregroundStyle(.orange)
+                        case .charging:
+                            Text("Charging to 100%...")
+                                .foregroundStyle(.blue)
+                        case .resting:
+                            Text("Resting at 100%...")
+                                .foregroundStyle(.green)
+                        }
+                    }
+
+                    if calibrationStatus == .idle {
+                        Button("Start Calibration Now") {
+                            Defaults[.calibrationStatus] = .discharging
+                        }
+                        .disabled(!hasAnyControl)
+                    } else {
+                        Button("Cancel Calibration") {
+                            Defaults[.calibrationStatus] = .idle
+                        }
+                        .foregroundStyle(.red)
+                    }
+                } header: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Battery Calibration")
+                        Text(
+                            "Periodically run a full discharge and recharge cycle to maintain accurate battery capacity readings."
+                        )
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    }
+                } footer: {
+                    if !hasAnyControl {
+                        Text(
+                            "Battery calibration is not supported on this device."
+                        )
+                    }
+                }
             }
         }
         .formStyle(.grouped)
@@ -298,18 +377,21 @@ struct ChargingSettingsView: View {
     private func toggleManageCharging(_ enabled: Bool) {
         do {
             if enabled {
-                try helperManager.install()
+                if !helperManager.isInstalled {
+                    try helperManager.install()
+                }
                 if helperManager.helperStatus == .installed {
                     manageCharging = true
                     Defaults[.launchAtLogin] = true
                     LaunchAtLoginService.shared.setLaunchAtLogin(true)
                 } else if helperManager.helperStatus == .requiresApproval {
-                    // Store the user's intent to enable charging management so the toggle
-                    // reflects a natural ON state (with handle) while waiting for approval.
                     manageCharging = true
                 }
             } else {
-                try helperManager.uninstall()
+                // When turning off charge management, we just update the toggle.
+                // The ChargeManager will automatically sync 'manageCharging = false' to the daemon,
+                // which will reset SMC to defaults internally. We no longer uninstall the daemon here,
+                // which prevents the "daemon not synced" error caused by tearing down the XPC connection.
                 manageCharging = false
             }
         } catch {

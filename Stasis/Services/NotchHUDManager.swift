@@ -17,6 +17,7 @@ class NotchHUDManager {
     private var previousLowPowerMode: Bool?
     private var previousForceDischarge: Bool?
     private var previousAdapterConnected: Bool?
+    private var previousCalibrationStatus: CalibrationStatus?
 
     init(viewModel: MenuViewModel) {
         self.viewModel = viewModel
@@ -39,6 +40,7 @@ class NotchHUDManager {
             previousLowPowerMode = viewModel.isLowPowerModeEnabled
             previousForceDischarge = viewModel.forceDischargeActive
             previousAdapterConnected = viewModel.adapterConnected
+            previousCalibrationStatus = Defaults[.calibrationStatus]
 
             for await _ in NotificationCenter.default.notifications(named: .NSProcessInfoPowerStateDidChange) {
                 // To allow Low Power Mode observation without polling
@@ -67,6 +69,15 @@ class NotchHUDManager {
                 checkStateAndShowHUD()
             }
         }
+
+        Task {
+            // Observe defaults for calibration
+            for await _ in Defaults.updates([.calibrationStatus], initial: false) {
+                Task { @MainActor in
+                    self.checkStateAndShowHUD()
+                }
+            }
+        }
     }
 
     private func checkStateAndShowHUD() {
@@ -84,21 +95,24 @@ class NotchHUDManager {
         let currentLowPowerMode = viewModel.isLowPowerModeEnabled
         let currentForceDischarge = viewModel.forceDischargeActive
         let currentAdapterConnected = viewModel.adapterConnected
+        let currentCalibrationStatus = Defaults[.calibrationStatus]
 
         // Determine what changed
         let modeChanged = currentChargingMode != previousChargingMode
         let lpmChanged = currentLowPowerMode != previousLowPowerMode
         let fdChanged = currentForceDischarge != previousForceDischarge
         let adapterChanged = currentAdapterConnected != previousAdapterConnected
+        let calChanged = currentCalibrationStatus != previousCalibrationStatus
 
         // If something relevant changed, show HUD
-        if modeChanged || lpmChanged || fdChanged || adapterChanged {
+        if modeChanged || lpmChanged || fdChanged || adapterChanged || calChanged {
             let text = determineStatusText(
                 chargingMode: currentChargingMode,
                 lowPowerMode: currentLowPowerMode,
                 forceDischarge: currentForceDischarge,
                 adapterConnected: currentAdapterConnected,
-                lpmChanged: lpmChanged
+                lpmChanged: lpmChanged,
+                calibrationStatus: currentCalibrationStatus
             )
             showHUD(with: text)
         }
@@ -108,6 +122,7 @@ class NotchHUDManager {
         previousLowPowerMode = currentLowPowerMode
         previousForceDischarge = currentForceDischarge
         previousAdapterConnected = currentAdapterConnected
+        previousCalibrationStatus = currentCalibrationStatus
     }
 
     private func determineStatusText(
@@ -115,8 +130,17 @@ class NotchHUDManager {
         lowPowerMode: Bool,
         forceDischarge: Bool,
         adapterConnected: Bool,
-        lpmChanged: Bool
+        lpmChanged: Bool,
+        calibrationStatus: CalibrationStatus
     ) -> String {
+        if calibrationStatus != .idle {
+            switch calibrationStatus {
+            case .idle: break
+            case .discharging: return "Calibrating (Discharging to 15%)"
+            case .charging: return "Calibrating (Charging to 100%)"
+            case .resting: return "Calibrating (Resting at 100%)"
+            }
+        }
         if lowPowerMode && lpmChanged {
             return "Low Power Mode"
         }
@@ -209,7 +233,8 @@ class NotchHUDManager {
 
         // Create new hide task
         hideTask = Task {
-            try? await Task.sleep(for: .seconds(3))
+            let duration = Defaults[.notchHUDDisplayDuration]
+            try? await Task.sleep(for: .seconds(duration))
             guard !Task.isCancelled else { return }
             
             // Trigger SwiftUI collapse animation

@@ -16,8 +16,14 @@ class NotchHUDState {
     var leftContentWidth: CGFloat {
         if !isVisible { return 0 }
         // 16pt outer padding + text width + 16pt inner padding
-        let textWidth = CGFloat(statusText.count) * 7.5
-        return 16 + textWidth + 16
+        let font = NSFont.systemFont(ofSize: 13, weight: .medium)
+        let textWidth = (statusText as NSString).boundingRect(
+            with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude),
+            options: .usesLineFragmentOrigin,
+            attributes: [.font: font],
+            context: nil
+        ).width
+        return 20 + ceil(textWidth) + 16
     }
     
     var rightContentWidth: CGFloat {

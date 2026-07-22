@@ -43,6 +43,7 @@ class MenuViewModel {
     var forceDischargeActive: Bool { chargeManager.forceDischargeActive }
     var chargeToLimitActive: Bool { chargeManager.chargeToLimitActive }
     var daemonSyncError: Bool { chargeManager.daemonSyncError }
+    var daemonError: String? { chargeManager.daemonError }
     var manageChargingEnabled: Bool { Defaults[.manageCharging] }
     var adapterConnected: Bool = false
 
@@ -93,7 +94,7 @@ class MenuViewModel {
     private func startObservingSettings() {
         settingsObservation = Task { [weak self] in
             for await _ in Defaults.updates(
-                [.useHardwarePercentage, .useRawHardwareHealth],
+                [.useHardwarePercentage, .useRawHardwareHealth, .calibrationStatus],
                 initial: false
             ) {
                 guard let self else { return }
@@ -127,6 +128,19 @@ class MenuViewModel {
 
     func toggleChargeToLimit() {
         chargeManager.toggleChargeToLimit()
+    }
+
+    var isCalibrating: Bool = false
+
+    func toggleCalibration() {
+        if Defaults[.calibrationStatus] != .idle {
+            Defaults[.calibrationStatus] = .idle
+        } else {
+            if chargeLimitOverrideActive { toggleChargeLimitOverride() }
+            if forceDischargeActive { toggleForceDischarge() }
+            if chargeToLimitActive { toggleChargeToLimit() }
+            Defaults[.calibrationStatus] = .discharging
+        }
     }
 
     private func updateFormattedValues(
@@ -182,8 +196,25 @@ class MenuViewModel {
         )
 
         updateUptimeText()
+        
+        let calibrationStatus = Defaults[.calibrationStatus]
+        
+        isCalibrating = (calibrationStatus != .idle)
 
-        if adapter.adapterConnected {
+        if calibrationStatus != .idle {
+            switch calibrationStatus {
+            case .discharging:
+                chargingMode = .discharging
+                batteryModeText = "Calibrating (Discharging to 15%)"
+            case .charging:
+                chargingMode = .charging
+                batteryModeText = "Calibrating (Charging to 100%)"
+            case .resting:
+                chargingMode = .pluggedIn
+                batteryModeText = "Calibrating (Resting at 100%)"
+            default: break
+            }
+        } else if adapter.adapterConnected {
             if safeMetrics.isCharging {
                 chargingMode = .charging
                 batteryModeText = "Charging"

@@ -10,6 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var viewModel: MenuViewModel!
     private var menuBuilder: MenuBuilder!
     private var chargeManager: ChargeManager!
+    private var calibrationManager: CalibrationManager!
     private var notchHUDManager: NotchHUDManager!
     private var settingsWindowController: SettingsWindowController!
     private var menu: NSMenu!
@@ -53,7 +54,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Don't Quit")
         alert.addButton(withTitle: "Quit Anyway")
-
+        
+        alert.window.level = .floating
+        alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        
+        DispatchQueue.main.async {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        
         NSSound.beep()
         let response = alert.runModal()
         if response == .alertFirstButtonReturn {
@@ -67,6 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         batteryService = BatteryService()
         await batteryService.loadCapabilities()
         chargeManager = ChargeManager(batteryService: batteryService)
+        calibrationManager = CalibrationManager(batteryService: batteryService, chargeManager: chargeManager)
         viewModel = MenuViewModel(
             batteryService: batteryService,
             chargeManager: chargeManager
@@ -156,8 +165,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func requestNotificationPermissions() {
-        // Request permission for user notifications (no changes)
-        UNUserNotificationCenter.current().requestAuthorization(
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
+        let startAction = UNNotificationAction(identifier: "START_CALIBRATION_ACTION", title: "Start Now", options: .foreground)
+        let snoozeAction = UNNotificationAction(identifier: "SNOOZE_CALIBRATION_ACTION", title: "Snooze (1 Day)", options: [])
+        let category = UNNotificationCategory(identifier: "CALIBRATION_CATEGORY", actions: [startAction, snoozeAction], intentIdentifiers: [], options: [])
+        center.setNotificationCategories([category])
+        
+        center.requestAuthorization(
             options: [.alert, .sound]
         ) { _, _ in }
     }
@@ -191,5 +207,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             rebuildMenu()
         }
         viewModel.menuDidClose()
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "START_CALIBRATION_ACTION" {
+            Defaults[.calibrationStatus] = .discharging
+        } else if response.actionIdentifier == "SNOOZE_CALIBRATION_ACTION" {
+            // Snooze logic: just bump the lastCalibrationDate slightly so it triggers again tomorrow
+            // But we can also handle a dedicated snooze defaults key. 
+            // Wait, bumping lastCalibrationDate by exactly what?
+            // Actually, setting a `snoozeDate` might be better. Let's just create a `calibrationSnoozeDate` default.
+            Defaults[.calibrationSnoozeUntil] = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        }
+        completionHandler()
     }
 }
