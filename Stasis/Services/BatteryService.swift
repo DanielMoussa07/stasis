@@ -408,6 +408,26 @@ class BatteryService {
         }
     }
 
+    func cancelOverride() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.cancelOverride { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error"))
+                }
+            }
+        }
+    }
+
     func disablePowerAdapter() async throws {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in

@@ -39,9 +39,10 @@ enum ChargingPowerState {
         return self.powerDisabled
     }
 
-    static func disableCharging() -> Bool {
-        guard !self.chargingDisabled else { return true }
-        guard let battery = self.battery, battery.capabilities.inhibitChargeControl else { return false }
+    static func disableCharging(force: Bool = false) -> (Bool, String?) {
+        guard force || !self.chargingDisabled else { return (true, nil) }
+        guard let battery = self.battery else { return (false, "Battery is nil") }
+        guard battery.capabilities.inhibitChargeControl else { return (false, "inhibitChargeControl is false") }
 
         do {
             try battery.setChargingInhibited(true)
@@ -51,16 +52,17 @@ enum ChargingPowerState {
             GlobalSleep.restore()
             let (percent, _) = IOKitHelper.getPercentRemaining()
             syncMagSafeState(percent: percent)
-            return true
+            return (true, nil)
         } catch {
             logger.error("Failed to disable charging: \(error.localizedDescription)")
-            return false
+            return (false, "Failed to disable charging: \(error.localizedDescription)")
         }
     }
 
-    static func enableCharging() -> Bool {
-        guard self.chargingDisabled else { return true }
-        guard let battery = self.battery, battery.capabilities.inhibitChargeControl else { return false }
+    static func enableCharging(force: Bool = false) -> (Bool, String?) {
+        guard force || self.chargingDisabled else { return (true, nil) }
+        guard let battery = self.battery else { return (false, "Battery is nil") }
+        guard battery.capabilities.inhibitChargeControl else { return (false, "inhibitChargeControl is false") }
 
         do {
             try battery.setChargingInhibited(false)
@@ -72,40 +74,42 @@ enum ChargingPowerState {
             }
             let (percent, _) = IOKitHelper.getPercentRemaining()
             syncMagSafeState(percent: percent)
-            return true
+            return (true, nil)
         } catch {
             logger.error("Failed to enable charging: \(error.localizedDescription)")
-            return false
+            return (false, "Failed to enable charging: \(error.localizedDescription)")
         }
     }
 
-    static func disablePowerAdapter() -> Bool {
-        guard !self.powerDisabled else { return true }
-        guard let battery = self.battery, battery.capabilities.forceDischargeControl else { return false }
+    static func disablePowerAdapter(force: Bool = false) -> (Bool, String?) {
+        guard force || !self.powerDisabled else { return (true, nil) }
+        guard let battery = self.battery else { return (false, "Battery is nil") }
+        guard battery.capabilities.forceDischargeControl else { return (false, "forceDischargeControl is false") }
 
         do {
             try battery.setForceDischarging(true)
             self.powerDisabled = true
             logger.debug("SMC set force discharging to true")
-            return true
+            return (true, nil)
         } catch {
             logger.error("Failed to disable power adapter: \(error.localizedDescription)")
-            return false
+            return (false, "Failed to disable power adapter: \(error.localizedDescription)")
         }
     }
 
-    static func enablePowerAdapter() -> Bool {
-        guard self.powerDisabled else { return true }
-        guard let battery = self.battery, battery.capabilities.forceDischargeControl else { return false }
+    static func enablePowerAdapter(force: Bool = false) -> (Bool, String?) {
+        guard force || self.powerDisabled else { return (true, nil) }
+        guard let battery = self.battery else { return (false, "Battery is nil") }
+        guard battery.capabilities.forceDischargeControl else { return (false, "forceDischargeControl is false") }
 
         do {
             try battery.setForceDischarging(false)
             self.powerDisabled = false
             logger.debug("SMC set force discharging to false")
-            return true
+            return (true, nil)
         } catch {
             logger.error("Failed to enable power adapter: \(error.localizedDescription)")
-            return false
+            return (false, "Failed to enable power adapter: \(error.localizedDescription)")
         }
     }
 

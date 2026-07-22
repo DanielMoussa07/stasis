@@ -37,8 +37,8 @@ class NotchWindow: NSPanel {
     /// The window is positioned at `CGShieldingWindowLevel` (above everything)
     /// centered at the top of the target screen, flush with the top edge.
     func showNotch<Content: View>(on screen: NSScreen, content: Content) {
-        // Use CGShieldingWindowLevel to appear above the lock screen and other HUD apps
-        level = NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
+        // Use maximum possible window level to guarantee appearing above all other HUDs like Alcove
+        level = NSWindow.Level(rawValue: Int(Int32.max))
         collectionBehavior = [.stationary, .canJoinAllSpaces, .fullScreenAuxiliary, .ignoresCycle]
 
         // Use the entire screen width so the SwiftUI view can center itself naturally

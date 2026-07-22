@@ -17,6 +17,9 @@ class NotchHUDManager {
     private var previousLowPowerMode: Bool?
     private var previousForceDischarge: Bool?
     private var previousAdapterConnected: Bool?
+    private var previousCalibrationStatus: CalibrationStatus?
+    private var previousChargeLimitOverride: Bool?
+    private var previousChargeToLimit: Bool?
 
     init(viewModel: MenuViewModel) {
         self.viewModel = viewModel
@@ -39,6 +42,9 @@ class NotchHUDManager {
             previousLowPowerMode = viewModel.isLowPowerModeEnabled
             previousForceDischarge = viewModel.forceDischargeActive
             previousAdapterConnected = viewModel.adapterConnected
+            previousCalibrationStatus = Defaults[.calibrationStatus]
+            previousChargeLimitOverride = viewModel.chargeLimitOverrideActive
+            previousChargeToLimit = viewModel.chargeToLimitActive
 
             for await _ in NotificationCenter.default.notifications(named: .NSProcessInfoPowerStateDidChange) {
                 // To allow Low Power Mode observation without polling
@@ -58,6 +64,8 @@ class NotchHUDManager {
                         _ = viewModel.isLowPowerModeEnabled
                         _ = viewModel.forceDischargeActive
                         _ = viewModel.adapterConnected
+                        _ = viewModel.chargeLimitOverrideActive
+                        _ = viewModel.chargeToLimitActive
                     } onChange: {
                         Task { @MainActor in
                             continuation.resume()
@@ -65,6 +73,15 @@ class NotchHUDManager {
                     }
                 }
                 checkStateAndShowHUD()
+            }
+        }
+
+        Task {
+            // Observe defaults for calibration
+            for await _ in Defaults.updates([.calibrationStatus], initial: false) {
+                Task { @MainActor in
+                    self.checkStateAndShowHUD()
+                }
             }
         }
     }
@@ -84,21 +101,32 @@ class NotchHUDManager {
         let currentLowPowerMode = viewModel.isLowPowerModeEnabled
         let currentForceDischarge = viewModel.forceDischargeActive
         let currentAdapterConnected = viewModel.adapterConnected
+        let currentCalibrationStatus = Defaults[.calibrationStatus]
+        let currentChargeLimitOverride = viewModel.chargeLimitOverrideActive
+        let currentChargeToLimit = viewModel.chargeToLimitActive
 
         // Determine what changed
         let modeChanged = currentChargingMode != previousChargingMode
         let lpmChanged = currentLowPowerMode != previousLowPowerMode
         let fdChanged = currentForceDischarge != previousForceDischarge
         let adapterChanged = currentAdapterConnected != previousAdapterConnected
+        let calChanged = currentCalibrationStatus != previousCalibrationStatus
+        let overrideChanged = currentChargeLimitOverride != previousChargeLimitOverride
+        let topupChanged = currentChargeToLimit != previousChargeToLimit
 
         // If something relevant changed, show HUD
-        if modeChanged || lpmChanged || fdChanged || adapterChanged {
+        if modeChanged || lpmChanged || fdChanged || adapterChanged || calChanged || overrideChanged || topupChanged {
             let text = determineStatusText(
                 chargingMode: currentChargingMode,
                 lowPowerMode: currentLowPowerMode,
                 forceDischarge: currentForceDischarge,
                 adapterConnected: currentAdapterConnected,
-                lpmChanged: lpmChanged
+                lpmChanged: lpmChanged,
+                calibrationStatus: currentCalibrationStatus,
+                chargeLimitOverride: currentChargeLimitOverride,
+                overrideChanged: overrideChanged,
+                chargeToLimit: currentChargeToLimit,
+                topupChanged: topupChanged
             )
             showHUD(with: text)
         }
@@ -108,6 +136,9 @@ class NotchHUDManager {
         previousLowPowerMode = currentLowPowerMode
         previousForceDischarge = currentForceDischarge
         previousAdapterConnected = currentAdapterConnected
+        previousCalibrationStatus = currentCalibrationStatus
+        previousChargeLimitOverride = currentChargeLimitOverride
+        previousChargeToLimit = currentChargeToLimit
     }
 
     private func determineStatusText(
@@ -115,8 +146,35 @@ class NotchHUDManager {
         lowPowerMode: Bool,
         forceDischarge: Bool,
         adapterConnected: Bool,
-        lpmChanged: Bool
+        lpmChanged: Bool,
+        calibrationStatus: CalibrationStatus,
+        chargeLimitOverride: Bool,
+        overrideChanged: Bool,
+        chargeToLimit: Bool,
+        topupChanged: Bool
     ) -> String {
+        if calibrationStatus != .idle {
+            if !adapterConnected && calibrationStatus != .discharging {
+                return "Calibrating (Paused - Plug in)"
+            }
+            if calibrationStatus == .discharging {
+                return "Calibrating (Discharging)"
+            }
+            if calibrationStatus == .charging {
+                return "Calibrating (Charging up)"
+            }
+            if calibrationStatus == .resting {
+                return "Calibrating (Resting)"
+            }
+        }
+        
+        if overrideChanged && chargeLimitOverride {
+            return "Charging to 100% (Override)"
+        }
+        
+        if topupChanged && chargeToLimit {
+            return "Top-up to Limit"
+        }
         if lowPowerMode && lpmChanged {
             return "Low Power Mode"
         }
@@ -125,6 +183,10 @@ class NotchHUDManager {
         }
         if !adapterConnected {
             return "On Battery"
+        }
+        if chargingMode == .discharging {
+            // If adapter is connected but we are discharging (and not force discharging), we must be draining to limit
+            return "Draining to Limit"
         }
         if chargingMode == .charging {
             return "Charging"
@@ -176,6 +238,10 @@ class NotchHUDManager {
         // Ensure state starts collapsed if window is not visible
         if !wasVisible {
             state.isVisible = false
+            let soundSelection = Defaults[.notchHUDSound]
+            if soundSelection != .none {
+                NSSound(named: NSSound.Name(soundSelection.rawValue))?.play()
+            }
         }
 
         // Update state content
@@ -209,7 +275,8 @@ class NotchHUDManager {
 
         // Create new hide task
         hideTask = Task {
-            try? await Task.sleep(for: .seconds(3))
+            let duration = Defaults[.notchHUDDisplayDuration]
+            try? await Task.sleep(for: .seconds(duration))
             guard !Task.isCancelled else { return }
             
             // Trigger SwiftUI collapse animation

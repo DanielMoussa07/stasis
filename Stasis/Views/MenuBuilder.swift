@@ -29,6 +29,22 @@ class MenuBuilder {
             menu.addItem(errorItem)
             menu.addItem(NSMenuItem.separator())
         }
+        
+        if let error = viewModel.daemonError {
+            let errorItem = createMenuItem(view: HStack {
+                Image(systemName: "xmark.octagon.fill")
+                    .foregroundColor(.red)
+                Text(error)
+                    .foregroundColor(.red)
+                    .font(.caption)
+                    .lineLimit(3)
+                Spacer()
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 4))
+            menu.addItem(errorItem)
+            menu.addItem(NSMenuItem.separator())
+        }
 
         let mainInfoItem = createMenuItem(
             view: BatteryMainInfoView(viewModel: viewModel)
@@ -55,6 +71,7 @@ class MenuBuilder {
                 menu.addItem(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
                 menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
                 menu.addItem(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
+                menu.addItem(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))
             }
         }
 
@@ -292,7 +309,8 @@ struct PowerSankeyViewWrapper: View {
                 : [],
             outputIcons: shouldShowOutput ? viewModel.outputIcons : [],
             hasMultiPort: viewModel.hasMultiPort,
-            connectedAccessories: viewModel.connectedAccessories
+            connectedAccessories: viewModel.connectedAccessories,
+            adapterConnected: viewModel.adapterConnected
         )
     }
 }
@@ -314,7 +332,6 @@ struct ChargeLimitOverrideToggleView: View {
             .labelsHidden()
             .toggleStyle(.switch)
             .controlSize(.mini)
-            .disabled(viewModel.forceDischargeActive || viewModel.chargeToLimitActive)
         }
         .foregroundColor(.secondary)
         .font(.callout)
@@ -340,7 +357,6 @@ struct ForceDischargeToggleView: View {
             .labelsHidden()
             .toggleStyle(.switch)
             .controlSize(.mini)
-            .disabled(viewModel.chargeLimitOverrideActive || viewModel.chargeToLimitActive)
         }
         .foregroundColor(.secondary)
         .font(.callout)
@@ -366,7 +382,6 @@ struct ChargeToLimitToggleView: View {
             .labelsHidden()
             .toggleStyle(.switch)
             .controlSize(.mini)
-            .disabled(viewModel.chargeLimitOverrideActive || viewModel.forceDischargeActive)
         }
         .foregroundColor(.secondary)
         .font(.callout)
@@ -386,6 +401,31 @@ struct DaemonErrorView: View {
                 .bold()
             Spacer()
         }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct BatteryCalibrationToggleView: View {
+    let viewModel: MenuViewModel
+
+    var body: some View {
+        HStack {
+            Text("Battery Calibration")
+            Spacer(minLength: 20)
+            Toggle(
+                "Battery Calibration",
+                isOn: Binding(
+                    get: { viewModel.isCalibrating },
+                    set: { _ in viewModel.toggleCalibration() }
+                )
+            )
+            .labelsHidden()
+            .toggleStyle(.switch)
+            .controlSize(.mini)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
         .padding(.horizontal, 14)
         .padding(.vertical, 4)
     }

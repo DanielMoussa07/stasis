@@ -20,11 +20,30 @@ enum BatteryPercentageVisibility: String, CaseIterable, Defaults.Serializable, I
     var id: Self { self }
 }
 
+enum NotchHUDSound: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case basso = "Basso"
+    case frog = "Frog"
+    case glass = "Glass"
+    case hero = "Hero"
+    case pop = "Pop"
+    case tink = "Tink"
+    case none = "None"
+    
+    var id: Self { self }
+}
+
 enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifiable {
     case macDisplayOnly = "Mac Display Only"
     case allDisplays = "All Displays"
     
     var id: Self { self }
+}
+
+enum CalibrationStatus: String, Defaults.Serializable, Equatable {
+    case idle
+    case discharging
+    case charging
+    case resting
 }
 
 extension Defaults.Keys {
@@ -63,6 +82,14 @@ extension Defaults.Keys {
     static let notchHUDDisplayMode = Key<NotchHUDDisplayMode>(
         "notchHUDDisplayMode",
         default: .macDisplayOnly
+    )
+    static let notchHUDDisplayDuration = Key<Double>(
+        "notchHUDDisplayDuration",
+        default: 3.0
+    )
+    static let notchHUDSound = Key<NotchHUDSound>(
+        "notchHUDSound",
+        default: .frog
     )
 
     // Menu Dashboard
@@ -145,4 +172,38 @@ extension Defaults.Keys {
         default: false
     )
 
+    // Calibration
+    static let enableAutomaticCalibration = Key<Bool>(
+        "enableAutomaticCalibration",
+        default: false
+    )
+    static let calibrationIntervalDays = Key<Int>(
+        "calibrationIntervalDays",
+        default: 30
+    )
+    static let calibrationTimeOfDay = Key<Date>(
+        "calibrationTimeOfDay",
+        default: {
+            var components = DateComponents()
+            components.hour = 9
+            components.minute = 0
+            return Calendar.current.date(from: components) ?? Date()
+        }()
+    )
+    static let lastCalibrationDate = Key<Date?>(
+        "lastCalibrationDate",
+        default: nil
+    )
+    static let calibrationStatus = Key<CalibrationStatus>(
+        "calibrationStatus",
+        default: .idle
+    )
+    static let calibrationStepStartTime = Key<Date?>(
+        "calibrationStepStartTime",
+        default: nil
+    )
+    static let calibrationSnoozeUntil = Key<Date?>(
+        "calibrationSnoozeUntil",
+        default: nil
+    )
 }

@@ -40,36 +40,36 @@ final class ChargingHelper: NSObject, ChargingHelperProtocol, @unchecked Sendabl
 
     func chargeToLimit(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
-            let success = ChargingPowerEvents.chargeToLimit()
-            reply(success, nil)
+            let (success, errorMessage) = ChargingPowerEvents.chargeToLimit()
+            reply(success, errorMessage)
         }
     }
 
     func chargeToFull(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
-            let success = ChargingPowerEvents.chargeToFull()
-            reply(success, nil)
+            let (success, errorMessage) = ChargingPowerEvents.chargeToFull()
+            reply(success, errorMessage)
         }
     }
 
     func disableCharging(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
-            let success = ChargingPowerEvents.disableCharging()
-            reply(success, nil)
+            let (success, errorMessage) = ChargingPowerEvents.disableCharging()
+            reply(success, errorMessage)
         }
     }
 
     func disablePowerAdapter(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
-            let success = ChargingPowerState.disablePowerAdapter()
-            reply(success, nil)
+            let (success, errorMessage) = ChargingPowerEvents.forceDischarge()
+            reply(success, errorMessage)
         }
     }
 
     func enablePowerAdapter(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
-            let success = ChargingPowerState.enablePowerAdapter()
-            reply(success, nil)
+            let (success, errorMessage) = ChargingPowerState.enablePowerAdapter(force: true)
+            reply(success, errorMessage)
         }
     }
 
@@ -77,6 +77,13 @@ final class ChargingHelper: NSObject, ChargingHelperProtocol, @unchecked Sendabl
         Task { @MainActor in
             let success = ChargingPowerState.manageMagsafeLED(target: target)
             reply(success, nil)
+        }
+    }
+
+    func cancelOverride(reply: @escaping @Sendable (Bool, String?) -> Void) {
+        Task { @MainActor in
+            let (success, errorMessage) = ChargingPowerEvents.cancelOverride()
+            reply(success, errorMessage)
         }
     }
 

@@ -147,8 +147,13 @@ struct AboutSettingsView: View {
                         let installing = !helperManager.isInstalled
                         do {
                             if installing {
+                                NSApp.activate(ignoringOtherApps: true)
                                 try helperManager.install()
-                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
+                                if helperManager.helperStatus == .requiresApproval {
+                                    NSAlert.show(title: "Action Required", message: "Please open System Settings -> General -> Login Items and allow Stasis to run in the background, then try again.", style: .warning)
+                                } else {
+                                    NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
+                                }
                             } else {
                                 try helperManager.uninstall()
                                 NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled. The app will now restart.")
@@ -165,7 +170,7 @@ struct AboutSettingsView: View {
             } header: {
                 Text("Privileged Helper")
             } footer: {
-                Text("The helper daemon runs in the background to manage battery charging states.")
+                Text("The helper daemon runs in the background to manage battery charging states.\n\nNote: macOS intentionally retains apps in the \"App Background Activity\" list (System Settings) even after their background helper is unregistered. Once you click Uninstall, the helper is truly disabled, but macOS will keep Stasis visible in that list until the app itself is deleted from your Mac.")
             }
 
             Section {
@@ -249,8 +254,12 @@ extension NSAlert {
         alert.alertStyle = style
         alert.addButton(withTitle: "OK")
         
-        // Force the app to the foreground so the alert isn't hidden behind other windows
-        NSApp.activate(ignoringOtherApps: true)
+        alert.window.level = .floating
+        alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        
+        DispatchQueue.main.async {
+            NSApp.activate(ignoringOtherApps: true)
+        }
         
         NSSound.beep()
         alert.runModal()

@@ -10,6 +10,8 @@ struct GeneralSettingsView: View {
     @Default(.enableNotchHUD) var enableNotchHUD
     @Default(.showNotchHUDOnLockScreen) var showNotchHUDOnLockScreen
     @Default(.notchHUDDisplayMode) var notchHUDDisplayMode
+    @Default(.notchHUDDisplayDuration) var notchHUDDisplayDuration
+    @Default(.notchHUDSound) var notchHUDSound
 
     var body: some View {
         Form {
@@ -56,6 +58,24 @@ struct GeneralSettingsView: View {
                         ForEach(NotchHUDDisplayMode.allCases) { mode in
                             Text(LocalizedStringKey(mode.rawValue)).tag(mode)
                         }
+                    }
+                    Picker("Sound", selection: $notchHUDSound) {
+                        ForEach(NotchHUDSound.allCases) { sound in
+                            Text(LocalizedStringKey(sound.rawValue))
+                                .tag(sound)
+                                .onHover { isHovering in
+                                    if isHovering && sound != .none {
+                                        NSSound(named: NSSound.Name(sound.rawValue))?.play()
+                                    }
+                                }
+                        }
+                    }
+                    Picker("Duration", selection: $notchHUDDisplayDuration) {
+                        Text("1 second").tag(1.0)
+                        Text("2 seconds").tag(2.0)
+                        Text("3 seconds").tag(3.0)
+                        Text("5 seconds").tag(5.0)
+                        Text("10 seconds").tag(10.0)
                     }
                 }
             } header: {

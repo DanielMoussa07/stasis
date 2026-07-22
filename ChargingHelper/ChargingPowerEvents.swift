@@ -11,6 +11,7 @@ enum ChargingPowerEvents {
         case standard
         case toLimit
         case toFull
+        case forceDischarge
     }
 
     static var chargingMode = ChargingMode.standard
@@ -76,19 +77,29 @@ enum ChargingPowerEvents {
         PowerEvents.deregister()
     }
 
-    static func chargeToLimit() -> Bool {
+    static func chargeToLimit() -> (Bool, String?) {
         self.chargingMode = .toLimit
-        return evaluateState()
+        return evaluateState(force: true)
     }
 
-    static func chargeToFull() -> Bool {
+    static func chargeToFull() -> (Bool, String?) {
         self.chargingMode = .toFull
-        return evaluateState()
+        return evaluateState(force: true)
     }
 
-    static func disableCharging() -> Bool {
+    static func disableCharging() -> (Bool, String?) {
         self.chargingMode = .standard
-        return ChargingPowerState.disableCharging()
+        return ChargingPowerState.disableCharging(force: true)
+    }
+
+    static func forceDischarge() -> (Bool, String?) {
+        self.chargingMode = .forceDischarge
+        return evaluateState(force: true)
+    }
+
+    static func cancelOverride() -> (Bool, String?) {
+        self.chargingMode = .standard
+        return evaluateState(force: true)
     }
 
     static func settingsChanged() {
@@ -104,7 +115,7 @@ enum ChargingPowerEvents {
     }
 
     @discardableResult
-    private static func evaluateState() -> Bool {
+    static func evaluateState(force: Bool = false) -> (Bool, String?) {
         let (percent, _) = IOKitHelper.getPercentRemaining()
         
         // Heat Protection
@@ -112,17 +123,22 @@ enum ChargingPowerEvents {
            let temp = IOKitHelper.getBatteryTemperature(),
            temp > Double(ChargingSettings.heatProtectionLimit) {
             logger.info("Heat protection engaged (Temp: \(temp)C). Disabling charging.")
-            return ChargingPowerState.disableCharging()
+            return ChargingPowerState.disableCharging(force: force)
+        }
+        
+        if self.chargingMode == .forceDischarge {
+            _ = ChargingPowerState.disableCharging(force: force)
+            return ChargingPowerState.disablePowerAdapter(force: force)
         }
 
         if !ChargingSettings.manageCharging {
             // Respect the one-time overrides
             if self.chargingMode == .toLimit && percent < ChargingSettings.chargeLimit {
-                return ChargingPowerState.enableCharging()
+                return ChargingPowerState.enableCharging(force: force)
             } else if self.chargingMode == .toFull && percent < 100 {
-                return ChargingPowerState.enableCharging()
+                return ChargingPowerState.enableCharging(force: force)
             }
-            return ChargingPowerState.enableCharging()
+            return ChargingPowerState.enableCharging(force: force)
         }
 
         let limit = ChargingSettings.chargeLimit
@@ -131,33 +147,34 @@ enum ChargingPowerEvents {
         if !isUnlimited {
             // When disconnected, reset to standard so that next plug-in resumes normal limits
             self.chargingMode = .standard
-            return ChargingPowerState.disableCharging()
+            return ChargingPowerState.disableCharging(force: force)
         }
 
         // Hysteresis logic
         if percent >= limit {
             if self.chargingMode == .toFull && percent < 100 {
-                return ChargingPowerState.enableCharging()
+                _ = ChargingPowerState.enablePowerAdapter(force: force)
+                return ChargingPowerState.enableCharging(force: force)
             } else {
                 if ChargingSettings.automaticDischarge && percent > limit {
-                    _ = ChargingPowerState.disablePowerAdapter()
+                    _ = ChargingPowerState.disablePowerAdapter(force: force)
                 } else {
-                    _ = ChargingPowerState.enablePowerAdapter()
+                    _ = ChargingPowerState.enablePowerAdapter(force: force)
                 }
-                return ChargingPowerState.disableCharging()
+                return ChargingPowerState.disableCharging(force: force)
             }
         } else {
-            _ = ChargingPowerState.enablePowerAdapter()
+            _ = ChargingPowerState.enablePowerAdapter(force: force)
             
-            if ChargingSettings.sailingMode {
+            if ChargingSettings.sailingMode && self.chargingMode == .standard {
                 let sailingThreshold = limit >= ChargingSettings.sailingModeLimit ? limit - ChargingSettings.sailingModeLimit : 0
                 if percent >= sailingThreshold && ChargingPowerState.isChargingDisabled() {
                     // Stay disabled in sailing mode range
                     ChargingPowerState.syncMagSafeState(percent: percent)
-                    return true
+                    return (true, nil)
                 }
             }
-            return ChargingPowerState.enableCharging()
+            return ChargingPowerState.enableCharging(force: force)
         }
     }
 }

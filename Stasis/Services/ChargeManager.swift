@@ -19,6 +19,7 @@ class ChargeManager {
     private(set) var forceDischargeActive = false
     private(set) var chargeToLimitActive = false
     private(set) var daemonSyncError = false
+    private(set) var daemonError: String? = nil
     private var hasShownDaemonErrorAlert = false
 
     private let logger = Logger(
@@ -104,8 +105,14 @@ class ChargeManager {
         alert.addButton(withTitle: "Open Settings")
         alert.addButton(withTitle: "Dismiss")
         
+        alert.window.level = .floating
+        alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        
+        DispatchQueue.main.async {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        
         NSSound.beep()
-        // Use runModal on main thread
         let response = alert.runModal()
         if response == .alertFirstButtonReturn {
             SMAppService.openSystemSettingsLoginItems()
@@ -114,16 +121,26 @@ class ChargeManager {
 
     func toggleChargeLimitOverride() {
         chargeLimitOverrideActive.toggle()
+        if chargeLimitOverrideActive {
+            forceDischargeActive = false
+            chargeToLimitActive = false
+            if Defaults[.calibrationStatus] != .idle {
+                Defaults[.calibrationStatus] = .idle
+            }
+        }
         Task {
             do {
                 if chargeLimitOverrideActive {
                     try await batteryService.chargeToFull()
                 } else {
-                    try await batteryService.disableCharging()
+                    try await batteryService.cancelOverride()
+                    syncSettingsToDaemon()
                 }
                 batteryService.scheduleSinglePoll()
+                self.daemonError = nil
             } catch {
                 logger.error("Failed to toggle charge limit override: \(error.localizedDescription)")
+                self.daemonError = error.localizedDescription
                 chargeLimitOverrideActive.toggle() // revert on failure
             }
         }
@@ -131,16 +148,26 @@ class ChargeManager {
 
     func toggleForceDischarge() {
         forceDischargeActive.toggle()
+        if forceDischargeActive {
+            chargeLimitOverrideActive = false
+            chargeToLimitActive = false
+            if Defaults[.calibrationStatus] != .idle {
+                Defaults[.calibrationStatus] = .idle
+            }
+        }
         Task {
             do {
                 if forceDischargeActive {
                     try await batteryService.disablePowerAdapter()
                 } else {
-                    try await batteryService.enablePowerAdapter()
+                    try await batteryService.cancelOverride()
+                    syncSettingsToDaemon()
                 }
                 batteryService.scheduleSinglePoll()
+                self.daemonError = nil
             } catch {
                 logger.error("Failed to toggle force discharge: \(error.localizedDescription)")
+                self.daemonError = error.localizedDescription
                 forceDischargeActive.toggle() // revert on failure
             }
         }
@@ -148,19 +175,26 @@ class ChargeManager {
 
     func toggleChargeToLimit() {
         chargeToLimitActive.toggle()
+        if chargeToLimitActive {
+            chargeLimitOverrideActive = false
+            forceDischargeActive = false
+            if Defaults[.calibrationStatus] != .idle {
+                Defaults[.calibrationStatus] = .idle
+            }
+        }
         Task {
             do {
                 if chargeToLimitActive {
                     try await batteryService.chargeToLimit()
                 } else {
-                    // Turn off top-up logic by telling the daemon to either disable charging or resume whatever manageCharging specifies
-                    try await batteryService.disableCharging()
-                    // Alternatively, we could sync settings to reset the default behavior
+                    try await batteryService.cancelOverride()
                     syncSettingsToDaemon()
                 }
                 batteryService.scheduleSinglePoll()
+                self.daemonError = nil
             } catch {
                 logger.error("Failed to toggle charge to limit: \(error.localizedDescription)")
+                self.daemonError = error.localizedDescription
                 chargeToLimitActive.toggle() // revert on failure
             }
         }
