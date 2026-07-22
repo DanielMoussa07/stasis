@@ -20,6 +20,18 @@ enum BatteryPercentageVisibility: String, CaseIterable, Defaults.Serializable, I
     var id: Self { self }
 }
 
+enum NotchHUDSound: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case basso = "Basso"
+    case frog = "Frog"
+    case glass = "Glass"
+    case hero = "Hero"
+    case pop = "Pop"
+    case tink = "Tink"
+    case none = "None"
+    
+    var id: Self { self }
+}
+
 enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifiable {
     case macDisplayOnly = "Mac Display Only"
     case allDisplays = "All Displays"
@@ -74,6 +86,10 @@ extension Defaults.Keys {
     static let notchHUDDisplayDuration = Key<Double>(
         "notchHUDDisplayDuration",
         default: 3.0
+    )
+    static let notchHUDSound = Key<NotchHUDSound>(
+        "notchHUDSound",
+        default: .frog
     )
 
     // Menu Dashboard

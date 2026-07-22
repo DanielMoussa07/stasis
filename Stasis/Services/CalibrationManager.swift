@@ -108,8 +108,8 @@ class CalibrationManager {
                 switch status {
                 case .discharging:
                     let batteryPercentage = Defaults[.useHardwarePercentage] ? metrics.hardwareBatteryPercentage : metrics.batteryPercentage
-                    // Testing: 70%
-                    if batteryPercentage <= 70 {
+                    // Production: 15%
+                    if batteryPercentage <= 15 {
                         logger.info("Discharge step complete. Moving to charging step.")
                         Defaults[.calibrationStatus] = .charging
                         try await batteryService.enablePowerAdapter()
@@ -121,12 +121,12 @@ class CalibrationManager {
                     batteryService.scheduleSinglePoll()
                 case .charging:
                     let batteryPercentage = Defaults[.useHardwarePercentage] ? metrics.hardwareBatteryPercentage : metrics.batteryPercentage
-                    // Testing: 90%
-                    if batteryPercentage >= 90 {
+                    // Production: 100%
+                    if batteryPercentage >= 100 {
                         logger.info("Charging step complete. Moving to resting step.")
                         Defaults[.calibrationStatus] = .resting
                         Defaults[.calibrationStepStartTime] = Date()
-                        // Keep it charged
+                        // Keep it topped up during rest
                         try await batteryService.chargeToFull()
                     } else {
                         // Ensure it's charging
@@ -138,12 +138,12 @@ class CalibrationManager {
                         Defaults[.calibrationStepStartTime] = Date()
                         return
                     }
-                    // Testing: 10 mins
+                    // Production: 120 mins (2 hours)
                     let elapsedMinutes = Date().timeIntervalSince(startTime) / 60
-                    if elapsedMinutes >= 10.0 {
+                    if elapsedMinutes >= 120.0 {
                         finishCalibration()
                     } else {
-                        // Keep it charged
+                        // Keep it resting and topped up
                         try await batteryService.chargeToFull()
                     }
                 case .idle:

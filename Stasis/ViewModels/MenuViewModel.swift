@@ -153,7 +153,9 @@ class MenuViewModel {
         // Rely on SMC battery power instead of IOKit's lagging flag to determine true charging state.
         let physicallyCharging = metrics.batteryPower > 0.05
 
-        if adapter.adapterConnected && !lastAdapterConnected {
+        let logicallyPluggedIn = safeMetrics.externalConnected
+
+        if logicallyPluggedIn && !lastAdapterConnected {
             isChargingHoldUntil = now.addingTimeInterval(5.0)
             stableIsCharging = true
         } else if physicallyCharging {
@@ -163,7 +165,7 @@ class MenuViewModel {
             stableIsCharging = false
         }
 
-        lastAdapterConnected = adapter.adapterConnected
+        lastAdapterConnected = logicallyPluggedIn
         safeMetrics.isCharging = stableIsCharging
 
         let useHardware = Defaults[.useHardwarePercentage]
@@ -191,11 +193,13 @@ class MenuViewModel {
             batteryCurrent: safeMetrics.batteryCurrent,
             powerSource: derivedPowerSource,
             isCharging: safeMetrics.isCharging,
-            adapterConnected: adapter.adapterConnected,
+            adapterConnected: safeMetrics.externalConnected,
             batteryPercentage: percentage
         )
 
         updateUptimeText()
+
+        let physicallyPluggedIn = adapter.adapterConnected
         
         let calibrationStatus = Defaults[.calibrationStatus]
         
@@ -207,24 +211,44 @@ class MenuViewModel {
                 chargingMode = .discharging
                 batteryModeText = "Calibrating (Discharging to 15%)"
             case .charging:
-                chargingMode = .charging
-                batteryModeText = "Calibrating (Charging to 100%)"
+                if logicallyPluggedIn {
+                    chargingMode = .charging
+                    batteryModeText = "Calibrating (Charging to 100%)"
+                } else {
+                    chargingMode = .discharging
+                    batteryModeText = "Calibrating (Paused - Plug in)"
+                }
             case .resting:
-                chargingMode = .pluggedIn
-                batteryModeText = "Calibrating (Resting at 100%)"
+                if logicallyPluggedIn {
+                    chargingMode = .pluggedIn
+                    batteryModeText = "Calibrating (Resting at 100%)"
+                } else {
+                    chargingMode = .discharging
+                    batteryModeText = "Calibrating (Paused - Plug in)"
+                }
             default: break
             }
-        } else if adapter.adapterConnected {
+        } else if logicallyPluggedIn {
             if safeMetrics.isCharging {
                 chargingMode = .charging
-                batteryModeText = "Charging"
+                if chargeLimitOverrideActive {
+                    batteryModeText = "Charging to 100% (Override)"
+                } else if chargeToLimitActive {
+                    batteryModeText = "Charging to Limit"
+                } else {
+                    batteryModeText = "Charging"
+                }
             } else {
                 chargingMode = .pluggedIn
                 batteryModeText = "Plugged In (Not Charging)"
             }
         } else {
             chargingMode = .discharging
-            batteryModeText = "Discharging"
+            if physicallyPluggedIn && forceDischargeActive {
+                batteryModeText = "Force Discharging"
+            } else {
+                batteryModeText = "Discharging"
+            }
         }
 
         batteryTemperatureText =
@@ -354,7 +378,7 @@ class MenuViewModel {
         battery: BatteryMetrics,
         adapter: AdapterMetrics
     ) -> PowerSource {
-        guard adapter.adapterConnected else { return .battery }
+        guard battery.externalConnected else { return .battery }
 
         if battery.batteryPower >= 0 {
             return .acAdapter
