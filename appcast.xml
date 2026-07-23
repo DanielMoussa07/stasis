@@ -5,6 +5,14 @@
         <description>Most recent changes for Stasis.</description>
         <language>en</language>
         <item>
+            <title>0.11.0</title>
+            <pubDate>Thu, 23 Jul 2026 07:11:58 +0000</pubDate>
+            <sparkle:version>55</sparkle:version>
+            <sparkle:shortVersionString>0.11.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.11.0/Stasis.dmg" length="2639493" type="application/octet-stream" sparkle:edSignature="e6ybItWrVdQtoEnxebYJUzkspZA6CV4qUzC3tujVqr+kLNBYpdbQ/ijlRh4r7YayFw2GP0WCVIwqxXYCnY/PCw=="/>
+        </item>
+        <item>
             <title>0.10.0</title>
             <pubDate>Sat, 18 Jul 2026 17:23:16 +0000</pubDate>
             <sparkle:version>54</sparkle:version>
@@ -19,14 +27,6 @@
             <sparkle:shortVersionString>0.9.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.9.0/Stasis.dmg" length="2562311" type="application/octet-stream" sparkle:edSignature="eWWXsbe2LohQ5oYrtU8mEIlc3DKvwPcrjQViUM1+5E70Rr1v8kG41q/qAL9LGgMGDeuLh9MqKAisX9xTyJGuBQ=="/>
-        </item>
-        <item>
-            <title>0.8.2</title>
-            <pubDate>Tue, 23 Jun 2026 07:26:33 +0000</pubDate>
-            <sparkle:version>52</sparkle:version>
-            <sparkle:shortVersionString>0.8.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.8.2/Stasis.dmg" length="2546471" type="application/octet-stream" sparkle:edSignature="hCEwmMZMCOXab4XMq+23ShjqPqHWJKW/l44ovpCJVQll0buloqfH7xHrTTbsB0At2kagQcoFWRhFZxPWPIHmCg=="/>
         </item>
     </channel>
 </rss>
