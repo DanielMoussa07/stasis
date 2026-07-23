@@ -209,11 +209,11 @@ class MenuViewModel {
             switch calibrationStatus {
             case .discharging:
                 chargingMode = .discharging
-                batteryModeText = "Calibrating (Discharging to 15%)"
+                batteryModeText = String(localized: "Calibrating (Discharging to \(0.15, format: .percent.precision(.fractionLength(0))))")
             case .charging:
                 if logicallyPluggedIn {
                     chargingMode = .charging
-                    batteryModeText = "Calibrating (Charging to 100%)"
+                    batteryModeText = String(localized: "Calibrating (Charging to \(1.0, format: .percent.precision(.fractionLength(0))))")
                 } else {
                     chargingMode = .discharging
                     batteryModeText = "Calibrating (Paused - Plug in)"
@@ -221,7 +221,7 @@ class MenuViewModel {
             case .resting:
                 if logicallyPluggedIn {
                     chargingMode = .pluggedIn
-                    batteryModeText = "Calibrating (Resting at 100%)"
+                    batteryModeText = String(localized: "Calibrating (Resting at \(1.0, format: .percent.precision(.fractionLength(0))))")
                 } else {
                     chargingMode = .discharging
                     batteryModeText = "Calibrating (Paused - Plug in)"
@@ -232,7 +232,7 @@ class MenuViewModel {
             if safeMetrics.isCharging {
                 chargingMode = .charging
                 if chargeLimitOverrideActive {
-                    batteryModeText = "Charging to 100% (Override)"
+                    batteryModeText = String(localized: "Charging to \(1.0, format: .percent.precision(.fractionLength(0))) (Override)")
                 } else if chargeToLimitActive {
                     batteryModeText = "Charging to Limit"
                 } else {
@@ -312,7 +312,6 @@ class MenuViewModel {
         }
         
         // Smart map accessories to output ports based on power
-        var matchedIcons: [String] = []
         var availableAccessories = safeMetrics.connectedAccessories
         
         // Priority for matching

@@ -169,7 +169,7 @@ class NotchHUDManager {
         }
         
         if overrideChanged && chargeLimitOverride {
-            return "Charging to 100% (Override)"
+            return String(localized: "Charging to \(1.0, format: .percent.precision(.fractionLength(0))) (Override)")
         }
         
         if topupChanged && chargeToLimit {

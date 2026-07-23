@@ -29,34 +29,6 @@
         }
       }
     },
-    "%lld%%" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld%%"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld%%"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld%%"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld%%"
-          }
-        }
-      }
-    },
     "%lld°C" : {
       "localizations" : {
         "de" : {
@@ -85,6 +57,146 @@
         }
       }
     },
+    "1 second" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Sekunde"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 segundo"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 segundo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1秒"
+          }
+        }
+      }
+    },
+    "2 seconds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 Sekunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 segundos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 segundos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2秒"
+          }
+        }
+      }
+    },
+    "3 seconds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 Sekunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 segundos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 segundos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3秒"
+          }
+        }
+      }
+    },
+    "5 seconds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 Sekunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 segundos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 segundos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5秒"
+          }
+        }
+      }
+    },
+    "10 seconds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 Sekunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 segundos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 segundos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10秒"
+          }
+        }
+      }
+    },
     "About" : {
       "localizations" : {
         "de" : {
@@ -108,7 +220,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "情報"
+            "value" : "バージョン情報"
           }
         }
       }
@@ -477,6 +589,62 @@
         }
       }
     },
+    "Battery Calibration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batterie-Kalibrierung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibración de batería"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibración de batería"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バッテリーのキャリブレーション"
+          }
+        }
+      }
+    },
+    "Battery calibration is not supported on this device." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batterie-Kalibrierung wird auf diesem Gerät nicht unterstützt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La calibración de batería no es compatible con este dispositivo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La calibración de batería no es compatible con este dispositivo."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このデバイスではバッテリーのキャリブレーションはサポートされていません。"
+          }
+        }
+      }
+    },
     "Battery Health" : {
       "localizations" : {
         "de" : {
@@ -785,6 +953,121 @@
         }
       }
     },
+    "Calibrating (Charging to %@)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrierung (Lädt auf %@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Cargando al %@)"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Cargando al %@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャリブレーション中 (%@まで充電)"
+          }
+        }
+      }
+    },
+    "Calibrating (Discharging to %@)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrierung (Entlädt auf %@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Descargando al %@)"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Descargando al %@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャリブレーション中 (%@まで放電)"
+          }
+        }
+      }
+    },
+    "Calibrating (Resting at %@)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrierung (Ruht bei %@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Descansando al %@)"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrando (Descansando al %@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャリブレーション中 (%@で待機)"
+          }
+        }
+      }
+    },
+    "Cancel Calibration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrierung abbrechen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar calibración"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar calibración"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャリブレーションをキャンセル"
+          }
+        }
+      }
+    },
     "Charge limit" : {
       "localizations" : {
         "de" : {
@@ -908,13 +1191,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Carga"
+            "value" : "Cargando"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Carga"
+            "value" : "Cargando"
           }
         },
         "ja" : {
@@ -949,64 +1232,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "このデバイスでは充電の制御はサポートされていません。"
-          }
-        }
-      }
-    },
-    "Charging Paused" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laden pausiert"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carga pausada"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carga pausada"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充電を一時停止"
-          }
-        }
-      }
-    },
-    "Charging Resumed" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laden fortgesetzt"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carga reanudada"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carga reanudada"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "充電を再開"
           }
         }
       }
@@ -1063,6 +1288,64 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "充電状態の変更"
+          }
+        }
+      }
+    },
+    "Charging to %@ (Override)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lädt auf %@ (Überschreiben)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando al %@ (Anulación)"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando al %@ (Anulación)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@まで充電中 (オーバーライド)"
+          }
+        }
+      }
+    },
+    "Charging to %@..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lädt auf %@..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando al %@..."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando al %@..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@まで充電中..."
           }
         }
       }
@@ -1324,7 +1607,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Übersicht"
+            "value" : "Dashboard"
           }
         },
         "es" : {
@@ -1515,6 +1798,63 @@
         }
       }
     },
+    "Discharging to %@..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entlädt auf %@..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargando al %@..."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargando al %@..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@まで放電中..."
+          }
+        }
+      }
+    },
+    "Display a floating Dynamic Island-style HUD when the charging state changes." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein schwebendes HUD im Dynamic-Island-Stil anzeigen, wenn sich der Ladezustand ändert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muestra un HUD flotante al estilo Dynamic Island cuando cambia el estado de carga."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muestra un HUD flotante al estilo Dynamic Island cuando cambia el estado de carga."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充電状態が変わったときに、Dynamic IslandスタイルのフローティングHUDを表示します。"
+          }
+        }
+      }
+    },
     "Display battery percentage next to or inside the menu bar icon." : {
       "localizations" : {
         "de" : {
@@ -1543,31 +1883,86 @@
         }
       }
     },
-    "Display the current battery percentage next to the status icon in the menu bar." : {
-      "extractionState" : "stale",
+    "Display mode" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Den aktuellen Batterieprozentsatz neben dem Statussymbol in der Menüleiste anzeigen."
+            "value" : "Anzeigemodus"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar el porcentaje de batería actual junto al ícono en la barra de menú."
+            "value" : "Modo de visualización"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar el porcentaje de batería actual junto al ícono en la barra de menú."
+            "value" : "Modo de visualización"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "メニューバーのステータスアイコンの横にバッテリー残量を表示します。"
+            "value" : "表示モード"
+          }
+        }
+      }
+    },
+    "Duration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dauer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duración"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duración"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期間"
+          }
+        }
+      }
+    },
+    "Enable automatic calibration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatische Kalibrierung aktivieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar calibración automática"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar calibración automática"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動キャリブレーションを有効にする"
           }
         }
       }
@@ -1628,59 +2023,143 @@
         }
       }
     },
-    "Failed to install charging helper" : {
-      "extractionState" : "stale",
+    "Every 7 days" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ladehelfer konnte nicht installiert werden"
+            "value" : "Alle 7 Tage"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error al instalar el asistente de carga"
+            "value" : "Cada 7 días"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error al instalar el asistente de carga"
+            "value" : "Cada 7 días"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "充電ヘルパーのインストールに失敗しました"
+            "value" : "7日ごと"
           }
         }
       }
     },
-    "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **100%** in **System Settings → Battery**." : {
+    "Every 14 days" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Für ein zuverlässiges Lademanagement stellen Sie sicher, dass „Optimiertes Laden der Batterie“ deaktiviert ist und das native Ladelimit von Apple unter **Systemeinstellungen → Batterie** genau auf **100 %** eingestellt ist."
+            "value" : "Alle 14 Tage"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para una gestión de carga fiable, asegúrate de que \"Recarga optimizada\" esté desactivada y el Límite de carga nativo de Apple esté exactamente al **100 %** en **Ajustes del Sistema → Batería**."
+            "value" : "Cada 14 días"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para una gestión de carga confiable, asegúrate de que la \"Recarga optimizada\" esté desactivada y el Límite de carga nativo de Apple esté exactamente al **100 %** en **Configuración del Sistema → Batería**."
+            "value" : "Cada 14 días"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "信頼性の高い充電管理を行うには、「バッテリー充電の最適化」が無効になっており、Apple純正の充電上限が**システム設定 → バッテリー**で正確に**100%**になっていることを確認してください。"
+            "value" : "14日ごと"
+          }
+        }
+      }
+    },
+    "Every 30 days" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle 30 Tage"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 30 días"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 30 días"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30日ごと"
+          }
+        }
+      }
+    },
+    "Every 60 days" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle 60 Tage"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 60 días"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 60 días"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "60日ごと"
+          }
+        }
+      }
+    },
+    "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **%@** in **System Settings → Battery**." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für ein zuverlässiges Lademanagement stellen Sie sicher, dass „Optimiertes Laden der Batterie“ deaktiviert ist und das native Ladelimit von Apple unter **Systemeinstellungen → Batterie** genau auf **%@** eingestellt ist."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para una gestión de carga fiable, asegúrate de que \"Recarga optimizada\" esté desactivada y el Límite de carga nativo de Apple esté exactamente al **%@** en **Ajustes del Sistema → Batería**."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para una gestión de carga confiable, asegúrate de que la \"Recarga optimizada\" esté desactivada y el Límite de carga nativo de Apple esté exactamente al **%@** en **Configuración del Sistema → Batería**."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "信頼性の高い充電管理を行うには、「バッテリー充電の最適化」が無効になっており、Apple純正の充電上限が**システム設定 → バッテリー**で正確に**%@**になっていることを確認してください。"
           }
         }
       }
@@ -1853,93 +2332,6 @@
         }
       }
     },
-    "Hidden" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versteckt"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oculto"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oculto"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "非表示"
-          }
-        }
-      }
-    },
-    "Inside (Outside on power)" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Innen (Außen bei Strom)"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dentro (Fuera con energía)"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adentro (Afuera con energía)"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "中（給電中は外）"
-          }
-        }
-      }
-    },
-    "Inside icon" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Im Symbol"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dentro del icono"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dentro del ícono"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アイコンの中"
-          }
-        }
-      }
-    },
     "Install" : {
       "localizations" : {
         "de" : {
@@ -1973,25 +2365,110 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hilfsdaemon installieren"
+            "value" : "Hilfsdienst installieren"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Instalar daemon asistente"
+            "value" : "Instalar demonio auxiliar"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Instalar daemon de asistencia"
+            "value" : "Instalar demonio auxiliar"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ヘルパーデーモンをインストール"
+          }
+        }
+      }
+    },
+    "Interval" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intervall"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intervalo"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intervalo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "間隔"
+          }
+        }
+      }
+    },
+    "It's time for your scheduled battery calibration. This will discharge your Mac to %@ before recharging." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist Zeit für Ihre geplante Batteriekalibrierung. Dadurch wird Ihr Mac auf %@ entladen, bevor er wieder aufgeladen wird."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es hora de la calibración programada de la batería. Esto descargará su Mac al %@ antes de recargar."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es hora de la calibración programada de la batería. Esto descargará su Mac al %@ antes de recargar."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "予定されているバッテリーのキャリブレーションの時間です。これにより、再充電する前にMacが%@まで放電されます。"
+          }
+        }
+      }
+    },
+    "Last calibrated on %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuletzt kalibriert am %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última calibración el %@"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última calibración el %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前回のキャリブレーション: %@"
           }
         }
       }
@@ -2276,31 +2753,58 @@
         }
       }
     },
-    "Next to icon" : {
-      "extractionState" : "stale",
+    "Never calibrated" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Neben dem Symbol"
+            "value" : "Nie kalibriert"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Junto al icono"
+            "value" : "Nunca calibrado"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Junto al ícono"
+            "value" : "Nunca calibrado"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アイコンの横"
+            "value" : "キャリブレーション未実行"
+          }
+        }
+      }
+    },
+    "Notch HUD" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notch-HUD"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notch HUD"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notch HUD"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノッチ HUD"
           }
         }
       }
@@ -2385,35 +2889,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "オフ"
-          }
-        }
-      }
-    },
-    "Ok" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ok"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ok"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ok"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
           }
         }
       }
@@ -2582,6 +3057,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バッテリー温度がしきい値を超えた場合に充電を一時停止します。"
+          }
+        }
+      }
+    },
+    "Periodically run a full discharge and recharge cycle to maintain accurate battery capacity readings." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Führen Sie regelmäßig einen vollständigen Entlade- und Ladezyklus durch, um genaue Messwerte der Batteriekapazität zu erhalten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejecute periódicamente un ciclo completo de descarga y recarga para mantener lecturas precisas de la capacidad de la batería."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejecute periódicamente un ciclo completo de descarga y recarga para mantener lecturas precisas de la capacidad de la batería."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バッテリー容量を正確に読み取るために、定期的に完全な放電と充電のサイクルを実行してください。"
           }
         }
       }
@@ -2950,6 +3453,35 @@
         }
       }
     },
+    "Resting at %@..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruht bei %@..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descansando al %@..."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descansando al %@..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@で待機中..."
+          }
+        }
+      }
+    },
     "Sailing Mode" : {
       "localizations" : {
         "de" : {
@@ -3034,35 +3566,6 @@
         }
       }
     },
-    "Show battery percentage" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batterieprozentsatz anzeigen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar porcentaje de batería"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar porcentaje de batería"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バッテリー残量を表示"
-          }
-        }
-      }
-    },
     "Show battery state" : {
       "localizations" : {
         "de" : {
@@ -3091,6 +3594,34 @@
         }
       }
     },
+    "Show charging state in Notch HUD" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ladezustand im Notch-HUD anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar el estado de carga en el Notch HUD"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar el estado de carga en el Notch HUD"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノッチHUDに充電状態を表示"
+          }
+        }
+      }
+    },
     "Show manual charging controls" : {
       "localizations" : {
         "de" : {
@@ -3115,6 +3646,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "手動充電コントロールを表示"
+          }
+        }
+      }
+    },
+    "Show on lock screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Sperrbildschirm anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar en la pantalla de bloqueo"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar en la pantalla de bloqueo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロック画面に表示"
           }
         }
       }
@@ -3171,6 +3730,62 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "スリープ防止"
+          }
+        }
+      }
+    },
+    "Sound" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サウンド"
+          }
+        }
+      }
+    },
+    "Start Calibration Now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrierung jetzt starten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar calibración ahora"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar calibración ahora"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今すぐキャリブレーションを開始"
           }
         }
       }
@@ -3371,30 +3986,30 @@
         }
       }
     },
-    "The helper daemon runs in the background to manage battery charging states." : {
+    "The helper daemon runs in the background to manage battery charging states.\n\nNote: macOS intentionally retains apps in the \"App Background Activity\" list (System Settings) even after their background helper is unregistered. Once you click Uninstall, the helper is truly disabled, but macOS will keep Stasis visible in that list until the app itself is deleted from your Mac." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Hilfsdaemon läuft im Hintergrund, um die Batterieladezustände zu verwalten."
+            "value" : "Der Helper-Daemon läuft im Hintergrund, um die Batterieladezustände zu verwalten.\n\nHinweis: macOS behält Apps absichtlich in der Liste \"Hintergrundobjekte\" (Systemeinstellungen), selbst nachdem ihr Hintergrund-Helper abgemeldet wurde. Sobald Sie auf Deinstallieren klicken, ist der Helper wirklich deaktiviert, aber macOS zeigt Stasis weiterhin in dieser Liste an, bis die App selbst von Ihrem Mac gelöscht wird."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El daemon asistente se ejecuta en segundo plano para gestionar los estados de carga de la batería."
+            "value" : "El demonio auxiliar se ejecuta en segundo plano para gestionar los estados de carga de la batería.\n\nNota: macOS conserva intencionalmente las aplicaciones en la lista de \"Actividad en segundo plano\" (Ajustes del sistema) incluso después de que su demonio auxiliar sea anulado. Una vez que haces clic en Desinstalar, el demonio auxiliar se desactiva realmente, pero macOS mantendrá Stasis visible en esa lista hasta que la propia aplicación se elimine de tu Mac."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El daemon de asistencia se ejecuta en segundo plano para administrar los estados de carga de la batería."
+            "value" : "El demonio auxiliar se ejecuta en segundo plano para gestionar los estados de carga de la batería.\n\nNota: macOS conserva intencionalmente las aplicaciones en la lista de \"Actividad en segundo plano\" (Ajustes del sistema) incluso después de que su demonio auxiliar sea anulado. Una vez que haces clic en Desinstalar, el demonio auxiliar se desactiva realmente, pero macOS mantendrá Stasis visible en esa lista hasta que la propia aplicación se elimine de tu Mac."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ヘルパーデーモンはバックグラウンドで動作し、バッテリーの充電状態を管理します。"
+            "value" : "ヘルパーデーモンはバックグラウンドで実行され、バッテリーの充電状態を管理します。\n\n注：macOSは、バックグラウンドヘルパーの登録が解除された後でも、アプリを「バックグラウンドでの実行を許可」リスト（システム設定）に意図的に保持します。アンインストールをクリックすると、ヘルパーは完全に無効になりますが、アプリ自体がMacから削除されるまで、macOSはStasisをそのリストに表示し続けます。"
           }
         }
       }
@@ -3423,6 +4038,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "上限を下回るしきい値"
+          }
+        }
+      }
+    },
+    "Time of Day" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tageszeit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hora del día"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hora del día"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時刻"
           }
         }
       }
@@ -3544,19 +4187,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hilfsdaemon deinstallieren"
+            "value" : "Hilfsdienst deinstallieren"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desinstalar daemon asistente"
+            "value" : "Desinstalar demonio auxiliar"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desinstalar daemon de asistencia"
+            "value" : "Desinstalar demonio auxiliar"
           }
         },
         "ja" : {
