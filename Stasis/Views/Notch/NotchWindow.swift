@@ -87,13 +87,15 @@ class NotchWindow: NSPanel {
     }
 
     /// Hide with a fade-out animation.
-    func hideNotch(completion: (() -> Void)? = nil) {
+    func hideNotch(completion: (@Sendable () -> Void)? = nil) {
         NSAnimationContext.runAnimationGroup({ ctx in
             ctx.duration = 0.3
             animator().alphaValue = 0
         }, completionHandler: { [weak self] in
-            self?.orderOut(nil)
-            completion?()
+            DispatchQueue.main.async {
+                self?.orderOut(nil)
+                completion?()
+            }
         })
     }
 
