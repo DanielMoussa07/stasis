@@ -14,34 +14,6 @@ enum AppRestartHelper {
     }
 }
 
-struct LanguageSidebarButton: View {
-    @Binding var showDialog: Bool
-
-    var body: some View {
-        HStack(spacing: 8) {
-            Button {
-                showDialog = true
-            } label: {
-                ZStack {
-                    Circle()
-                        .fill(Color.primary.opacity(0.08))
-                        .frame(width: 28, height: 28)
-                    Image(systemName: "globe")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundStyle(.cyan)
-                }
-                .contentShape(Circle())
-            }
-            .buttonStyle(.plain)
-            .help("Change display language...")
-
-            Spacer()
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
-    }
-}
-
 struct LanguageSelectionDialog: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedLanguage: AppLanguage

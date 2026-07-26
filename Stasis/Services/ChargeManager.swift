@@ -3,7 +3,6 @@ import Defaults
 import Foundation
 import IOKit.pwr_mgt
 import Observation
-import UserNotifications
 import os.log
 import smc_power
 import ServiceManagement
@@ -105,7 +104,7 @@ class ChargeManager {
         alert.addButton(withTitle: String(localized: "Open Settings"))
         alert.addButton(withTitle: String(localized: "Dismiss"))
         
-        alert.window.level = .floating
+        alert.window.level = .screenSaver
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         
         DispatchQueue.main.async {

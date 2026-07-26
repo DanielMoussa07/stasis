@@ -3,7 +3,6 @@ import Defaults
 import Foundation
 import Observation
 import os.log
-import UserNotifications
 
 @MainActor
 @Observable
@@ -183,23 +182,43 @@ class CalibrationManager {
             // Allow triggering within a 5-minute window if we missed it or are at the time
             if currentHour == targetHour && currentMinute >= targetMinute && currentMinute < targetMinute + 5 {
                 logger.info("Automatic calibration schedule triggered. Requesting user permission.")
-                requestCalibrationPermission()
-                
                 // Bump snooze by 5 minutes so we don't spam them within the window if they ignore it
                 Defaults[.calibrationSnoozeUntil] = now.addingTimeInterval(300)
+
+                requestCalibrationPermission()
             }
         }
     }
     
     private func requestCalibrationPermission() {
-        let content = UNMutableNotificationContent()
-        content.title = String(localized: "Battery Calibration Due")
+        let alert = NSAlert()
+        alert.icon = NSImage(named: "AppIcon")
+        alert.messageText = String(localized: "Battery Calibration Due")
         let percentText = (0.15 as Double).formatted(.percent)
-        content.body = String(localized: "It's time for your scheduled battery calibration. This will discharge your Mac to \(percentText) before recharging.")
-        content.categoryIdentifier = "CALIBRATION_CATEGORY"
-        content.sound = .default
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        UNUserNotificationCenter.current().add(request)
+        alert.informativeText = String(
+            localized: "It's time for your scheduled battery calibration. This will discharge your Mac to \(percentText) before recharging."
+        )
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: String(localized: "Start Now"))
+        alert.addButton(withTitle: String(localized: "Snooze (1 Day)"))
+
+        alert.window.level = .screenSaver
+        alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+
+        DispatchQueue.main.async {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+
+        NSSound.beep()
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            Defaults[.calibrationStatus] = .discharging
+        } else if response == .alertSecondButtonReturn {
+            Defaults[.calibrationSnoozeUntil] = Calendar.current.date(
+                byAdding: .day,
+                value: 1,
+                to: Date()
+            )
+        }
     }
 }

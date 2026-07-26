@@ -169,15 +169,6 @@ extension Defaults.Keys {
         default: true
     )
 
-    // Notifications
-    static let disableNotifications = Key<Bool>(
-        "disableNotifications",
-        default: false
-    )
-    static let showChargingStatusChangedNotification = Key<Bool>(
-        "showChargingStatusChangedNotification",
-        default: true
-    )
     static let enableNotchHUD = Key<Bool>(
         "enableNotchHUD",
         default: true
