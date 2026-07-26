@@ -5,8 +5,6 @@ struct GeneralSettingsView: View {
     @Default(.launchAtLogin) var launchAtLogin
     @Default(.batteryPercentageVisibility) var batteryPercentageVisibility
     @Default(.showBatteryStateInStatusIcon) var showBatteryStateInStatusIcon
-    @Default(.disableNotifications) var disableNotifications
-    @Default(.showChargingStatusChangedNotification) var showChargingStatusChangedNotification
     @Default(.enableNotchHUD) var enableNotchHUD
     @Default(.showNotchHUDOnLockScreen) var showNotchHUDOnLockScreen
     @Default(.notchHUDDisplayMode) var notchHUDDisplayMode
@@ -34,19 +32,6 @@ struct GeneralSettingsView: View {
                     )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                }
-            }
-
-            Section {
-                Toggle("Disable all notifications", isOn: $disableNotifications)
-                Toggle("Charging status changed", isOn: $showChargingStatusChangedNotification)
-                    .disabled(disableNotifications)
-            } header: {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Notifications")
-                    Text("Control when Stasis sends you notifications.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
                 }
             }
 

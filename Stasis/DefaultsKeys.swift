@@ -1,5 +1,6 @@
 import Defaults
 import Foundation
+import SwiftUI
 import smc_power
 
 extension MagSafeLEDState: Defaults.Serializable {}
@@ -46,11 +47,117 @@ enum CalibrationStatus: String, Defaults.Serializable, Equatable {
     case resting
 }
 
+enum AppLanguage: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case system = "System Default"
+    case german = "Deutsch"
+    case english = "English"
+    case spanish = "Español"
+    case french = "Français"
+    case italian = "Italiano"
+    case dutch = "Nederlands"
+    case portugueseBR = "Português (Brasil)"
+    case portuguesePT = "Português (Portugal)"
+    case slovak = "Slovenčina"
+    case slovenian = "Slovenščina"
+    case vietnamese = "Tiếng Việt"
+    case turkish = "Türkçe"
+    case russian = "Русский"
+    case simplifiedChinese = "简体中文"
+    case traditionalChinese = "繁體中文"
+    case japanese = "日本語"
+    case korean = "한국어"
+
+    var id: Self { self }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .system:
+            return "System Default"
+        case .german:
+            return "Deutsch"
+        case .english:
+            return "English"
+        case .spanish:
+            return "Español"
+        case .french:
+            return "Français"
+        case .italian:
+            return "Italiano"
+        case .dutch:
+            return "Nederlands"
+        case .portugueseBR:
+            return "Português (Brasil)"
+        case .portuguesePT:
+            return "Português (Portugal)"
+        case .slovak:
+            return "Slovenčina"
+        case .slovenian:
+            return "Slovenščina"
+        case .vietnamese:
+            return "Tiếng Việt"
+        case .turkish:
+            return "Türkçe"
+        case .russian:
+            return "Русский"
+        case .simplifiedChinese:
+            return "简体中文"
+        case .traditionalChinese:
+            return "繁體中文"
+        case .japanese:
+            return "日本語"
+        case .korean:
+            return "한국어"
+        }
+    }
+
+    var code: String? {
+        switch self {
+        case .system:
+            return nil
+        case .german:
+            return "de"
+        case .english:
+            return "en"
+        case .spanish:
+            return "es"
+        case .french:
+            return "fr"
+        case .italian:
+            return "it"
+        case .dutch:
+            return "nl"
+        case .portugueseBR:
+            return "pt-BR"
+        case .portuguesePT:
+            return "pt-PT"
+        case .slovak:
+            return "sk"
+        case .slovenian:
+            return "sl"
+        case .vietnamese:
+            return "vi"
+        case .turkish:
+            return "tr"
+        case .russian:
+            return "ru"
+        case .simplifiedChinese:
+            return "zh-Hans"
+        case .traditionalChinese:
+            return "zh-Hant"
+        case .japanese:
+            return "ja"
+        case .korean:
+            return "ko"
+        }
+    }
+}
+
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
     static let storedAppVersion = Key<String>("storedAppVersion", default: "")
     static let firstRun = Key<Bool>("firstRun", default: false)
+    static let appLanguage = Key<AppLanguage>("appLanguage", default: .system)
 
     // Status Icon
     static let batteryPercentageVisibility = Key<BatteryPercentageVisibility>(
@@ -62,15 +169,6 @@ extension Defaults.Keys {
         default: true
     )
 
-    // Notifications
-    static let disableNotifications = Key<Bool>(
-        "disableNotifications",
-        default: false
-    )
-    static let showChargingStatusChangedNotification = Key<Bool>(
-        "showChargingStatusChangedNotification",
-        default: true
-    )
     static let enableNotchHUD = Key<Bool>(
         "enableNotchHUD",
         default: true

@@ -216,7 +216,7 @@ class MenuViewModel {
                     batteryModeText = String(localized: "Calibrating (Charging to \(1.0, format: .percent.precision(.fractionLength(0))))")
                 } else {
                     chargingMode = .discharging
-                    batteryModeText = "Calibrating (Paused - Plug in)"
+                    batteryModeText = String(localized: "Calibrating (Paused - Plug in)")
                 }
             case .resting:
                 if logicallyPluggedIn {
@@ -224,7 +224,7 @@ class MenuViewModel {
                     batteryModeText = String(localized: "Calibrating (Resting at \(1.0, format: .percent.precision(.fractionLength(0))))")
                 } else {
                     chargingMode = .discharging
-                    batteryModeText = "Calibrating (Paused - Plug in)"
+                    batteryModeText = String(localized: "Calibrating (Paused - Plug in)")
                 }
             default: break
             }
@@ -234,20 +234,20 @@ class MenuViewModel {
                 if chargeLimitOverrideActive {
                     batteryModeText = String(localized: "Charging to \(1.0, format: .percent.precision(.fractionLength(0))) (Override)")
                 } else if chargeToLimitActive {
-                    batteryModeText = "Charging to Limit"
+                    batteryModeText = String(localized: "Charging to Limit")
                 } else {
-                    batteryModeText = "Charging"
+                    batteryModeText = String(localized: "Charging")
                 }
             } else {
                 chargingMode = .pluggedIn
-                batteryModeText = "Plugged In (Not Charging)"
+                batteryModeText = String(localized: "Plugged In (Not Charging)")
             }
         } else {
             chargingMode = .discharging
             if physicallyPluggedIn && forceDischargeActive {
-                batteryModeText = "Force Discharging"
+                batteryModeText = String(localized: "Force Discharging")
             } else {
-                batteryModeText = "Discharging"
+                batteryModeText = String(localized: "Discharging")
             }
         }
 
@@ -301,7 +301,7 @@ class MenuViewModel {
         systemPower = max(0, totalLoadPower - outputPower)
 
         if outputPortPowers.isEmpty {
-            outputPortDetailsText = "None"
+            outputPortDetailsText = String(localized: "None")
         } else {
             outputPortDetailsText =
                 outputPortPowers
@@ -388,7 +388,7 @@ class MenuViewModel {
 
     private func updateUptimeText() {
         guard let bootTimestamp else {
-            uptimeText = "Unknown"
+            uptimeText = String(localized: "Unknown")
             return
         }
 
@@ -398,11 +398,11 @@ class MenuViewModel {
         let minutes = (uptime % 3_600) / 60
 
         if days > 0 {
-            uptimeText = "\(days)D \(hours)H \(minutes)M"
+            uptimeText = String(localized: "\(days)d \(hours)h \(minutes)m")
         } else if hours > 0 {
-            uptimeText = "\(hours)H \(minutes)M"
+            uptimeText = String(localized: "\(hours)h \(minutes)m")
         } else {
-            uptimeText = "\(minutes)M"
+            uptimeText = String(localized: "\(minutes)m")
         }
     }
 
@@ -465,7 +465,7 @@ class MenuViewModel {
         batteryPercentage: Int
     ) -> String {
         if adapterConnected {
-            return "N/A"
+            return String(localized: "N/A")
         }
 
         let adjustedReportedMinutes = adjustedReportedMinutesToTarget(
@@ -492,7 +492,7 @@ class MenuViewModel {
             adjustedReportedMinutes >= 0
             ? adjustedReportedMinutes : (capacityMinutes ?? trendMinutes)
         guard let effectiveMinutes, effectiveMinutes >= 0 else {
-            return "Calculating..."
+            return String(localized: "Calculating...")
         }
 
         let hours = effectiveMinutes / 60
@@ -635,15 +635,15 @@ class MenuViewModel {
         let hasCapacity = adapterCapacityWatts > 0
         switch source {
         case .battery:
-            return "Battery"
+            return String(localized: "Battery")
         case .acAdapter:
             return hasCapacity
-                ? "Power Adapter (\(adapterCapacityWatts) W)"
-                : "Power Adapter"
+                ? String(localized: "Power Adapter (\(adapterCapacityWatts) W)")
+                : String(localized: "Power Adapter")
         case .both:
             return hasCapacity
-                ? "Battery & Power Adapter (\(adapterCapacityWatts) W)"
-                : "Battery & Power Adapter"
+                ? String(localized: "Battery & Power Adapter (\(adapterCapacityWatts) W)")
+                : String(localized: "Battery & Power Adapter")
         }
     }
 

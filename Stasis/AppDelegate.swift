@@ -2,7 +2,6 @@ import AppKit
 import Defaults
 import IOKit
 import Observation
-import UserNotifications
 
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var statusBarManager: StatusBarManager!
@@ -41,21 +40,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         Task {
             await setupServices()
             setupMenu()
-            requestNotificationPermissions()
             updaterManager.start()
         }
     }
 
+    static var isRestarting = false
+
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        if Self.isRestarting {
+            return .terminateNow
+        }
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
-        alert.messageText = "Quit Stasis?"
-        alert.informativeText = "Quitting Stasis will stop the background helper services. Battery charging limits and protections will no longer work."
+        alert.messageText = String(localized: "Quit Stasis?")
+        alert.informativeText = String(localized: "Quitting Stasis will stop the background helper services. Battery charging limits and protections will no longer work.")
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Don't Quit")
-        alert.addButton(withTitle: "Quit Anyway")
+        alert.addButton(withTitle: String(localized: "Don't Quit"))
+        alert.addButton(withTitle: String(localized: "Quit Anyway"))
         
-        alert.window.level = .floating
+        alert.window.level = .screenSaver
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         
         DispatchQueue.main.async {
@@ -118,7 +121,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showBatteryMode, .showInternalPower, .showExternalPower,
                     .showPowerDistribution,
                     .showOutputPortsText, .outputVisualizationMode,
-                    .manageCharging, .showAdvancedChargingControls
+                    .manageCharging, .showAdvancedChargingControls,
+                    .appLanguage
                 ],
                 initial: false
             ) {
@@ -164,20 +168,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         needsMenuRebuild = false
     }
 
-    private func requestNotificationPermissions() {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        
-        let startAction = UNNotificationAction(identifier: "START_CALIBRATION_ACTION", title: "Start Now", options: .foreground)
-        let snoozeAction = UNNotificationAction(identifier: "SNOOZE_CALIBRATION_ACTION", title: "Snooze (1 Day)", options: [])
-        let category = UNNotificationCategory(identifier: "CALIBRATION_CATEGORY", actions: [startAction, snoozeAction], intentIdentifiers: [], options: [])
-        center.setNotificationCategories([category])
-        
-        center.requestAuthorization(
-            options: [.alert, .sound]
-        ) { _, _ in }
-    }
-
     // MARK: - First‑run / version‑upgrade preferences reset
     private func resetStasisPreferencesIfNeeded() {
         // Bundle identifier for the app (fallback to known identifier)
@@ -207,20 +197,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             rebuildMenu()
         }
         viewModel.menuDidClose()
-    }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if response.actionIdentifier == "START_CALIBRATION_ACTION" {
-            Defaults[.calibrationStatus] = .discharging
-        } else if response.actionIdentifier == "SNOOZE_CALIBRATION_ACTION" {
-            // Snooze logic: just bump the lastCalibrationDate slightly so it triggers again tomorrow
-            // But we can also handle a dedicated snooze defaults key. 
-            // Wait, bumping lastCalibrationDate by exactly what?
-            // Actually, setting a `snoozeDate` might be better. Let's just create a `calibrationSnoozeDate` default.
-            Defaults[.calibrationSnoozeUntil] = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-        }
-        completionHandler()
     }
 }

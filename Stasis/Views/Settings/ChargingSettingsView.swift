@@ -398,8 +398,10 @@ struct ChargingSettingsView: View {
             logger.error(
                 "Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)"
             )
-            let title = "Failed to \(enabled ? "install" : "uninstall") charging helper"
-            let msg = error.localizedDescription + "\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
+            let title = enabled
+                ? String(localized: "Failed to install charging helper")
+                : String(localized: "Failed to uninstall charging helper")
+            let msg = error.localizedDescription + "\n\n" + String(localized: "Tip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again.")
             NSAlert.show(title: title, message: msg, style: .warning)
         }
     }
@@ -419,13 +421,13 @@ struct ChargingSettingsView: View {
             LaunchAtLoginService.shared.setLaunchAtLogin(true)
 
             NSAlert.show(
-                title: "Success",
-                message: "Stasis background helper has been successfully approved and background charging is now active!"
+                title: String(localized: "Success"),
+                message: String(localized: "Stasis background helper has been successfully approved and background charging is now active!")
             )
         } else {
             NSAlert.show(
-                title: "Approval Required",
-                message: "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'.",
+                title: String(localized: "Approval Required"),
+                message: String(localized: "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."),
                 style: .informational
             )
             SMAppService.openSystemSettingsLoginItems()

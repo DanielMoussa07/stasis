@@ -138,55 +138,6 @@ struct AboutSettingsView: View {
                 }
             }
 
-            Section {
-                HStack {
-                    let helperManager = ChargingHelperManager.shared
-                    Text(helperManager.isInstalled ? "Uninstall helper daemon" : "Install helper daemon")
-                    Spacer()
-                    Button(helperManager.isInstalled ? "Uninstall" : "Install") {
-                        let installing = !helperManager.isInstalled
-                        do {
-                            if installing {
-                                NSApp.activate(ignoringOtherApps: true)
-                                try helperManager.install()
-                                if helperManager.helperStatus == .requiresApproval {
-                                    NSAlert.show(title: "Action Required", message: "Please open System Settings -> General -> Login Items and allow Stasis to run in the background, then try again.", style: .warning)
-                                } else {
-                                    NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
-                                }
-                            } else {
-                                try helperManager.uninstall()
-                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled. The app will now restart.")
-                                restartApp()
-                            }
-                        } catch {
-                            let msg = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
-                            NSAlert.show(title: "Helper Status", message: msg, style: .warning)
-                        }
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(helperManager.isInstalled ? .red : .accentColor)
-                }
-            } header: {
-                Text("Privileged Helper")
-            } footer: {
-                Text("The helper daemon runs in the background to manage battery charging states.\n\nNote: macOS intentionally retains apps in the \"App Background Activity\" list (System Settings) even after their background helper is unregistered. Once you click Uninstall, the helper is truly disabled, but macOS will keep Stasis visible in that list until the app itself is deleted from your Mac.")
-            }
-
-            Section {
-                HStack {
-                    Text("Reset all preferences")
-                    Spacer()
-                    Button("Reset") {
-                        resetAllPreferences()
-                        NSAlert.show(title: "Preferences Reset", message: "All preferences have been successfully restored to their defaults. The app will now restart.")
-                        restartApp()
-                    }
-                    .foregroundColor(.red)
-                }
-            } header: {
-                Text("Reset Preferences")
-            }
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
@@ -206,42 +157,6 @@ struct AboutSettingsView: View {
 
         return "Version \(shortVersion)"
     }
-
-    // MARK: - Preferences reset helper
-    private func resetAllPreferences() {
-        // Uninstall the helper daemon (this handles SMC reset internally)
-        do {
-            try ChargingHelperManager.shared.uninstall()
-        } catch {
-            print("Failed to uninstall charging helper: \(error)")
-        }
-
-        // Disable launch at login and actively unregister to clear OS cache
-        LaunchAtLoginService.shared.setLaunchAtLogin(false)
-        try? SMAppService.mainApp.unregister()
-        
-        // Remove all persisted defaults for this app bundle
-        let bundleID = Bundle.main.bundleIdentifier ?? "com.dinanathdash.stasis"
-        UserDefaults.standard.removePersistentDomain(forName: bundleID)
-        UserDefaults.standard.synchronize() // Force write
-        
-        // Reset system permissions (Accessibility, Background Items, etc.) to force OS cache flush
-        let tccProcess = Process()
-        tccProcess.launchPath = "/usr/bin/tccutil"
-        tccProcess.arguments = ["reset", "All", bundleID]
-        try? tccProcess.run()
-        tccProcess.waitUntilExit()
-    }
-    
-    private func restartApp() {
-        let url = Bundle.main.bundleURL
-        let task = Process()
-        task.launchPath = "/usr/bin/open"
-        task.arguments = ["-n", url.path]
-        try? task.run()
-        
-        exit(0)
-    }
 }
 
 @MainActor
@@ -249,12 +164,12 @@ extension NSAlert {
     static func show(title: String, message: String, style: NSAlert.Style = .informational) {
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
-        alert.messageText = title
-        alert.informativeText = message
+        alert.messageText = String(localized: String.LocalizationValue(title))
+        alert.informativeText = String(localized: String.LocalizationValue(message))
         alert.alertStyle = style
-        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: String(localized: "OK"))
         
-        alert.window.level = .floating
+        alert.window.level = .screenSaver
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         
         DispatchQueue.main.async {

@@ -3,7 +3,6 @@ import Defaults
 import Foundation
 import IOKit.pwr_mgt
 import Observation
-import UserNotifications
 import os.log
 import smc_power
 import ServiceManagement
@@ -99,13 +98,13 @@ class ChargeManager {
         
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
-        alert.messageText = "Background Helper Disconnected"
-        alert.informativeText = "Stasis lost connection to its background helper. Please go to System Settings > General > Login Items, turn Stasis off and back on under 'Allow in the Background', and restart the app."
+        alert.messageText = String(localized: "Background Helper Disconnected")
+        alert.informativeText = String(localized: "Stasis lost connection to its background helper. Please go to System Settings > General > Login Items, turn Stasis off and back on under 'Allow in the Background', and restart the app.")
         alert.alertStyle = .critical
-        alert.addButton(withTitle: "Open Settings")
-        alert.addButton(withTitle: "Dismiss")
+        alert.addButton(withTitle: String(localized: "Open Settings"))
+        alert.addButton(withTitle: String(localized: "Dismiss"))
         
-        alert.window.level = .floating
+        alert.window.level = .screenSaver
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         
         DispatchQueue.main.async {
