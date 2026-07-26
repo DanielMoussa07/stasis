@@ -49,12 +49,23 @@ enum CalibrationStatus: String, Defaults.Serializable, Equatable {
 
 enum AppLanguage: String, CaseIterable, Defaults.Serializable, Identifiable {
     case system = "System Default"
+    case german = "Deutsch"
     case english = "English"
+    case spanish = "Español"
+    case french = "Français"
+    case italian = "Italiano"
+    case dutch = "Nederlands"
+    case portugueseBR = "Português (Brasil)"
+    case portuguesePT = "Português (Portugal)"
+    case slovak = "Slovenčina"
+    case slovenian = "Slovenščina"
+    case vietnamese = "Tiếng Việt"
+    case turkish = "Türkçe"
+    case russian = "Русский"
     case simplifiedChinese = "简体中文"
     case traditionalChinese = "繁體中文"
-    case german = "Deutsch"
-    case spanish = "Español"
     case japanese = "日本語"
+    case korean = "한국어"
 
     var id: Self { self }
 
@@ -62,18 +73,40 @@ enum AppLanguage: String, CaseIterable, Defaults.Serializable, Identifiable {
         switch self {
         case .system:
             return "System Default"
+        case .german:
+            return "Deutsch"
         case .english:
             return "English"
+        case .spanish:
+            return "Español"
+        case .french:
+            return "Français"
+        case .italian:
+            return "Italiano"
+        case .dutch:
+            return "Nederlands"
+        case .portugueseBR:
+            return "Português (Brasil)"
+        case .portuguesePT:
+            return "Português (Portugal)"
+        case .slovak:
+            return "Slovenčina"
+        case .slovenian:
+            return "Slovenščina"
+        case .vietnamese:
+            return "Tiếng Việt"
+        case .turkish:
+            return "Türkçe"
+        case .russian:
+            return "Русский"
         case .simplifiedChinese:
             return "简体中文"
         case .traditionalChinese:
             return "繁體中文"
-        case .german:
-            return "Deutsch"
-        case .spanish:
-            return "Español"
         case .japanese:
             return "日本語"
+        case .korean:
+            return "한국어"
         }
     }
 
@@ -81,18 +114,40 @@ enum AppLanguage: String, CaseIterable, Defaults.Serializable, Identifiable {
         switch self {
         case .system:
             return nil
+        case .german:
+            return "de"
         case .english:
             return "en"
+        case .spanish:
+            return "es"
+        case .french:
+            return "fr"
+        case .italian:
+            return "it"
+        case .dutch:
+            return "nl"
+        case .portugueseBR:
+            return "pt-BR"
+        case .portuguesePT:
+            return "pt-PT"
+        case .slovak:
+            return "sk"
+        case .slovenian:
+            return "sl"
+        case .vietnamese:
+            return "vi"
+        case .turkish:
+            return "tr"
+        case .russian:
+            return "ru"
         case .simplifiedChinese:
             return "zh-Hans"
         case .traditionalChinese:
             return "zh-Hant"
-        case .german:
-            return "de"
-        case .spanish:
-            return "es"
         case .japanese:
             return "ja"
+        case .korean:
+            return "ko"
         }
     }
 }

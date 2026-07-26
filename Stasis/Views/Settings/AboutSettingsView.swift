@@ -150,18 +150,36 @@ struct AboutSettingsView: View {
                                 NSApp.activate(ignoringOtherApps: true)
                                 try helperManager.install()
                                 if helperManager.helperStatus == .requiresApproval {
-                                    NSAlert.show(title: "Action Required", message: "Please open System Settings -> General -> Login Items and allow Stasis to run in the background, then try again.", style: .warning)
+                                    NSAlert.show(
+                                        title: String(localized: "Action Required"),
+                                        message: String(localized: "Please open System Settings -> General -> Login Items and allow Stasis to run in the background, then try again."),
+                                        style: .warning
+                                    )
                                 } else {
-                                    NSAlert.show(title: "Helper Status", message: "Helper daemon successfully installed.")
+                                    NSAlert.show(
+                                        title: String(localized: "Helper Status"),
+                                        message: String(localized: "Helper daemon successfully installed.")
+                                    )
                                 }
                             } else {
                                 try helperManager.uninstall()
-                                NSAlert.show(title: "Helper Status", message: "Helper daemon successfully uninstalled. The app will now restart.")
+                                NSAlert.show(
+                                    title: String(localized: "Helper Status"),
+                                    message: String(localized: "Helper daemon successfully uninstalled. The app will now restart.")
+                                )
                                 restartApp()
                             }
                         } catch {
-                            let msg = "Failed to \(installing ? "install" : "uninstall") charging helper:\n\(error.localizedDescription)\n\nTip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again."
-                            NSAlert.show(title: "Helper Status", message: msg, style: .warning)
+                            let prefix = installing
+                                ? String(localized: "Failed to install charging helper")
+                                : String(localized: "Failed to uninstall charging helper")
+                            let tip = String(localized: "Tip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again.")
+                            let msg = "\(prefix):\n\(error.localizedDescription)\n\n\(tip)"
+                            NSAlert.show(
+                                title: String(localized: "Helper Status"),
+                                message: msg,
+                                style: .warning
+                            )
                         }
                     }
                     .buttonStyle(.bordered)
@@ -179,7 +197,10 @@ struct AboutSettingsView: View {
                     Spacer()
                     Button("Reset") {
                         resetAllPreferences()
-                        NSAlert.show(title: "Preferences Reset", message: "All preferences have been successfully restored to their defaults. The app will now restart.")
+                        NSAlert.show(
+                            title: String(localized: "Preferences Reset"),
+                            message: String(localized: "All preferences have been successfully restored to their defaults. The app will now restart.")
+                        )
                         restartApp()
                     }
                     .foregroundColor(.red)
@@ -249,10 +270,10 @@ extension NSAlert {
     static func show(title: String, message: String, style: NSAlert.Style = .informational) {
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
-        alert.messageText = title
-        alert.informativeText = message
+        alert.messageText = String(localized: String.LocalizationValue(title))
+        alert.informativeText = String(localized: String.LocalizationValue(message))
         alert.alertStyle = style
-        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: String(localized: "OK"))
         
         alert.window.level = .floating
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]

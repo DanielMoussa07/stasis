@@ -155,16 +155,16 @@ class NotchHUDManager {
     ) -> String {
         if calibrationStatus != .idle {
             if !adapterConnected && calibrationStatus != .discharging {
-                return "Calibrating (Paused - Plug in)"
+                return String(localized: "Calibrating (Paused - Plug in)")
             }
             if calibrationStatus == .discharging {
-                return "Calibrating (Discharging)"
+                return String(localized: "Calibrating (Discharging)")
             }
             if calibrationStatus == .charging {
-                return "Calibrating (Charging up)"
+                return String(localized: "Calibrating (Charging up)")
             }
             if calibrationStatus == .resting {
-                return "Calibrating (Resting)"
+                return String(localized: "Calibrating (Resting)")
             }
         }
         
@@ -173,42 +173,42 @@ class NotchHUDManager {
         }
         
         if topupChanged && chargeToLimit {
-            return "Top-up to Limit"
+            return String(localized: "Top-up to Limit")
         }
         if lowPowerMode && lpmChanged {
-            return "Low Power Mode"
+            return String(localized: "Low Power Mode")
         }
         if forceDischarge {
-            return "Force Discharging"
+            return String(localized: "Force Discharging")
         }
         if !adapterConnected {
-            return "On Battery"
+            return String(localized: "On Battery")
         }
         if chargingMode == .discharging {
             // If adapter is connected but we are discharging (and not force discharging), we must be draining to limit
-            return "Draining to Limit"
+            return String(localized: "Draining to Limit")
         }
         if chargingMode == .charging {
-            return "Charging"
+            return String(localized: "Charging")
         }
         if chargingMode == .pluggedIn {
             if Defaults[.manageCharging] {
                 // If manage charging is on and we are plugged in but not charging
                 let level = viewModel.displayPercentage
                 if level >= Defaults[.chargeLimit] {
-                    return "Limit Reached"
+                    return String(localized: "Limit Reached")
                 } else if Defaults[.sailingMode] {
-                    return "Sailing Mode"
+                    return String(localized: "Sailing Mode")
                 } else {
-                    return "On Hold"
+                    return String(localized: "On Hold")
                 }
             }
             if viewModel.displayPercentage == 100 {
-                return "Fully Charged"
+                return String(localized: "Fully Charged")
             }
-            return "Plugged In"
+            return String(localized: "Plugged In")
         }
-        return "Unknown"
+        return String(localized: "Unknown")
     }
 
     private func showHUD(with text: String) {

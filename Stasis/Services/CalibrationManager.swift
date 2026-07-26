@@ -193,8 +193,9 @@ class CalibrationManager {
     
     private func requestCalibrationPermission() {
         let content = UNMutableNotificationContent()
-        content.title = "Battery Calibration Due"
-        content.body = "It's time for your scheduled battery calibration. This will discharge your Mac to 15% before recharging."
+        content.title = String(localized: "Battery Calibration Due")
+        let percentText = (0.15 as Double).formatted(.percent)
+        content.body = String(localized: "It's time for your scheduled battery calibration. This will discharge your Mac to \(percentText) before recharging.")
         content.categoryIdentifier = "CALIBRATION_CATEGORY"
         content.sound = .default
         

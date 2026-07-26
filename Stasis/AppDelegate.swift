@@ -54,11 +54,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
-        alert.messageText = "Quit Stasis?"
-        alert.informativeText = "Quitting Stasis will stop the background helper services. Battery charging limits and protections will no longer work."
+        alert.messageText = String(localized: "Quit Stasis?")
+        alert.informativeText = String(localized: "Quitting Stasis will stop the background helper services. Battery charging limits and protections will no longer work.")
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Don't Quit")
-        alert.addButton(withTitle: "Quit Anyway")
+        alert.addButton(withTitle: String(localized: "Don't Quit"))
+        alert.addButton(withTitle: String(localized: "Quit Anyway"))
         
         alert.window.level = .floating
         alert.window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
@@ -123,7 +123,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showBatteryMode, .showInternalPower, .showExternalPower,
                     .showPowerDistribution,
                     .showOutputPortsText, .outputVisualizationMode,
-                    .manageCharging, .showAdvancedChargingControls
+                    .manageCharging, .showAdvancedChargingControls,
+                    .appLanguage
                 ],
                 initial: false
             ) {
@@ -173,8 +174,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         
-        let startAction = UNNotificationAction(identifier: "START_CALIBRATION_ACTION", title: "Start Now", options: .foreground)
-        let snoozeAction = UNNotificationAction(identifier: "SNOOZE_CALIBRATION_ACTION", title: "Snooze (1 Day)", options: [])
+        let startAction = UNNotificationAction(identifier: "START_CALIBRATION_ACTION", title: String(localized: "Start Now"), options: .foreground)
+        let snoozeAction = UNNotificationAction(identifier: "SNOOZE_CALIBRATION_ACTION", title: String(localized: "Snooze (1 Day)"), options: [])
         let category = UNNotificationCategory(identifier: "CALIBRATION_CATEGORY", actions: [startAction, snoozeAction], intentIdentifiers: [], options: [])
         center.setNotificationCategories([category])
         
