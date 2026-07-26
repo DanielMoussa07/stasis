@@ -41,6 +41,7 @@ struct SettingsView: View {
     @State private var navigationHistory: [SettingsTab] = [.general]
     @State private var historyIndex = 0
     @State private var isHistoryNavigation = false
+    @State private var showLanguageDialog = false
 
     private let capabilities: DeviceCapabilities
     init(capabilities: DeviceCapabilities) {
@@ -61,6 +62,9 @@ struct SettingsView: View {
             .listStyle(.sidebar)
             .scrollEdgeEffectStyleSoftIfAvailable()
             .navigationTitle("Settings")
+            .safeAreaInset(edge: .bottom) {
+                LanguageSidebarButton(showDialog: $showLanguageDialog)
+            }
         } detail: {
             Group {
                 switch selectedTab {
@@ -82,6 +86,9 @@ struct SettingsView: View {
         .navigationTitle("Settings")
         .navigationSplitViewStyle(.balanced)
         .frame(minWidth: 700, minHeight: 450)
+        .sheet(isPresented: $showLanguageDialog) {
+            LanguageSelectionDialog()
+        }
         .toolbar {
             ToolbarItemGroup(placement: .navigation) {
                 Button {

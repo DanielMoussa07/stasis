@@ -54,11 +54,11 @@ struct BatteryIndicatorView: View {
     }
 
     private enum Layout {
-        static let batteryHeight: CGFloat = 12
-        static let batteryWidth: CGFloat = 24
-        static let terminalWidth: CGFloat = 2
-        static let terminalHeight: CGFloat = 5
-        static let cornerRadius: CGFloat = 3
+        static let batteryHeight: CGFloat = 11.5
+        static let batteryWidth: CGFloat = 22
+        static let terminalWidth: CGFloat = 1.5
+        static let terminalHeight: CGFloat = 4
+        static let cornerRadius: CGFloat = 3.0
         static let strokeWidth: CGFloat = 1
         static let fillInset: CGFloat = 1.5
     }
@@ -139,16 +139,16 @@ struct BatteryIndicatorView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         } else if showState && chargingMode == .charging {
                             Image(systemName: "bolt.fill")
-                                .font(.system(size: 10, weight: .black))
-                                .foregroundStyle(.white)
+                                .font(.system(size: 10.2, weight: .bold))
+                                .foregroundStyle(.white.opacity(0.88))
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)
                         } else if showState && chargingMode == .pluggedIn {
                             Image(systemName: "powerplug.fill")
-                                .font(.system(size: 10, weight: .black))
+                                .font(.system(size: 9.8, weight: .bold))
                                 .rotationEffect(.degrees(-90))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.white.opacity(0.88))
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)
                                 .shadow(color: .black, radius: 0.5)

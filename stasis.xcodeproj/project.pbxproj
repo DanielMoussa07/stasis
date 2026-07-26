@@ -367,6 +367,9 @@
 				es,
 				"es-US",
 				de,
+				ja,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = A68B3E032F19AB4B00F115E4;
 			minimizedProjectReferenceProxies = 1;

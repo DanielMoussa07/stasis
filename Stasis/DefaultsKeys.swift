@@ -1,5 +1,6 @@
 import Defaults
 import Foundation
+import SwiftUI
 import smc_power
 
 extension MagSafeLEDState: Defaults.Serializable {}
@@ -46,11 +47,62 @@ enum CalibrationStatus: String, Defaults.Serializable, Equatable {
     case resting
 }
 
+enum AppLanguage: String, CaseIterable, Defaults.Serializable, Identifiable {
+    case system = "System Default"
+    case english = "English"
+    case simplifiedChinese = "简体中文"
+    case traditionalChinese = "繁體中文"
+    case german = "Deutsch"
+    case spanish = "Español"
+    case japanese = "日本語"
+
+    var id: Self { self }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .system:
+            return "System Default"
+        case .english:
+            return "English"
+        case .simplifiedChinese:
+            return "简体中文"
+        case .traditionalChinese:
+            return "繁體中文"
+        case .german:
+            return "Deutsch"
+        case .spanish:
+            return "Español"
+        case .japanese:
+            return "日本語"
+        }
+    }
+
+    var code: String? {
+        switch self {
+        case .system:
+            return nil
+        case .english:
+            return "en"
+        case .simplifiedChinese:
+            return "zh-Hans"
+        case .traditionalChinese:
+            return "zh-Hant"
+        case .german:
+            return "de"
+        case .spanish:
+            return "es"
+        case .japanese:
+            return "ja"
+        }
+    }
+}
+
 extension Defaults.Keys {
     // General
     static let launchAtLogin = Key<Bool>("launchAtLogin", default: false)
     static let storedAppVersion = Key<String>("storedAppVersion", default: "")
     static let firstRun = Key<Bool>("firstRun", default: false)
+    static let appLanguage = Key<AppLanguage>("appLanguage", default: .system)
 
     // Status Icon
     static let batteryPercentageVisibility = Key<BatteryPercentageVisibility>(

@@ -46,7 +46,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
 
+    static var isRestarting = false
+
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        if Self.isRestarting {
+            return .terminateNow
+        }
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
         alert.messageText = "Quit Stasis?"
