@@ -314,7 +314,7 @@ class MenuViewModel {
                         from: $0.powerWatts,
                         showTwoDecimalPlaces: showTwoDecimalPlaces
                     )
-                    String(
+                    return String(
                         localized:
                             "Port \($0.portIndex): \(power) W"
                     )
