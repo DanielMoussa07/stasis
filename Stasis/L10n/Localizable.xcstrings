@@ -26069,12 +26069,32 @@
         }
       }
     },
+    "Port %lld: %@ W": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "端口 %lld：%@ W"
+          }
+        }
+      }
+    },
     "Tink": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "叮咚"
+          }
+        }
+      }
+    },
+    "Two decimal places for power values": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功率数值保留两位小数"
           }
         }
       }

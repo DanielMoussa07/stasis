@@ -254,6 +254,10 @@ extension Defaults.Keys {
         "showPowerDistribution",
         default: true
     )
+    static let showTwoDecimalPowerValues = Key<Bool>(
+        "showTwoDecimalPowerValues",
+        default: false
+    )
     static let showOutputPortsText = Key<Bool>(
         "showOutputPortsText",
         default: false

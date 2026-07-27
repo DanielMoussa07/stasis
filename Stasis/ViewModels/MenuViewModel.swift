@@ -94,7 +94,10 @@ class MenuViewModel {
     private func startObservingSettings() {
         settingsObservation = Task { [weak self] in
             for await _ in Defaults.updates(
-                [.useHardwarePercentage, .useRawHardwareHealth, .calibrationStatus],
+                [
+                    .useHardwarePercentage, .useRawHardwareHealth,
+                    .calibrationStatus, .showTwoDecimalPowerValues
+                ],
                 initial: false
             ) {
                 guard let self else { return }
@@ -303,12 +306,17 @@ class MenuViewModel {
         if outputPortPowers.isEmpty {
             outputPortDetailsText = String(localized: "None")
         } else {
+            let showTwoDecimalPlaces = Defaults[.showTwoDecimalPowerValues]
             outputPortDetailsText =
                 outputPortPowers
                 .map {
+                    let power = PowerValueFormatter.string(
+                        from: $0.powerWatts,
+                        showTwoDecimalPlaces: showTwoDecimalPlaces
+                    )
                     String(
                         localized:
-                            "Port \($0.portIndex): \(Int($0.powerWatts.rounded())) W"
+                            "Port \($0.portIndex): \(power) W"
                     )
                 }
                 .joined(separator: " • ")
