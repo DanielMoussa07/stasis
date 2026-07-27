@@ -20,7 +20,7 @@ struct GeneralSettingsView: View {
             Section {
                 Picker("Battery percentage", selection: $batteryPercentageVisibility) {
                     ForEach(BatteryPercentageVisibility.allCases) { visibility in
-                        Text(LocalizedStringKey(visibility.rawValue)).tag(visibility)
+                        Text(verbatim: visibility.localizedName).tag(visibility)
                     }
                 }
                 Toggle("Show battery state", isOn: $showBatteryStateInStatusIcon)
@@ -41,12 +41,12 @@ struct GeneralSettingsView: View {
                     Toggle("Show on lock screen", isOn: $showNotchHUDOnLockScreen)
                     Picker("Display mode", selection: $notchHUDDisplayMode) {
                         ForEach(NotchHUDDisplayMode.allCases) { mode in
-                            Text(LocalizedStringKey(mode.rawValue)).tag(mode)
+                            Text(verbatim: mode.localizedName).tag(mode)
                         }
                     }
                     Picker("Sound", selection: $notchHUDSound) {
                         ForEach(NotchHUDSound.allCases) { sound in
-                            Text(LocalizedStringKey(sound.rawValue))
+                            Text(verbatim: sound.localizedName)
                                 .tag(sound)
                                 .onHover { isHovering in
                                     if isHovering && sound != .none {

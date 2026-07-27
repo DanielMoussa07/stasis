@@ -25,15 +25,27 @@ struct HelperManagementDialog: View {
                     HStack {
                         Text("Status")
                         Spacer()
-                        Text(helperManager.isInstalled ? "Installed" : "Not Installed")
-                            .foregroundStyle(helperManager.isInstalled ? .green : .secondary)
-                            .fontWeight(.medium)
+                        Text(
+                            helperManager.isInstalled
+                                ? String(localized: "Installed")
+                                : String(localized: "Not Installed")
+                        )
+                        .foregroundStyle(helperManager.isInstalled ? .green : .secondary)
+                        .fontWeight(.medium)
                     }
 
                     HStack {
-                        Text(helperManager.isInstalled ? "Uninstall helper daemon" : "Install helper daemon")
+                        Text(
+                            helperManager.isInstalled
+                                ? String(localized: "Uninstall helper daemon")
+                                : String(localized: "Install helper daemon")
+                        )
                         Spacer()
-                        Button(helperManager.isInstalled ? "Uninstall" : "Install") {
+                        Button(
+                            helperManager.isInstalled
+                                ? String(localized: "Uninstall")
+                                : String(localized: "Install")
+                        ) {
                             handleHelperAction()
                         }
                         .buttonStyle(.bordered)

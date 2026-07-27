@@ -19,6 +19,19 @@ enum BatteryPercentageVisibility: String, CaseIterable, Defaults.Serializable, I
     case insideIconAndNextToItWhenPowered = "Inside (Outside on power)"
     
     var id: Self { self }
+
+    var localizedName: String {
+        switch self {
+        case .hidden:
+            return String(localized: "Hidden")
+        case .nextToIcon:
+            return String(localized: "Next to icon")
+        case .insideIcon:
+            return String(localized: "Inside icon")
+        case .insideIconAndNextToItWhenPowered:
+            return String(localized: "Inside (Outside on power)")
+        }
+    }
 }
 
 enum NotchHUDSound: String, CaseIterable, Defaults.Serializable, Identifiable {
@@ -31,6 +44,25 @@ enum NotchHUDSound: String, CaseIterable, Defaults.Serializable, Identifiable {
     case none = "None"
     
     var id: Self { self }
+
+    var localizedName: String {
+        switch self {
+        case .basso:
+            return String(localized: "Basso")
+        case .frog:
+            return String(localized: "Frog")
+        case .glass:
+            return String(localized: "Glass")
+        case .hero:
+            return String(localized: "Hero")
+        case .pop:
+            return String(localized: "Pop")
+        case .tink:
+            return String(localized: "Tink")
+        case .none:
+            return String(localized: "None")
+        }
+    }
 }
 
 enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifiable {
@@ -38,6 +70,15 @@ enum NotchHUDDisplayMode: String, CaseIterable, Defaults.Serializable, Identifia
     case allDisplays = "All Displays"
     
     var id: Self { self }
+
+    var localizedName: String {
+        switch self {
+        case .macDisplayOnly:
+            return String(localized: "Mac Display Only")
+        case .allDisplays:
+            return String(localized: "All Displays")
+        }
+    }
 }
 
 enum CalibrationStatus: String, Defaults.Serializable, Equatable {
