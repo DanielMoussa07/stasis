@@ -155,7 +155,7 @@ struct AboutSettingsView: View {
             return nil
         }
 
-        return "Version \(shortVersion)"
+        return String(localized: "Version \(shortVersion)")
     }
 }
 

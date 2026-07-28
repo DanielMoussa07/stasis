@@ -1,3 +1,4 @@
+import Defaults
 import SwiftUI
 
 struct PowerSankeyView: View {
@@ -545,8 +546,14 @@ struct PowerSankeyView: View {
 
 struct PowerLabel: View {
     let power: Double
+    @Default(.showTwoDecimalPowerValues) private var showTwoDecimalPowerValues
+
     var body: some View {
-        Text(String(format: "%.0f W", abs(power)))
+        let formattedPower = PowerValueFormatter.string(
+            from: power,
+            showTwoDecimalPlaces: showTwoDecimalPowerValues
+        )
+        Text("\(formattedPower) W")
             .font(.system(size: 13, weight: .medium))
             .monospacedDigit()
             .foregroundStyle(.secondary)
@@ -558,6 +565,7 @@ struct NodeView: View {
     let value: Double?
     let isLeftSide: Bool
     let cornerRadius: CGFloat = 16.0
+    @Default(.showTwoDecimalPowerValues) private var showTwoDecimalPowerValues
 
     var body: some View {
         ZStack {
@@ -594,7 +602,11 @@ struct NodeView: View {
                         .foregroundStyle(.secondary)
                 }
                 if let value {
-                    Text(String(format: "%.0f W", value))
+                    let formattedPower = PowerValueFormatter.string(
+                        from: value,
+                        showTwoDecimalPlaces: showTwoDecimalPowerValues
+                    )
+                    Text("\(formattedPower) W")
                         .font(.system(size: 11, weight: .medium))
                         .monospacedDigit()
                         .foregroundStyle(.secondary)
