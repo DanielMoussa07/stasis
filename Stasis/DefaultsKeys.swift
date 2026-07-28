@@ -225,6 +225,10 @@ extension Defaults.Keys {
         "showAdvancedChargingControls",
         default: false
     )
+    static let showSignificantEnergyApps = Key<Bool>(
+        "showSignificantEnergyApps",
+        default: true
+    )
 
     // Charging
     static let manageCharging = Key<Bool>("manageCharging", default: false)

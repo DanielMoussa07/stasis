@@ -14,6 +14,7 @@ struct DashboardSettingsView: View {
     @Default(.showPowerDistribution) var showPowerDistribution
     @Default(.showOutputPortsText) var showOutputPortsText
     @Default(.outputVisualizationMode) var outputVisualizationMode
+    @Default(.showSignificantEnergyApps) var showSignificantEnergyApps
 
     var body: some View {
         Form {
@@ -42,6 +43,10 @@ struct DashboardSettingsView: View {
             Section("Power") {
                 Toggle("Battery Power Metrics", isOn: $showInternalPower)
                 Toggle("Adapter Power Metrics", isOn: $showExternalPower)
+            }
+
+            Section("Energy Impact") {
+                Toggle("Apps using significant energy", isOn: $showSignificantEnergyApps)
             }
 
             Section("Visuals") {

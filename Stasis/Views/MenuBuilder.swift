@@ -56,6 +56,7 @@ class MenuBuilder {
             buildPowerMetricsSection(),
             buildVisualizationSection(),
             buildHardwareSection(),
+            buildEnergyImpactSection(),
         ]
 
         for section in sections where !section.isEmpty {
@@ -219,6 +220,20 @@ class MenuBuilder {
         return items
     }
 
+    private func buildEnergyImpactSection() -> [NSMenuItem] {
+        var items: [NSMenuItem] = []
+
+        if Defaults[.showSignificantEnergyApps] {
+            items.append(
+                createDynamicMenuItem(
+                    view: SignificantEnergyMenuView(service: viewModel.significantEnergyService)
+                )
+            )
+        }
+
+        return items
+    }
+
     private func createInfoItem(
         label: String,
         keyPath: KeyPath<MenuViewModel, String>
@@ -246,6 +261,23 @@ class MenuBuilder {
 
         let menuItem = NSMenuItem()
         menuItem.view = hostingView
+
+        return menuItem
+    }
+
+    private func createDynamicMenuItem<V: View>(view: V) -> NSMenuItem {
+        let hostingView = DynamicallyResizingHostingView(rootView: view)
+        let height = hostingView.fittingSize.height
+        hostingView.frame = NSRect(
+            x: 0,
+            y: 0,
+            width: Self.menuWidth,
+            height: height
+        )
+
+        let menuItem = NSMenuItem()
+        menuItem.view = hostingView
+        hostingView.menuItem = menuItem
 
         return menuItem
     }

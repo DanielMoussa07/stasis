@@ -10,12 +10,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var menuBuilder: MenuBuilder!
     private var chargeManager: ChargeManager!
     private var calibrationManager: CalibrationManager!
+    private var significantEnergyService: SignificantEnergyService!
     private var notchHUDManager: NotchHUDManager!
     private var settingsWindowController: SettingsWindowController!
     private var menu: NSMenu!
     private let updaterManager = UpdaterManager.shared
     private var settingsObservation: Task<Void, Never>?
     private var adapterObservation: Task<Void, Never>?
+    private var significantEnergyObservation: Task<Void, Never>?
     private var isMenuOpen = false
     private var needsMenuRebuild = false
 
@@ -79,9 +81,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         await batteryService.loadCapabilities()
         chargeManager = ChargeManager(batteryService: batteryService)
         calibrationManager = CalibrationManager(batteryService: batteryService, chargeManager: chargeManager)
+        significantEnergyService = SignificantEnergyService()
         viewModel = MenuViewModel(
             batteryService: batteryService,
-            chargeManager: chargeManager
+            chargeManager: chargeManager,
+            significantEnergyService: significantEnergyService
         )
         settingsWindowController = SettingsWindowController(
             capabilities: batteryService.deviceCapabilities
@@ -122,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showPowerDistribution,
                     .showOutputPortsText, .outputVisualizationMode,
                     .manageCharging, .showAdvancedChargingControls,
-                    .appLanguage
+                    .appLanguage, .showSignificantEnergyApps
                 ],
                 initial: false
             ) {
@@ -137,6 +141,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 await withCheckedContinuation { continuation in
                     withObservationTracking {
                         _ = self.viewModel.adapterConnected
+                    } onChange: {
+                        Task { @MainActor in
+                            continuation.resume()
+                        }
+                    }
+                }
+            }
+        }
+
+        significantEnergyObservation = Task { [weak self] in
+            while !Task.isCancelled {
+                guard let self else { return }
+                self.rebuildMenu()
+                await withCheckedContinuation { continuation in
+                    withObservationTracking {
+                        _ = self.significantEnergyService.apps
                     } onChange: {
                         Task { @MainActor in
                             continuation.resume()
