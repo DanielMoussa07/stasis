@@ -82,7 +82,7 @@ struct SidebarBottomButtonsView: View {
                 .contentShape(Circle())
             }
             .buttonStyle(.plain)
-            .help("Reset all preferences...")
+            .help("Reset all preferences")
 
             Spacer()
         }

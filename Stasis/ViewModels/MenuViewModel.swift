@@ -8,7 +8,12 @@ import Observation
 class MenuViewModel {
     private let batteryService: BatteryService
     private let chargeManager: ChargeManager
+    let significantEnergyService: SignificantEnergyService
     private let bootTimestamp: Date?
+
+    var significantApps: [SignificantEnergyApp] {
+        significantEnergyService.apps
+    }
 
     var batteryPercentageText: String = "0%"
     var powerSourceText: String = String(localized: "Battery")
@@ -60,9 +65,14 @@ class MenuViewModel {
     private var isChargingHoldUntil: Date = .distantPast
     private var stableIsCharging: Bool = false
 
-    init(batteryService: BatteryService, chargeManager: ChargeManager) {
+    init(
+        batteryService: BatteryService,
+        chargeManager: ChargeManager,
+        significantEnergyService: SignificantEnergyService
+    ) {
         self.batteryService = batteryService
         self.chargeManager = chargeManager
+        self.significantEnergyService = significantEnergyService
         self.bootTimestamp = SystemService.bootTimestamp()
         startObservingMetrics()
         startObservingSettings()
@@ -437,11 +447,13 @@ class MenuViewModel {
         updateUptimeText()
         startUptimeTimer()
         batteryService.enableFastPolling()
+        significantEnergyService.startOpenMenuPolling()
     }
 
     func menuDidClose() {
         stopUptimeTimer()
         batteryService.disableFastPolling()
+        significantEnergyService.stopOpenMenuPolling()
     }
 
     func quit() {

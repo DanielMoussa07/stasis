@@ -1,6 +1,113 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@ W": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ W"
+          }
+        }
+      }
+    },
     "%lld": {
       "localizations": {
         "de": {
@@ -236,7 +343,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1秒"
           }
         },
         "zh-Hans": {
@@ -248,49 +355,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 秒"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 секунда"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 seconde"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 saniye"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 sekunda"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 sekunda"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 giây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1초"
           }
         },
         "fr": {
@@ -302,19 +409,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 secondo"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 segundo"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 segundo"
           }
         }
       }
@@ -342,7 +449,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10秒"
           }
         },
         "zh-Hans": {
@@ -354,49 +461,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 秒"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 секунд"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 seconden"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 saniye"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 sekund"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 sekúnd"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 giây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10초"
           }
         },
         "fr": {
@@ -408,19 +515,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 secondi"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 segundos"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 segundos"
           }
         }
       }
@@ -448,7 +555,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2秒"
           }
         },
         "zh-Hans": {
@@ -460,49 +567,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 秒"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 секунды"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 seconden"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 saniye"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 sekundi"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 sekundy"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 giây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2초"
           }
         },
         "fr": {
@@ -514,19 +621,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 secondi"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 segundos"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 segundos"
           }
         }
       }
@@ -554,7 +661,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3秒"
           }
         },
         "zh-Hans": {
@@ -566,49 +673,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 秒"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 секунды"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 seconden"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 saniye"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 sekunde"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 sekundy"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 giây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3초"
           }
         },
         "fr": {
@@ -620,19 +727,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 secondi"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 segundos"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 segundos"
           }
         }
       }
@@ -660,7 +767,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5秒"
           }
         },
         "zh-Hans": {
@@ -672,49 +779,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 秒"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 секунд"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 seconden"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 saniye"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 sekund"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 sekúnd"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 giây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5초"
           }
         },
         "fr": {
@@ -726,19 +833,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 secondi"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 segundos"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 segundos"
           }
         }
       }
@@ -1379,6 +1486,113 @@
         }
       }
     },
+    "All applications are running efficiently": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle Anwendungen laufen effizient"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas las aplicaciones funcionan de forma eficiente"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas las aplicaciones funcionan de forma eficiente"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toutes les applications fonctionnent de manière efficace"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutte le applicazioni funzionano in modo efficiente"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてのアプリケーションが効率的に動作しています"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 응용 프로그램이 효율적으로 실행 중입니다"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle applicaties werken efficiënt"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os aplicativos estão executando eficientemente"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas as aplicações estão a funcionar de forma eficiente"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Все приложения работают эффективно"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Všetky aplikácie pracujú efektívne"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vse aplikacije delujejo učinkovito"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm uygulamalar verimli bir şekilde çalışıyor"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tất cả các ứng dụng đang chạy hiệu quả"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有应用程序运行高效"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有應用程式均高效率運作"
+          }
+        }
+      }
+    },
     "Always": {
       "localizations": {
         "de": {
@@ -1587,6 +1801,113 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aprove o Stasis em Configurações do Sistema → Itens de Início para continuar."
+          }
+        }
+      }
+    },
+    "Apps using significant energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps mit erheblichem Energieverbrauch"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usan mucha energía"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usan mucha energía"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps gourmandes en énergie"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App che usano molta energia"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "エネルギーを著しく消費しているアプリ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "에너지를 많이 사용하는 앱"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps die veel energie verbruiken"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps usando energia significativa"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usam muita energia"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приложения со значительным расходом энергии"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikácie s významnou spotrebou energie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikacije z veliko porabo energije"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önemli miktarda enerji harcayan uygulamalar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ứng dụng dùng nhiều năng lượng"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显著消耗电能的应用程序"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耗電量顯著的應用程式"
           }
         }
       }
@@ -7957,6 +8278,113 @@
         }
       }
     },
+    "Energy Impact": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energieauswirkungen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impacto energético"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impacto energético"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impact énergétique"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impatto energetico"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "エネルギー影響"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "에너지 영향"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energie-impact"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impacto energético"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impacto energético"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Энерговоздействие"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Energetický vplyv"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vpliv na energijo"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enerji Etkisi"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mức độ ảnh hưởng năng lượng"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "能耗影响"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "能源衝擊"
+          }
+        }
+      }
+    },
     "English": {
       "localizations": {
         "de": {
@@ -11139,6 +11567,113 @@
         }
       }
     },
+    "No Significant Energy Apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Apps mit erheblichem Energieverbrauch"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna app usa mucha energía"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna app usa mucha energía"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune app gourmande en énergie"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna app usa molta energia"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "エネルギーを著しく消費しているアプリはありません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "에너지를 많이 사용하는 앱 없음"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen apps die veel energie verbruiken"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum app usando energia significativa"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma app a usar muita energia"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет приложений со значительным расходом энергии"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žiadne aplikácie s významnou spotrebou energie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ni aplikacij z veliko porabo energije"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önemli Miktarda Enerji Harcayan Uygulama Yok"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không có ứng dụng dùng nhiều năng lượng"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无显著消耗电能的应用程序"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有耗電量顯著的應用程式"
+          }
+        }
+      }
+    },
     "Notch HUD": {
       "localizations": {
         "de": {
@@ -13494,7 +14029,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "設定をリセット"
           }
         },
         "zh-Hans": {
@@ -13506,49 +14041,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "重設偏好設定"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Сбросить настройки"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Herstel voorkeuren"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Tercihleri sıfırla"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Ponastavi nastavitve"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Obnoviť predvoľby"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Đặt lại tùy chọn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "환경설정 재설정"
           }
         },
         "fr": {
@@ -13560,7 +14095,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "Reimposta preferenze"
           }
         },
         "pt-PT": {
@@ -13600,7 +14135,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "すべての設定をリセット"
           }
         },
         "zh-Hans": {
@@ -13612,49 +14147,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "重設所有偏好設定"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Сбросить все настройки"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Herstel alle voorkeuren"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Tüm tercihleri sıfırla"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Ponastavi vse nastavitve"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Obnoviť všetky predvoľby"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Đặt lại tất cả tùy chọn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "모든 환경설정 재설정"
           }
         },
         "fr": {
@@ -13666,7 +14201,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "Reimposta tutte le preferenze"
           }
         },
         "pt-PT": {
@@ -14952,6 +15487,113 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mostrar energia de saída"
+          }
+        }
+      }
+    },
+    "Significant Energy Apps": {
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps mit erheblichem Energieverbrauch"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usan mucha energía"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usan mucha energía"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps gourmandes en énergie"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App che usano molta energia"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "エネルギーを著しく消費しているアプリ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "에너지를 많이 사용하는 앱"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps die veel energie verbruiken"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps usando energia significativa"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps que usam muita energia"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приложения со значительным расходом энергии"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikácie s významnou spotrebou energie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikacije z veliko porabo energije"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önemli Miktarda Enerji Harcayan Uygulamalar"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ứng dụng dùng nhiều năng lượng"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显著消耗电能的应用程序"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耗電量顯著的應用程式"
           }
         }
       }
