@@ -4,26 +4,23 @@ import SwiftUI
 class DynamicallyResizingHostingView<V: View>: NSHostingView<V> {
     weak var menuItem: NSMenuItem?
     private let menuWidth: CGFloat = 300
-    private var lastReportedHeight: CGFloat = -1
 
     override var fittingSize: NSSize {
         let size = super.fittingSize
         return NSSize(width: menuWidth, height: size.height)
     }
 
+    override var intrinsicContentSize: NSSize {
+        let size = super.intrinsicContentSize
+        return NSSize(width: menuWidth, height: size.height)
+    }
+
     override func layout() {
         super.layout()
-        let currentHeight = self.fittingSize.height
-        if abs(lastReportedHeight - currentHeight) > 0.5 {
-            lastReportedHeight = currentHeight
-            self.frame = NSRect(
-                x: 0,
-                y: 0,
-                width: menuWidth,
-                height: currentHeight
-            )
-            self.invalidateIntrinsicContentSize()
-            if let menuItem = menuItem, let menu = menuItem.menu {
+        if let menuItem = self.menuItem, let menu = menuItem.menu {
+            let currentHeight = self.fittingSize.height
+            if abs(self.frame.height - currentHeight) > 0.5 {
+                self.frame.size.height = currentHeight
                 menu.update()
             }
         }
@@ -36,6 +33,15 @@ struct SignificantEnergyMenuView: View {
 
     private var apps: [SignificantEnergyApp] {
         service.apps
+    }
+
+    private var currentContentHeight: CGFloat {
+        if apps.isEmpty {
+            return 105.0
+        } else {
+            let rows = min(apps.count, 5)
+            return CGFloat(rows) * 28.0
+        }
     }
 
     var body: some View {
@@ -74,34 +80,39 @@ struct SignificantEnergyMenuView: View {
 
     @ViewBuilder
     private var expandedContentView: some View {
-        if apps.isEmpty {
-            emptyStateView
-        } else {
-            appsListView
+        Group {
+            if apps.isEmpty {
+                emptyStateView
+            } else {
+                appsListView
+            }
         }
+        .frame(height: currentContentHeight, alignment: .top)
+        .clipped()
     }
 
     private var emptyStateView: some View {
         VStack(spacing: 8) {
             ZStack {
                 Circle()
-                    .fill(Color.green.opacity(0.15))
-                    .frame(width: 40, height: 40)
+                    .fill(Color.green.opacity(0.12))
+                    .frame(width: 32, height: 32)
                 Image(systemName: "leaf.fill")
-                    .font(.system(size: 18))
+                    .font(.system(size: 15, weight: .medium))
                     .foregroundColor(.green)
             }
-            Text("No Apps Using Significant Energy")
-                .font(.callout.weight(.medium))
-                .foregroundColor(.primary)
-            Text("All applications are running efficiently")
-                .font(.caption)
-                .foregroundColor(.secondary)
+            VStack(spacing: 2) {
+                Text("No Significant Energy Apps")
+                    .font(.callout.weight(.medium))
+                    .foregroundColor(.primary)
+                Text("All applications are running efficiently")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 140)
-        .padding(.vertical, 4)
-        .padding(.horizontal, 14)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
     }
 
     private var appsListView: some View {
@@ -113,7 +124,7 @@ struct SignificantEnergyMenuView: View {
             }
             .frame(maxWidth: .infinity, alignment: .top)
         }
-        .frame(height: 140, alignment: .top)
+        .frame(maxHeight: .infinity, alignment: .top)
         .padding(.bottom, 4)
     }
 }
