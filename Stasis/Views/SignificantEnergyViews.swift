@@ -1,9 +1,12 @@
 import AppKit
 import SwiftUI
 
-class DynamicallyResizingHostingView<V: View>: NSHostingView<V> {
+final class DynamicallyResizingHostingView<V: View>: NSHostingView<V> {
     weak var menuItem: NSMenuItem?
     private let menuWidth: CGFloat = 300
+
+    @inline(never)
+    deinit {}
 
     override var fittingSize: NSSize {
         let size = super.fittingSize
