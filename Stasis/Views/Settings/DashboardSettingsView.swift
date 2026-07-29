@@ -12,6 +12,7 @@ struct DashboardSettingsView: View {
     @Default(.showInternalPower) var showInternalPower
     @Default(.showExternalPower) var showExternalPower
     @Default(.showPowerDistribution) var showPowerDistribution
+    @Default(.showTwoDecimalPowerValues) var showTwoDecimalPowerValues
     @Default(.showOutputPortsText) var showOutputPortsText
     @Default(.outputVisualizationMode) var outputVisualizationMode
     @Default(.showSignificantEnergyApps) var showSignificantEnergyApps
@@ -51,6 +52,11 @@ struct DashboardSettingsView: View {
 
             Section("Visuals") {
                 Toggle("Power distribution diagram", isOn: $showPowerDistribution)
+                Toggle(
+                    "Two decimal places for power values",
+                    isOn: $showTwoDecimalPowerValues
+                )
+                .disabled(!showPowerDistribution)
                 Picker("Show outgoing output", selection: $outputVisualizationMode) {
                     Text("Off").tag(OutputVisualizationMode.off)
                     Text("Power Only").tag(OutputVisualizationMode.powerOnly)

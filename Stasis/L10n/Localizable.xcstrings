@@ -242,7 +242,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 second"
+            "value": "1 秒"
           }
         },
         "zh-Hant": {
@@ -348,7 +348,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "10 seconds"
+            "value": "10 秒"
           }
         },
         "zh-Hant": {
@@ -454,7 +454,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "2 seconds"
+            "value": "2 秒"
           }
         },
         "zh-Hant": {
@@ -560,7 +560,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 seconds"
+            "value": "3 秒"
           }
         },
         "zh-Hant": {
@@ -666,7 +666,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "5 seconds"
+            "value": "5 秒"
           }
         },
         "zh-Hant": {
@@ -984,7 +984,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "电源适配器"
           }
         },
         "zh-Hant": {
@@ -1090,7 +1090,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "电源适配器功率指标"
           }
         },
         "zh-Hant": {
@@ -1196,7 +1196,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "此设备不支持电源适配器控制。"
           }
         },
         "zh-Hant": {
@@ -1514,7 +1514,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aprove o Stasis em Definições do Sistema → Itens de Início para continuar."
+            "value": "请在“系统设置”→“登录项”中批准 Stasis 以继续。"
           }
         },
         "zh-Hant": {
@@ -1620,7 +1620,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Transferir automaticamente"
+            "value": "自动下载"
           }
         },
         "zh-Hant": {
@@ -1726,7 +1726,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarga automática"
+            "value": "自动放电"
           }
         },
         "zh-Hant": {
@@ -1832,7 +1832,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações automaticamente"
+            "value": "自动检查更新"
           }
         },
         "zh-Hant": {
@@ -1938,7 +1938,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Retomar o carregamento automaticamente quando a bateria descer abaixo do limiar em relação ao seu limite de carga."
+            "value": "当电池电量低于相对于充电上限设定的阈值时，自动恢复充电。"
           }
         },
         "zh-Hant": {
@@ -2150,7 +2150,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria"
+            "value": "电池校准"
           }
         },
         "zh-Hant": {
@@ -2362,7 +2362,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "电池模式"
           }
         },
         "zh-Hant": {
@@ -2468,7 +2468,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "仅电池供电时"
           }
         },
         "zh-Hant": {
@@ -2574,7 +2574,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "电池功率指标"
           }
         },
         "zh-Hant": {
@@ -2680,7 +2680,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "电池读数"
           }
         },
         "zh-Hant": {
@@ -2786,7 +2786,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura da bateria"
+            "value": "电池温度"
           }
         },
         "zh-Hant": {
@@ -2892,7 +2892,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "MacBook 电池与充电控制。"
           }
         },
         "zh-Hant": {
@@ -2998,7 +2998,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "此设备不支持电池校准。"
           }
         },
         "zh-Hant": {
@@ -3104,7 +3104,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "电池模式"
           }
         },
         "zh-Hant": {
@@ -3316,7 +3316,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente rápido"
+            "value": "橙色快速闪烁"
           }
         },
         "zh-Hant": {
@@ -3422,7 +3422,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente lento"
+            "value": "橙色缓慢闪烁"
           }
         },
         "zh-Hant": {
@@ -3528,7 +3528,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "专注于实用的电池健康与充电管理体验。"
           }
         },
         "zh-Hant": {
@@ -3635,7 +3635,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "校准中（正在充电至 %@）"
           }
         },
         "zh-Hant": {
@@ -3742,7 +3742,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "校准中（正在放电至 %@）"
           }
         },
         "zh-Hant": {
@@ -3849,7 +3849,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "校准中（正在 %@ 电量下静置）"
           }
         },
         "zh-Hant": {
@@ -4061,7 +4061,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar calibração"
+            "value": "取消校准"
           }
         },
         "zh-Hant": {
@@ -4167,7 +4167,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alterar idioma de exibição..."
+            "value": "更改显示语言…"
           }
         },
         "zh-Hant": {
@@ -4273,7 +4273,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "临时解除充电上限"
           }
         },
         "zh-Hant": {
@@ -4379,7 +4379,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gestão de carga"
+            "value": "充电管理"
           }
         },
         "zh-Hant": {
@@ -4591,7 +4591,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "此设备不支持充电管理。"
           }
         },
         "zh-Hant": {
@@ -4697,7 +4697,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "充电"
+            "value": "正在充电"
           }
         },
         "zh-Hant": {
@@ -4803,7 +4803,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "此设备不支持充电控制。"
           }
         },
         "zh-Hant": {
@@ -4909,7 +4909,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregamento retoma a"
+            "value": "恢复充电阈值"
           }
         },
         "zh-Hant": {
@@ -5015,7 +5015,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado de carregamento alterado"
+            "value": "充电状态变化"
           }
         },
         "zh-Hant": {
@@ -5122,7 +5122,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@ (Sobreposição)"
+            "value": "正在充电至 %@（已解除上限）"
           }
         },
         "zh-Hant": {
@@ -5229,7 +5229,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@..."
+            "value": "正在充电至 %@…"
           }
         },
         "zh-Hant": {
@@ -5335,7 +5335,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verificar novamente"
+            "value": "重新检查"
           }
         },
         "zh-Hant": {
@@ -5441,7 +5441,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações agora"
+            "value": "立即检查更新"
           }
         },
         "zh-Hant": {
@@ -5547,7 +5547,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Frequência de verificação"
+            "value": "检查频率"
           }
         },
         "zh-Hant": {
@@ -5653,7 +5653,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "社区"
           }
         },
         "zh-Hant": {
@@ -5759,7 +5759,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle quando o Stasis envia notificações."
+            "value": "控制 Stasis 何时向你发送通知。"
           }
         },
         "zh-Hant": {
@@ -5971,7 +5971,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contagem de ciclos"
+            "value": "循环计数"
           }
         },
         "zh-Hant": {
@@ -6077,7 +6077,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "守护进程错误 — 设置未同步"
           }
         },
         "zh-Hant": {
@@ -6183,7 +6183,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diariamente"
+            "value": "每天"
           }
         },
         "zh-Hant": {
@@ -6501,7 +6501,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "开发者"
           }
         },
         "zh-Hant": {
@@ -6713,7 +6713,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar todas as notificações"
+            "value": "关闭所有通知"
           }
         },
         "zh-Hant": {
@@ -6819,7 +6819,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar suspensão até ao limite de carga"
+            "value": "达到充电上限前防止睡眠"
           }
         },
         "zh-Hant": {
@@ -6925,7 +6925,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar"
+            "value": "放电"
           }
         },
         "zh-Hant": {
@@ -7031,7 +7031,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar a bateria até ao limite de carga quando ligada à corrente acima do nível pretendido."
+            "value": "接通电源且电量高于目标值时，将电池放电至充电上限。"
           }
         },
         "zh-Hant": {
@@ -7138,7 +7138,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até %@..."
+            "value": "正在放电至 %@…"
           }
         },
         "zh-Hant": {
@@ -7244,7 +7244,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar um HUD flutuante ao estilo Dynamic Island quando o estado de carregamento mudar."
+            "value": "充电状态变化时，显示类似灵动岛的悬浮 HUD。"
           }
         },
         "zh-Hant": {
@@ -7350,7 +7350,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "在菜单栏图标旁边或图标内显示电池百分比。"
           }
         },
         "zh-Hant": {
@@ -7456,7 +7456,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de exibição"
+            "value": "显示模式"
           }
         },
         "zh-Hant": {
@@ -7562,7 +7562,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duração"
+            "value": "显示时长"
           }
         },
         "zh-Hant": {
@@ -7668,7 +7668,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar calibração automática"
+            "value": "启用自动校准"
           }
         },
         "zh-Hant": {
@@ -7774,7 +7774,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar proteção térmica"
+            "value": "启用高温保护"
           }
         },
         "zh-Hant": {
@@ -7880,7 +7880,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "启用巡航模式"
           }
         },
         "zh-Hant": {
@@ -8198,7 +8198,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 14 dias"
+            "value": "每 14 天"
           }
         },
         "zh-Hant": {
@@ -8304,7 +8304,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 30 dias"
+            "value": "每 30 天"
           }
         },
         "zh-Hant": {
@@ -8410,7 +8410,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 60 dias"
+            "value": "每 60 天"
           }
         },
         "zh-Hant": {
@@ -8516,7 +8516,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 7 dias"
+            "value": "每 7 天"
           }
         },
         "zh-Hant": {
@@ -8623,7 +8623,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "为确保充电管理可靠运行，请在**系统设置 → 电池**中关闭“优化电池充电”，并将 Apple 原生的充电上限准确设置为 **%@**。"
           }
         },
         "zh-Hant": {
@@ -8729,7 +8729,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Forçar descarga"
+            "value": "强制放电"
           }
         },
         "zh-Hant": {
@@ -8941,7 +8941,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "在下拉菜单中显示常用的系统与电池状态信息。"
           }
         },
         "zh-Hant": {
@@ -9047,7 +9047,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "绿色"
           }
         },
         "zh-Hant": {
@@ -9153,7 +9153,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saúde"
+            "value": "健康度"
           }
         },
         "zh-Hant": {
@@ -9259,7 +9259,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Proteção térmica"
+            "value": "高温保护"
           }
         },
         "zh-Hant": {
@@ -9471,7 +9471,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar serviço auxiliar (daemon)"
+            "value": "安装辅助守护进程"
           }
         },
         "zh-Hant": {
@@ -9577,7 +9577,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervalo"
+            "value": "间隔"
           }
         },
         "zh-Hant": {
@@ -9684,7 +9684,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chegou o momento da calibração programada da bateria. O Mac será descarregado até %@ antes de recarregar."
+            "value": "已到计划的电池校准时间。Mac 将先放电至 %@，然后重新充电。"
           }
         },
         "zh-Hant": {
@@ -9790,7 +9790,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "LED durante proteção térmica"
+            "value": "高温保护时的指示灯"
           }
         },
         "zh-Hant": {
@@ -9896,7 +9896,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idioma"
+            "value": "语言"
           }
         },
         "zh-Hant": {
@@ -10002,7 +10002,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Última calibração em %@"
+            "value": "上次校准时间：%@"
           }
         },
         "zh-Hant": {
@@ -10108,7 +10108,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "登录时启动"
           }
         },
         "zh-Hant": {
@@ -10214,7 +10214,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limitar o nível máximo de carga para prolongar a vida útil da bateria."
+            "value": "限制最高充电电量，以延长电池寿命。"
           }
         },
         "zh-Hant": {
@@ -10320,7 +10320,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo do LED MagSafe"
+            "value": "MagSafe 指示灯控制"
           }
         },
         "zh-Hant": {
@@ -10426,7 +10426,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "此设备不支持 MagSafe 指示灯控制。"
           }
         },
         "zh-Hant": {
@@ -10532,7 +10532,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir LED MagSafe"
+            "value": "管理 MagSafe 指示灯"
           }
         },
         "zh-Hant": {
@@ -10638,7 +10638,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir carregamento"
+            "value": "管理充电"
           }
         },
         "zh-Hant": {
@@ -10744,7 +10744,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "菜单栏图标"
           }
         },
         "zh-Hant": {
@@ -10850,7 +10850,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "菜单控制"
           }
         },
         "zh-Hant": {
@@ -10956,7 +10956,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mensalmente"
+            "value": "每月"
           }
         },
         "zh-Hant": {
@@ -11168,7 +11168,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Notch HUD"
+            "value": "刘海 HUD"
           }
         },
         "zh-Hant": {
@@ -11380,7 +11380,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas notificar"
+            "value": "仅通知"
           }
         },
         "zh-Hant": {
@@ -11592,7 +11592,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "打开设置"
           }
         },
         "zh-Hant": {
@@ -11698,7 +11698,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "橙色"
           }
         },
         "zh-Hant": {
@@ -11804,7 +11804,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "最初基于一个开源项目分支，随后加入了更多新功能。"
           }
         },
         "zh-Hant": {
@@ -11910,7 +11910,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Portas de saída"
+            "value": "输出端口"
           }
         },
         "zh-Hant": {
@@ -12016,7 +12016,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "显示输出端口文字"
           }
         },
         "zh-Hant": {
@@ -12122,7 +12122,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pausar o carregamento quando a temperatura da bateria exceder o limiar."
+            "value": "当电池温度超过阈值时暂停充电。"
           }
         },
         "zh-Hant": {
@@ -12228,7 +12228,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Executar periodicamente um ciclo completo de descarga e carga para manter leituras exatas da capacidade da bateria."
+            "value": "定期执行完整的放电和充电循环，以保持电池容量读数准确。"
           }
         },
         "zh-Hant": {
@@ -12334,7 +12334,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "功率"
           }
         },
         "zh-Hant": {
@@ -12440,7 +12440,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "仅接通电源时"
           }
         },
         "zh-Hant": {
@@ -12546,7 +12546,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "电源"
           }
         },
         "zh-Hant": {
@@ -12652,7 +12652,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "功率分配图"
           }
         },
         "zh-Hant": {
@@ -12758,7 +12758,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "电源"
           }
         },
         "zh-Hant": {
@@ -12864,7 +12864,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Impedir que o Mac suspenda enquanto carrega até ao limite de carga. A suspensão é reativada quando o limite é atingido ou o carregador é desligado."
+            "value": "在充电至上限期间防止 Mac 进入睡眠。达到上限或断开电源适配器后，将重新允许睡眠。"
           }
         },
         "zh-Hant": {
@@ -12970,7 +12970,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar com privilégios"
+            "value": "特权辅助程序"
           }
         },
         "zh-Hant": {
@@ -13182,7 +13182,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunicar um erro"
+            "value": "报告错误"
           }
         },
         "zh-Hant": {
@@ -13288,7 +13288,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sugerir uma funcionalidade"
+            "value": "建议新功能"
           }
         },
         "zh-Hant": {
@@ -13500,7 +13500,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor definições"
+            "value": "重置偏好设置"
           }
         },
         "zh-Hant": {
@@ -13606,7 +13606,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor todas as definições"
+            "value": "重置所有偏好设置"
           }
         },
         "zh-Hant": {
@@ -13713,7 +13713,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "正在 %@ 电量下静置…"
           }
         },
         "zh-Hant": {
@@ -13819,7 +13819,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo navegação (Sailing Mode)"
+            "value": "巡航模式"
           }
         },
         "zh-Hant": {
@@ -13925,7 +13925,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "保存并重启"
+            "value": "保存并重新启动"
           }
         },
         "zh-Hant": {
@@ -14137,7 +14137,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecione o idioma de exibição do Stasis. É necessário reiniciar para aplicar as alterações."
+            "value": "选择 Stasis 的显示语言。需要重新启动才能应用更改。"
           }
         },
         "zh-Hant": {
@@ -14349,7 +14349,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "设置..."
+            "value": "设置…"
           }
         },
         "zh-Hant": {
@@ -14561,7 +14561,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar estado de carregamento no Notch HUD"
+            "value": "在刘海 HUD 中显示充电状态"
           }
         },
         "zh-Hant": {
@@ -14667,7 +14667,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "显示手动充电控制"
           }
         },
         "zh-Hant": {
@@ -14773,7 +14773,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar no ecrã de bloqueio"
+            "value": "在锁定屏幕上显示"
           }
         },
         "zh-Hant": {
@@ -14879,7 +14879,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "显示输出功率"
           }
         },
         "zh-Hant": {
@@ -14985,7 +14985,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prevenção de suspensão"
+            "value": "防止睡眠"
           }
         },
         "zh-Hant": {
@@ -15091,7 +15091,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Som"
+            "value": "提示音"
           }
         },
         "zh-Hant": {
@@ -15197,7 +15197,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar calibração agora"
+            "value": "立即开始校准"
           }
         },
         "zh-Hant": {
@@ -15303,7 +15303,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "启动"
           }
         },
         "zh-Hant": {
@@ -15515,7 +15515,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Stasis 设置"
           }
         },
         "zh-Hant": {
@@ -15621,7 +15621,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis utiliza o Sparkle para gerir atualizações automáticas."
+            "value": "Stasis 使用 Sparkle 管理自动更新。"
           }
         },
         "zh-Hant": {
@@ -15939,7 +15939,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "系统默认"
           }
         },
         "zh-Hant": {
@@ -16045,7 +16045,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura"
+            "value": "温度"
           }
         },
         "zh-Hant": {
@@ -16151,7 +16151,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de temperatura"
+            "value": "温度上限"
           }
         },
         "zh-Hant": {
@@ -16257,7 +16257,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "辅助守护进程在后台运行，用于管理电池充电状态。\n\n注意：即使后台辅助程序已取消注册，macOS 仍会将应用保留在“允许在后台”列表（系统设置）中。点击“卸载”后，辅助程序确实会被停用，但在你从 Mac 中删除 Stasis 应用本身之前，macOS 仍会在该列表中显示 Stasis。"
           }
         },
         "zh-Hant": {
@@ -16363,7 +16363,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limiar abaixo do limite"
+            "value": "低于上限的阈值"
           }
         },
         "zh-Hant": {
@@ -16469,7 +16469,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo restante"
+            "value": "剩余时间"
           }
         },
         "zh-Hant": {
@@ -16575,7 +16575,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "执行时间"
           }
         },
         "zh-Hant": {
@@ -16681,7 +16681,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "电池剩余使用时间"
           }
         },
         "zh-Hant": {
@@ -16787,7 +16787,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregar até ao limite"
+            "value": "充电至上限"
           }
         },
         "zh-Hant": {
@@ -16999,7 +16999,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desinstalar serviço auxiliar (daemon)"
+            "value": "卸载辅助守护进程"
           }
         },
         "zh-Hant": {
@@ -17105,7 +17105,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "更新"
           }
         },
         "zh-Hant": {
@@ -17211,7 +17211,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo de atividade"
+            "value": "运行时间"
           }
         },
         "zh-Hant": {
@@ -17317,7 +17317,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "使用硬件电量百分比"
           }
         },
         "zh-Hant": {
@@ -17423,7 +17423,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "使用硬件原始健康度"
           }
         },
         "zh-Hant": {
@@ -17529,7 +17529,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "使用硬件原始电量百分比，而不是 macOS 校准后的数值。"
           }
         },
         "zh-Hant": {
@@ -17635,7 +17635,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ver no GitHub"
+            "value": "在 GitHub 上查看"
           }
         },
         "zh-Hant": {
@@ -17741,7 +17741,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "可视化"
           }
         },
         "zh-Hant": {
@@ -17847,7 +17847,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "每周"
           }
         },
         "zh-Hant": {
@@ -17953,7 +17953,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quando forem encontradas atualizações"
+            "value": "发现更新时"
           }
         },
         "zh-Hant": {
@@ -18377,7 +18377,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "要退出 Stasis 吗？"
           }
         },
         "zh-Hant": {
@@ -18483,7 +18483,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "退出 Stasis 将停止后台辅助服务。电池充电上限和保护功能将不再生效。"
           }
         },
         "zh-Hant": {
@@ -18589,7 +18589,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "不要退出"
+            "value": "不退出"
           }
         },
         "zh-Hant": {
@@ -18801,7 +18801,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "后台辅助程序已断开连接"
           }
         },
         "zh-Hant": {
@@ -18907,7 +18907,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis 已与后台辅助程序断开连接。请前往“系统设置”>“通用”>“登录项”，在“允许在后台”中先关闭再重新开启 Stasis，然后重新启动应用。"
           }
         },
         "zh-Hant": {
@@ -19013,7 +19013,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar"
+            "value": "关闭"
           }
         },
         "zh-Hant": {
@@ -19119,7 +19119,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "电池校准提醒"
           }
         },
         "zh-Hant": {
@@ -19225,7 +19225,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "确定"
+            "value": "好"
           }
         },
         "zh-Hant": {
@@ -19331,7 +19331,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "校准已暂停（请接通电源）"
           }
         },
         "zh-Hant": {
@@ -19437,7 +19437,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "校准中（正在放电）"
           }
         },
         "zh-Hant": {
@@ -19543,7 +19543,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "校准中（正在充电）"
           }
         },
         "zh-Hant": {
@@ -19649,7 +19649,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "校准中（正在静置）"
           }
         },
         "zh-Hant": {
@@ -19755,7 +19755,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de baixo consumo"
+            "value": "低电量模式"
           }
         },
         "zh-Hant": {
@@ -19861,7 +19861,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A forçar descarga"
+            "value": "正在强制放电"
           }
         },
         "zh-Hant": {
@@ -19967,7 +19967,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A usar bateria"
+            "value": "正在使用电池"
           }
         },
         "zh-Hant": {
@@ -20073,7 +20073,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até ao limite"
+            "value": "正在放电至充电上限"
           }
         },
         "zh-Hant": {
@@ -20179,7 +20179,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite atingido"
+            "value": "已达到上限"
           }
         },
         "zh-Hant": {
@@ -20285,7 +20285,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em espera"
+            "value": "已暂停充电"
           }
         },
         "zh-Hant": {
@@ -20391,7 +20391,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Totalmente carregada"
+            "value": "已充满"
           }
         },
         "zh-Hant": {
@@ -20497,7 +20497,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente"
+            "value": "已接通电源"
           }
         },
         "zh-Hant": {
@@ -20603,7 +20603,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente (Sem carregar)"
+            "value": "已接通电源（未充电）"
           }
         },
         "zh-Hant": {
@@ -20815,7 +20815,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "N/A"
+            "value": "不适用"
           }
         },
         "zh-Hant": {
@@ -20921,7 +20921,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calcular..."
+            "value": "正在计算…"
           }
         },
         "zh-Hant": {
@@ -21027,7 +21027,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "电源适配器"
           }
         },
         "zh-Hant": {
@@ -21133,7 +21133,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente"
+            "value": "电池与电源适配器"
           }
         },
         "zh-Hant": {
@@ -21345,7 +21345,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar em segundo plano do Stasis foi aprovado com sucesso e o carregamento em segundo plano está ativo!"
+            "value": "Stasis 后台辅助程序已获批准，后台充电管理现已启用！"
           }
         },
         "zh-Hant": {
@@ -21557,7 +21557,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis 尚未获批准。\n\n请在“登录项”设置的“允许在后台”中启用 Stasis。还建议确认 Stasis 已添加到“登录时打开”中。"
           }
         },
         "zh-Hant": {
@@ -21769,7 +21769,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "图标旁边"
+            "value": "图标旁"
           }
         },
         "zh-Hant": {
@@ -21875,7 +21875,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "图标内部"
+            "value": "图标内"
           }
         },
         "zh-Hant": {
@@ -21981,7 +21981,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "内部（通电时外部）"
+            "value": "图标内（接通电源时显示在外）"
           }
         },
         "zh-Hant": {
@@ -22087,7 +22087,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas ecrã do Mac"
+            "value": "仅 Mac 内置显示器"
           }
         },
         "zh-Hant": {
@@ -22193,7 +22193,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todos os ecrãs"
+            "value": "所有显示器"
           }
         },
         "zh-Hant": {
@@ -22299,7 +22299,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%lld W)"
+            "value": "电源适配器（%lld W）"
           }
         },
         "zh-Hant": {
@@ -22405,7 +22405,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%@ W)"
+            "value": "电源适配器（%@ W）"
           }
         },
         "zh-Hant": {
@@ -22511,7 +22511,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%d W)"
+            "value": "电源适配器（%d W）"
           }
         },
         "zh-Hant": {
@@ -22617,7 +22617,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%lld W)"
+            "value": "电池与电源适配器（%lld W）"
           }
         },
         "zh-Hant": {
@@ -22723,7 +22723,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%@ W)"
+            "value": "电池与电源适配器（%@ W）"
           }
         },
         "zh-Hant": {
@@ -22829,7 +22829,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%d W)"
+            "value": "电池与电源适配器（%d W）"
           }
         },
         "zh-Hant": {
@@ -23109,7 +23109,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "所有偏好设置均已恢复为默认值。应用现在将重新启动。"
           }
         },
         "zh-Hant": {
@@ -23216,7 +23216,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "正在充电至上限"
           }
         },
         "zh-Hant": {
@@ -23323,7 +23323,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "放电中"
+            "value": "正在放电"
           }
         },
         "zh-Hant": {
@@ -23430,7 +23430,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "助手状态"
+            "value": "辅助程序状态"
           }
         },
         "zh-Hant": {
@@ -23537,7 +23537,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "辅助守护进程已成功安装。"
           }
         },
         "zh-Hant": {
@@ -23644,7 +23644,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "辅助守护进程已成功卸载。应用现在将重新启动。"
           }
         },
         "zh-Hant": {
@@ -23751,7 +23751,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "请打开“系统设置”→“通用”→“登录项”，允许 Stasis 在后台运行，然后重试。"
           }
         },
         "zh-Hant": {
@@ -23965,7 +23965,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "提示：请检查“系统设置”→“通用”→“登录项”，确认已允许 Stasis 在后台运行。如果已经开启，请尝试先关闭再重新开启。"
           }
         },
         "zh-Hant": {
@@ -24072,7 +24072,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "未知"
           }
         },
         "zh-Hant": {
@@ -24286,7 +24286,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "推迟 (1 天)"
+            "value": "1 天后提醒"
           }
         },
         "zh-Hant": {
@@ -24393,7 +24393,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "安装充电辅助程序失败"
           }
         },
         "zh-Hant": {
@@ -24500,7 +24500,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "卸载充电辅助程序失败"
           }
         },
         "zh-Hant": {
@@ -24607,7 +24607,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld 天 %lld 小时 %lld 分钟"
           }
         },
         "zh-Hant": {
@@ -24714,7 +24714,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld 小时 %lld 分钟"
           }
         },
         "zh-Hant": {
@@ -24821,7 +24821,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld 分钟"
           }
         },
         "zh-Hant": {
@@ -25249,7 +25249,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "管理特权辅助守护进程..."
+            "value": "管理特权辅助守护进程…"
           }
         },
         "zh-Hant": {
@@ -25356,7 +25356,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "重置所有偏好设置？"
+            "value": "要重置所有偏好设置吗？"
           }
         },
         "zh-Hant": {
@@ -25463,7 +25463,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "所有偏好设置将恢复为默认值，Stasis 将立即重启。"
+            "value": "所有偏好设置将恢复为默认值，Stasis 随后会立即重新启动。"
           }
         },
         "zh-Hant": {
@@ -25570,7 +25570,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "重置并重启"
+            "value": "重置并重新启动"
           }
         },
         "zh-Hant": {
@@ -25891,7 +25891,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "注意：即使后台助手已注销，macOS 也会有意将应用保留在“应用后台活动”列表（系统设置）中。点击“卸载”后，助手将真正被禁用，但 macOS 将继续在该列表中显示 Stasis，直到应用本身从 Mac 中删除。"
+            "value": "注意：即使后台辅助程序已取消注册，macOS 仍会将应用保留在“允许在后台”列表（系统设置）中。点击“卸载”后，辅助程序确实会被停用，但在你从 Mac 中删除 Stasis 应用本身之前，macOS 仍会在该列表中显示 Stasis。"
           }
         },
         "zh-Hant": {
@@ -26005,6 +26005,1066 @@
           "stringUnit": {
             "state": "translated",
             "value": "關閉"
+          }
+        }
+      }
+    },
+    "Basso": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低音"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bass"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Basso"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lage toon"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hlboký tón"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nizki ton"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Âm trầm"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bas"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бас"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低音"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低音"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저음"
+          }
+        }
+      }
+    },
+    "Frog": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "青蛙"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frosch"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rana"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rana"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grenouille"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rana"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kikker"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rã"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rã"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žaba"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Žaba"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ếch"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurbağa"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Лягушка"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "青蛙"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カエル"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "개구리"
+          }
+        }
+      }
+    },
+    "Glass": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cristal"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cristal"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verre"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vetro"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glas"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vidro"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vidro"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sklo"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steklo"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thủy tinh"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cam"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Стекло"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "玻璃"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ガラス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "유리"
+          }
+        }
+      }
+    },
+    "Hero": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英雄"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Held"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Héroe"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Héroe"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Héros"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eroe"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Held"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herói"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herói"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hrdina"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Junak"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anh hùng"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kahraman"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Герой"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "英雄"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ヒーロー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "영웅"
+          }
+        }
+      }
+    },
+    "Pop": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "气泡"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plopp"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estallido"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estallido"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pop"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pop"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plop"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estalo"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estalo"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prasknutie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pok"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bốp"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pat"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Хлопок"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "氣泡"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポップ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팝"
+          }
+        }
+      }
+    },
+    "Port %lld: %lld W": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "端口 %lld：%lld W"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anschluss %lld: %lld W"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puerto %lld: %lld W"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puerto %lld: %lld W"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Port %lld : %lld W"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %lld W"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poort %lld: %lld W"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %lld W"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %lld W"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Port %lld: %lld W"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Priključek %lld: %lld W"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cổng %lld: %lld W"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı noktası %lld: %lld W"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Порт %lld: %lld W"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連接埠 %lld：%lld W"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポート %lld：%lld W"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "포트 %lld: %lld W"
+          }
+        }
+      }
+    },
+    "Port %lld: %@ W": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "端口 %lld：%@ W"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anschluss %lld: %@ W"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puerto %lld: %@ W"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puerto %lld: %@ W"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Port %lld : %@ W"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %@ W"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poort %lld: %@ W"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %@ W"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Porta %lld: %@ W"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Port %lld: %@ W"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Priključek %lld: %@ W"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cổng %lld: %@ W"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı noktası %lld: %@ W"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Порт %lld: %@ W"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連接埠 %lld：%@ W"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ポート %lld：%@ W"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "포트 %lld: %@ W"
+          }
+        }
+      }
+    },
+    "Tink": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "叮咚"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klingeln"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tintineo"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tintineo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tintement"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tintinnio"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ting"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tilintar"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tilintar"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cinknutie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cingljaj"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leng keng"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tınlama"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Звон"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "叮咚"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ティンク"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "팅크"
+          }
+        }
+      }
+    },
+    "Two decimal places for power values": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功率数值保留两位小数"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zwei Dezimalstellen für Leistungswerte"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dos decimales para los valores de potencia"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dos decimales para los valores de potencia"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deux décimales pour les valeurs de puissance"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due cifre decimali per i valori di potenza"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Twee decimalen voor vermogenswaarden"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duas casas decimais para valores de potência"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duas casas decimais para valores de potência"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dve desatinné miesta pre hodnoty výkonu"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dve decimalni mesti za vrednosti moči"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai chữ số thập phân cho giá trị công suất"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Güç değerleri için iki ondalık basamak"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Два знака после запятой для значений мощности"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功率數值保留兩位小數"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電力値を小数点以下2桁で表示"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전력 값을 소수점 둘째 자리까지 표시"
+          }
+        }
+      }
+    },
+    "Version %@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %@"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versione %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versie %@"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão %@"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão %@"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verzia %@"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Različica %@"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Phiên bản %@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sürüm %@"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Версия %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "버전 %@"
           }
         }
       }

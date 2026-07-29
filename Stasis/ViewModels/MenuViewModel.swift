@@ -16,10 +16,10 @@ class MenuViewModel {
     }
 
     var batteryPercentageText: String = "0%"
-    var powerSourceText: String = "Battery"
-    var timeRemainingText: String = "Calculating..."
+    var powerSourceText: String = String(localized: "Battery")
+    var timeRemainingText: String = String(localized: "Calculating...")
     var uptimeText: String = "00:00"
-    var batteryModeText: String = "Unknown"
+    var batteryModeText: String = String(localized: "Unknown")
     var batteryTemperatureText: String = "0°C"
     var externalInputText: String = "0V @ 0A"
     var internalInputText: String = "0V @ 0A"
@@ -33,7 +33,7 @@ class MenuViewModel {
     var systemPower: Double = 0
     var outputPower: Double = 0
     var outputPortPowers: [OutputPortPower] = []
-    var outputPortDetailsText: String = "None"
+    var outputPortDetailsText: String = String(localized: "None")
     var powerSource: PowerSource = .battery
     var isCharging: Bool = false
     var hasMultiPort: Bool = false
@@ -104,7 +104,10 @@ class MenuViewModel {
     private func startObservingSettings() {
         settingsObservation = Task { [weak self] in
             for await _ in Defaults.updates(
-                [.useHardwarePercentage, .useRawHardwareHealth, .calibrationStatus],
+                [
+                    .useHardwarePercentage, .useRawHardwareHealth,
+                    .calibrationStatus, .showTwoDecimalPowerValues
+                ],
                 initial: false
             ) {
                 guard let self else { return }
@@ -313,10 +316,18 @@ class MenuViewModel {
         if outputPortPowers.isEmpty {
             outputPortDetailsText = String(localized: "None")
         } else {
+            let showTwoDecimalPlaces = Defaults[.showTwoDecimalPowerValues]
             outputPortDetailsText =
                 outputPortPowers
                 .map {
-                    "Port \($0.portIndex): \(Int($0.powerWatts.rounded())) W"
+                    let power = PowerValueFormatter.string(
+                        from: $0.powerWatts,
+                        showTwoDecimalPlaces: showTwoDecimalPlaces
+                    )
+                    return String(
+                        localized:
+                            "Port \($0.portIndex): \(power) W"
+                    )
                 }
                 .joined(separator: " • ")
         }

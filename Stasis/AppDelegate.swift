@@ -124,6 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showBatteryHealth, .showBatteryTemperature, .showUptime,
                     .showBatteryMode, .showInternalPower, .showExternalPower,
                     .showPowerDistribution,
+                    .showTwoDecimalPowerValues,
                     .showOutputPortsText, .outputVisualizationMode,
                     .manageCharging, .showAdvancedChargingControls,
                     .appLanguage, .showSignificantEnergyApps
