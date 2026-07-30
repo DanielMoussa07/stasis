@@ -70,7 +70,7 @@ struct BatteryIndicatorView: View {
     var body: some View {
         HStack(spacing: 4) {
             if shouldShowOutsidePercentage {
-                Text(Double(batteryLevel) / 100.0, format: .percent.precision(.fractionLength(0)))
+                Text(batteryLevel.formattedPercentage)
                     .font(menuBarPercentageFont)
                     .fontWeight(.regular)
                     .monospacedDigit()

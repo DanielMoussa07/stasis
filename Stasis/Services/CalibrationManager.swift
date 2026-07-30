@@ -194,7 +194,7 @@ class CalibrationManager {
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
         alert.messageText = String(localized: "Battery Calibration Due")
-        let percentText = (0.15 as Double).formatted(.percent)
+        let percentText = 15.formattedPercentage
         alert.informativeText = String(
             localized: "It's time for your scheduled battery calibration. This will discharge your Mac to \(percentText) before recharging."
         )

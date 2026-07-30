@@ -101,7 +101,7 @@ struct ChargingSettingsView: View {
                                 in: 50...100,
                                 step: 5
                             )
-                            Text(Double(chargeLimit) / 100.0, format: .percent.precision(.fractionLength(0)))
+                            Text(chargeLimit.formattedPercentage)
                                 .monospacedDigit()
                                 .foregroundStyle(.secondary)
                                 .frame(width: 40, alignment: .trailing)
@@ -126,7 +126,7 @@ struct ChargingSettingsView: View {
                     && helperManager.helperStatus == .installed
                 {
                     Text(
-                        "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **\(1.0, format: .percent.precision(.fractionLength(0)))** in **System Settings → Battery**."
+                        "For reliable charge management, ensure that \"Optimize Battery Charging\" is disabled and Apple's native Charge Limit is exactly at **\(100.formattedPercentage)** in **System Settings → Battery**."
                     )
                 }
             }
@@ -181,7 +181,7 @@ struct ChargingSettingsView: View {
                                     in: 1...20,
                                     step: 1
                                 )
-                                Text(Double(sailingModeLimit) / 100.0, format: .percent.precision(.fractionLength(0)))
+                                Text(sailingModeLimit.formattedPercentage)
                                     .monospacedDigit()
                                     .foregroundStyle(.secondary)
                                     .frame(width: 40, alignment: .trailing)
@@ -191,7 +191,7 @@ struct ChargingSettingsView: View {
                         }
 
                         LabeledContent("Charging resumes at") {
-                            Text(Double(sailingResumePercentage) / 100.0, format: .percent.precision(.fractionLength(0)))
+                            Text(sailingResumePercentage.formattedPercentage)
                                 .monospacedDigit()
                                 .foregroundStyle(.secondary)
                         }
@@ -323,13 +323,13 @@ struct ChargingSettingsView: View {
                                     .foregroundStyle(.secondary)
                             }
                         case .discharging:
-                            Text("Discharging to \(0.15, format: .percent.precision(.fractionLength(0)))...")
+                            Text("Discharging to \(15.formattedPercentage)...")
                                 .foregroundStyle(.orange)
                         case .charging:
-                            Text("Charging to \(1.0, format: .percent.precision(.fractionLength(0)))...")
+                            Text("Charging to \(100.formattedPercentage)...")
                                 .foregroundStyle(.blue)
                         case .resting:
-                            Text("Resting at \(1.0, format: .percent.precision(.fractionLength(0)))...")
+                            Text("Resting at \(100.formattedPercentage)...")
                                 .foregroundStyle(.green)
                         }
                     }

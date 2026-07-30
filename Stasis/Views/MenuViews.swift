@@ -40,9 +40,9 @@ struct BatteryAdditionalInfo: View {
 
 #Preview("Menu Items") {
     VStack(spacing: 0) {
-        BatteryMainInfo(label: "Battery", value: "85%")
+        BatteryMainInfo(label: "Battery", value: 85.formattedPercentage)
         Divider()
-        BatteryAdditionalInfo(label: "Battery Percentage", value: "85%")
+        BatteryAdditionalInfo(label: "Battery Percentage", value: 85.formattedPercentage)
         BatteryAdditionalInfo(label: "Time Remaining", value: "02:45")
         BatteryAdditionalInfo(label: "Battery Mode", value: "Discharging")
     }
