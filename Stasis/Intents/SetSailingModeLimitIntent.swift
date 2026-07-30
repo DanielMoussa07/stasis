@@ -26,7 +26,7 @@ struct SetSailingModeLimitIntent: AppIntent {
         Defaults[.manageCharging] = true
         chargeManager.forceSyncSettings()
 
-        let message = "Sailing Mode drop range set to \(Double(clampedDrop) / 100.0, format: .percent.precision(.fractionLength(0)))."
+        let message = "Sailing Mode drop range set to \(clampedDrop.formattedPercentage)."
         return .result(value: message, dialog: "\(message)")
     }
 }

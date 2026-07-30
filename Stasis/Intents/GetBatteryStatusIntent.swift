@@ -29,9 +29,9 @@ struct GetBatteryStatusIntent: AppIntent {
             modeText = "On Battery (Discharging)"
         case .pluggedIn:
             if isSailing {
-                modeText = "Sailing Mode (Limit: \(limit)%)"
+                modeText = "Sailing Mode (Limit: \(limit.formattedPercentage))"
             } else {
-                modeText = "On Hold (Limit: \(limit)%)"
+                modeText = "On Hold (Limit: \(limit.formattedPercentage))"
             }
         }
 
@@ -50,7 +50,7 @@ struct GetBatteryStatusIntent: AppIntent {
             powerFlowDescription = "0.0W battery flow"
         }
 
-        let statusString = "Battery is at \(percentage)% (\(modeText)). Power Flow: \(powerFlowDescription). Health: \(healthText), Temperature: \(tempText)."
+        let statusString = "Battery is at \(percentage.formattedPercentage) (\(modeText)). Power Flow: \(powerFlowDescription). Health: \(healthText), Temperature: \(tempText)."
 
         return .result(value: statusString, dialog: "\(statusString)")
     }
@@ -65,7 +65,7 @@ enum CustomIntentError: Swift.Error, CustomLocalizedStringResourceConvertible {
         case .stasisNotReady:
             return "Stasis services are not ready or running."
         case .invalidLimit(let value):
-            return "Charge limit \(value)% is invalid. Must be between 50 and 100."
+            return "Charge limit \(value.formattedPercentage) is invalid. Must be between 50 and 100."
         }
     }
 }

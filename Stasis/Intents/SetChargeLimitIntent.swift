@@ -28,11 +28,11 @@ struct SetChargeLimitIntent: AppIntent {
 
         let message: String
         if limit < 50 {
-            message = "Charge limit set to \(0.5, format: .percent.precision(.fractionLength(0))) (minimum allowed is \(0.5, format: .percent.precision(.fractionLength(0)))). Managed Charging enabled."
+            message = "Charge limit set to \(50.formattedPercentage) (minimum allowed is \(50.formattedPercentage)). Managed Charging enabled."
         } else if limit > 100 {
-            message = "Charge limit set to \(1.0, format: .percent.precision(.fractionLength(0))) (maximum allowed is \(1.0, format: .percent.precision(.fractionLength(0)))). Managed Charging enabled."
+            message = "Charge limit set to \(100.formattedPercentage) (maximum allowed is \(100.formattedPercentage)). Managed Charging enabled."
         } else {
-            message = "Charge limit set to \(Double(clampedLimit) / 100.0, format: .percent.precision(.fractionLength(0))) (Managed Charging enabled)."
+            message = "Charge limit set to \(clampedLimit.formattedPercentage) (Managed Charging enabled)."
         }
 
         return .result(value: message, dialog: "\(message)")

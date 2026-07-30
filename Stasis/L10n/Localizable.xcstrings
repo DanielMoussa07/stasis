@@ -7972,323 +7972,323 @@
         }
       }
     },
-    "Charge limit set to %@ %% (Managed Charging enabled).": {
+    "Charge limit set to %@ (Managed Charging enabled).": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ladelimit auf %@ %% gesetzt (Verwaltetes Laden aktiviert)."
+            "value": "Ladelimit auf %@ gesetzt (Verwaltetes Laden aktiviert)."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en %@ %% (Carga administrada activada)."
+            "value": "Límite de carga fijado en %@ (Carga administrada activada)."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en %@ %% (Carga administrada activada)."
+            "value": "Límite de carga fijado en %@ (Carga administrada activada)."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de charge définie à %@ %% (Recharge gérée activée)."
+            "value": "Limite de charge définie à %@ (Recharge gérée activée)."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite di ricarica impostato al %@ %% (Ricarica gestita attivata)."
+            "value": "Limite di ricarica impostato al %@ (Ricarica gestita attivata)."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限を %@ %% に設定しました（管理充電を有効化）。"
+            "value": "充電上限を %@ に設定しました（管理充電を有効化）。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "충전 제한이 %@ %%로 설정되었습니다(관리 충전 활성화)."
+            "value": "충전 제한이 %@로 설정되었습니다(관리 충전 활성화)."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laadlimiet ingesteld op %@ %% (Beheerd laden ingeschakeld)."
+            "value": "Laadlimiet ingesteld op %@ (Beheerd laden ingeschakeld)."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em %@ %% (Carga Gerenciada ativada)."
+            "value": "Limite de carga definido em %@ (Carga Gerenciada ativada)."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em %@ %% (Carregamento gerido ativado)."
+            "value": "Limite de carga definido em %@ (Carregamento gerido ativado)."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Лимит заряда установлен на %@ %% (Управляемая зарядка включена)."
+            "value": "Лимит заряда установлен на %@ (Управляемая зарядка включена)."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limit nabíjania nastavený na %@ %% (Riadené nabíjanie zapnuté)."
+            "value": "Limit nabíjania nastavený na %@ (Riadené nabíjanie zapnuté)."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Meja polnjenja nastavljena na %@ %% (Upravljano polnjenje omogočeno)."
+            "value": "Meja polnjenja nastavljena na %@ (Upravljano polnjenje omogočeno)."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Şarj sınırı % %@ olarak ayarlandı (Yönetilen Şarj etkinleştirildi)."
+            "value": "Şarj sınırı %@ olarak ayarlandı (Yönetilen Şarj etkinleştirildi)."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Giới hạn sạc được đặt thành %@ %% (Đã bật Quản lý sạc)."
+            "value": "Giới hạn sạc được đặt thành %@ (Đã bật Quản lý sạc)."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "充电限制已设置为 %@ %%（已启用智能充电管理）。"
+            "value": "充电限制已设置为 %@（已启用智能充电管理）。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限已設定為 %@ %%（已啟用智慧充電管理）。"
+            "value": "充電上限已設定為 %@（已啟用智慧充電管理）。"
           }
         }
       }
     },
-    "Charge limit set to 100 % (maximum allowed is 100 %). Managed Charging enabled.": {
+    "Charge limit set to %@ (maximum allowed is %@). Managed Charging enabled.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ladelimit auf 100 % gesetzt (Maximalwert 100 %). Verwaltetes Laden aktiviert."
+            "value": "Ladelimit auf %@ gesetzt (Maximalwert %@). Verwaltetes Laden aktiviert."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en 100 % (el máximo es 100 %). Carga administrada activada."
+            "value": "Límite de carga fijado en %@ (el máximo es %@). Carga administrada activada."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en 100 % (el máximo es 100 %). Carga administrada activada."
+            "value": "Límite de carga fijado en %@ (el máximo es %@). Carga administrada activada."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de charge définie à 100 % (maximum 100 %). Recharge gérée activée."
+            "value": "Limite de charge définie à %@ (maximum %@). Recharge gérée activée."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite di ricarica impostato al 100 % (massimo consentito 100 %). Ricarica gestita attivata."
+            "value": "Limite di ricarica impostato al %@ (massimo consentito %@). Ricarica gestita attivata."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限を100 %に設定しました（最大値は100 %）。管理充電が有効になりました。"
+            "value": "充電上限を %@ に設定しました（最大値は %@）。管理充電が有効になりました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "충전 제한이 100 %로 설정되었습니다(최대 허용값은 100 %). 관리 충전이 활성화되었습니다."
+            "value": "충전 제한이 %@로 설정되었습니다(최대 허용값은 %@). 관리 충전이 활성화되었습니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laadlimiet ingesteld op 100 % (maximum is 100 %). Beheerd laden ingeschakeld."
+            "value": "Laadlimiet ingesteld op %@ (maximum is %@). Beheerd laden ingeschakeld."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em 100 % (máximo permitido é 100 %). Carga Gerenciada ativada."
+            "value": "Limite de carga definido em %@ (máximo permitido é %@). Carga Gerenciada ativada."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em 100 % (máximo permitido é 100 %). Carregamento gerido ativado."
+            "value": "Limite de carga definido em %@ (máximo permitido é %@). Carregamento gerido ativado."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Лимит заряда установлен на 100 % (максимальное значение 100 %). Управляемая зарядка включена."
+            "value": "Лимит заряда установлен на %@ (максимальное значение %@). Управляемая зарядка включена."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limit nabíjania nastavený na 100 % (maximum je 100 %). Riadené nabíjanie zapnuté."
+            "value": "Limit nabíjania nastavený na %@ (maximum je %@). Riadené nabíjanie zapnuté."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Meja polnjenja nastavljena na 100 % (največ je 100 %). Upravljano polnjenje omogočeno."
+            "value": "Meja polnjenja nastavljena na %@ (največ je %@). Upravljano polnjenje omogočeno."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Şarj sınırı % 100 olarak ayarlandı (izin verilen en yüksek değer % 100). Yönetilen Şarj etkinleştirildi."
+            "value": "Şarj sınırı %@ olarak ayarlandı (izin verilen en yüksek değer %@). Yönetilen Şarj etkinleştirildi."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Giới hạn sạc được đặt thành 100 % (mức tối đa là 100 %). Đã bật Quản lý sạc."
+            "value": "Giới hạn sạc được đặt thành %@ (mức tối đa là %@). Đã bật Quản lý sạc."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "充电限制已设置为 100 %（最高允许值为 100 %）。已启用智能充电管理。"
+            "value": "充电限制已设置为 %@（最高允许值为 %@）。已启用智能充电管理。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限已設定為 100 %（最高允許值為 100 %）。已啟用智慧充電管理。"
+            "value": "充電上限已設定為 %@（最高允許值為 %@）。已啟用智慧充電管理。"
           }
         }
       }
     },
-    "Charge limit set to 50 % (minimum allowed is 50 %). Managed Charging enabled.": {
+    "Charge limit set to %@ (minimum allowed is %@). Managed Charging enabled.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ladelimit auf 50 % gesetzt (Mindestwert 50 %). Verwaltetes Laden aktiviert."
+            "value": "Ladelimit auf %@ gesetzt (Mindestwert %@). Verwaltetes Laden aktiviert."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en 50 % (el mínimo es 50 %). Carga administrada activada."
+            "value": "Límite de carga fijado en %@ (el mínimo es %@). Carga administrada activada."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Límite de carga fijado en 50 % (el mínimo es 50 %). Carga administrada activada."
+            "value": "Límite de carga fijado en %@ (el mínimo es %@). Carga administrada activada."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de charge définie à 50 % (minimum 50 %). Recharge gérée activée."
+            "value": "Limite de charge définie à %@ (minimum %@). Recharge gérée activée."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite di ricarica impostato al 50 % (minimo consentito 50 %). Ricarica gestita attivata."
+            "value": "Limite di ricarica impostato al %@ (minimo consentito %@). Ricarica gestita attivata."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限を50 %に設定しました（最小値は50 %）。管理充電が有効になりました。"
+            "value": "充電上限を %@ に設定しました（最小値は %@）。管理充電が有効になりました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "충전 제한이 50 %로 설정되었습니다(최소 허용값은 50 %). 관리 충전이 활성화되었습니다."
+            "value": "충전 제한이 %@로 설정되었습니다(최소 허용값은 %@). 관리 충전이 활성화되었습니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laadlimiet ingesteld op 50 % (minimum is 50 %). Beheerd laden ingeschakeld."
+            "value": "Laadlimiet ingesteld op %@ (minimum is %@). Beheerd laden ingeschakeld."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em 50 % (mínimo permitido é 50 %). Carga Gerenciada ativada."
+            "value": "Limite de carga definido em %@ (mínimo permitido é %@). Carga Gerenciada ativada."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de carga definido em 50 % (mínimo permitido é 50 %). Carregamento gerido ativado."
+            "value": "Limite de carga definido em %@ (mínimo permitido é %@). Carregamento gerido ativado."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Лимит заряда установлен на 50 % (минимальное значение 50 %). Управляемая зарядка включена."
+            "value": "Лимит заряда установлен на %@ (минимальное значение %@). Управляемая зарядка включена."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limit nabíjania nastavený na 50 % (minimum je 50 %). Riadené nabíjanie zapnuté."
+            "value": "Limit nabíjania nastavený na %@ (minimum je %@). Riadené nabíjanie zapnuté."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Meja polnjenja nastavljena na 50 % (najmanj je 50 %). Upravljano polnjenje omogočeno."
+            "value": "Meja polnjenja nastavljena na %@ (najmanj je %@). Upravljano polnjenje omogočeno."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Şarj sınırı % 50 olarak ayarlandı (izin verilen en düşük değer % 50). Yönetilen Şarj etkinleştirildi."
+            "value": "Şarj sınırı %@ olarak ayarlandı (izin verilen en düşük değer %@). Yönetilen Şarj etkinleştirildi."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Giới hạn sạc được đặt thành 50 % (mức tối thiểu là 50 %). Đã bật Quản lý sạc."
+            "value": "Giới hạn sạc được đặt thành %@ (mức tối thiểu là %@). Đã bật Quản lý sạc."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "充电限制已设置为 50 %（最低允许值为 50 %）。已启用智能充电管理。"
+            "value": "充电限制已设置为 %@（最低允许值为 %@）。已启用智能充电管理。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "充電上限已設定為 50 %（最低允許值為 50 %）。已啟用智慧充電管理。"
+            "value": "充電上限已設定為 %@（最低允許值為 %@）。已啟用智慧充電管理。"
           }
         }
       }
@@ -27011,109 +27011,109 @@
         }
       }
     },
-    "Sailing Mode drop range set to %@ %.": {
+    "Sailing Mode drop range set to %@.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Segel-Modus-Bereich auf %@ % gesetzt."
+            "value": "Segel-Modus-Bereich auf %@ gesetzt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rango de caída de modo navegación fijado en %@ %."
+            "value": "Rango de caída de modo navegación fijado en %@."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rango de caída de modo navegación fijado en %@ %."
+            "value": "Rango de caída de modo navegación fijado en %@."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Plage de baisse du mode Voile définie à %@ %."
+            "value": "Plage de baisse du mode Voile définie à %@."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervallo discesa modalità Vela impostato al %@ %."
+            "value": "Intervallo discesa modalità Vela impostato al %@."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "セーリングモードの減少幅を %@ % に設定しました。"
+            "value": "セーリングモードの減少幅を %@ に設定しました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "세일링 모드 하강 범위가 %@ %로 설정되었습니다."
+            "value": "세일링 모드 하강 범위가 %@로 설정되었습니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zeilmodus-dalingsbereik ingesteld op %@ %."
+            "value": "Zeilmodus-dalingsbereik ingesteld op %@."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Faixa de queda do Modo Velejar definida para %@ %."
+            "value": "Faixa de queda do Modo Velejar definida para %@."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Faixa de queda do Modo Velejar definida para %@ %."
+            "value": "Faixa de queda do Modo Velejar definida para %@."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Диапазон разряда в режиме плавания установлен на %@ %."
+            "value": "Диапазон разряда в режиме плавания установлен на %@."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rozsah poklesu plachtiaceho režimu nastavený na %@ %."
+            "value": "Rozsah poklesu plachtiaceho režimu nastavený na %@."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Obseg padca v načinu jadranja nastavljen na %@ %."
+            "value": "Obseg padca v načinu jadranja nastavljen na %@."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yelken Modu düşüş aralığı % %@ olarak ayarlandı."
+            "value": "Yelken Modu düşüş aralığı %@ olarak ayarlandı."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Phạm vi giảm chế độ lướt được đặt thành %@ %."
+            "value": "Phạm vi giảm chế độ lướt được đặt thành %@."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "航行模式降幅范围已设置为 %@ %。"
+            "value": "航行模式降幅范围已设置为 %@。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "航行模式降幅範圍已設定為 %@ %。"
+            "value": "航行模式降幅範圍已設定為 %@。"
           }
         }
       }
@@ -28292,109 +28292,109 @@
         }
       }
     },
-    "Set the percentage range for Sailing Mode (1 to 20 %) in Stasis.": {
+    "Set the percentage range for Sailing Mode (1 to 20 percent) in Stasis.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prozentualen Bereich für Segel-Modus (1 bis 20 %) in Stasis festlegen."
+            "value": "Prozentualen Bereich für Segel-Modus (1 bis 20%) in Stasis festlegen."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Establece el rango en porcentaje para el modo navegación (1 a 20 %) en Stasis."
+            "value": "Establece el rango en porcentaje para el modo navegación (1 a 20%) en Stasis."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Establece el rango en porcentaje para el modo navegación (1 a 20 %) en Stasis."
+            "value": "Establece el rango en porcentaje para el modo navegación (1 a 20%) en Stasis."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Définir la plage en pourcentage pour le mode Voile (1 à 20 %) dans Stasis."
+            "value": "Définir la plage en pourcentage pour le mode Voile (1 à 20%) dans Stasis."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Imposta l'intervallo percentuale per la modalità Vela (da 1 a 20 %) in Stasis."
+            "value": "Imposta l'intervallo percentuale per la modalità Vela (da 1 a 20%) in Stasis."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stasisでセーリングモードのパーセンテージ範囲（1～20 %）を設定します。"
+            "value": "Stasisでセーリングモードのパーセンテージ範囲（1～20%）を設定します。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stasis에서 세일링 모드의 백분율 범위(1 ~ 20 %)를 설정합니다."
+            "value": "Stasis에서 세일링 모드의 백분율 범위(1 ~ 20%)를 설정합니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stel het percentagebereik in voor de Zeilmodus (1 tot 20 %) in Stasis."
+            "value": "Stel het percentagebereik in voor de Zeilmodus (1 tot 20%) in Stasis."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Defina a faixa de porcentagem para o Modo Velejar (1 a 20 %) no Stasis."
+            "value": "Defina a faixa de porcentagem para o Modo Velejar (1 a 20%) no Stasis."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Defina a faixa de percentagem para o Modo Velejar (1 a 20 %) no Stasis."
+            "value": "Defina a faixa de percentagem para o Modo Velejar (1 a 20%) no Stasis."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Установить процентный диапазон для режима плавания (от 1 до 20 %) в Stasis."
+            "value": "Установить процентный диапазон для режима плавания (от 1 до 20%) в Stasis."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nastaviť percentuálny rozsah pre plachtiaci režim (1 až 20 %) v Stasis."
+            "value": "Nastaviť percentuálny rozsah pre plachtiaci režim (1 až 20%) v Stasis."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nastavi odstotkovni obseg za način jadranja (1 do 20 %) v Stasis."
+            "value": "Nastavi odstotkovni obseg za način jadranja (1 do 20%) v Stasis."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stasis'te Yelken Modu için yüzde aralığını (% 1 ila 20) ayarlayın."
+            "value": "Stasis'te Yelken Modu için yüzde aralığını (1 ila 20%) ayarlayın."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Đặt phạm vi phần trăm cho Chế độ lướt (1 đến 20 %) trong Stasis."
+            "value": "Đặt phạm vi phần trăm cho Chế độ lướt (1 đến 20%) trong Stasis."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在 Stasis 中设置航行模式的百分比范围（1 % 至 20 %）。"
+            "value": "在 Stasis 中设置航行模式的百分比范围（1 至 20%）。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "在 Stasis 中設定航行模式的百分比範圍（1 % 至 20 %）。"
+            "value": "在 Stasis 中設定航行模式的百分比範圍（1 至 20%）。"
           }
         }
       }
@@ -32335,109 +32335,109 @@
         }
       }
     },
-    "Temporarily override the charge limit and charge the MacBook to 100 %, or cancel Top-Up if active.": {
+    "Temporarily override the charge limit and charge the MacBook to 100 percent, or cancel Top-Up if active.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ladelimit vorübergehend aufheben und auf 100 % aufladen, oder den Vorgang abbrechen."
+            "value": "Ladelimit vorübergehend aufheben und auf 100% aufladen, oder den Vorgang abbrechen."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Anula temporalmente el límite para cargar el MacBook al 100 % o cancela si está activo."
+            "value": "Anula temporalmente el límite para cargar el MacBook al 100% o cancela si está activo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Anula temporalmente el límite para cargar el MacBook al 100 % o cancela si está activo."
+            "value": "Anula temporalmente el límite para cargar el MacBook al 100% o cancela si está activo."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorer temporairement la limite pour recharger le MacBook à 100 %, ou annuler."
+            "value": "Ignorer temporairement la limite pour recharger le MacBook à 100%, ou annuler."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignora temporaneamente il limite per ricaricare il MacBook al 100 % o annulla se attivo."
+            "value": "Ignora temporaneamente il limite per ricaricare il MacBook al 100% o annulla se attivo."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "一時的に制限を解除してMacBookを100 %まで充電するか、アクティブな場合はキャンセルします。"
+            "value": "一時的に制限を解除してMacBookを 100% まで充電するか、アクティブな場合はキャンセルします。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "일시적으로 제한을 무시하고 MacBook을 100 %까지 충전하거나 취소합니다."
+            "value": "일시적으로 제한을 무시하고 MacBook을 100%까지 충전하거나 취소합니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tijdelijk de limiet negeren om tot 100 % op te laden, of annuleer als dit actief is."
+            "value": "Tijdelijk de limiet negeren om tot 100% op te laden, of annuleer als dit actief is."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar temporariamente o limite e carregar o MacBook até 100 %, ou cancelar."
+            "value": "Ignorar temporariamente o limite e carregar o MacBook até 100%, ou cancelar."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar temporariamente o limite e carregar o MacBook até 100 %, ou cancelar."
+            "value": "Ignorar temporariamente o limite e carregar o MacBook até 100%, ou cancelar."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Временно обойти лимит и зарядить MacBook до 100 % или отменить, если активно."
+            "value": "Временно обойти лимит и зарядить MacBook до 100% или отменить, если активно."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dočasne ignorovať limit a nabiť MacBook na 100 % alebo zrušiť prebiehajúce nabíjanie."
+            "value": "Dočasne ignorovať limit a nabiť MacBook na 100% alebo zrušiť prebiehajúce nabíjanie."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Začasno premosti omejitev in napolni MacBook do 100 % ali prekliči polnjenje."
+            "value": "Začasno premosti omejitev in napolni MacBook do 100% ali prekliči polnjenje."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Şarj sınırını geçici olarak yoksayarak MacBook'u % 100 şarj edin veya iptal edin."
+            "value": "Şarj sınırını geçici olarak yoksayarak MacBook'u 100% şarj edin veya iptal edin."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tạm thời bỏ qua giới hạn để sạc MacBook lên 100 % hoặc hủy nếu đang sạc."
+            "value": "Tạm thời bỏ qua giới hạn để sạc MacBook lên 100% hoặc hủy nếu đang sạc."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "临时无视充电限制并将 MacBook 充满至 100 %，或在活动时取消充至满电。"
+            "value": "临时无视充电限制并将 MacBook 充满至 100%，或在活动时取消充至满电。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "暫時略過充電上限並將 MacBook 充滿至 100 %，或在啟用時取消充滿電。"
+            "value": "暫時略過充電上限並將 MacBook 充滿至 100%，或在啟用時取消充滿電。"
           }
         }
       }
@@ -33613,109 +33613,109 @@
         }
       }
     },
-    "Toggle Top-Up to 100 %": {
+    "Toggle Top-Up to 100 percent": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aufladen auf 100 % umschalten"
+            "value": "Aufladen auf 100% umschalten"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alternar carga al 100 %"
+            "value": "Alternar carga al 100%"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alternar carga al 100 %"
+            "value": "Alternar carga al 100%"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Activer/désactiver la recharge à 100 %"
+            "value": "Activer/désactiver la recharge à 100%"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Attiva/disattiva ricarica al 100 %"
+            "value": "Attiva/disattiva ricarica al 100%"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 %までのトップアップを切り替え"
+            "value": "100% までのトップアップを切り替え"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 % 충전 전환"
+            "value": "100% 충전 전환"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Opladen tot 100 % schakelen"
+            "value": "Opladen tot 100% schakelen"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alternar carga até 100 %"
+            "value": "Alternar carga até 100%"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alternar carga até 100 %"
+            "value": "Alternar carga até 100%"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Переключить зарядку до 100 %"
+            "value": "Переключить зарядку до 100%"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prepnúť nabíjanie na 100 %"
+            "value": "Prepnúť nabíjanie na 100%"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Preklopi polnjenje do 100 %"
+            "value": "Preklopi polnjenje do 100%"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "% 100 Şarjı Aç/Kapat"
+            "value": "100% Şarjı Aç/Kapat"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bật/tắt sạc đầy 100 %"
+            "value": "Bật/tắt sạc đầy 100%"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "切换充电至 100 %"
+            "value": "切换充电至 100%"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "切換充電至 100 %"
+            "value": "切換充電至 100%"
           }
         }
       }
@@ -34148,7 +34148,7 @@
         }
       }
     },
-    "Top-up to 100 % cancelled. Standard limit resumed.": {
+    "Top-up to %@ cancelled. Standard limit resumed.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
@@ -34160,37 +34160,37 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga al 100 % cancelada. Límite estándar reanudado."
+            "value": "Carga al %@ cancelada. Límite estándar reanudado."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga al 100 % cancelada. Límite estándar reanudado."
+            "value": "Carga al %@ cancelada. Límite estándar reanudado."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recharge à 100 % annulée. Limite standard rétablie."
+            "value": "Recharge à %@ annulée. Limite standard rétablie."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ricarica al 100 % annullata. Limite standard ripristinato."
+            "value": "Ricarica al %@ annullata. Limite standard ripristinato."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 %トップアップをキャンセルしました。標準上限に戻りました。"
+            "value": "%@ トップアップをキャンセルしました。標準上限に戻りました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 % 충전이 취소되었습니다. 기본 제한이 복원되었습니다."
+            "value": "%@ 충전이 취소되었습니다. 기본 제한이 복원되었습니다."
           }
         },
         "nl": {
@@ -34202,162 +34202,162 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga até 100 % cancelada. Limite padrão retomado."
+            "value": "Carga até %@ cancelada. Limite padrão retomado."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga até 100 % cancelada. Limite padrão retomado."
+            "value": "Carga até %@ cancelada. Limite padrão retomado."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Зарядка до 100 % отменена. Стандартный лимит восстановлен."
+            "value": "Зарядка до %@ отменена. Стандартный лимит восстановлен."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nabíjanie na 100 % zrušené. Štandardný limit obnovený."
+            "value": "Nabíjanie na %@ zrušené. Štandardný limit obnovený."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Polnjenje do 100 % preklicano. Standardna omejitev je obnovljena."
+            "value": "Polnjenje do %@ preklicano. Standardna omejitev je obnovljena."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "% 100 şarj iptal edildi. Standart sınır sürdürülüyor."
+            "value": "%@ şarj iptal edildi. Standart sınır sürdürülüyor."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Đã hủy sạc 100 %. Đã khôi phục giới hạn tiêu chuẩn."
+            "value": "Đã hủy sạc %@. Đã khôi phục giới hạn tiêu chuẩn."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已取消充电至 100 %。恢复默认限制。"
+            "value": "已取消充电至 %@。恢复默认限制。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已取消充電至 100 %。恢復預設上限。"
+            "value": "已取消充電至 %@。恢復預設上限。"
           }
         }
       }
     },
-    "Top-up to 100 % started.": {
+    "Top-up to %@ started.": {
       "extractionState": "manual",
       "localizations": {
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aufladen auf 100 % gestartet."
+            "value": "Aufladen auf %@ gestartet."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga al 100 % iniciada."
+            "value": "Carga al %@ iniciada."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga al 100 % iniciada."
+            "value": "Carga al %@ iniciada."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recharge à 100 % démarrée."
+            "value": "Recharge à %@ démarrée."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ricarica al 100 % avviata."
+            "value": "Ricarica al %@ avviata."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 %までのトップアップを開始しました。"
+            "value": "%@ までのトップアップを開始しました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "100 % 충전이 시작되었습니다."
+            "value": "%@ 충전이 시작되었습니다."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Opladen tot 100 % gestart."
+            "value": "Opladen tot %@ gestart."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga até 100 % iniciada."
+            "value": "Carga até %@ iniciada."
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carga até 100 % iniciada."
+            "value": "Carga até %@ iniciada."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Зарядка до 100 % началась."
+            "value": "Зарядка до %@ началась."
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nabíjanie na 100 % spustené."
+            "value": "Nabíjanie na %@ spustené."
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Polnjenje do 100 % se je začelo."
+            "value": "Polnjenje do %@ se je začelo."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "% 100 şarj başladı."
+            "value": "%@ şarj başladı."
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Đã bắt đầu sạc lên 100 %."
+            "value": "Đã bắt đầu sạc lên %@."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已开始充电至 100 %。"
+            "value": "已开始充电至 %@。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "已開始充電至 100 %。"
+            "value": "已開始充電至 %@。"
           }
         }
       }

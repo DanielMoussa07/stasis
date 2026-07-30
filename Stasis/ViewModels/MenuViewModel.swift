@@ -15,7 +15,7 @@ class MenuViewModel {
         significantEnergyService.apps
     }
 
-    var batteryPercentageText: String = "0%"
+    var batteryPercentageText: String = 0.formattedPercentage
     var powerSourceText: String = String(localized: "Battery")
     var timeRemainingText: String = String(localized: "Calculating...")
     var uptimeText: String = "00:00"
@@ -24,7 +24,7 @@ class MenuViewModel {
     var externalInputText: String = "0V @ 0A"
     var internalInputText: String = "0V @ 0A"
     var cycleCountText: String = "0"
-    var batteryHealthText: String = "100%"
+    var batteryHealthText: String = 100.formattedPercentage
 
     var displayPercentage: Int = 0
     var chargingMode: ChargingMode = .discharging
@@ -187,7 +187,7 @@ class MenuViewModel {
             ? safeMetrics.hardwareBatteryPercentage
             : safeMetrics.batteryPercentage
         displayPercentage = percentage
-        batteryPercentageText = "\(percentage)%"
+        batteryPercentageText = percentage.formattedPercentage
 
         let derivedPowerSource = derivePowerSource(
             battery: safeMetrics,
@@ -222,11 +222,11 @@ class MenuViewModel {
             switch calibrationStatus {
             case .discharging:
                 chargingMode = .discharging
-                batteryModeText = String(localized: "Calibrating (Discharging to \(0.15, format: .percent.precision(.fractionLength(0))))")
+                batteryModeText = String(localized: "Calibrating (Discharging to \(15.formattedPercentage))")
             case .charging:
                 if logicallyPluggedIn {
                     chargingMode = .charging
-                    batteryModeText = String(localized: "Calibrating (Charging to \(1.0, format: .percent.precision(.fractionLength(0))))")
+                    batteryModeText = String(localized: "Calibrating (Charging to \(100.formattedPercentage))")
                 } else {
                     chargingMode = .discharging
                     batteryModeText = String(localized: "Calibrating (Paused - Plug in)")
@@ -234,7 +234,7 @@ class MenuViewModel {
             case .resting:
                 if logicallyPluggedIn {
                     chargingMode = .pluggedIn
-                    batteryModeText = String(localized: "Calibrating (Resting at \(1.0, format: .percent.precision(.fractionLength(0))))")
+                    batteryModeText = String(localized: "Calibrating (Resting at \(100.formattedPercentage))")
                 } else {
                     chargingMode = .discharging
                     batteryModeText = String(localized: "Calibrating (Paused - Plug in)")
@@ -245,7 +245,7 @@ class MenuViewModel {
             if safeMetrics.isCharging {
                 chargingMode = .charging
                 if chargeLimitOverrideActive {
-                    batteryModeText = String(localized: "Charging to \(1.0, format: .percent.precision(.fractionLength(0))) (Override)")
+                    batteryModeText = String(localized: "Charging to \(100.formattedPercentage) (Override)")
                 } else if chargeToLimitActive {
                     batteryModeText = String(localized: "Charging to Limit")
                 } else {
@@ -391,7 +391,7 @@ class MenuViewModel {
             return metrics.rawBatteryHealth
         }()
 
-        batteryHealthText = "\(healthToShow)%"
+        batteryHealthText = healthToShow.formattedPercentage
     }
 
     private func derivePowerSource(

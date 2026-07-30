@@ -26,7 +26,7 @@ struct ToggleTopUpIntent: AppIntent {
             chargeManager.toggleChargeLimitOverride()
         }
 
-        let message = targetState ? "Top-up to \(1.0, format: .percent.precision(.fractionLength(0))) started." : "Top-up to \(1.0, format: .percent.precision(.fractionLength(0))) cancelled. Standard limit resumed."
+        let message = targetState ? "Top-up to \(100.formattedPercentage) started." : "Top-up to \(100.formattedPercentage) cancelled. Standard limit resumed."
         return .result(value: message, dialog: "\(message)")
     }
 }
