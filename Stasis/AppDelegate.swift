@@ -1,3 +1,4 @@
+import AppIntents
 import AppKit
 import Defaults
 import IOKit
@@ -62,6 +63,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             return
         }
         IOObjectRelease(batteryIOService)
+
+        StasisShortcutsProvider.updateAppShortcutParameters()
 
         Task {
             await setupServices()
