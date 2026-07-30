@@ -21,6 +21,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var isMenuOpen = false
     private var needsMenuRebuild = false
 
+    @MainActor
+    static private(set) var shared: AppDelegate?
+
+    override init() {
+        super.init()
+        Self.shared = self
+    }
+
+    var currentBatteryService: BatteryService? { batteryService }
+    var currentChargeManager: ChargeManager? { chargeManager }
+    var currentViewModel: MenuViewModel? { viewModel }
+    var currentCalibrationManager: CalibrationManager? { calibrationManager }
+
+    @MainActor
+    func ensureServicesReady() async -> (BatteryService, ChargeManager, MenuViewModel, CalibrationManager)? {
+        for _ in 0..<30 {
+            if let batteryService, let chargeManager, let viewModel, let calibrationManager {
+                return (batteryService, chargeManager, viewModel, calibrationManager)
+            }
+            try? await Task.sleep(for: .milliseconds(100))
+        }
+        return nil
+    }
+
     @objc func showSettingsWindow() {
         settingsWindowController?.showSettings()
     }
