@@ -5,7 +5,7 @@ import Foundation
 struct ToggleMagSafeLEDControlIntent: AppIntent {
     static let title: LocalizedStringResource = "Toggle MagSafe LED Control"
     static let description = IntentDescription("Enable or disable custom MagSafe LED colors in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Enable MagSafe LED Control",

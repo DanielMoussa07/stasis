@@ -5,7 +5,7 @@ import Foundation
 struct ToggleSailingModeIntent: AppIntent {
     static let title: LocalizedStringResource = "Toggle Sailing Mode"
     static let description = IntentDescription("Enable or disable Sailing Mode (reduces micro-charging cycles) in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Enable Sailing Mode",

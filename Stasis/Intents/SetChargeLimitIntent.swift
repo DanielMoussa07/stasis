@@ -5,7 +5,7 @@ import Foundation
 struct SetChargeLimitIntent: AppIntent {
     static let title: LocalizedStringResource = "Set Charge Limit"
     static let description = IntentDescription("Set the maximum battery charging limit in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Limit (%)",

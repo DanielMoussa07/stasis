@@ -4,7 +4,7 @@ import Foundation
 struct StartCalibrationIntent: AppIntent {
     static let title: LocalizedStringResource = "Start Battery Calibration"
     static let description = IntentDescription("Start a battery calibration cycle in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @MainActor
     func perform() async throws -> some IntentResult & ReturnsValue<String> {

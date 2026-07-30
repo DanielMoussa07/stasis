@@ -5,7 +5,7 @@ import Foundation
 struct SetSailingModeLimitIntent: AppIntent {
     static let title: LocalizedStringResource = "Set Sailing Mode Drop Range"
     static let description = IntentDescription("Set the percentage range for Sailing Mode (1 to 20 percent) in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Drop Range (%)",

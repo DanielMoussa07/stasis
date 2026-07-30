@@ -5,7 +5,7 @@ import Foundation
 struct SetHeatProtectionLimitIntent: AppIntent {
     static let title: LocalizedStringResource = "Set Heat Protection Temperature"
     static let description = IntentDescription("Set the temperature threshold for Heat Protection Mode (30°C to 50°C) in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Temperature (°C)",

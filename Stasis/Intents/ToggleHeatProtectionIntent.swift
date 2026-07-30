@@ -5,7 +5,7 @@ import Foundation
 struct ToggleHeatProtectionIntent: AppIntent {
     static let title: LocalizedStringResource = "Toggle Heat Protection"
     static let description = IntentDescription("Enable or disable Heat Protection Mode in Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Enable Heat Protection",

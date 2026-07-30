@@ -5,7 +5,7 @@ import Foundation
 struct GetBatteryStatusIntent: AppIntent {
     static let title: LocalizedStringResource = "Get Battery Status"
     static let description = IntentDescription("Get current battery percentage, charge limit, charging mode, wattage, health, and temperature from Stasis.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @MainActor
     func perform() async throws -> some IntentResult & ReturnsValue<String> {

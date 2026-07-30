@@ -5,7 +5,7 @@ import Foundation
 struct ToggleForceDischargeIntent: AppIntent {
     static let title: LocalizedStringResource = "Toggle Force Discharge"
     static let description = IntentDescription("Enable or disable force discharging the battery while plugged in.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Enable Force Discharge",

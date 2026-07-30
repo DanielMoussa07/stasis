@@ -5,7 +5,7 @@ import Foundation
 struct ToggleTopUpIntent: AppIntent {
     static let title: LocalizedStringResource = "Toggle Top-Up to 100 percent"
     static let description = IntentDescription("Temporarily override the charge limit and charge the MacBook to 100 percent, or cancel Top-Up if active.")
-    static let openAppWhenRun: Bool = false
+    static let openAppWhenRun: Bool = true
 
     @Parameter(
         title: "Enable Top-Up",
