@@ -1,7 +1,7 @@
 # Stasis Coding Guidelines
 
 * Prioritize code correctness and clarity. Speed and efficiency are secondary priorities unless otherwise specified.
-* Do not write organizational or comments that summarize the code. Comments should only be written in order to explain "why" the code is written in some way in the case there is a reason that is tricky / non-obvious.
+* Do not write organizational comments or comments that summarize the code. Comments should only be written in order to explain "why" the code is written in some way in the case there is a reason that is tricky / non-obvious.
 * Prefer implementing functionality in existing files unless it is a new logical component. Avoid creating many small files.
 * When implementing async operations that may fail, ensure errors propagate to the UI layer so users get meaningful feedback.
 * Avoid creative additions unless explicitly requested.
@@ -9,11 +9,28 @@
 
 ## Architecture & SMC Interactions
 
-* Component Split: The solution is divided into the Main App (UI/Business Logic) and a Privileged Helper (System/Hardware Access).
+* Component Split: The solution is divided into the Main App (UI/Business Logic) and a Privileged Helper (`com.dinanathdash.stasis.charging-helper`) for System/Hardware Access.
 * SMC Restriction: ALL commands dealing with the System Management Controller (SMC) must be executed within the Privileged Helper. The Main App must strictly use IPC (XPC) to request these actions.
 * Library Usage: Use the `SMCKit` dependency for all SMC operations within the Helper.
     * Use `SMCKit.shared` for access.
     * Use string literal syntax for keys (e.g., `try SMCKit.shared.read("B0TE")`).
+* Daemon Management: Changes to the privileged helper daemon lifecycle should be controllable via the Daemon Management UI in Settings.
+
+## Apple Shortcuts & App Intents
+
+* App Intents for Apple Shortcuts and Siri automation are implemented under `Modules/` / `Stasis/`.
+* Expose key actions (including `Open Dashboard`, `Get Battery Status`, `Set Charge Limit`, `Toggle Top-Up to 100%`, `Toggle Sailing Mode`, `Toggle Force Discharge`, and `Start/Cancel Battery Calibration`) as App Intents with proper parameter annotations and localized titles.
+
+## Localization & Multi-Language Support
+
+* Full localization coverage is maintained across all 17 supported languages.
+* All user-facing strings MUST use localized string keys.
+* Standardize percentage formatting using `PercentageFormatter` across UI components and notifications.
+
+## Dynamic Island Notch HUD & Window Elevation
+
+* Notch HUD overlays use `TopWindowElevator` to maintain NSWindow visibility above system UI elements and lock screens.
+* Notch UI styling should follow Apple Silicon hardware notch contours using concave Bezier ear curves.
 
 ## Swift & SwiftUI
 
