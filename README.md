@@ -99,9 +99,17 @@ For MacBooks with a hardware camera notch (or simulated notch):
 
 ---
 
+## Automation, Shortcuts & CLI (`stasis://`)
+
+Stasis supports universal automation via custom URL schemes (`stasis://...`) and shell commands. This allows reliable integration with **Apple Shortcuts** (via the built-in **Open URL** action), **Terminal scripts**, **Raycast**, and **Alfred**—working across all builds (including GitHub releases) without requiring an Apple Developer Account.
+
+For step-by-step Apple Shortcuts setup, CLI examples, and the full command table (`stasis://charge-limit?value=80`, `stasis://topup`, `stasis://sailing`, etc.), see the **[Stasis Automation & Apple Shortcuts Guide](SHORTCUTS_AND_AUTOMATION.md)** or check the in-app **Settings → Shortcuts & Help** tab.
+
+---
+
 ## Documentation & Wiki
 
-For comprehensive user guides, automation workflows, technical architecture, and FAQ, see the official **[Stasis GitHub Wiki](https://github.com/DinanathDash/Stasis/wiki)**.
+For comprehensive user guides, automation workflows, technical architecture, and FAQ, see the official **[Stasis GitHub Wiki](https://github.com/DinanathDash/Stasis/wiki)** and **[SHORTCUTS_AND_AUTOMATION.md](SHORTCUTS_AND_AUTOMATION.md)**.
 
 ---
 

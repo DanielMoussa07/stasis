@@ -19,6 +19,12 @@ class StatusBarManager {
         statusItem.menu = menu
     }
 
+    func openMenu() {
+        if let button = statusItem.button {
+            button.performClick(nil)
+        }
+    }
+
     private func setupPersistentHostingView() {
         guard let button = statusItem.button else { return }
 
