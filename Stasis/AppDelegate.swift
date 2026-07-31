@@ -50,6 +50,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         settingsWindowController?.showSettings()
     }
 
+    @objc func openMenuBarMenu() {
+        statusBarManager?.openMenu()
+    }
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Perform first‑run / version‑upgrade reset of user defaults
         resetStasisPreferencesIfNeeded()
@@ -66,11 +70,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         StasisShortcutsProvider.updateAppShortcutParameters()
 
+        NSAppleEventManager.shared().setEventHandler(
+            self,
+            andSelector: #selector(handleGetURLEvent(_:withReplyEvent:)),
+            forEventClass: AEEventClass(kInternetEventClass),
+            andEventID: AEEventID(kAEGetURL)
+        )
+
         Task {
             await setupServices()
             setupMenu()
             updaterManager.start()
         }
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            StasisURLHandler.shared.handleURL(url)
+        }
+    }
+
+    @objc private func handleGetURLEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
+        guard let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue,
+              let url = URL(string: urlString) else {
+            return
+        }
+        StasisURLHandler.shared.handleURL(url)
     }
 
     static var isRestarting = false

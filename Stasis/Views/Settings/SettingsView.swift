@@ -6,6 +6,7 @@ enum SettingsTab: String, CaseIterable, Identifiable {
     case dashboard = "Dashboard"
     case charging = "Charging"
     case advanced = "Advanced"
+    case shortcuts = "Shortcuts & Help"
     case about = "About"
 
     var id: String { rawValue }
@@ -16,6 +17,7 @@ enum SettingsTab: String, CaseIterable, Identifiable {
             case .dashboard: return "Dashboard"
             case .charging: return "Charging"
             case .advanced: return "Advanced"
+            case .shortcuts: return "Shortcuts & Help"
             case .about: return "About"
             }
     }
@@ -30,6 +32,8 @@ enum SettingsTab: String, CaseIterable, Identifiable {
             return "battery.100.bolt"
         case .advanced:
             return "gearshape.2"
+        case .shortcuts:
+            return "bolt.fill"
         case .about:
             return "info.circle"
         }
@@ -80,6 +84,8 @@ struct SettingsView: View {
                     ChargingSettingsView(capabilities: capabilities)
                 case .advanced:
                     AdvancedSettingsView()
+                case .shortcuts:
+                    ShortcutsHelpView()
                 case .about:
                     AboutSettingsView()
                 }

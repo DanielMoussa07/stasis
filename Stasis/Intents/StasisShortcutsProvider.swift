@@ -4,6 +4,16 @@ import Foundation
 struct StasisShortcutsProvider: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
+            intent: OpenMenuIntent(),
+            phrases: [
+                "Open \(.applicationName) menu",
+                "Show \(.applicationName) menu",
+                "Open \(.applicationName) menu bar dialog"
+            ],
+            shortTitle: "Open Menu Bar",
+            systemImageName: "menubar.rectangle"
+        )
+        AppShortcut(
             intent: OpenDashboardIntent(),
             phrases: [
                 "Open \(.applicationName) dashboard",
@@ -69,15 +79,6 @@ struct StasisShortcutsProvider: AppShortcutsProvider {
             ],
             shortTitle: "Start Battery Calibration",
             systemImageName: "gauge.with.dots.needle.bottom.100percent"
-        )
-        AppShortcut(
-            intent: CancelCalibrationIntent(),
-            phrases: [
-                "Cancel battery calibration in \(.applicationName)",
-                "Stop calibration in \(.applicationName)"
-            ],
-            shortTitle: "Cancel Battery Calibration",
-            systemImageName: "xmark.circle.fill"
         )
         AppShortcut(
             intent: ToggleHeatProtectionIntent(),
