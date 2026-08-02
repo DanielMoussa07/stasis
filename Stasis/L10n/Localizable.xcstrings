@@ -24893,7 +24893,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开菜单栏对框"
+            "value": "打开菜单栏对话框"
           }
         },
         "zh-Hant": {
@@ -43115,6 +43115,204 @@
           "stringUnit": {
             "state": "translated",
             "value": "繁體中文"
+          }
+        }
+      }
+    },
+    "Open the main Stasis dashboard and settings window.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开 Stasis 主仪表板和设置窗口。"
+          }
+        }
+      }
+    },
+    "Enable or disable force discharging the battery while plugged into AC power.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接交流电源时启用或停用电池强制放电。"
+          }
+        }
+      }
+    },
+    "Start a full battery calibration cycle in Stasis.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Stasis 中开始完整的电池校准周期。"
+          }
+        }
+      }
+    },
+    "Cancel an ongoing battery calibration cycle.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消正在进行的电池校准周期。"
+          }
+        }
+      }
+    },
+    "Enable or disable Heat Protection Mode.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用或停用散热保护模式。"
+          }
+        }
+      }
+    },
+    "Set Heat Protection Threshold": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置散热保护阈值"
+          }
+        }
+      }
+    },
+    "Set the temperature threshold for Heat Protection Mode (30°C to 50°C).": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置散热保护模式的温度阈值（30°C 至 50°C）。"
+          }
+        }
+      }
+    },
+    "Enable or disable custom MagSafe LED color indication.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用或停用自定义 MagSafe LED 颜色指示。"
+          }
+        }
+      }
+    },
+    "Stasis supports custom URL schemes (**stasis://**) and command-line automation. This is a 100 percent reliable, universal automation system that works in Apple Shortcuts, Raycast, Alfred, and Terminal scripts—without needing an Apple Developer Account.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis 支持自定义 URL 方案（**stasis://**）和命令行自动化。这是一套百分之百可靠、通用的自动化系统，可用于 Apple 快捷指令、Raycast、Alfred 和终端脚本，无需 Apple 开发者账户。"
+          }
+        }
+      }
+    },
+    "How to use in Apple's Shortcuts App": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如何在 Apple 的“快捷指令”App 中使用"
+          }
+        }
+      }
+    },
+    "CLI & Terminal Usage": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI 与终端用法"
+          }
+        }
+      }
+    },
+    "You can run any Stasis command from Terminal, shell scripts, Raycast, or Alfred using the `open` command:": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你可以在终端、Shell 脚本、Raycast 或 Alfred 中使用 `open` 命令运行任意 Stasis 命令："
+          }
+        }
+      }
+    },
+    "URL Scheme Reference": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL 方案参考"
+          }
+        }
+      }
+    },
+    "Open Apple's **Shortcuts** app on your Mac.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Mac 上打开 Apple 的**快捷指令** App。"
+          }
+        }
+      }
+    },
+    "Create a new Shortcut and add the **Open URL** action.": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新建一个快捷指令，并添加**打开 URL**操作。"
+          }
+        }
+      }
+    },
+    "Paste any Stasis URL from the reference list below (e.g., `stasis://charge-limit?value=80`).": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "粘贴下方参考列表中的任意 Stasis URL（例如 `stasis://charge-limit?value=80`）。"
+          }
+        }
+      }
+    },
+    "Run your Shortcut from your Menu Bar, Keyboard Shortcut, Dock, or Siri!": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可从菜单栏、键盘快捷键、Dock 或 Siri 运行你的快捷指令！"
+          }
+        }
+      }
+    },
+    "Copied": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已复制"
           }
         }
       }
