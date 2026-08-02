@@ -220,91 +220,91 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld T %lld Std. %lld Min."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld j %lld h %lld min"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld g %lld h %lld min"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld日 %lld時間 %lld分"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld일 %lld시간 %lld분"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld u %lld min"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld д %lld ч %lld мин"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld d %lld h %lld min"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld g %lld sa %lld dk"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld ngày %lld giờ %lld phút"
           }
         },
         "zh-Hans": {
@@ -316,7 +316,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldd %lldh %lldm"
+            "value": "%lld 天 %lld 小時 %lld 分鐘"
           }
         }
       }
@@ -327,91 +327,91 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld Std. %lld Min."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld時間 %lld分"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld시간 %lld분"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld u %lld min"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld ч %lld мин"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld h %lld min"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld sa %lld dk"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld giờ %lld phút"
           }
         },
         "zh-Hans": {
@@ -423,7 +423,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldh %lldm"
+            "value": "%lld 小時 %lld 分鐘"
           }
         }
       }
@@ -434,91 +434,91 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld Min."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld分"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld분"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld мин"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld min"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld dk"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld phút"
           }
         },
         "zh-Hans": {
@@ -530,7 +530,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lldm"
+            "value": "%lld 分鐘"
           }
         }
       }
@@ -1714,13 +1714,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de alimentación del adaptador"
+            "value": "Métricas de potencia del adaptador"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de alimentación del adaptador"
+            "value": "Métricas de potencia del adaptador"
           }
         },
         "ja": {
@@ -1798,13 +1798,13 @@
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Métricas de potência do adaptador"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Métricas de potência do adaptador"
           }
         }
       }
@@ -4794,13 +4794,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energía de la batería"
+            "value": "Métricas de potencia de la batería"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energía de la batería"
+            "value": "Métricas de potencia de la batería"
           }
         },
         "ja": {
@@ -4818,7 +4818,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "電池電量指標"
+            "value": "電池功率指標"
           }
         },
         "ru": {
@@ -4854,7 +4854,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Số liệu năng lượng pin"
+            "value": "Chỉ số công suất pin"
           }
         },
         "ko": {
@@ -4878,13 +4878,13 @@
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Métricas de potência da bateria"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Métricas de potência da bateria"
           }
         }
       }
@@ -10780,7 +10780,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "控制 Stasis 何時向您發送通知。"
+            "value": "控制 Stasis 傳送通知的時機。"
           }
         },
         "ru": {
@@ -11724,7 +11724,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "開発者"
           }
         },
         "zh-Hans": {
@@ -11736,49 +11736,49 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "開發者"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Разработчик"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Ontwikkelaar"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Geliştirici"
           }
         },
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Razvijalec"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Vývojár"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Nhà phát triển"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "개발자"
           }
         },
         "fr": {
@@ -11790,19 +11790,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Sviluppatore"
           }
         },
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Programador"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Developer"
+            "value": "Desenvolvedor"
           }
         }
       }
@@ -26823,25 +26823,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Macht"
+            "value": "Leistung"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "poder"
+            "value": "Potencia"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "poder"
+            "value": "Potencia"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "パワー"
+            "value": "電力"
           }
         },
         "zh-Hans": {
@@ -26853,7 +26853,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "電源"
+            "value": "功率"
           }
         },
         "ru": {
@@ -26865,7 +26865,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Macht"
+            "value": "Vermogen"
           }
         },
         "tr": {
@@ -26883,19 +26883,19 @@
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sila"
+            "value": "Výkon"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "quyền lực"
+            "value": "Công suất"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "힘"
+            "value": "전력"
           }
         },
         "fr": {
@@ -26913,13 +26913,13 @@
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "Potência"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "Potência"
           }
         }
       }
@@ -27353,19 +27353,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nur Strom"
+            "value": "Nur Netzstrom"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sólo energía"
+            "value": "Solo alimentación"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sólo energía"
+            "value": "Solo alimentación"
           }
         },
         "ja": {
@@ -27377,7 +27377,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "仅接通电源时"
+            "value": "仅电源"
           }
         },
         "zh-Hant": {
@@ -27395,7 +27395,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alleen stroom"
+            "value": "Alleen netvoeding"
           }
         },
         "tr": {
@@ -27443,13 +27443,13 @@
         "pt-PT": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Apenas alimentação"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas energia"
+            "value": "Somente alimentação"
           }
         }
       }
@@ -27543,7 +27543,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte di energia"
+            "value": "Fonte di alimentazione"
           }
         },
         "pt-PT": {
@@ -27725,13 +27725,13 @@
         "sl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vir energije"
+            "value": "Vir napajanja"
           }
         },
         "sk": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zdroj energie"
+            "value": "Zdroj napájania"
           }
         },
         "vi": {
@@ -27755,7 +27755,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte di energia"
+            "value": "Fonte di alimentazione"
           }
         },
         "pt-PT": {
@@ -28445,7 +28445,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "退出Stasis？"
+            "value": "結束 Stasis？"
           }
         },
         "ru": {
@@ -38958,7 +38958,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "提示：檢查系統設定->常規->登入項目。確保允許 Stasis 在背景運行。如果它已經打開，請嘗試將其關閉然後再次打開。"
+            "value": "提示：請檢查「系統設定」->「一般」->「登入項目」。確認已允許 Stasis 在背景執行。若已開啟，請嘗試先關閉再重新開啟。"
           }
         }
       }
