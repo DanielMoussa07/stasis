@@ -1508,7 +1508,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ação necessária"
+            "value": "Acción requerida"
           }
         },
         "fr": {
@@ -1708,19 +1708,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Adapterleistungsmetriken"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Métricas de alimentación del adaptador"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Métricas de alimentación del adaptador"
           }
         },
         "ja": {
@@ -1786,7 +1786,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Mesures de puissance de l'adaptateur"
           }
         },
         "it": {
@@ -1814,19 +1814,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "Die Adaptersteuerung wird auf diesem Gerät nicht unterstützt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "El control del adaptador no es compatible con este dispositivo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "El control del adaptador no es compatible con este dispositivo."
           }
         },
         "ja": {
@@ -1892,7 +1892,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "Le contrôle de l'adaptateur n'est pas pris en charge sur cet appareil."
           }
         },
         "it": {
@@ -2347,25 +2347,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "Alle Einstellungen wurden erfolgreich auf ihre Standardeinstellungen zurückgesetzt. Die App wird nun neu gestartet."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "Todas las preferencias se han restaurado exitosamente a sus valores predeterminados. La aplicación ahora se reiniciará."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "Todas las preferencias se han restaurado exitosamente a sus valores predeterminados. La aplicación ahora se reiniciará."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "Toutes les préférences ont été restaurées avec succès à leurs valeurs par défaut. L'application va maintenant redémarrer."
           }
         },
         "it": {
@@ -2572,7 +2572,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sempre"
+            "value": "Siempre"
           }
         },
         "ja": {
@@ -3516,19 +3516,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "Hintergrund-Hilfsdienst getrennt"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "Servicio auxiliar en segundo plano desconectado"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "Servicio auxiliar en segundo plano desconectado"
           }
         },
         "ja": {
@@ -3594,7 +3594,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "Service auxiliaire en arrière-plan déconnecté"
           }
         },
         "it": {
@@ -4364,19 +4364,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "Batteriekalibrierung fällig"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "Calibración de batería pendiente"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "Calibración de batería pendiente"
           }
         },
         "ja": {
@@ -4442,7 +4442,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "Étalonnage de la batterie dû"
           }
         },
         "it": {
@@ -4682,19 +4682,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "Nur Batterie"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "Sólo batería"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "Sólo batería"
           }
         },
         "ja": {
@@ -4760,7 +4760,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "Batterie uniquement"
           }
         },
         "it": {
@@ -4788,19 +4788,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Batterieleistungsmetriken"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Métricas de energía de la batería"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Métricas de energía de la batería"
           }
         },
         "ja": {
@@ -4866,7 +4866,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Mesures de puissance de la batterie"
           }
         },
         "it": {
@@ -4894,19 +4894,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "Batteriemesswert"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "Lectura de la batería"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "Lectura de la batería"
           }
         },
         "ja": {
@@ -4972,7 +4972,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "Relevé de batterie"
           }
         },
         "it": {
@@ -5106,19 +5106,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "Akku- und Ladekontrolle für MacBook."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "Control de batería y carga para MacBook."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "Control de batería y carga para MacBook."
           }
         },
         "ja": {
@@ -5184,7 +5184,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "Contrôle de la batterie et de la charge pour MacBook."
           }
         },
         "it": {
@@ -5426,19 +5426,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "Die Batteriekalibrierung wird auf diesem Gerät nicht unterstützt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "La calibración de la batería no es compatible con este dispositivo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "La calibración de la batería no es compatible con este dispositivo."
           }
         },
         "ja": {
@@ -5504,7 +5504,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "L'étalonnage de la batterie n'est pas pris en charge sur cet appareil."
           }
         },
         "it": {
@@ -5956,19 +5956,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "Bei der Entwicklung wurde der Schwerpunkt auf praktischen Batteriezustand und Ladeabläufe gelegt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "Creado centrándose en el estado práctico de la batería y los flujos de trabajo de carga."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "Creado centrándose en el estado práctico de la batería y los flujos de trabajo de carga."
           }
         },
         "ja": {
@@ -6034,7 +6034,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "Construit en mettant l’accent sur l’état pratique de la batterie et les flux de travail de charge."
           }
         },
         "it": {
@@ -6276,19 +6276,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "Kalibrieren (Aufladen auf %@)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "Calibración (cargando a %@)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "Calibración (cargando a %@)"
           }
         },
         "ja": {
@@ -6354,7 +6354,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "Calibrage (chargement sur %@)"
           }
         },
         "it": {
@@ -6382,19 +6382,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "Kalibrieren (Aufladen)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "Calibrando (Cargando)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "Calibrando (Cargando)"
           }
         },
         "ja": {
@@ -6460,7 +6460,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "Calibrage (chargement)"
           }
         },
         "it": {
@@ -6489,19 +6489,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "Kalibrieren (Entladen nach %@)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "Calibración (Descarga a %@)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "Calibración (Descarga a %@)"
           }
         },
         "ja": {
@@ -6567,7 +6567,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "Calibrage (décharge vers %@)"
           }
         },
         "it": {
@@ -6595,19 +6595,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "Kalibrieren (Entladen)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "Calibración (descarga)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "Calibración (descarga)"
           }
         },
         "ja": {
@@ -6673,7 +6673,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "Calibrage (décharge)"
           }
         },
         "it": {
@@ -6701,19 +6701,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "Kalibrieren (Pause – Einstecken)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "Calibración (en pausa - enchufar)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "Calibración (en pausa - enchufar)"
           }
         },
         "ja": {
@@ -6779,7 +6779,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "Calibrage (Pause - Brancher)"
           }
         },
         "it": {
@@ -6808,19 +6808,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "Kalibrieren (Ruhezustand bei %@)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "Calibrando (Reposando en %@)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "Calibrando (Reposando en %@)"
           }
         },
         "ja": {
@@ -6886,7 +6886,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "Étalonnage (au repos à %@)"
           }
         },
         "it": {
@@ -6914,19 +6914,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "Kalibrieren (Ruhen)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "Calibrar (reposar)"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "Calibrar (reposar)"
           }
         },
         "ja": {
@@ -6992,7 +6992,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "Calibrage (au repos)"
           }
         },
         "it": {
@@ -8087,19 +8087,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "Ladelimit überschreiben"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "Anulación del límite de carga"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "Anulación del límite de carga"
           }
         },
         "ja": {
@@ -8165,7 +8165,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "Contournement de la limite de charge"
           }
         },
         "it": {
@@ -8833,19 +8833,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "Die Ladeverwaltung wird auf diesem Gerät nicht unterstützt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "La gestión de carga no es compatible con este dispositivo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "La gestión de carga no es compatible con este dispositivo."
           }
         },
         "ja": {
@@ -8911,7 +8911,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "La gestion de la charge n’est pas prise en charge sur cet appareil."
           }
         },
         "it": {
@@ -9152,19 +9152,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "Die Ladesteuerung wird auf diesem Gerät nicht unterstützt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "El control de carga no es compatible con este dispositivo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "El control de carga no es compatible con este dispositivo."
           }
         },
         "ja": {
@@ -9230,7 +9230,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "Le contrôle de charge n'est pas pris en charge sur cet appareil."
           }
         },
         "it": {
@@ -9685,25 +9685,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "Bis zum Ladelimit laden"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "Cargando hasta el límite"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "Cargando hasta el límite"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "Charge jusqu’à la limite"
           }
         },
         "it": {
@@ -10537,7 +10537,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "Gemeinschaft"
           }
         },
         "es": {
@@ -11175,19 +11175,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "Daemon-Fehler – Einstellungen nicht synchronisiert"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "Error de demonio: configuración no sincronizada"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "Error de demonio: configuración no sincronizada"
           }
         },
         "ja": {
@@ -11253,7 +11253,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "Erreur de démon – Paramètres non synchronisés"
           }
         },
         "it": {
@@ -12676,7 +12676,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar"
+            "value": "Descargando"
           }
         },
         "fr": {
@@ -13089,19 +13089,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "Zeigt den Batterieprozentsatz neben oder innerhalb des Menüleistensymbols an."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "Muestra el porcentaje de batería al lado o dentro del ícono de la barra de menú."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "Muestra el porcentaje de batería al lado o dentro del ícono de la barra de menú."
           }
         },
         "ja": {
@@ -13167,7 +13167,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "Affichez le pourcentage de batterie à côté ou à l’intérieur de l’icône de la barre de menu."
           }
         },
         "it": {
@@ -15329,19 +15329,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "Segelmodus aktivieren"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "Activar modo navegación"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "Activar modo navegación"
           }
         },
         "ja": {
@@ -15407,7 +15407,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "Activer le mode Navigation"
           }
         },
         "it": {
@@ -16393,25 +16393,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "Ladehilfe konnte nicht installiert werden"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "No se pudo instalar el asistente de carga"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "No se pudo instalar el asistente de carga"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "Échec de l'installation de l'assistant de chargement"
           }
         },
         "it": {
@@ -16500,25 +16500,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "Ladehilfe konnte nicht deinstalliert werden"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "No se pudo desinstalar el asistente de carga"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "No se pudo desinstalar el asistente de carga"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "Échec de la désinstallation de l'assistant de chargement"
           }
         },
         "it": {
@@ -16607,19 +16607,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "Stellen Sie für eine zuverlässige Ladeverwaltung sicher, dass „Akkuladung optimieren“ deaktiviert ist und Apples natives Ladelimit unter **Systemeinstellungen → Akku** genau bei **%@** liegt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "Para una gestión de carga confiable, asegúrese de que \"Optimizar la carga de la batería\" esté desactivado y que el límite de carga nativo de Apple esté exactamente en **%@** en **Configuración del sistema → Batería**."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "Para una gestión de carga confiable, asegúrese de que \"Optimizar la carga de la batería\" esté desactivado y que el límite de carga nativo de Apple esté exactamente en **%@** en **Configuración del sistema → Batería**."
           }
         },
         "ja": {
@@ -16685,7 +16685,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "Pour une gestion fiable de la charge, assurez-vous que « Optimiser la charge de la batterie » est désactivé et que la limite de charge native d'Apple est exactement à **%@** dans **Paramètres système → Batterie**."
           }
         },
         "it": {
@@ -17577,7 +17577,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geral"
+            "value": "General"
           }
         },
         "ja": {
@@ -17671,19 +17671,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "Allgemeine Informationen zum System- und Batteriestatus werden im Dropdown-Menü angezeigt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "Información general del estado del sistema y de la batería que se muestra en el menú desplegable."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "Información general del estado del sistema y de la batería que se muestra en el menú desplegable."
           }
         },
         "ja": {
@@ -17749,7 +17749,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "Informations générales sur l'état du système et de la batterie affichées dans le menu déroulant."
           }
         },
         "it": {
@@ -18210,13 +18210,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "verde"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "verde"
           }
         },
         "ja": {
@@ -18856,7 +18856,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado do auxiliar"
+            "value": "Estado del asistente"
           }
         },
         "fr": {
@@ -18951,25 +18951,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "Hilfsdaemon erfolgreich installiert."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "El demonio auxiliar se instaló exitosamente."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "El demonio auxiliar se instaló exitosamente."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "Démon d'assistance installé avec succès."
           }
         },
         "it": {
@@ -19058,25 +19058,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "Hilfsdaemon erfolgreich deinstalliert. Die App wird nun neu gestartet."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "El demonio auxiliar se desinstaló exitosamente. La aplicación ahora se reiniciará."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "El demonio auxiliar se desinstaló exitosamente. La aplicación ahora se reiniciará."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "Le démon d'assistance a été désinstallé avec succès. L'application va maintenant redémarrer."
           }
         },
         "it": {
@@ -20545,19 +20545,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "Bei der Anmeldung starten"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "Iniciar al iniciar sesión"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "Iniciar al iniciar sesión"
           }
         },
         "ja": {
@@ -20623,7 +20623,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "Lancer à la connexion"
           }
         },
         "it": {
@@ -21502,19 +21502,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "Die MagSafe-LED-Steuerung wird auf diesem Gerät nicht unterstützt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "El control LED MagSafe no es compatible con este dispositivo."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "El control LED MagSafe no es compatible con este dispositivo."
           }
         },
         "ja": {
@@ -21580,7 +21580,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "Le contrôle LED MagSafe n'est pas pris en charge sur cet appareil."
           }
         },
         "it": {
@@ -22248,19 +22248,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "Menüleistensymbol"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "Icono de la barra de menú"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "Icono de la barra de menú"
           }
         },
         "ja": {
@@ -22326,7 +22326,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "Icône de la barre de menus"
           }
         },
         "it": {
@@ -22354,19 +22354,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "Menüsteuerung"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "Controles de menú"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "Controles de menú"
           }
         },
         "ja": {
@@ -22432,7 +22432,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "Commandes de menu"
           }
         },
         "it": {
@@ -24909,19 +24909,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "Öffnen Sie Einstellungen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "Abrir configuración"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "Abrir configuración"
           }
         },
         "ja": {
@@ -24987,7 +24987,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "Ouvrir les paramètres"
           }
         },
         "it": {
@@ -25443,7 +25443,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "Orange"
           }
         },
         "es": {
@@ -25521,7 +25521,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "Orange"
           }
         },
         "it": {
@@ -25549,19 +25549,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "Ursprünglich auf einer Open-Source-Basis entwickelt und dann mit neuen Funktionen weiterentwickelt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "Originalmente bifurcado a partir de una base de código abierto, luego se desarrolló aún más con nuevas funciones."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "Originalmente bifurcado a partir de una base de código abierto, luego se desarrolló aún más con nuevas funciones."
           }
         },
         "ja": {
@@ -25627,7 +25627,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "Initialement dérivé d'une base open source, puis développé avec de nouvelles fonctionnalités."
           }
         },
         "it": {
@@ -25761,19 +25761,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "Textzeile für Ausgabeports"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "Fila de texto de puertos de salida"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "Fila de texto de puertos de salida"
           }
         },
         "ja": {
@@ -25839,7 +25839,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "Ligne de texte des ports de sortie"
           }
         },
         "it": {
@@ -26187,25 +26187,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "Bitte öffnen Sie Systemeinstellungen -> Allgemein -> Anmeldeelemente und lassen Sie Stasis im Hintergrund laufen. Versuchen Sie es dann erneut."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "Abra Configuración del sistema -> General -> Elementos de inicio de sesión y permita que Stasis se ejecute en segundo plano, luego inténtelo nuevamente."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "Abra Configuración del sistema -> General -> Elementos de inicio de sesión y permita que Stasis se ejecute en segundo plano, luego inténtelo nuevamente."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "Veuillez ouvrir Paramètres système -> Général -> Éléments de connexion et autoriser Stasis à s'exécuter en arrière-plan, puis réessayez."
           }
         },
         "it": {
@@ -26823,19 +26823,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "Macht"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "poder"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "poder"
           }
         },
         "ja": {
@@ -26901,7 +26901,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "Puissance"
           }
         },
         "it": {
@@ -27353,19 +27353,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Nur Strom"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Sólo energía"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Sólo energía"
           }
         },
         "ja": {
@@ -27431,7 +27431,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Alimentation uniquement"
           }
         },
         "it": {
@@ -27565,19 +27565,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "Stromverteilungsdiagramm"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "Diagrama de distribución de energía."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "Diagrama de distribución de energía."
           }
         },
         "ja": {
@@ -27643,7 +27643,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "Schéma de distribution d'énergie"
           }
         },
         "it": {
@@ -27790,7 +27790,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições repostas"
+            "value": "Preferencias restablecidas"
           }
         },
         "fr": {
@@ -28415,19 +28415,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "Stasis beenden?"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "¿Salir de Stasis?"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "¿Salir de Stasis?"
           }
         },
         "ja": {
@@ -28493,7 +28493,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "Quitter Stasis ?"
           }
         },
         "it": {
@@ -28521,19 +28521,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Durch das Beenden von Stasis werden die Hintergrundhilfsdienste beendet. Die Grenzwerte und Schutzfunktionen für die Akkuladung funktionieren nicht mehr."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Salir de Stasis detendrá los servicios de ayuda en segundo plano. Los límites y protecciones de carga de la batería ya no funcionarán."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Salir de Stasis detendrá los servicios de ayuda en segundo plano. Los límites y protecciones de carga de la batería ya no funcionarán."
           }
         },
         "ja": {
@@ -28599,7 +28599,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Quitter Stasis arrêtera les services d’assistance en arrière-plan. Les limites de charge et les protections de la batterie ne fonctionneront plus."
           }
         },
         "it": {
@@ -28851,7 +28851,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repor"
+            "value": "Restablecer"
           }
         },
         "ja": {
@@ -29372,19 +29372,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "Ausruhen bei %@..."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "Descansando en %@..."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "Descansando en %@..."
           }
         },
         "ja": {
@@ -29450,7 +29450,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "Repos à %@..."
           }
         },
         "it": {
@@ -32680,19 +32680,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "Manuelle Ladesteuerung anzeigen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "Mostrar controles de carga manual"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "Mostrar controles de carga manual"
           }
         },
         "ja": {
@@ -32758,7 +32758,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "Afficher les commandes de charge manuelles"
           }
         },
         "it": {
@@ -32892,19 +32892,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "Ausgehende Leistung anzeigen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "Mostrar potencia de salida"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "Mostrar potencia de salida"
           }
         },
         "ja": {
@@ -32970,7 +32970,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "Afficher la puissance de sortie"
           }
         },
         "it": {
@@ -33224,7 +33224,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adiar (1 dia)"
+            "value": "Posponer (1 día)"
           }
         },
         "fr": {
@@ -33650,7 +33650,7 @@
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar agora"
+            "value": "Iniciar ahora"
           }
         },
         "fr": {
@@ -34065,19 +34065,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "Autostart"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "Inicio"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "Inicio"
           }
         },
         "ja": {
@@ -34143,7 +34143,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "Démarrage"
           }
         },
         "it": {
@@ -35561,19 +35561,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Stasis-Einstellungen"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Configuración de Stasis"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Configuración de Stasis"
           }
         },
         "ja": {
@@ -35639,7 +35639,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Paramètres Stasis"
           }
         },
         "it": {
@@ -36094,19 +36094,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis wurde noch nicht genehmigt.\n\nBitte aktivieren Sie den Schalter für Stasis unter „App-Hintergrundaktivität“ in den Einstellungen für Anmeldeelemente. Möglicherweise möchten Sie auch sicherstellen, dass Stasis zu „Beim Anmelden öffnen“ hinzugefügt wird."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis aún no ha sido aprobado.\n\nHabilite el interruptor para Stasis en 'Actividad en segundo plano de la aplicación' en la configuración de Elementos de inicio de sesión. También es posible que desee asegurarse de que Stasis se agregue a \"Abrir al iniciar sesión\"."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis aún no ha sido aprobado.\n\nHabilite el interruptor para Stasis en 'Actividad en segundo plano de la aplicación' en la configuración de Elementos de inicio de sesión. También es posible que desee asegurarse de que Stasis se agregue a \"Abrir al iniciar sesión\"."
           }
         },
         "ja": {
@@ -36172,7 +36172,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis n'a pas encore été approuvé.\n\nVeuillez activer le bouton Stasis sous « Activité en arrière-plan de l'application » dans les paramètres des éléments de connexion. Vous souhaiterez peut-être également vous assurer que Stasis est ajouté à « Ouvrir à la connexion »."
           }
         },
         "it": {
@@ -36307,19 +36307,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis hat die Verbindung zu seinem Hintergrundhelfer verloren. Bitte gehen Sie zu Systemeinstellungen > Allgemein > Anmeldeelemente, schalten Sie Stasis unter „Im Hintergrund zulassen“ aus und wieder ein und starten Sie die App neu."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis perdió la conexión con su asistente en segundo plano. Vaya a Configuración del sistema > General > Elementos de inicio de sesión, apague y vuelva a encender Stasis en 'Permitir en segundo plano' y reinicie la aplicación."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis perdió la conexión con su asistente en segundo plano. Vaya a Configuración del sistema > General > Elementos de inicio de sesión, apague y vuelva a encender Stasis en 'Permitir en segundo plano' y reinicie la aplicación."
           }
         },
         "ja": {
@@ -36385,7 +36385,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis a perdu la connexion avec son assistant en arrière-plan. Veuillez accéder à Paramètres système > Général > Éléments de connexion, désactivez et réactivez Stasis sous « Autoriser en arrière-plan » et redémarrez l'application."
           }
         },
         "it": {
@@ -37158,19 +37158,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "Systemstandard"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "Valor predeterminado del sistema"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "Valor predeterminado del sistema"
           }
         },
         "ja": {
@@ -37236,7 +37236,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "Système par défaut"
           }
         },
         "it": {
@@ -38225,19 +38225,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "Der Hilfsdaemon wird im Hintergrund ausgeführt, um den Batterieladestatus zu verwalten.\n\nHinweis: macOS behält Apps absichtlich in der Liste „App-Hintergrundaktivität“ (Systemeinstellungen) bei, auch wenn ihr Hintergrundhilfsprogramm nicht registriert ist. Sobald Sie auf „Deinstallieren“ klicken, ist der Helfer tatsächlich deaktiviert, aber macOS lässt Stasis in dieser Liste sichtbar, bis die App selbst von Ihrem Mac gelöscht wird."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "El demonio auxiliar se ejecuta en segundo plano para administrar los estados de carga de la batería.\n\nNota: macOS retiene intencionalmente las aplicaciones en la lista \"Actividad en segundo plano de la aplicación\" (Configuración del sistema) incluso después de que su asistente en segundo plano no esté registrado. Una vez que haces clic en Desinstalar, el asistente está realmente deshabilitado, pero macOS mantendrá Stasis visible en esa lista hasta que la aplicación se elimine de tu Mac."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "El demonio auxiliar se ejecuta en segundo plano para administrar los estados de carga de la batería.\n\nNota: macOS retiene intencionalmente las aplicaciones en la lista \"Actividad en segundo plano de la aplicación\" (Configuración del sistema) incluso después de que su asistente en segundo plano no esté registrado. Una vez que haces clic en Desinstalar, el asistente está realmente deshabilitado, pero macOS mantendrá Stasis visible en esa lista hasta que la aplicación se elimine de tu Mac."
           }
         },
         "ja": {
@@ -38303,7 +38303,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "Le démon d'assistance s'exécute en arrière-plan pour gérer les états de charge de la batterie.\n\nRemarque : macOS conserve intentionnellement les applications dans la liste « Activité en arrière-plan de l'application » (Paramètres système) même après la désinscription de leur assistant en arrière-plan. Une fois que vous cliquez sur Désinstaller, l'assistant est véritablement désactivé, mais macOS gardera Stasis visible dans cette liste jusqu'à ce que l'application elle-même soit supprimée de votre Mac."
           }
         },
         "it": {
@@ -38543,19 +38543,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "Tageszeit"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "Hora del día"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "Hora del día"
           }
         },
         "ja": {
@@ -38621,7 +38621,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "Heure de la journée"
           }
         },
         "it": {
@@ -38649,19 +38649,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "Zeit bis zur Entladung"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "Tiempo hasta la descarga"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "Tiempo hasta la descarga"
           }
         },
         "ja": {
@@ -38727,7 +38727,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "Temps avant décharge"
           }
         },
         "it": {
@@ -38862,25 +38862,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "Tipp: Überprüfen Sie die Systemeinstellungen -> Allgemein -> Anmeldeelemente. Stellen Sie sicher, dass Stasis im Hintergrund ausgeführt werden darf. Wenn es bereits eingeschaltet ist, versuchen Sie, es aus- und wieder einzuschalten."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "Consejo: Verifique Configuración del sistema -> General -> Elementos de inicio de sesión. Asegúrese de que Stasis pueda ejecutarse en segundo plano. Si ya está activado, intente activarlo y desactivarlo nuevamente."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "Consejo: Verifique Configuración del sistema -> General -> Elementos de inicio de sesión. Asegúrese de que Stasis pueda ejecutarse en segundo plano. Si ya está activado, intente activarlo y desactivarlo nuevamente."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "Astuce : Vérifiez les paramètres système -> Général -> Éléments de connexion. Assurez-vous que Stasis est autorisé à s’exécuter en arrière-plan. S'il est déjà activé, essayez de l'éteindre et de le rallumer."
           }
         },
         "it": {
@@ -41319,25 +41319,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "Unbekannt"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "Desconocido"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "Desconocido"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "Inconnu"
           }
         },
         "it": {
@@ -41532,7 +41532,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "Aktualisierungen"
           }
         },
         "es": {
@@ -41744,19 +41744,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "Hardware-Batteriestand verwenden"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "Usar el porcentaje de batería del hardware"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "Usar el porcentaje de batería del hardware"
           }
         },
         "ja": {
@@ -41822,7 +41822,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "Utiliser le pourcentage brut de la batterie"
           }
         },
         "it": {
@@ -41850,19 +41850,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "Unverarbeiteten Hardware-Zustand verwenden"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "Usar el estado de hardware sin procesar"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "Usar el estado de hardware sin procesar"
           }
         },
         "ja": {
@@ -41928,7 +41928,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "Utiliser l’état matériel brut"
           }
         },
         "it": {
@@ -41956,19 +41956,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "Verwenden Sie den Rohbatterie-Prozentsatz anstelle des von macOS kalibrierten Werts."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "Utilice el porcentaje de batería sin procesar en lugar del valor calibrado de macOS."
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "Utilice el porcentaje de batería sin procesar en lugar del valor calibrado de macOS."
           }
         },
         "ja": {
@@ -42034,7 +42034,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "Utilisez le pourcentage brut de batterie au lieu de la valeur calibrée de macOS."
           }
         },
         "it": {
@@ -42274,19 +42274,19 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "Darstellung"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "Visuales"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "Visuales"
           }
         },
         "ja": {
@@ -42352,7 +42352,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "Apparence"
           }
         },
         "it": {
@@ -42386,13 +42386,13 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "Semanal"
           }
         },
         "es-US": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "Semanal"
           }
         },
         "ja": {
