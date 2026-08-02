@@ -40146,7 +40146,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aufladen abgebrochen. Standardlimit wiederhergestellt."
+            "value": "Aufladen auf %@ abgebrochen. Standardlimit wiederhergestellt."
           }
         },
         "es": {
@@ -40188,7 +40188,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Opladen geannuleerd. Standaardlimiet hervat."
+            "value": "Opladen tot %@ geannuleerd. Standaardlimiet hervat."
           }
         },
         "pt-BR": {
@@ -41522,7 +41522,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "未知的 Stasis 命令: stasis://%"
+            "value": "未知的 Stasis 指令：stasis://%@"
           }
         }
       }
@@ -43127,6 +43127,102 @@
             "state": "translated",
             "value": "打开 Stasis 主仪表板和设置窗口。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haupt-Dashboard und Einstellungsfenster von Stasis öffnen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre el panel principal y la ventana de ajustes de Stasis."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez le tableau de bord principal et la fenêtre des réglages de Stasis."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri il pannello principale e la finestra delle impostazioni di Stasis."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasisのメインダッシュボードと設定ウインドウを開きます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis 기본 대시보드와 설정 창을 엽니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open het hoofddashboard en het instellingenvenster van Stasis."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abra o painel principal e a janela de ajustes do Stasis."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abra o painel principal e a janela de definições do Stasis."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть главную панель и окно настроек Stasis."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otvorte hlavný panel a okno nastavení Stasis."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odprite glavno nadzorno ploščo in okno z nastavitvami Stasis."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis ana panosunu ve ayarlar penceresini açın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở bảng điều khiển chính và cửa sổ cài đặt Stasis."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟 Stasis 主儀表板和設定視窗。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre el panel principal y la ventana de ajustes de Stasis."
+          }
         }
       }
     },
@@ -43137,6 +43233,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "连接交流电源时启用或停用电池强制放电。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erzwungene Batterieentladung bei angeschlossenem Netzteil aktivieren oder deaktivieren."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva la descarga forzada de la batería mientras está conectada a la corriente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez ou désactivez la décharge forcée de la batterie lorsque l’adaptateur secteur est branché."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attiva o disattiva la scarica forzata della batteria quando è collegata all’alimentazione."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電源接続中のバッテリー強制放電を有効または無効にします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전원에 연결된 동안 배터리 강제 방전을 활성화하거나 비활성화합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel geforceerd ontladen van de batterij in of uit terwijl de netvoeding is aangesloten."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative a descarga forçada da bateria enquanto o Mac estiver conectado à energia."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative a descarga forçada da bateria enquanto o Mac estiver ligado à corrente."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включить или отключить принудительную разрядку аккумулятора при подключённом питании."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povoľte alebo zakážte nútené vybíjanie batérie pri pripojení k napájaniu."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omogočite ali onemogočite prisilno praznjenje baterije, ko je priključeno napajanje."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Güce bağlıyken pili zorla boşaltmayı etkinleştirin veya devre dışı bırakın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật hoặc tắt tính năng buộc xả pin khi đang cắm nguồn AC."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連接交流電源時啟用或停用電池強制放電。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva la descarga forzada de la batería mientras está conectada a la corriente."
           }
         }
       }
@@ -43149,6 +43341,102 @@
             "state": "translated",
             "value": "在 Stasis 中开始完整的电池校准周期。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einen vollständigen Batteriekalibrierungszyklus in Stasis starten."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia un ciclo completo de calibración de la batería en Stasis."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Démarrez un cycle complet d’étalonnage de la batterie dans Stasis."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avvia un ciclo completo di calibrazione della batteria in Stasis."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasisで完全なバッテリーキャリブレーションサイクルを開始します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis에서 전체 배터리 보정 주기를 시작합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start een volledige batterijkalibratiecyclus in Stasis."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicie um ciclo completo de calibração da bateria no Stasis."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicie um ciclo completo de calibração da bateria no Stasis."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустить полный цикл калибровки аккумулятора в Stasis."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spustite úplný cyklus kalibrácie batérie v Stasis."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaženite celoten cikel umerjanja baterije v aplikaciji Stasis."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis’te tam bir pil kalibrasyon döngüsü başlatın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bắt đầu một chu kỳ hiệu chỉnh pin đầy đủ trong Stasis."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Stasis 中開始完整的電池校正週期。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia un ciclo completo de calibración de la batería en Stasis."
+          }
         }
       }
     },
@@ -43159,6 +43447,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "取消正在进行的电池校准周期。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einen laufenden Batteriekalibrierungszyklus abbrechen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancela un ciclo de calibración de la batería en curso."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulez un cycle d’étalonnage de la batterie en cours."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulla un ciclo di calibrazione della batteria in corso."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進行中のバッテリーキャリブレーションサイクルをキャンセルします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "진행 중인 배터리 보정 주기를 취소합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuleer een actieve batterijkalibratiecyclus."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancele um ciclo de calibração da bateria em andamento."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancele um ciclo de calibração da bateria em curso."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отменить выполняющийся цикл калибровки аккумулятора."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zrušte prebiehajúci cyklus kalibrácie batérie."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prekličite potekajoči cikel umerjanja baterije."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam eden pil kalibrasyon döngüsünü iptal edin."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hủy chu kỳ hiệu chỉnh pin đang diễn ra."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消進行中的電池校正週期。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancela un ciclo de calibración de la batería en curso."
           }
         }
       }
@@ -43171,6 +43555,102 @@
             "state": "translated",
             "value": "启用或停用散热保护模式。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hitzeschutzmodus aktivieren oder deaktivieren."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva el modo de protección térmica."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez ou désactivez le mode de protection thermique."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attiva o disattiva la modalità di protezione dal calore."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "熱保護モードを有効または無効にします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "열 보호 모드를 활성화하거나 비활성화합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel de hittebeschermingsmodus in of uit."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative o modo de proteção térmica."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative o modo de proteção térmica."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включить или отключить режим защиты от перегрева."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povoľte alebo zakážte režim ochrany pred teplom."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omogočite ali onemogočite način zaščite pred vročino."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isı Koruma Modu’nu etkinleştirin veya devre dışı bırakın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật hoặc tắt Chế độ Bảo vệ Nhiệt."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "啟用或停用散熱保護模式。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva el modo de protección térmica."
+          }
         }
       }
     },
@@ -43181,6 +43661,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "设置散热保护阈值"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwellenwert für Hitzeschutz festlegen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Establecer el umbral de protección térmica"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Définir le seuil de protection thermique"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imposta la soglia di protezione dal calore"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "熱保護のしきい値を設定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "열 보호 임계값 설정"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Drempelwaarde voor hittebescherming instellen"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Definir limite de proteção térmica"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Definir limiar de proteção térmica"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Установить порог защиты от перегрева"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nastaviť prah ochrany pred teplom"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nastavi prag zaščite pred vročino"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isı Koruma Eşiğini Ayarla"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt Ngưỡng Bảo vệ Nhiệt"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定散熱保護臨界值"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Establecer el umbral de protección térmica"
           }
         }
       }
@@ -43193,6 +43769,102 @@
             "state": "translated",
             "value": "设置散热保护模式的温度阈值（30°C 至 50°C）。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperaturschwellenwert für den Hitzeschutzmodus festlegen (30 °C bis 50 °C)."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Establece el umbral de temperatura del modo de protección térmica (de 30 °C a 50 °C)."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Définissez le seuil de température du mode de protection thermique (de 30 °C à 50 °C)."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imposta la soglia di temperatura della modalità di protezione dal calore (da 30 °C a 50 °C)."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "熱保護モードの温度しきい値を設定します（30°C〜50°C）。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "열 보호 모드의 온도 임계값을 설정합니다(30°C~50°C)."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stel de temperatuurdrempel voor de hittebeschermingsmodus in (30 °C tot 50 °C)."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Defina o limite de temperatura do modo de proteção térmica (30 °C a 50 °C)."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Defina o limiar de temperatura do modo de proteção térmica (30 °C a 50 °C)."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Установить температурный порог режима защиты от перегрева (от 30 °C до 50 °C)."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nastavte teplotný prah režimu ochrany pred teplom (30 °C až 50 °C)."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nastavite temperaturni prag načina zaščite pred vročino (od 30 °C do 50 °C)."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isı Koruma Modu sıcaklık eşiğini ayarlayın (30°C - 50°C)."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đặt ngưỡng nhiệt độ cho Chế độ Bảo vệ Nhiệt (30°C đến 50°C)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定散熱保護模式的溫度臨界值（30°C 至 50°C）。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Establece el umbral de temperatura del modo de protección térmica (de 30 °C a 50 °C)."
+          }
         }
       }
     },
@@ -43203,6 +43875,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "启用或停用自定义 MagSafe LED 颜色指示。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Benutzerdefinierte MagSafe-LED-Farbanzeige aktivieren oder deaktivieren."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva la indicación de color personalizada del LED MagSafe."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez ou désactivez l’indication de couleur personnalisée de la LED MagSafe."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attiva o disattiva l’indicazione del colore personalizzato del LED MagSafe."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagSafe LEDのカスタムカラー表示を有効または無効にします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정 MagSafe LED 색상 표시를 활성화하거나 비활성화합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel de aangepaste kleurindicatie van de MagSafe-led in of uit."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative a indicação de cor personalizada do LED MagSafe."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative ou desative a indicação de cor personalizada do LED MagSafe."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включить или отключить пользовательскую цветовую индикацию светодиода MagSafe."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povoľte alebo zakážte vlastnú farebnú signalizáciu LED MagSafe."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omogočite ali onemogočite prikaz barve po meri za lučko LED MagSafe."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel MagSafe LED renk göstergesini etkinleştirin veya devre dışı bırakın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật hoặc tắt chỉ báo màu LED MagSafe tùy chỉnh."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "啟用或停用自訂 MagSafe LED 顏色指示。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa o desactiva la indicación de color personalizada del LED MagSafe."
           }
         }
       }
@@ -43215,6 +43983,102 @@
             "state": "translated",
             "value": "Stasis 支持自定义 URL 方案（**stasis://**）和命令行自动化。这是一套百分之百可靠、通用的自动化系统，可用于 Apple 快捷指令、Raycast、Alfred 和终端脚本，无需 Apple 开发者账户。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis unterstützt benutzerdefinierte URL-Schemata (**stasis://**) und die Automatisierung über die Befehlszeile. Dieses vollständig zuverlässige, universelle Automatisierungssystem funktioniert mit Apple Kurzbefehlen, Raycast, Alfred und Terminal-Skripten – ganz ohne Apple-Entwickleraccount."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis admite esquemas de URL personalizados (**stasis://**) y automatización mediante la línea de comandos. Es un sistema de automatización universal y totalmente fiable que funciona con Atajos de Apple, Raycast, Alfred y scripts de Terminal, sin necesidad de una cuenta de Apple Developer."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis prend en charge les schémas d’URL personnalisés (**stasis://**) et l’automatisation en ligne de commande. Ce système d’automatisation universel et entièrement fiable fonctionne avec Raccourcis d’Apple, Raycast, Alfred et les scripts de Terminal, sans compte Apple Developer."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis supporta schemi URL personalizzati (**stasis://**) e l’automazione da riga di comando. È un sistema di automazione universale e completamente affidabile che funziona con Comandi Rapidi di Apple, Raycast, Alfred e gli script di Terminale, senza richiedere un account Apple Developer."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "StasisはカスタムURLスキーム（**stasis://**）とコマンドライン自動化に対応しています。Appleのショートカット、Raycast、Alfred、ターミナルスクリプトで利用できる、完全に信頼性の高い汎用自動化システムです。Apple Developerアカウントは必要ありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis는 사용자 지정 URL 스킴(**stasis://**)과 명령줄 자동화를 지원합니다. Apple 단축어, Raycast, Alfred 및 터미널 스크립트에서 Apple Developer 계정 없이 작동하는 완전히 신뢰할 수 있는 범용 자동화 시스템입니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis ondersteunt aangepaste URL-schema’s (**stasis://**) en automatisering via de opdrachtregel. Dit volledig betrouwbare, universele automatiseringssysteem werkt met Apple Opdrachten, Raycast, Alfred en Terminal-scripts, zonder Apple Developer-account."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Stasis oferece esquemas de URL personalizados (**stasis://**) e automação por linha de comando. É um sistema de automação universal e totalmente confiável que funciona com Atalhos da Apple, Raycast, Alfred e scripts do Terminal, sem precisar de uma conta do Apple Developer."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Stasis suporta esquemas de URL personalizados (**stasis://**) e automatização através da linha de comandos. É um sistema de automatização universal e totalmente fiável que funciona com Atalhos da Apple, Raycast, Alfred e scripts do Terminal, sem necessitar de uma conta Apple Developer."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis поддерживает пользовательские схемы URL (**stasis://**) и автоматизацию через командную строку. Это полностью надёжная универсальная система автоматизации, которая работает с приложением «Команды» Apple, Raycast, Alfred и скриптами Терминала без учётной записи Apple Developer."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis podporuje vlastné schémy URL (**stasis://**) a automatizáciu cez príkazový riadok. Tento úplne spoľahlivý univerzálny automatizačný systém funguje so Skratkami Apple, Raycastom, Alfredom a skriptmi Terminálu bez účtu Apple Developer."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis podpira sheme URL po meri (**stasis://**) in avtomatizacijo prek ukazne vrstice. Ta popolnoma zanesljiv univerzalni sistem avtomatizacije deluje z Applovimi Bližnjicami, Raycastom, Alfredom in skripti Terminala brez računa Apple Developer."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis, özel URL şemalarını (**stasis://**) ve komut satırı otomasyonunu destekler. Apple Kestirmeler, Raycast, Alfred ve Terminal betikleriyle Apple Developer hesabı gerektirmeden çalışan, tamamen güvenilir ve evrensel bir otomasyon sistemidir."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis hỗ trợ lược đồ URL tùy chỉnh (**stasis://**) và tự động hóa bằng dòng lệnh. Đây là hệ thống tự động hóa phổ quát, hoàn toàn đáng tin cậy, hoạt động với Phím tắt của Apple, Raycast, Alfred và tập lệnh Terminal mà không cần tài khoản Apple Developer."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis 支援自訂 URL 方案（**stasis://**）和命令列自動化。這是一套百分之百可靠、通用的自動化系統，可用於 Apple 捷徑、Raycast、Alfred 和終端機指令碼，無需 Apple 開發者帳號。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stasis admite esquemas de URL personalizados (**stasis://**) y automatización mediante la línea de comandos. Es un sistema de automatización universal y totalmente fiable que funciona con Atajos de Apple, Raycast, Alfred y scripts de Terminal, sin necesidad de una cuenta de Apple Developer."
+          }
         }
       }
     },
@@ -43225,6 +44089,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "如何在 Apple 的“快捷指令”App 中使用"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwendung in Apples Kurzbefehle-App"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cómo usar la app Atajos de Apple"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilisation dans l’app Raccourcis d’Apple"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come usare l’app Comandi Rapidi di Apple"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AppleのショートカットAppでの使い方"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 단축어 앱에서 사용하는 방법"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik in de Opdrachten-app van Apple"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como usar no app Atalhos da Apple"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como utilizar na app Atalhos da Apple"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Использование в приложении «Команды» Apple"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Používanie v aplikácii Skratky od Apple"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uporaba v Applovi aplikaciji Bližnjice"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple’ın Kestirmeler Uygulamasında Kullanım"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cách sử dụng trong ứng dụng Phím tắt của Apple"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如何在 Apple 的「捷徑」App 中使用"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cómo usar la app Atajos de Apple"
           }
         }
       }
@@ -43237,6 +44197,102 @@
             "state": "translated",
             "value": "CLI 与终端用法"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI- & Terminal-Nutzung"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso de CLI y Terminal"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilisation de la CLI et du Terminal"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso di CLI e Terminale"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLIとターミナルの使用方法"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI 및 터미널 사용법"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI- en Terminal-gebruik"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso da CLI e do Terminal"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilização da CLI e do Terminal"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Использование CLI и Терминала"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Používanie CLI a Terminálu"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uporaba CLI in Terminala"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI ve Terminal Kullanımı"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sử dụng CLI và Terminal"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CLI 與終端機用法"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uso de CLI y Terminal"
+          }
         }
       }
     },
@@ -43247,6 +44303,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "你可以在终端、Shell 脚本、Raycast 或 Alfred 中使用 `open` 命令运行任意 Stasis 命令："
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kannst jeden Stasis-Befehl im Terminal, in Shell-Skripten, Raycast oder Alfred mit dem Befehl `open` ausführen:"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puedes ejecutar cualquier comando de Stasis desde Terminal, scripts de shell, Raycast o Alfred mediante el comando `open`:"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous pouvez exécuter n’importe quelle commande Stasis depuis le Terminal, des scripts shell, Raycast ou Alfred à l’aide de la commande `open` :"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puoi eseguire qualsiasi comando Stasis da Terminale, script di shell, Raycast o Alfred usando il comando `open`:"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ターミナル、シェルスクリプト、Raycast、Alfredから、`open`コマンドを使って任意のStasisコマンドを実行できます："
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "터미널, 셸 스크립트, Raycast 또는 Alfred에서 `open` 명령으로 모든 Stasis 명령을 실행할 수 있습니다:"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je kunt elke Stasis-opdracht uitvoeren vanuit Terminal, shellscripts, Raycast of Alfred met de opdracht `open`:"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você pode executar qualquer comando do Stasis pelo Terminal, por scripts de shell, Raycast ou Alfred usando o comando `open`:"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pode executar qualquer comando do Stasis no Terminal, em scripts de shell, no Raycast ou no Alfred utilizando o comando `open`:"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Любую команду Stasis можно выполнить из Терминала, скриптов оболочки, Raycast или Alfred с помощью команды `open`:"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ľubovoľný príkaz Stasis môžete spustiť z Terminálu, shellových skriptov, Raycastu alebo Alfredu pomocou príkazu `open`:"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kateri koli ukaz Stasis lahko zaženete iz Terminala, lupinskih skriptov, Raycasta ali Alfreda z ukazom `open`:"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herhangi bir Stasis komutunu Terminal, kabuk betikleri, Raycast veya Alfred’dan `open` komutuyla çalıştırabilirsiniz:"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn có thể chạy bất kỳ lệnh Stasis nào từ Terminal, tập lệnh shell, Raycast hoặc Alfred bằng lệnh `open`:"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你可以在終端機、Shell 指令碼、Raycast 或 Alfred 中使用 `open` 指令執行任意 Stasis 指令："
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puedes ejecutar cualquier comando de Stasis desde Terminal, scripts de shell, Raycast o Alfred mediante el comando `open`:"
           }
         }
       }
@@ -43259,6 +44411,102 @@
             "state": "translated",
             "value": "URL 方案参考"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL-Schema-Referenz"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referencia del esquema de URL"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Référence du schéma d’URL"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riferimento dello schema URL"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URLスキーム一覧"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL 스킴 참조"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overzicht van URL-schema’s"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referência do esquema de URL"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referência do esquema de URL"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Справочник схемы URL"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prehľad schémy URL"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pregled sheme URL"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL Şeması Referansı"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tham chiếu lược đồ URL"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL 方案參考"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referencia del esquema de URL"
+          }
         }
       }
     },
@@ -43269,6 +44517,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "在 Mac 上打开 Apple 的**快捷指令** App。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffne Apples App **Kurzbefehle** auf deinem Mac."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre la app **Atajos** de Apple en tu Mac."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez l’app **Raccourcis** d’Apple sur votre Mac."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri l’app **Comandi Rapidi** di Apple sul Mac."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MacでAppleの**ショートカット**Appを開きます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac에서 Apple의 **단축어** 앱을 엽니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open de Apple-app **Opdrachten** op je Mac."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abra o app **Atalhos** da Apple no Mac."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abra a app **Atalhos** da Apple no Mac."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Откройте приложение Apple **Команды** на Mac."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otvorte na Macu aplikáciu Apple **Skratky**."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V Macu odprite Applovo aplikacijo **Bližnjice**."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac’inizde Apple’ın **Kestirmeler** uygulamasını açın."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở ứng dụng **Phím tắt** của Apple trên máy Mac."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Mac 上開啟 Apple 的**捷徑** App。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre la app **Atajos** de Apple en tu Mac."
           }
         }
       }
@@ -43281,6 +44625,102 @@
             "state": "translated",
             "value": "新建一个快捷指令，并添加**打开 URL**操作。"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstelle einen neuen Kurzbefehl und füge die Aktion **URL öffnen** hinzu."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea un nuevo atajo y añade la acción **Abrir URL**."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créez un nouveau raccourci et ajoutez l’action **Ouvrir les URL**."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea un nuovo comando rapido e aggiungi l’azione **Apri URL**."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しいショートカットを作成し、**URLを開く**アクションを追加します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "새로운 단축어를 만들고 **URL 열기** 동작을 추가합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak een nieuwe opdracht aan en voeg de taak **Open URL** toe."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crie um novo atalho e adicione a ação **Abrir URLs**."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crie um novo atalho e adicione a ação **Abrir URL**."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создайте новую команду и добавьте действие **Открыть URL**."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vytvorte novú skratku a pridajte akciu **Otvoriť URL**."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ustvarite novo bližnjico in dodajte dejanje **Odpri URL**."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni bir kestirme oluşturun ve **URL’yi Aç** eylemini ekleyin."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tạo một phím tắt mới và thêm tác vụ **Mở URL**."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增捷徑，並加入**打開 URL**動作。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea un nuevo atajo y añade la acción **Abrir URL**."
+          }
         }
       }
     },
@@ -43291,6 +44731,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "粘贴下方参考列表中的任意 Stasis URL（例如 `stasis://charge-limit?value=80`）。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge eine beliebige Stasis-URL aus der Referenzliste unten ein (z. B. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pega cualquier URL de Stasis de la lista de referencia siguiente (p. ej., `stasis://charge-limit?value=80`)."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collez une URL Stasis de la liste de référence ci-dessous (par ex. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Incolla un URL Stasis dall’elenco di riferimento seguente (ad es. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下の一覧からStasis URLを貼り付けます（例：`stasis://charge-limit?value=80`）。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아래 참조 목록에서 Stasis URL을 붙여넣습니다(예: `stasis://charge-limit?value=80`)."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plak een Stasis-URL uit de onderstaande lijst (bijv. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cole uma URL do Stasis da lista de referência abaixo (por exemplo, `stasis://charge-limit?value=80`)."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cole um URL do Stasis da lista de referência abaixo (por exemplo, `stasis://charge-limit?value=80`)."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вставьте любой URL Stasis из списка ниже (например, `stasis://charge-limit?value=80`)."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vložte ľubovoľnú URL Stasis zo zoznamu nižšie (napr. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prilepite kateri koli URL Stasis s spodnjega seznama (npr. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aşağıdaki referans listesinden bir Stasis URL’si yapıştırın (ör. `stasis://charge-limit?value=80`)."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dán một URL Stasis từ danh sách tham chiếu bên dưới (ví dụ: `stasis://charge-limit?value=80`)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "貼上下方參考列表中的任意 Stasis URL（例如 `stasis://charge-limit?value=80`）。"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pega cualquier URL de Stasis de la lista de referencia siguiente (p. ej., `stasis://charge-limit?value=80`)."
           }
         }
       }
@@ -43303,6 +44839,102 @@
             "state": "translated",
             "value": "可从菜单栏、键盘快捷键、Dock 或 Siri 运行你的快捷指令！"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Führe deinen Kurzbefehl über die Menüleiste, einen Tastaturkurzbefehl, das Dock oder Siri aus!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejecuta tu atajo desde la barra de menús, un atajo de teclado, el Dock o Siri."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exécutez votre raccourci depuis la barre des menus, un raccourci clavier, le Dock ou Siri !"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esegui il comando rapido dalla barra dei menu, da un’abbreviazione da tastiera, dal Dock o con Siri."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メニューバー、キーボードショートカット、Dock、またはSiriからショートカットを実行します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "메뉴 막대, 키보드 단축키, Dock 또는 Siri에서 단축어를 실행하세요!"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer je opdracht uit via de menubalk, een toetscombinatie, het Dock of Siri."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Execute o atalho pela barra de menus, por um atalho de teclado, pelo Dock ou pela Siri."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Execute o atalho a partir da barra de menus, de um atalho de teclado, da Dock ou através da Siri."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустите команду из строки меню, сочетанием клавиш, из Dock или с помощью Siri."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spustite skratku z panela ponúk, klávesovou skratkou, z Docku alebo pomocou Siri."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaženite bližnjico iz menijske vrstice, z bližnjico na tipkovnici, iz Docka ali s Siri."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kestirmenizi Menü Çubuğu, klavye kestirmesi, Dock veya Siri’den çalıştırın!"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chạy phím tắt từ thanh menu, phím tắt bàn phím, Dock hoặc Siri!"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可從選單列、鍵盤快速鍵、Dock 或 Siri 執行你的捷徑！"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejecuta tu atajo desde la barra de menús, un atajo de teclado, el Dock o Siri."
+          }
         }
       }
     },
@@ -43313,6 +44945,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "已复制"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopiert"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copié"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コピー済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복사됨"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekopieerd"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скопировано"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skopírované"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopirano"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyalandı"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã sao chép"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已複製"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado"
           }
         }
       }
