@@ -1620,7 +1620,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "アダプター"
           }
         },
         "zh-Hans": {
@@ -1632,7 +1632,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "電源轉接器"
           }
         },
         "ru": {
@@ -1668,13 +1668,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "Bộ đổi nguồn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "어댑터"
           }
         },
         "fr": {
@@ -1726,7 +1726,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "アダプタの電力メトリクス"
           }
         },
         "zh-Hans": {
@@ -1738,7 +1738,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "電源轉接器功率指標"
           }
         },
         "ru": {
@@ -1774,13 +1774,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "Chỉ số công suất bộ đổi nguồn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia do adaptador"
+            "value": "어댑터 전력 측정항목"
           }
         },
         "fr": {
@@ -1832,7 +1832,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "このデバイスではアダプター制御はサポートされていません。"
           }
         },
         "zh-Hans": {
@@ -1844,7 +1844,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "此裝置不支援電源轉接器控制。"
           }
         },
         "ru": {
@@ -1880,13 +1880,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "Thiết bị này không hỗ trợ điều khiển bộ đổi nguồn."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do adaptador não é suportado neste dispositivo."
+            "value": "이 장치에서는 어댑터 제어가 지원되지 않습니다."
           }
         },
         "fr": {
@@ -2044,7 +2044,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todos os ecrãs"
+            "value": "すべてのディスプレイ"
           }
         },
         "zh-Hans": {
@@ -2056,7 +2056,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todos os ecrãs"
+            "value": "所有顯示器"
           }
         },
         "ru": {
@@ -2092,13 +2092,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todos os ecrãs"
+            "value": "Tất cả màn hình"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todos os ecrãs"
+            "value": "모든 디스플레이"
           }
         },
         "fr": {
@@ -2377,13 +2377,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "すべての設定がデフォルトに正常に復元されました。アプリが再起動されます。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "모든 기본 설정이 기본값으로 성공적으로 복원되었습니다. 이제 앱이 다시 시작됩니다."
           }
         },
         "nl": {
@@ -2431,7 +2431,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "Tất cả các tùy chọn đã được khôi phục thành công về mặc định. Ứng dụng bây giờ sẽ khởi động lại."
           }
         },
         "zh-Hans": {
@@ -2443,7 +2443,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Todas as definições foram repostas para os valores predefinidos. A aplicação vai ser reiniciada."
+            "value": "所有首選項已成功恢復為預設值。該應用程式現在將重新啟動。"
           }
         }
       }
@@ -2790,7 +2790,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aprove o Stasis em Definições do Sistema → Itens de Início para continuar."
+            "value": "システム設定→ログイン項目でStasisを承認して続行します。"
           }
         },
         "zh-Hans": {
@@ -2802,7 +2802,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aprove o Stasis em Definições do Sistema → Itens de Início para continuar."
+            "value": "請在「系統設定」→「登入項目」中核准 Stasis，以繼續。"
           }
         },
         "ru": {
@@ -2838,13 +2838,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aprove o Stasis em Definições do Sistema → Itens de Início para continuar."
+            "value": "Phê duyệt Stasis trong Cài đặt hệ thống → Mục đăng nhập để tiếp tục."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aprove o Stasis em Definições do Sistema → Itens de Início para continuar."
+            "value": "계속하려면 시스템 설정 → 로그인 항목에서 Stasis를 승인하세요."
           }
         },
         "fr": {
@@ -3003,7 +3003,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Transferir automaticamente"
+            "value": "自動ダウンロード"
           }
         },
         "zh-Hans": {
@@ -3015,7 +3015,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Transferir automaticamente"
+            "value": "自動下載"
           }
         },
         "ru": {
@@ -3051,13 +3051,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Transferir automaticamente"
+            "value": "Tự động tải xuống"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Transferir automaticamente"
+            "value": "자동 다운로드"
           }
         },
         "fr": {
@@ -3109,7 +3109,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarga automática"
+            "value": "自動放電"
           }
         },
         "zh-Hans": {
@@ -3121,7 +3121,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarga automática"
+            "value": "自動放電"
           }
         },
         "ru": {
@@ -3157,13 +3157,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarga automática"
+            "value": "Xả pin tự động"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarga automática"
+            "value": "자동 방전"
           }
         },
         "fr": {
@@ -3215,7 +3215,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações automaticamente"
+            "value": "アップデートを自動的にチェックする"
           }
         },
         "zh-Hans": {
@@ -3227,7 +3227,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações automaticamente"
+            "value": "自動檢查更新"
           }
         },
         "ru": {
@@ -3263,13 +3263,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações automaticamente"
+            "value": "Tự động kiểm tra cập nhật"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações automaticamente"
+            "value": "자동으로 업데이트 확인"
           }
         },
         "fr": {
@@ -3321,7 +3321,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Retomar o carregamento automaticamente quando a bateria descer abaixo do limiar em relação ao seu limite de carga."
+            "value": "バッテリーが充電制限に対するしきい値を下回ると、自動的に充電を再開します。"
           }
         },
         "zh-Hans": {
@@ -3333,7 +3333,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Retomar o carregamento automaticamente quando a bateria descer abaixo do limiar em relação ao seu limite de carga."
+            "value": "當電池電量低於相對於充電限制的閾值時，自動恢復充電。"
           }
         },
         "ru": {
@@ -3369,13 +3369,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Retomar o carregamento automaticamente quando a bateria descer abaixo do limiar em relação ao seu limite de carga."
+            "value": "Tự động tiếp tục sạc khi pin giảm xuống dưới ngưỡng tương ứng với giới hạn sạc của bạn."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Retomar o carregamento automaticamente quando a bateria descer abaixo do limiar em relação ao seu limite de carga."
+            "value": "배터리가 충전 한도에 비해 임계값 아래로 떨어지면 자동으로 충전을 재개합니다."
           }
         },
         "fr": {
@@ -3534,7 +3534,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "バックグラウンドヘルパーが切断されました"
           }
         },
         "zh-Hans": {
@@ -3546,7 +3546,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "後台輔助程式已中斷連線"
           }
         },
         "ru": {
@@ -3582,13 +3582,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "Trình trợ giúp nền đã ngắt kết nối"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar em segundo plano desligado"
+            "value": "백그라운드 도우미 연결 끊김"
           }
         },
         "fr": {
@@ -3852,7 +3852,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente"
+            "value": "バッテリーと電源アダプター"
           }
         },
         "zh-Hans": {
@@ -3864,7 +3864,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente"
+            "value": "電池與電源轉接器"
           }
         },
         "ru": {
@@ -3900,13 +3900,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente"
+            "value": "Pin và bộ đổi nguồn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente"
+            "value": "배터리 및 전원 어댑터"
           }
         },
         "fr": {
@@ -3958,7 +3958,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%@ W)"
+            "value": "バッテリーと電源アダプター (%@ W)"
           }
         },
         "zh-Hans": {
@@ -3970,7 +3970,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%@ W)"
+            "value": "電池和電源適配器 (%@ W)"
           }
         },
         "ru": {
@@ -4006,13 +4006,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%@ W)"
+            "value": "Pin & Bộ đổi nguồn (%@ W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%@ W)"
+            "value": "배터리 및 전원 어댑터(%@ W)"
           }
         },
         "fr": {
@@ -4064,7 +4064,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%d W)"
+            "value": "バッテリーと電源アダプター (%d W)"
           }
         },
         "zh-Hans": {
@@ -4076,7 +4076,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%d W)"
+            "value": "電池和電源適配器 (%d W)"
           }
         },
         "ru": {
@@ -4112,13 +4112,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%d W)"
+            "value": "Pin & Bộ đổi nguồn (%d W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%d W)"
+            "value": "배터리 및 전원 어댑터(%d W)"
           }
         },
         "fr": {
@@ -4170,7 +4170,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%lld W)"
+            "value": "バッテリーと電源アダプター (%lld W)"
           }
         },
         "zh-Hans": {
@@ -4182,7 +4182,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%lld W)"
+            "value": "電池和電源適配器 (%lld W)"
           }
         },
         "ru": {
@@ -4218,13 +4218,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%lld W)"
+            "value": "Pin & Bộ đổi nguồn (%lld W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bateria e adaptador de corrente (%lld W)"
+            "value": "배터리 및 전원 어댑터(%lld W)"
           }
         },
         "fr": {
@@ -4276,7 +4276,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria"
+            "value": "バッテリーの校正"
           }
         },
         "zh-Hans": {
@@ -4288,7 +4288,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria"
+            "value": "電池校準"
           }
         },
         "ru": {
@@ -4324,13 +4324,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria"
+            "value": "Hiệu chỉnh pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria"
+            "value": "배터리 보정"
           }
         },
         "fr": {
@@ -4382,7 +4382,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "バッテリー校正期限"
           }
         },
         "zh-Hans": {
@@ -4394,7 +4394,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "電池校準到期"
           }
         },
         "ru": {
@@ -4430,13 +4430,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "Đến hạn hiệu chỉnh pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibração da bateria programada"
+            "value": "배터리 보정 예정"
           }
         },
         "fr": {
@@ -4594,7 +4594,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "バッテリーモード"
           }
         },
         "zh-Hans": {
@@ -4606,7 +4606,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "電池模式"
           }
         },
         "ru": {
@@ -4642,13 +4642,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "Chế độ pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "배터리 모드"
           }
         },
         "fr": {
@@ -4700,7 +4700,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "バッテリーのみ"
           }
         },
         "zh-Hans": {
@@ -4712,7 +4712,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "僅電池"
           }
         },
         "ru": {
@@ -4748,13 +4748,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "Chỉ dùng pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas bateria"
+            "value": "배터리만"
           }
         },
         "fr": {
@@ -4806,7 +4806,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "バッテリー電力のメトリクス"
           }
         },
         "zh-Hans": {
@@ -4818,7 +4818,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "電池電量指標"
           }
         },
         "ru": {
@@ -4854,13 +4854,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "Số liệu năng lượng pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Métricas de energia da bateria"
+            "value": "배터리 전력 측정항목"
           }
         },
         "fr": {
@@ -4912,7 +4912,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "バッテリー測定値"
           }
         },
         "zh-Hans": {
@@ -4924,7 +4924,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "電池讀數"
           }
         },
         "ru": {
@@ -4960,13 +4960,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "Chỉ số pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Leitura da bateria"
+            "value": "배터리 측정값"
           }
         },
         "fr": {
@@ -5018,7 +5018,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura da bateria"
+            "value": "バッテリー温度"
           }
         },
         "zh-Hans": {
@@ -5030,7 +5030,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura da bateria"
+            "value": "電池溫度"
           }
         },
         "ru": {
@@ -5066,13 +5066,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura da bateria"
+            "value": "Nhiệt độ pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura da bateria"
+            "value": "배터리 온도"
           }
         },
         "fr": {
@@ -5124,7 +5124,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "MacBookのバッテリーと充電の制御。"
           }
         },
         "zh-Hans": {
@@ -5136,7 +5136,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "MacBook 的電池和充電控制。"
           }
         },
         "ru": {
@@ -5172,13 +5172,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "Kiểm soát pin và sạc cho MacBook."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo de bateria e carregamento para MacBook."
+            "value": "MacBook의 배터리 및 충전 제어."
           }
         },
         "fr": {
@@ -5444,7 +5444,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "このデバイスではバッテリーの校正はサポートされていません。"
           }
         },
         "zh-Hans": {
@@ -5456,7 +5456,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "本設備不支援電池校準。"
           }
         },
         "ru": {
@@ -5492,13 +5492,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "Hiệu chỉnh pin không được hỗ trợ trên thiết bị này."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibração da bateria não é suportada neste dispositivo."
+            "value": "이 장치에서는 배터리 보정이 지원되지 않습니다."
           }
         },
         "fr": {
@@ -5550,7 +5550,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "バッテリーモード"
           }
         },
         "zh-Hans": {
@@ -5562,7 +5562,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "電池模式"
           }
         },
         "ru": {
@@ -5598,13 +5598,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "Chế độ pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo da bateria"
+            "value": "배터리 모드"
           }
         },
         "fr": {
@@ -5762,7 +5762,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente rápido"
+            "value": "オレンジ色で速く点滅"
           }
         },
         "zh-Hans": {
@@ -5774,7 +5774,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente rápido"
+            "value": "橘色快速閃爍"
           }
         },
         "ru": {
@@ -5810,13 +5810,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente rápido"
+            "value": "Màu cam nhấp nháy nhanh"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente rápido"
+            "value": "주황색으로 빠르게 깜박임"
           }
         },
         "fr": {
@@ -5868,7 +5868,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente lento"
+            "value": "オレンジ色でゆっくり点滅"
           }
         },
         "zh-Hans": {
@@ -5880,7 +5880,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente lento"
+            "value": "橘色緩慢閃爍"
           }
         },
         "ru": {
@@ -5916,13 +5916,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente lento"
+            "value": "Màu cam nhấp nháy chậm"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja intermitente lento"
+            "value": "주황색으로 느리게 깜박임"
           }
         },
         "fr": {
@@ -5974,7 +5974,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "実用的なバッテリーの状態と充電ワークフローに重点を置いて構築されています。"
           }
         },
         "zh-Hans": {
@@ -5986,7 +5986,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "專注於實際電池健康狀況和充電工作流程。"
           }
         },
         "ru": {
@@ -6022,13 +6022,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "Được xây dựng tập trung vào tình trạng thực tế của pin và quy trình sạc."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Concebido com foco em fluxos de trabalho práticos de carregamento e saúde da bateria."
+            "value": "실용적인 배터리 상태 및 충전 워크플로에 중점을 두고 제작되었습니다."
           }
         },
         "fr": {
@@ -6080,7 +6080,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calcular..."
+            "value": "計算中..."
           }
         },
         "zh-Hans": {
@@ -6092,7 +6092,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calcular..."
+            "value": "正在計算..."
           }
         },
         "ru": {
@@ -6128,13 +6128,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calcular..."
+            "value": "Đang tính..."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calcular..."
+            "value": "계산 중..."
           }
         },
         "fr": {
@@ -6294,7 +6294,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "校正中（%@に充電）"
           }
         },
         "zh-Hans": {
@@ -6306,7 +6306,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "校準（給%@充電）"
           }
         },
         "ru": {
@@ -6342,13 +6342,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "Đang hiệu chỉnh (Sạc tới %@)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar até %@)"
+            "value": "교정 중(%@로 충전 중)"
           }
         },
         "fr": {
@@ -6400,7 +6400,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "校正中（充電中）"
           }
         },
         "zh-Hans": {
@@ -6412,7 +6412,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "校準（充電）"
           }
         },
         "ru": {
@@ -6448,13 +6448,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "Hiệu chỉnh (Sạc lên)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Carregar)"
+            "value": "교정 중(충전 중)"
           }
         },
         "fr": {
@@ -6507,7 +6507,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "校正中（%@まで放電）"
           }
         },
         "zh-Hans": {
@@ -6519,7 +6519,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "校準（放電到%@）"
           }
         },
         "ru": {
@@ -6555,13 +6555,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "Hiệu chỉnh (Xả tới %@)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Descarregar até %@)"
+            "value": "교정 중(%@로 방전)"
           }
         },
         "fr": {
@@ -6613,7 +6613,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "校正（放電）中"
           }
         },
         "zh-Hans": {
@@ -6625,7 +6625,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "校準（放電）"
           }
         },
         "ru": {
@@ -6661,13 +6661,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "Hiệu chuẩn (Xả)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (A descarregar)"
+            "value": "교정(방전)"
           }
         },
         "fr": {
@@ -6719,7 +6719,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "キャリブレーション中 (一時停止 - プラグイン)"
           }
         },
         "zh-Hans": {
@@ -6731,7 +6731,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "校準（暫停 - 插入）"
           }
         },
         "ru": {
@@ -6767,13 +6767,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "Đang hiệu chỉnh (Tạm dừng - Cắm vào)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em pausa - Ligar carregador)"
+            "value": "교정 중(일시중지됨 - 플러그인)"
           }
         },
         "fr": {
@@ -6826,7 +6826,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "校正中 (%@ で休止中)"
           }
         },
         "zh-Hans": {
@@ -6838,7 +6838,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "校準（靜止在 %@）"
           }
         },
         "ru": {
@@ -6874,13 +6874,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "Hiệu chỉnh (Nghỉ ở %@)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso a %@)"
+            "value": "교정 중(%@에 위치)"
           }
         },
         "fr": {
@@ -6932,7 +6932,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "校正中（休止中）"
           }
         },
         "zh-Hans": {
@@ -6944,7 +6944,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "校準（休息）"
           }
         },
         "ru": {
@@ -6980,13 +6980,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "Hiệu chỉnh (Nghỉ)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A calibrar (Em repouso)"
+            "value": "교정 중(휴식)"
           }
         },
         "fr": {
@@ -7465,7 +7465,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar calibração"
+            "value": "キャリブレーションのキャンセル"
           }
         },
         "zh-Hans": {
@@ -7477,7 +7477,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar calibração"
+            "value": "取消校準"
           }
         },
         "ru": {
@@ -7513,13 +7513,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar calibração"
+            "value": "Hủy hiệu chuẩn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar calibração"
+            "value": "교정 취소"
           }
         },
         "fr": {
@@ -7892,7 +7892,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alterar idioma de exibição..."
+            "value": "表示言語を変更します..."
           }
         },
         "zh-Hans": {
@@ -7904,7 +7904,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alterar idioma de exibição..."
+            "value": "更改顯示語言..."
           }
         },
         "ru": {
@@ -7940,13 +7940,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alterar idioma de exibição..."
+            "value": "Thay đổi ngôn ngữ hiển thị..."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alterar idioma de exibição..."
+            "value": "표시 언어 변경..."
           }
         },
         "fr": {
@@ -8105,7 +8105,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "充電上限の一時解除"
           }
         },
         "zh-Hans": {
@@ -8117,7 +8117,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "暫時覆寫充電上限"
           }
         },
         "ru": {
@@ -8153,13 +8153,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "Ghi đè giới hạn sạc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sobreposição do limite de carga"
+            "value": "충전 제한 무시"
           }
         },
         "fr": {
@@ -8211,7 +8211,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gestão de carga"
+            "value": "充電管理"
           }
         },
         "zh-Hans": {
@@ -8223,7 +8223,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gestão de carga"
+            "value": "充電管理"
           }
         },
         "ru": {
@@ -8259,13 +8259,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gestão de carga"
+            "value": "Quản lý sạc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gestão de carga"
+            "value": "충전 관리"
           }
         },
         "fr": {
@@ -8851,7 +8851,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "このデバイスでは充電管理はサポートされていません。"
           }
         },
         "zh-Hans": {
@@ -8863,7 +8863,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "此設備不支援充電管理。"
           }
         },
         "ru": {
@@ -8899,13 +8899,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "Thiết bị này không hỗ trợ quản lý sạc."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A gestão de carga não é suportada neste dispositivo."
+            "value": "이 기기에서는 충전 관리가 지원되지 않습니다."
           }
         },
         "fr": {
@@ -9170,7 +9170,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "このデバイスでは充電制御はサポートされていません。"
           }
         },
         "zh-Hans": {
@@ -9182,7 +9182,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "該設備不支援充電控制。"
           }
         },
         "ru": {
@@ -9218,13 +9218,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "Kiểm soát sạc không được hỗ trợ trên thiết bị này."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo de carregamento não é suportado neste dispositivo."
+            "value": "이 장치에서는 충전 제어가 지원되지 않습니다."
           }
         },
         "fr": {
@@ -9276,7 +9276,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregamento retoma a"
+            "value": "充電が再開されます"
           }
         },
         "zh-Hans": {
@@ -9288,7 +9288,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregamento retoma a"
+            "value": "充電恢復時間為"
           }
         },
         "ru": {
@@ -9324,13 +9324,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregamento retoma a"
+            "value": "Quá trình sạc tiếp tục lúc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregamento retoma a"
+            "value": "충전 재개 시간:"
           }
         },
         "fr": {
@@ -9382,7 +9382,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado de carregamento alterado"
+            "value": "充電ステータスが変更されました"
           }
         },
         "zh-Hans": {
@@ -9394,7 +9394,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado de carregamento alterado"
+            "value": "充電狀態改變"
           }
         },
         "ru": {
@@ -9430,13 +9430,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado de carregamento alterado"
+            "value": "Trạng thái sạc đã thay đổi"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estado de carregamento alterado"
+            "value": "충전 상태가 변경됨"
           }
         },
         "fr": {
@@ -9489,7 +9489,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@ (Sobreposição)"
+            "value": "%@ への充電 (オーバーライド)"
           }
         },
         "zh-Hans": {
@@ -9501,7 +9501,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@ (Sobreposição)"
+            "value": "向 %@ 充電（覆蓋）"
           }
         },
         "ru": {
@@ -9537,13 +9537,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@ (Sobreposição)"
+            "value": "Đang sạc tới %@ (Ghi đè)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@ (Sobreposição)"
+            "value": "%@로 충전 중(재정의)"
           }
         },
         "fr": {
@@ -9596,7 +9596,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@..."
+            "value": "%@ に充電中..."
           }
         },
         "zh-Hans": {
@@ -9608,7 +9608,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@..."
+            "value": "正在為 %@ 充電..."
           }
         },
         "ru": {
@@ -9644,13 +9644,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@..."
+            "value": "Đang sạc tới %@..."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até %@..."
+            "value": "%@로 충전 중..."
           }
         },
         "fr": {
@@ -9715,13 +9715,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "上限まで充電中"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "한도까지 충전 중"
           }
         },
         "nl": {
@@ -9769,7 +9769,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "Đang sạc đến giới hạn"
           }
         },
         "zh-Hans": {
@@ -9781,7 +9781,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A carregar até ao limite"
+            "value": "正在充電至上限"
           }
         }
       }
@@ -9809,7 +9809,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verificar novamente"
+            "value": "もう一度確認してください"
           }
         },
         "zh-Hans": {
@@ -9821,7 +9821,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verificar novamente"
+            "value": "再次檢查"
           }
         },
         "ru": {
@@ -9857,13 +9857,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verificar novamente"
+            "value": "Kiểm tra lại"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verificar novamente"
+            "value": "다시 확인하세요"
           }
         },
         "fr": {
@@ -10129,7 +10129,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações agora"
+            "value": "今すぐアップデートをチェックしてください"
           }
         },
         "zh-Hans": {
@@ -10141,7 +10141,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações agora"
+            "value": "立即檢查更新"
           }
         },
         "ru": {
@@ -10177,13 +10177,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações agora"
+            "value": "Kiểm tra cập nhật ngay bây giờ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Procurar atualizações agora"
+            "value": "지금 업데이트를 확인하세요"
           }
         },
         "fr": {
@@ -10235,7 +10235,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Frequência de verificação"
+            "value": "チェック頻度"
           }
         },
         "zh-Hans": {
@@ -10247,7 +10247,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Frequência de verificação"
+            "value": "檢查頻率"
           }
         },
         "ru": {
@@ -10283,13 +10283,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Frequência de verificação"
+            "value": "Kiểm tra tần suất"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Frequência de verificação"
+            "value": "빈도 확인"
           }
         },
         "fr": {
@@ -10555,7 +10555,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "コミュニティ"
           }
         },
         "zh-Hans": {
@@ -10567,7 +10567,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "社群"
           }
         },
         "ru": {
@@ -10603,13 +10603,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "cộng đồng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunidade"
+            "value": "커뮤니티"
           }
         },
         "fr": {
@@ -10768,7 +10768,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle quando o Stasis envia notificações."
+            "value": "Stasis が通知を送信するタイミングを制御します。"
           }
         },
         "zh-Hans": {
@@ -10780,7 +10780,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle quando o Stasis envia notificações."
+            "value": "控制 Stasis 何時向您發送通知。"
           }
         },
         "ru": {
@@ -10816,13 +10816,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle quando o Stasis envia notificações."
+            "value": "Kiểm soát thời điểm Stasis gửi thông báo cho bạn."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controle quando o Stasis envia notificações."
+            "value": "Stasis가 알림을 보내는 시점을 제어합니다."
           }
         },
         "fr": {
@@ -11087,7 +11087,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contagem de ciclos"
+            "value": "サイクル数"
           }
         },
         "zh-Hans": {
@@ -11099,7 +11099,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contagem de ciclos"
+            "value": "週期計數"
           }
         },
         "ru": {
@@ -11135,13 +11135,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contagem de ciclos"
+            "value": "Số chu kỳ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contagem de ciclos"
+            "value": "사이클 수"
           }
         },
         "fr": {
@@ -11193,7 +11193,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "デーモン エラー - 設定が同期されていません"
           }
         },
         "zh-Hans": {
@@ -11205,7 +11205,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "守護程序錯誤 - 設定未同步"
           }
         },
         "ru": {
@@ -11241,13 +11241,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "Lỗi Daemon - Cài đặt không được đồng bộ hóa"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erro do Daemon - Definições não sincronizadas"
+            "value": "데몬 오류 - 설정이 동기화되지 않음"
           }
         },
         "fr": {
@@ -11299,7 +11299,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diariamente"
+            "value": "毎日"
           }
         },
         "zh-Hans": {
@@ -11311,7 +11311,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diariamente"
+            "value": "每日"
           }
         },
         "ru": {
@@ -11347,13 +11347,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diariamente"
+            "value": "hàng ngày"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diariamente"
+            "value": "매일"
           }
         },
         "fr": {
@@ -11936,7 +11936,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar todas as notificações"
+            "value": "すべての通知を無効にする"
           }
         },
         "zh-Hans": {
@@ -11948,7 +11948,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar todas as notificações"
+            "value": "停用所有通知"
           }
         },
         "ru": {
@@ -11984,13 +11984,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar todas as notificações"
+            "value": "Tắt tất cả thông báo"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar todas as notificações"
+            "value": "모든 알림 비활성화"
           }
         },
         "fr": {
@@ -12256,7 +12256,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar suspensão até ao limite de carga"
+            "value": "充電制限までスリープを無効にする"
           }
         },
         "zh-Hans": {
@@ -12268,7 +12268,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar suspensão até ao limite de carga"
+            "value": "禁用睡眠至電量達到上限"
           }
         },
         "ru": {
@@ -12304,13 +12304,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar suspensão até ao limite de carga"
+            "value": "Tắt chế độ ngủ cho đến khi đạt giới hạn sạc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desativar suspensão até ao limite de carga"
+            "value": "충전 한도까지 절전 모드 비활성화"
           }
         },
         "fr": {
@@ -12362,7 +12362,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar"
+            "value": "放電"
           }
         },
         "zh-Hans": {
@@ -12374,7 +12374,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar"
+            "value": "放電"
           }
         },
         "ru": {
@@ -12410,13 +12410,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar"
+            "value": "Xả pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar"
+            "value": "방전"
           }
         },
         "fr": {
@@ -12575,7 +12575,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar a bateria até ao limite de carga quando ligada à corrente acima do nível pretendido."
+            "value": "目標レベルを超えて接続されている場合は、充電限界までバッテリーを放電してください。"
           }
         },
         "zh-Hans": {
@@ -12587,7 +12587,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar a bateria até ao limite de carga quando ligada à corrente acima do nível pretendido."
+            "value": "當插入電池時，將電池放電至高於目標電量的充電限制。"
           }
         },
         "ru": {
@@ -12623,13 +12623,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar a bateria até ao limite de carga quando ligada à corrente acima do nível pretendido."
+            "value": "Xả pin đến giới hạn sạc của bạn khi cắm điện trên mức mục tiêu."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Descarregar a bateria até ao limite de carga quando ligada à corrente acima do nível pretendido."
+            "value": "목표 수준 이상으로 연결되면 배터리를 충전 한도까지 방전하십시오."
           }
         },
         "fr": {
@@ -12789,7 +12789,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até %@..."
+            "value": "%@ まで放電中..."
           }
         },
         "zh-Hans": {
@@ -12801,7 +12801,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até %@..."
+            "value": "正在放電至 %@..."
           }
         },
         "ru": {
@@ -12837,13 +12837,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até %@..."
+            "value": "Đang xả pin đến %@..."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até %@..."
+            "value": "%@까지 방전 중..."
           }
         },
         "fr": {
@@ -12895,7 +12895,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar"
+            "value": "閉じる"
           }
         },
         "zh-Hans": {
@@ -12907,7 +12907,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar"
+            "value": "關閉"
           }
         },
         "ru": {
@@ -12943,13 +12943,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar"
+            "value": "Đóng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignorar"
+            "value": "닫기"
           }
         },
         "fr": {
@@ -13001,7 +13001,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar um HUD flutuante ao estilo Dynamic Island quando o estado de carregamento mudar."
+            "value": "充電状態が変化すると、フローティング Dynamic Island スタイルの HUD を表示します。"
           }
         },
         "zh-Hans": {
@@ -13013,7 +13013,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar um HUD flutuante ao estilo Dynamic Island quando o estado de carregamento mudar."
+            "value": "當充電狀態改變時，顯示浮動的 Dynamic Island 式 HUD。"
           }
         },
         "ru": {
@@ -13049,13 +13049,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar um HUD flutuante ao estilo Dynamic Island quando o estado de carregamento mudar."
+            "value": "Hiển thị HUD kiểu Dynamic Island nổi khi trạng thái sạc thay đổi."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar um HUD flutuante ao estilo Dynamic Island quando o estado de carregamento mudar."
+            "value": "충전 상태가 변경되면 플로팅 Dynamic Island 스타일 HUD를 표시합니다."
           }
         },
         "fr": {
@@ -13107,7 +13107,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "メニューバーアイコンの横または中にバッテリーの割合を表示します。"
           }
         },
         "zh-Hans": {
@@ -13119,7 +13119,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "在功能表列圖示旁或內部顯示電池百分比。"
           }
         },
         "ru": {
@@ -13155,13 +13155,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "Hiển thị phần trăm pin bên cạnh hoặc bên trong biểu tượng thanh menu."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar percentagem da bateria junto ou dentro do ícone da barra de menu."
+            "value": "메뉴 표시줄 아이콘 옆이나 내부에 배터리 비율을 표시합니다."
           }
         },
         "fr": {
@@ -13213,7 +13213,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de exibição"
+            "value": "表示モード"
           }
         },
         "zh-Hans": {
@@ -13225,7 +13225,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de exibição"
+            "value": "顯示方式"
           }
         },
         "ru": {
@@ -13261,13 +13261,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de exibição"
+            "value": "Chế độ hiển thị"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de exibição"
+            "value": "디스플레이 모드"
           }
         },
         "fr": {
@@ -13425,7 +13425,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até ao limite"
+            "value": "充電上限まで放電中"
           }
         },
         "zh-Hans": {
@@ -13437,7 +13437,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até ao limite"
+            "value": "正在放電至充電上限"
           }
         },
         "ru": {
@@ -13473,13 +13473,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até ao limite"
+            "value": "Đang xả pin đến giới hạn sạc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A descarregar até ao limite"
+            "value": "충전 한도까지 방전 중"
           }
         },
         "fr": {
@@ -13638,7 +13638,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duração"
+            "value": "期間"
           }
         },
         "zh-Hans": {
@@ -13650,7 +13650,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duração"
+            "value": "持續時間"
           }
         },
         "ru": {
@@ -13686,13 +13686,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duração"
+            "value": "Thời lượng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duração"
+            "value": "기간"
           }
         },
         "fr": {
@@ -14279,7 +14279,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar calibração automática"
+            "value": "自動キャリブレーションを有効にする"
           }
         },
         "zh-Hans": {
@@ -14291,7 +14291,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar calibração automática"
+            "value": "啟用自動校準"
           }
         },
         "ru": {
@@ -14327,13 +14327,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar calibração automática"
+            "value": "Bật hiệu chuẩn tự động"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar calibração automática"
+            "value": "자동 보정 활성화"
           }
         },
         "fr": {
@@ -14385,7 +14385,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar proteção térmica"
+            "value": "熱保護を有効にする"
           }
         },
         "zh-Hans": {
@@ -14397,7 +14397,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar proteção térmica"
+            "value": "啟用熱防護"
           }
         },
         "ru": {
@@ -14433,13 +14433,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar proteção térmica"
+            "value": "Kích hoạt tính năng bảo vệ nhiệt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar proteção térmica"
+            "value": "열 보호 활성화"
           }
         },
         "fr": {
@@ -15347,7 +15347,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "セーリングモードを有効にする"
           }
         },
         "zh-Hans": {
@@ -15359,7 +15359,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "啟用航行模式"
           }
         },
         "ru": {
@@ -15395,13 +15395,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "Bật Chế độ Trôi dạt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ativar modo navegação (Sailing Mode)"
+            "value": "세일링 모드 활성화"
           }
         },
         "fr": {
@@ -15879,7 +15879,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 14 dias"
+            "value": "14日ごと"
           }
         },
         "zh-Hans": {
@@ -15891,7 +15891,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 14 dias"
+            "value": "每 14 天一次"
           }
         },
         "ru": {
@@ -15927,13 +15927,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 14 dias"
+            "value": "Cứ sau 14 ngày"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 14 dias"
+            "value": "14일마다"
           }
         },
         "fr": {
@@ -15985,7 +15985,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 30 dias"
+            "value": "30日ごと"
           }
         },
         "zh-Hans": {
@@ -15997,7 +15997,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 30 dias"
+            "value": "每 30 天一次"
           }
         },
         "ru": {
@@ -16033,13 +16033,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 30 dias"
+            "value": "Cứ sau 30 ngày"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 30 dias"
+            "value": "30일마다"
           }
         },
         "fr": {
@@ -16091,7 +16091,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 60 dias"
+            "value": "60日ごと"
           }
         },
         "zh-Hans": {
@@ -16103,7 +16103,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 60 dias"
+            "value": "每 60 天"
           }
         },
         "ru": {
@@ -16139,13 +16139,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 60 dias"
+            "value": "Cứ sau 60 ngày"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 60 dias"
+            "value": "60일마다"
           }
         },
         "fr": {
@@ -16197,7 +16197,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 7 dias"
+            "value": "7日ごと"
           }
         },
         "zh-Hans": {
@@ -16209,7 +16209,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 7 dias"
+            "value": "每7天一次"
           }
         },
         "ru": {
@@ -16245,13 +16245,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 7 dias"
+            "value": "Cứ 7 ngày một lần"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A cada 7 dias"
+            "value": "7일마다"
           }
         },
         "fr": {
@@ -16423,13 +16423,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "充電ヘルパーのインストールに失敗しました"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "충전 도우미 설치 실패"
           }
         },
         "nl": {
@@ -16477,7 +16477,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "Không cài đặt được trình trợ giúp sạc"
           }
         },
         "zh-Hans": {
@@ -16489,7 +16489,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao instalar auxiliar de carregamento"
+            "value": "充電助手安裝失敗"
           }
         }
       }
@@ -16530,13 +16530,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "充電ヘルパーのアンインストールに失敗しました"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "충전 도우미를 제거하지 못했습니다."
           }
         },
         "nl": {
@@ -16584,7 +16584,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "Không thể gỡ cài đặt trình trợ giúp sạc"
           }
         },
         "zh-Hans": {
@@ -16596,7 +16596,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Falha ao desinstalar auxiliar de carregamento"
+            "value": "充電助手卸載失敗"
           }
         }
       }
@@ -16625,7 +16625,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "信頼性の高い充電管理を行うには、**[システム設定] → [バッテリー]** で [バッテリー充電の最適化] が無効になっていること、および Apple のネイティブの充電制限が正確に **%@** であることを確認してください。"
           }
         },
         "zh-Hans": {
@@ -16637,7 +16637,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "為了實現可靠的充電管理，請確保禁用“優化電池充電”，並且 Apple 的本機充電限制恰好位於 **系統設定 → 電池** 中的 **%@**。"
           }
         },
         "ru": {
@@ -16673,13 +16673,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "Để quản lý sạc đáng tin cậy, hãy đảm bảo rằng bạn đã tắt \"Tối ưu hóa sạc pin\" và Giới hạn sạc gốc của Apple chính xác ở **%@** trong **Cài đặt hệ thống → Pin**."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para uma gestão de carga fiável, certifique-se de que \"Carregamento otimizado\" está desativado e que o limite nativo da Apple está exatamente a **%@** em **Definições do Sistema → Bateria**."
+            "value": "안정적인 충전 관리를 위해 \"배터리 충전 최적화\"가 비활성화되어 있고 Apple의 기본 충전 한도가 **시스템 설정 → 배터리**에서 정확히 **%@**에 있는지 확인하세요."
           }
         },
         "fr": {
@@ -16731,7 +16731,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Forçar descarga"
+            "value": "強制放電"
           }
         },
         "zh-Hans": {
@@ -16743,7 +16743,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Forçar descarga"
+            "value": "強制放電"
           }
         },
         "ru": {
@@ -16779,13 +16779,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Forçar descarga"
+            "value": "Xả pin cưỡng bức"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Forçar descarga"
+            "value": "강제 방전"
           }
         },
         "fr": {
@@ -17158,7 +17158,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A forçar descarga"
+            "value": "強制放電中"
           }
         },
         "zh-Hans": {
@@ -17170,7 +17170,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A forçar descarga"
+            "value": "強制放電中"
           }
         },
         "ru": {
@@ -17206,13 +17206,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A forçar descarga"
+            "value": "Đang xả pin cưỡng bức"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A forçar descarga"
+            "value": "강제 방전 중"
           }
         },
         "fr": {
@@ -17477,7 +17477,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Totalmente carregada"
+            "value": "フル充電済み"
           }
         },
         "zh-Hans": {
@@ -17489,7 +17489,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Totalmente carregada"
+            "value": "充滿電"
           }
         },
         "ru": {
@@ -17525,13 +17525,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Totalmente carregada"
+            "value": "Đã sạc đầy"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Totalmente carregada"
+            "value": "완전히 충전됨"
           }
         },
         "fr": {
@@ -17689,7 +17689,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "メニューのドロップダウンに表示される一般的なシステムおよびバッテリーのステータス情報。"
           }
         },
         "zh-Hans": {
@@ -17701,7 +17701,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "一般系統和電池狀態資訊顯示在選單下拉清單中。"
           }
         },
         "ru": {
@@ -17737,13 +17737,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "Thông tin chung về hệ thống và trạng thái pin được hiển thị trong menu thả xuống."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Informações gerais do sistema e do estado da bateria apresentadas no menu suspenso."
+            "value": "메뉴 드롭다운에 일반 시스템 및 배터리 상태 정보가 표시됩니다."
           }
         },
         "fr": {
@@ -18222,7 +18222,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "緑"
           }
         },
         "zh-Hans": {
@@ -18234,7 +18234,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "綠色"
           }
         },
         "ru": {
@@ -18270,13 +18270,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "màu xanh lá cây"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verde"
+            "value": "녹색"
           }
         },
         "fr": {
@@ -18328,7 +18328,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saúde"
+            "value": "バッテリーの状態"
           }
         },
         "zh-Hans": {
@@ -18340,7 +18340,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saúde"
+            "value": "電池健康度"
           }
         },
         "ru": {
@@ -18376,13 +18376,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saúde"
+            "value": "Tình trạng pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saúde"
+            "value": "배터리 성능 상태"
           }
         },
         "fr": {
@@ -18434,7 +18434,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Proteção térmica"
+            "value": "熱保護"
           }
         },
         "zh-Hans": {
@@ -18446,7 +18446,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Proteção térmica"
+            "value": "熱防護"
           }
         },
         "ru": {
@@ -18482,13 +18482,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Proteção térmica"
+            "value": "Bảo vệ nhiệt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Proteção térmica"
+            "value": "열 보호"
           }
         },
         "fr": {
@@ -18981,13 +18981,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "ヘルパー デーモンが正常にインストールされました。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "도우미 데몬이 성공적으로 설치되었습니다."
           }
         },
         "nl": {
@@ -19035,7 +19035,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "Trình trợ giúp đã được cài đặt thành công."
           }
         },
         "zh-Hans": {
@@ -19047,7 +19047,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar instalado com sucesso."
+            "value": "助手守護程序已成功安裝。"
           }
         }
       }
@@ -19088,13 +19088,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "ヘルパー デーモンが正常にアンインストールされました。アプリが再起動されます。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "도우미 데몬이 성공적으로 제거되었습니다. 이제 앱이 다시 시작됩니다."
           }
         },
         "nl": {
@@ -19142,7 +19142,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "Trình trợ giúp đã được gỡ cài đặt thành công. Ứng dụng bây giờ sẽ khởi động lại."
           }
         },
         "zh-Hans": {
@@ -19154,7 +19154,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar desinstalado com sucesso. A aplicação vai ser reiniciada."
+            "value": "助手守護程序已成功卸載。該應用程式現在將重新啟動。"
           }
         }
       }
@@ -19819,7 +19819,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar serviço auxiliar (daemon)"
+            "value": "ヘルパーデーモンをインストールする"
           }
         },
         "zh-Hans": {
@@ -19831,7 +19831,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar serviço auxiliar (daemon)"
+            "value": "安裝幫助守護程式"
           }
         },
         "ru": {
@@ -19867,13 +19867,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar serviço auxiliar (daemon)"
+            "value": "Cài đặt trình nền trợ giúp"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar serviço auxiliar (daemon)"
+            "value": "도우미 데몬 설치"
           }
         },
         "fr": {
@@ -20032,7 +20032,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervalo"
+            "value": "間隔"
           }
         },
         "zh-Hans": {
@@ -20044,7 +20044,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervalo"
+            "value": "間隔"
           }
         },
         "ru": {
@@ -20080,13 +20080,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervalo"
+            "value": "Khoảng thời gian"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intervalo"
+            "value": "간격"
           }
         },
         "fr": {
@@ -20139,7 +20139,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chegou o momento da calibração programada da bateria. O Mac será descarregado até %@ antes de recarregar."
+            "value": "予定されていたバッテリー調整の時期が来ました。これにより、再充電する前に Mac が %@ まで放電されます。"
           }
         },
         "zh-Hans": {
@@ -20151,7 +20151,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chegou o momento da calibração programada da bateria. O Mac será descarregado até %@ antes de recarregar."
+            "value": "是時候進行預定的電池校準了。這會將您的 Mac 在充電前放電至 %@。"
           }
         },
         "ru": {
@@ -20187,13 +20187,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chegou o momento da calibração programada da bateria. O Mac será descarregado até %@ antes de recarregar."
+            "value": "Đã đến lúc hiệu chỉnh pin theo lịch trình của bạn. Thao tác này sẽ xả máy Mac của bạn về %@ trước khi sạc lại."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chegou o momento da calibração programada da bateria. O Mac será descarregado até %@ antes de recarregar."
+            "value": "예약된 배터리 보정 시간입니다. 이렇게 하면 재충전하기 전에 Mac이 %@로 방전됩니다."
           }
         },
         "fr": {
@@ -20245,7 +20245,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "LED durante proteção térmica"
+            "value": "熱保護中のLED"
           }
         },
         "zh-Hans": {
@@ -20257,7 +20257,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "LED durante proteção térmica"
+            "value": "熱保護期間 LED"
           }
         },
         "ru": {
@@ -20293,13 +20293,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "LED durante proteção térmica"
+            "value": "LED trong quá trình bảo vệ nhiệt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "LED durante proteção térmica"
+            "value": "열 보호 중 LED"
           }
         },
         "fr": {
@@ -20351,7 +20351,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idioma"
+            "value": "言語"
           }
         },
         "zh-Hans": {
@@ -20363,7 +20363,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idioma"
+            "value": "語言"
           }
         },
         "ru": {
@@ -20399,13 +20399,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idioma"
+            "value": "Ngôn ngữ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idioma"
+            "value": "언어"
           }
         },
         "fr": {
@@ -20457,7 +20457,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Última calibração em %@"
+            "value": "最後に校正されたのは %@ です"
           }
         },
         "zh-Hans": {
@@ -20469,7 +20469,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Última calibração em %@"
+            "value": "最後一次在 %@ 上校準"
           }
         },
         "ru": {
@@ -20505,13 +20505,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Última calibração em %@"
+            "value": "Hiệu chỉnh lần cuối trên %@"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Última calibração em %@"
+            "value": "%@에서 마지막으로 교정됨"
           }
         },
         "fr": {
@@ -20563,7 +20563,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "ログイン時に起動"
           }
         },
         "zh-Hans": {
@@ -20575,7 +20575,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "登入時啟動"
           }
         },
         "ru": {
@@ -20611,13 +20611,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "Khởi chạy khi đăng nhập"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir no início de sessão"
+            "value": "로그인 시 실행"
           }
         },
         "fr": {
@@ -20776,7 +20776,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite atingido"
+            "value": "限界に達しました"
           }
         },
         "zh-Hans": {
@@ -20788,7 +20788,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite atingido"
+            "value": "已達到限制"
           }
         },
         "ru": {
@@ -20824,13 +20824,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite atingido"
+            "value": "Đã đạt đến giới hạn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite atingido"
+            "value": "한도 도달"
           }
         },
         "fr": {
@@ -20882,7 +20882,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limitar o nível máximo de carga para prolongar a vida útil da bateria."
+            "value": "バッテリーの寿命を延ばすために最大充電レベルを制限します。"
           }
         },
         "zh-Hans": {
@@ -20894,7 +20894,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limitar o nível máximo de carga para prolongar a vida útil da bateria."
+            "value": "限制最大充電水平以延長電池壽命。"
           }
         },
         "ru": {
@@ -20930,13 +20930,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limitar o nível máximo de carga para prolongar a vida útil da bateria."
+            "value": "Giới hạn mức sạc tối đa để kéo dài tuổi thọ pin."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limitar o nível máximo de carga para prolongar a vida útil da bateria."
+            "value": "배터리 수명을 연장하려면 최대 충전 수준을 제한하세요."
           }
         },
         "fr": {
@@ -20988,7 +20988,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de baixo consumo"
+            "value": "低電力モード"
           }
         },
         "zh-Hans": {
@@ -21000,7 +21000,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de baixo consumo"
+            "value": "低耗電模式"
           }
         },
         "ru": {
@@ -21036,13 +21036,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de baixo consumo"
+            "value": "Chế độ năng lượng thấp"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo de baixo consumo"
+            "value": "저전력 모드"
           }
         },
         "fr": {
@@ -21094,7 +21094,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas ecrã do Mac"
+            "value": "Mac ディスプレイのみ"
           }
         },
         "zh-Hans": {
@@ -21106,7 +21106,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas ecrã do Mac"
+            "value": "僅限 Mac 顯示器"
           }
         },
         "ru": {
@@ -21142,13 +21142,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas ecrã do Mac"
+            "value": "Chỉ hiển thị máy Mac"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas ecrã do Mac"
+            "value": "Mac 디스플레이 전용"
           }
         },
         "fr": {
@@ -21200,7 +21200,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo do LED MagSafe"
+            "value": "MagSafe LED コントロール"
           }
         },
         "zh-Hans": {
@@ -21212,7 +21212,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo do LED MagSafe"
+            "value": "MagSafe LED 控制"
           }
         },
         "ru": {
@@ -21248,13 +21248,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo do LED MagSafe"
+            "value": "Điều khiển đèn LED MagSafe"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlo do LED MagSafe"
+            "value": "MagSafe LED 제어"
           }
         },
         "fr": {
@@ -21520,7 +21520,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "MagSafe LED 制御はこのデバイスではサポートされていません。"
           }
         },
         "zh-Hans": {
@@ -21532,7 +21532,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "本裝置不支援 MagSafe LED 控制。"
           }
         },
         "ru": {
@@ -21568,13 +21568,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "Điều khiển MagSafe LED không được hỗ trợ trên thiết bị này."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O controlo do LED MagSafe não é suportado neste dispositivo."
+            "value": "이 장치에서는 MagSafe LED 제어가 지원되지 않습니다."
           }
         },
         "fr": {
@@ -21840,7 +21840,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir LED MagSafe"
+            "value": "MagSafe LED の管理"
           }
         },
         "zh-Hans": {
@@ -21852,7 +21852,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir LED MagSafe"
+            "value": "管理 MagSafe LED"
           }
         },
         "ru": {
@@ -21888,13 +21888,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir LED MagSafe"
+            "value": "Quản lý đèn LED MagSafe"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir LED MagSafe"
+            "value": "MagSafe LED 관리"
           }
         },
         "fr": {
@@ -21946,7 +21946,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir carregamento"
+            "value": "充電を管理する"
           }
         },
         "zh-Hans": {
@@ -21958,7 +21958,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir carregamento"
+            "value": "管理充電"
           }
         },
         "ru": {
@@ -21994,13 +21994,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir carregamento"
+            "value": "Quản lý sạc"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gerir carregamento"
+            "value": "충전 관리"
           }
         },
         "fr": {
@@ -22266,7 +22266,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "メニューバーアイコン"
           }
         },
         "zh-Hans": {
@@ -22278,7 +22278,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "選單列圖示"
           }
         },
         "ru": {
@@ -22314,13 +22314,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "Biểu tượng thanh menu"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ícone da barra de menu"
+            "value": "메뉴바 아이콘"
           }
         },
         "fr": {
@@ -22372,7 +22372,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "メニューコントロール"
           }
         },
         "zh-Hans": {
@@ -22384,7 +22384,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "選單控制"
           }
         },
         "ru": {
@@ -22420,13 +22420,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "Điều khiển menu"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controlos do menu"
+            "value": "메뉴 컨트롤"
           }
         },
         "fr": {
@@ -22478,7 +22478,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mensalmente"
+            "value": "毎月"
           }
         },
         "zh-Hans": {
@@ -22490,7 +22490,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mensalmente"
+            "value": "每月"
           }
         },
         "ru": {
@@ -22526,13 +22526,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mensalmente"
+            "value": "hàng tháng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mensalmente"
+            "value": "월간"
           }
         },
         "fr": {
@@ -23541,7 +23541,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas notificar"
+            "value": "通知のみ"
           }
         },
         "zh-Hans": {
@@ -23553,7 +23553,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas notificar"
+            "value": "僅通知"
           }
         },
         "ru": {
@@ -23589,13 +23589,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas notificar"
+            "value": "Chỉ thông báo"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas notificar"
+            "value": "알림만"
           }
         },
         "fr": {
@@ -23859,7 +23859,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "A usar bateria"
+            "value": "バッテリー駆動"
           }
         },
         "zh-Hans": {
@@ -23871,7 +23871,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "A usar bateria"
+            "value": "電池供電"
           }
         },
         "ru": {
@@ -23907,13 +23907,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "A usar bateria"
+            "value": "Trên pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "A usar bateria"
+            "value": "배터리 사용"
           }
         },
         "fr": {
@@ -23965,7 +23965,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em espera"
+            "value": "保留中"
           }
         },
         "zh-Hans": {
@@ -23977,7 +23977,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em espera"
+            "value": "保留"
           }
         },
         "ru": {
@@ -24013,13 +24013,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em espera"
+            "value": "Đang chờ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em espera"
+            "value": "보류 중"
           }
         },
         "fr": {
@@ -24927,7 +24927,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "設定を開く"
           }
         },
         "zh-Hans": {
@@ -24939,7 +24939,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "開啟設定"
           }
         },
         "ru": {
@@ -24975,13 +24975,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "Mở cài đặt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Definições"
+            "value": "설정 열기"
           }
         },
         "fr": {
@@ -25461,7 +25461,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "オレンジ"
           }
         },
         "zh-Hans": {
@@ -25473,7 +25473,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "橘色"
           }
         },
         "ru": {
@@ -25509,13 +25509,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "trái cam"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laranja"
+            "value": "오렌지"
           }
         },
         "fr": {
@@ -25567,7 +25567,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "元々はオープンソース ベースからフォークされたもので、その後新しい機能を追加してさらに開発されました。"
           }
         },
         "zh-Hans": {
@@ -25579,7 +25579,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "最初是從開源基礎上分叉出來的，然後透過新功能進一步發展。"
           }
         },
         "ru": {
@@ -25615,13 +25615,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "Ban đầu được phân nhánh từ cơ sở nguồn mở, sau đó được phát triển thêm với các tính năng mới."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Originalmente derivado de uma base de código aberto, e posteriormente desenvolvido com novas funcionalidades."
+            "value": "원래 오픈 소스 기반에서 분기된 후 새로운 기능으로 추가 개발되었습니다."
           }
         },
         "fr": {
@@ -25673,7 +25673,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Portas de saída"
+            "value": "出力ポート"
           }
         },
         "zh-Hans": {
@@ -25685,7 +25685,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Portas de saída"
+            "value": "輸出埠"
           }
         },
         "ru": {
@@ -25721,13 +25721,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Portas de saída"
+            "value": "Cổng đầu ra"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Portas de saída"
+            "value": "출력 포트"
           }
         },
         "fr": {
@@ -25779,7 +25779,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "出力ポートのテキスト行"
           }
         },
         "zh-Hans": {
@@ -25791,7 +25791,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "輸出連接埠文字行"
           }
         },
         "ru": {
@@ -25827,13 +25827,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "Hàng văn bản cổng đầu ra"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linha de texto das portas de saída"
+            "value": "출력 포트 텍스트 행"
           }
         },
         "fr": {
@@ -25885,7 +25885,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pausar o carregamento quando a temperatura da bateria exceder o limiar."
+            "value": "バッテリー温度がしきい値を超えた場合は、充電を一時停止します。"
           }
         },
         "zh-Hans": {
@@ -25897,7 +25897,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pausar o carregamento quando a temperatura da bateria exceder o limiar."
+            "value": "當電池溫度超過閾值時暫停充電。"
           }
         },
         "ru": {
@@ -25933,13 +25933,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pausar o carregamento quando a temperatura da bateria exceder o limiar."
+            "value": "Tạm dừng sạc khi nhiệt độ pin vượt quá ngưỡng."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pausar o carregamento quando a temperatura da bateria exceder o limiar."
+            "value": "배터리 온도가 임계값을 초과하면 충전을 일시 중지합니다."
           }
         },
         "fr": {
@@ -26098,7 +26098,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Executar periodicamente um ciclo completo de descarga e carga para manter leituras exatas da capacidade da bateria."
+            "value": "正確なバッテリー容量の測定値を維持するために、完全な放電と再充電のサイクルを定期的に実行してください。"
           }
         },
         "zh-Hans": {
@@ -26110,7 +26110,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Executar periodicamente um ciclo completo de descarga e carga para manter leituras exatas da capacidade da bateria."
+            "value": "定期運行完整的放電和充電週期，以保持準確的電池容量讀數。"
           }
         },
         "ru": {
@@ -26146,13 +26146,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Executar periodicamente um ciclo completo de descarga e carga para manter leituras exatas da capacidade da bateria."
+            "value": "Định kỳ thực hiện chu trình xả và sạc đầy hoàn toàn để duy trì chỉ số dung lượng pin chính xác."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Executar periodicamente um ciclo completo de descarga e carga para manter leituras exatas da capacidade da bateria."
+            "value": "정확한 배터리 용량 판독값을 유지하려면 주기적으로 전체 방전 및 재충전 주기를 실행하십시오."
           }
         },
         "fr": {
@@ -26217,13 +26217,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "システム設定 -> 一般 -> ログイン項目を開き、Stasis がバックグラウンドで実行できるようにしてから、再試行してください。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "시스템 설정 -> 일반 -> 로그인 항목을 열고 Stasis가 백그라운드에서 실행되도록 허용한 후 다시 시도하세요."
           }
         },
         "nl": {
@@ -26271,7 +26271,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "Vui lòng mở Cài đặt hệ thống -> Chung -> Mục đăng nhập và cho phép Stasis chạy ở chế độ nền, sau đó thử lại."
           }
         },
         "zh-Hans": {
@@ -26283,7 +26283,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Por favor abra Definições do Sistema -> Geral -> Itens de Início, permita que o Stasis execute em segundo plano e tente novamente."
+            "value": "請開啟「系統設定」->「一般」->「登入項目」，允許 Stasis 在背景執行，然後再試一次。"
           }
         }
       }
@@ -26311,7 +26311,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente"
+            "value": "プラグイン済み"
           }
         },
         "zh-Hans": {
@@ -26323,7 +26323,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente"
+            "value": "已接通電源"
           }
         },
         "ru": {
@@ -26359,13 +26359,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente"
+            "value": "Đã cắm vào"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente"
+            "value": "연결됨"
           }
         },
         "fr": {
@@ -26417,7 +26417,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente (Sem carregar)"
+            "value": "接続されています (充電されていません)"
           }
         },
         "zh-Hans": {
@@ -26429,7 +26429,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente (Sem carregar)"
+            "value": "已接通電源（未充電）"
           }
         },
         "ru": {
@@ -26465,13 +26465,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente (Sem carregar)"
+            "value": "Đã cắm điện (Không sạc)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ligada à corrente (Sem carregar)"
+            "value": "연결됨(충전 중이 아님)"
           }
         },
         "fr": {
@@ -26841,7 +26841,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "パワー"
           }
         },
         "zh-Hans": {
@@ -26853,7 +26853,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "電源"
           }
         },
         "ru": {
@@ -26889,13 +26889,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "quyền lực"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Energia"
+            "value": "힘"
           }
         },
         "fr": {
@@ -26947,7 +26947,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "電源アダプター"
           }
         },
         "zh-Hans": {
@@ -26959,7 +26959,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "電源轉接器"
           }
         },
         "ru": {
@@ -26995,13 +26995,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "Bộ đổi nguồn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente"
+            "value": "전원 어댑터"
           }
         },
         "fr": {
@@ -27053,7 +27053,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%@ W)"
+            "value": "電源アダプター (%@ W)"
           }
         },
         "zh-Hans": {
@@ -27065,7 +27065,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%@ W)"
+            "value": "電源供應器(%@ W)"
           }
         },
         "ru": {
@@ -27101,13 +27101,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%@ W)"
+            "value": "Bộ đổi nguồn (%@ W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%@ W)"
+            "value": "전원 어댑터(%@ W)"
           }
         },
         "fr": {
@@ -27159,7 +27159,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%d W)"
+            "value": "電源アダプター (%d W)"
           }
         },
         "zh-Hans": {
@@ -27171,7 +27171,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%d W)"
+            "value": "電源供應器(%d W)"
           }
         },
         "ru": {
@@ -27207,13 +27207,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%d W)"
+            "value": "Bộ đổi nguồn (%d W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%d W)"
+            "value": "전원 어댑터(%d W)"
           }
         },
         "fr": {
@@ -27265,7 +27265,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%lld W)"
+            "value": "電源アダプター (%lld W)"
           }
         },
         "zh-Hans": {
@@ -27277,7 +27277,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%lld W)"
+            "value": "電源供應器(%lld W)"
           }
         },
         "ru": {
@@ -27313,13 +27313,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%lld W)"
+            "value": "Bộ đổi nguồn (%lld W)"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adaptador de corrente (%lld W)"
+            "value": "전원 어댑터(%lld W)"
           }
         },
         "fr": {
@@ -27371,7 +27371,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "電源のみ"
           }
         },
         "zh-Hans": {
@@ -27383,7 +27383,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "僅電源"
           }
         },
         "ru": {
@@ -27419,13 +27419,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "Chỉ nguồn điện"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apenas corrente"
+            "value": "전원만"
           }
         },
         "fr": {
@@ -27477,7 +27477,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "電源"
           }
         },
         "zh-Hans": {
@@ -27489,7 +27489,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "電源"
           }
         },
         "ru": {
@@ -27525,13 +27525,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "Nguồn điện"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "전원"
           }
         },
         "fr": {
@@ -27583,7 +27583,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "配電図"
           }
         },
         "zh-Hans": {
@@ -27595,7 +27595,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "配電圖"
           }
         },
         "ru": {
@@ -27631,13 +27631,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "Sơ đồ phân phối điện"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diagrama de distribuição de energia"
+            "value": "전력 분배 다이어그램"
           }
         },
         "fr": {
@@ -27689,7 +27689,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "電源"
           }
         },
         "zh-Hans": {
@@ -27701,7 +27701,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "電源"
           }
         },
         "ru": {
@@ -27737,13 +27737,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "Nguồn điện"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fonte de alimentação"
+            "value": "전원"
           }
         },
         "fr": {
@@ -27902,7 +27902,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Impedir que o Mac suspenda enquanto carrega até ao limite de carga. A suspensão é reativada quando o limite é atingido ou o carregador é desligado."
+            "value": "充電制限に向けて充電中に Mac がスリープ状態になるのを防ぎます。制限に達するかアダプターが切断されると、スリープは再び有効になります。"
           }
         },
         "zh-Hans": {
@@ -27914,7 +27914,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Impedir que o Mac suspenda enquanto carrega até ao limite de carga. A suspensão é reativada quando o limite é atingido ou o carregador é desligado."
+            "value": "防止 Mac 在充電至充電限額時進入睡眠狀態。一旦達到限製或適配器斷開連接，睡眠就會重新啟用。"
           }
         },
         "ru": {
@@ -27950,13 +27950,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Impedir que o Mac suspenda enquanto carrega até ao limite de carga. A suspensão é reativada quando o limite é atingido ou o carregador é desligado."
+            "value": "Ngăn máy Mac của bạn chuyển sang chế độ ngủ trong khi sạc tới giới hạn sạc. Chế độ ngủ được kích hoạt lại sau khi đạt đến giới hạn hoặc bộ điều hợp bị ngắt kết nối."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Impedir que o Mac suspenda enquanto carrega até ao limite de carga. A suspensão é reativada quando o limite é atingido ou o carregador é desligado."
+            "value": "충전 한도까지 충전하는 동안 Mac이 잠자기 상태가 되지 않도록 하세요. 한도에 도달하거나 어댑터 연결이 끊어지면 절전 모드가 다시 활성화됩니다."
           }
         },
         "fr": {
@@ -28008,7 +28008,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar com privilégios"
+            "value": "特権ヘルパー"
           }
         },
         "zh-Hans": {
@@ -28020,7 +28020,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar com privilégios"
+            "value": "特權輔助程式"
           }
         },
         "ru": {
@@ -28056,13 +28056,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar com privilégios"
+            "value": "Trình trợ giúp đặc quyền"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auxiliar com privilégios"
+            "value": "권한 있는 도우미"
           }
         },
         "fr": {
@@ -28433,7 +28433,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "Stasis をやめますか?"
           }
         },
         "zh-Hans": {
@@ -28445,7 +28445,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "退出Stasis？"
           }
         },
         "ru": {
@@ -28481,13 +28481,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "Thoát Stasis?"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis?"
+            "value": "Stasis를 종료하시겠습니까?"
           }
         },
         "fr": {
@@ -28539,7 +28539,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Stasis を終了すると、バックグラウンド ヘルパー サービスが停止します。バッテリーの充電制限と保護は機能しなくなります。"
           }
         },
         "zh-Hans": {
@@ -28551,7 +28551,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "結束 Stasis 將停止後台輔助服務，電池充電上限與保護功能將不再運作。"
           }
         },
         "ru": {
@@ -28587,13 +28587,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Việc thoát khỏi Stasis sẽ dừng các dịch vụ trợ giúp nền. Giới hạn và biện pháp bảo vệ sạc pin sẽ không còn hoạt động."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sair do Stasis irá parar os serviços auxiliares em segundo plano. Os limites de carregamento e proteções da bateria deixarão de funcionar."
+            "value": "Stasis를 종료하면 백그라운드 도우미 서비스가 중지됩니다. 배터리 충전 제한 및 보호 기능이 더 이상 작동하지 않습니다."
           }
         },
         "fr": {
@@ -28645,7 +28645,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunicar um erro"
+            "value": "バグを報告する"
           }
         },
         "zh-Hans": {
@@ -28657,7 +28657,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunicar um erro"
+            "value": "報告錯誤"
           }
         },
         "ru": {
@@ -28693,13 +28693,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunicar um erro"
+            "value": "Báo cáo lỗi"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comunicar um erro"
+            "value": "버그 신고"
           }
         },
         "fr": {
@@ -28751,7 +28751,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sugerir uma funcionalidade"
+            "value": "機能をリクエストする"
           }
         },
         "zh-Hans": {
@@ -28763,7 +28763,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sugerir uma funcionalidade"
+            "value": "請求功能"
           }
         },
         "ru": {
@@ -28799,13 +28799,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sugerir uma funcionalidade"
+            "value": "Yêu cầu một tính năng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sugerir uma funcionalidade"
+            "value": "기능 요청"
           }
         },
         "fr": {
@@ -29390,7 +29390,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "%@ で休憩中..."
           }
         },
         "zh-Hans": {
@@ -29402,7 +29402,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "在 %@ 休息..."
           }
         },
         "ru": {
@@ -29438,13 +29438,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "Nghỉ ngơi tại %@..."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Em repouso a %@..."
+            "value": "%@에서 쉬고 있습니다..."
           }
         },
         "fr": {
@@ -29496,7 +29496,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo navegação (Sailing Mode)"
+            "value": "セーリングモード"
           }
         },
         "zh-Hans": {
@@ -29508,7 +29508,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo navegação (Sailing Mode)"
+            "value": "航行模式"
           }
         },
         "ru": {
@@ -29544,13 +29544,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo navegação (Sailing Mode)"
+            "value": "Chế độ Trôi dạt"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Modo navegação (Sailing Mode)"
+            "value": "세일링 모드"
           }
         },
         "fr": {
@@ -30242,7 +30242,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecione o idioma de exibição do Stasis. É necessário reiniciar para aplicar as alterações."
+            "value": "Stasisの表示言語を選択します。変更を適用するには再起動が必要です。"
           }
         },
         "zh-Hans": {
@@ -30254,7 +30254,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecione o idioma de exibição do Stasis. É necessário reiniciar para aplicar as alterações."
+            "value": "選擇 Stasis 的顯示語言。需要重新啟動才能套用變更。"
           }
         },
         "ru": {
@@ -30290,13 +30290,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecione o idioma de exibição do Stasis. É necessário reiniciar para aplicar as alterações."
+            "value": "Chọn ngôn ngữ hiển thị cho Stasis. Cần phải khởi động lại để áp dụng các thay đổi."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selecione o idioma de exibição do Stasis. É necessário reiniciar para aplicar as alterações."
+            "value": "Stasis의 표시 언어를 선택합니다. 변경 사항을 적용하려면 다시 시작해야 합니다."
           }
         },
         "fr": {
@@ -32592,7 +32592,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar estado de carregamento no Notch HUD"
+            "value": "Notch HUD に充電状態を表示"
           }
         },
         "zh-Hans": {
@@ -32604,7 +32604,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar estado de carregamento no Notch HUD"
+            "value": "在 Notch HUD 中顯示充電狀態"
           }
         },
         "ru": {
@@ -32640,13 +32640,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar estado de carregamento no Notch HUD"
+            "value": "Hiển thị trạng thái sạc trong Notch HUD"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar estado de carregamento no Notch HUD"
+            "value": "Notch HUD에 충전 상태 표시"
           }
         },
         "fr": {
@@ -32698,7 +32698,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "手動充電コントロールを表示する"
           }
         },
         "zh-Hans": {
@@ -32710,7 +32710,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "顯示手動充電控制"
           }
         },
         "ru": {
@@ -32746,13 +32746,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "Hiển thị điều khiển sạc thủ công"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar controlos manuais de carregamento"
+            "value": "수동 충전 제어 표시"
           }
         },
         "fr": {
@@ -32804,7 +32804,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar no ecrã de bloqueio"
+            "value": "ロック画面に表示する"
           }
         },
         "zh-Hans": {
@@ -32816,7 +32816,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar no ecrã de bloqueio"
+            "value": "在鎖定畫面上顯示"
           }
         },
         "ru": {
@@ -32852,13 +32852,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar no ecrã de bloqueio"
+            "value": "Hiển thị trên màn hình khóa"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar no ecrã de bloqueio"
+            "value": "잠금 화면에 표시"
           }
         },
         "fr": {
@@ -32910,7 +32910,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "出力電力を表示"
           }
         },
         "zh-Hans": {
@@ -32922,7 +32922,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "顯示輸出功率"
           }
         },
         "ru": {
@@ -32958,13 +32958,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "Hiển thị công suất đầu ra"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostrar energia de saída"
+            "value": "출력 전력 표시"
           }
         },
         "fr": {
@@ -33123,7 +33123,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prevenção de suspensão"
+            "value": "スリープ防止"
           }
         },
         "zh-Hans": {
@@ -33135,7 +33135,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prevenção de suspensão"
+            "value": "防止睡眠"
           }
         },
         "ru": {
@@ -33171,13 +33171,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prevenção de suspensão"
+            "value": "Ngăn chế độ ngủ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prevenção de suspensão"
+            "value": "잠자기 방지"
           }
         },
         "fr": {
@@ -33336,7 +33336,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Som"
+            "value": "サウンド"
           }
         },
         "zh-Hans": {
@@ -33348,7 +33348,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Som"
+            "value": "聲音"
           }
         },
         "ru": {
@@ -33384,13 +33384,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Som"
+            "value": "Âm thanh"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Som"
+            "value": "소리"
           }
         },
         "fr": {
@@ -33549,7 +33549,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar calibração agora"
+            "value": "今すぐキャリブレーションを開始"
           }
         },
         "zh-Hans": {
@@ -33561,7 +33561,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar calibração agora"
+            "value": "立即開始校準"
           }
         },
         "ru": {
@@ -33597,13 +33597,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar calibração agora"
+            "value": "Bắt đầu hiệu chỉnh ngay bây giờ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Iniciar calibração agora"
+            "value": "지금 교정 시작하기"
           }
         },
         "fr": {
@@ -34083,7 +34083,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "起動"
           }
         },
         "zh-Hans": {
@@ -34095,7 +34095,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "啟動"
           }
         },
         "ru": {
@@ -34131,13 +34131,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "Khởi động"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arranque"
+            "value": "시작"
           }
         },
         "fr": {
@@ -35579,7 +35579,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Stasisの設定"
           }
         },
         "zh-Hans": {
@@ -35591,7 +35591,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Stasis 設定"
           }
         },
         "ru": {
@@ -35627,13 +35627,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Cài đặt Stasis"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Definições do Stasis"
+            "value": "Stasis 설정"
           }
         },
         "fr": {
@@ -35899,7 +35899,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar em segundo plano do Stasis foi aprovado com sucesso e o carregamento em segundo plano está ativo!"
+            "value": "Stasis バックグラウンド ヘルパーが正常に承認され、バックグラウンド充電がアクティブになりました。"
           }
         },
         "zh-Hans": {
@@ -35911,7 +35911,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar em segundo plano do Stasis foi aprovado com sucesso e o carregamento em segundo plano está ativo!"
+            "value": "Stasis 後台輔助程式已獲核准，後台充電功能現已啟用！"
           }
         },
         "ru": {
@@ -35947,13 +35947,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar em segundo plano do Stasis foi aprovado com sucesso e o carregamento em segundo plano está ativo!"
+            "value": "Trình trợ giúp nền Stasis đã được phê duyệt thành công và tính năng sạc nền hiện đang hoạt động!"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O auxiliar em segundo plano do Stasis foi aprovado com sucesso e o carregamento em segundo plano está ativo!"
+            "value": "Stasis 백그라운드 도우미가 성공적으로 승인되었으며 이제 백그라운드 충전이 활성화되었습니다!"
           }
         },
         "fr": {
@@ -36112,7 +36112,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis はまだ承認されていません。\n\nログイン項目設定の [アプリのバックグラウンド アクティビティ] で Stasis の切り替えを有効にしてください。 Stasis が「ログイン時に開く」に追加されていることを確認することもできます。"
           }
         },
         "zh-Hans": {
@@ -36124,7 +36124,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis 尚未獲核准。\n\n請在「登入項目」設定的「App 背景活動」中開啟 Stasis。你也可以確認 Stasis 已加入「登入時開啟」。"
           }
         },
         "ru": {
@@ -36160,13 +36160,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis chưa được phê duyệt.\n\nVui lòng bật nút chuyển đổi cho Stasis trong 'Hoạt động nền ứng dụng' trong cài đặt Mục đăng nhập. Bạn cũng có thể muốn đảm bảo Stasis được thêm vào 'Mở khi đăng nhập'."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis ainda não foi aprovado.\n\nPor favor ative o Stasis em \"Atividade da aplicação em segundo plano\" nas definições de Itens de Início. Certifique-se também de que o Stasis está adicionado a \"Abrir no Início\"."
+            "value": "Stasis는 아직 승인되지 않았습니다.\n\n로그인 항목 설정의 '앱 백그라운드 활동'에서 Stasis 토글을 활성화하세요. Stasis가 '로그인 시 열기'에 추가되었는지 확인할 수도 있습니다."
           }
         },
         "fr": {
@@ -36325,7 +36325,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis はバックグラウンド ヘルパーとの接続を失いました。 [システム設定] > [一般] > [ログイン項目] に移動し、[バックグラウンドでの許可] の下で Stasis をオフにしてからオンに戻し、アプリを再起動してください。"
           }
         },
         "zh-Hans": {
@@ -36337,7 +36337,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis 已失去與後台輔助程式的連線。請前往「系統設定」>「一般」>「登入項目」，在「允許在背景執行」下先關閉再重新開啟 Stasis，然後重新啟動 App。"
           }
         },
         "ru": {
@@ -36373,13 +36373,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis mất kết nối với trình trợ giúp nền của nó. Vui lòng đi tới Cài đặt hệ thống > Cài đặt chung > Mục đăng nhập, tắt và bật lại Stasis trong phần 'Cho phép ở chế độ nền' và khởi động lại ứng dụng."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis perdeu a ligação ao auxiliar em segundo plano. Por favor vá a Definições do Sistema > Geral > Itens de Início, desative e volte a ativar o Stasis sob \"Permitir em segundo plano\" e reinicie a aplicação."
+            "value": "Stasis가 배경 도우미와의 연결을 끊었습니다. 시스템 설정 > 일반 > 로그인 항목으로 이동하여 '백그라운드에서 허용'에서 Stasis를 껐다가 다시 켜고 앱을 다시 시작하세요."
           }
         },
         "fr": {
@@ -36538,7 +36538,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis utiliza o Sparkle para gerir atualizações automáticas."
+            "value": "Stasis は Sparkle を使用して自動更新を処理します。"
           }
         },
         "zh-Hans": {
@@ -36550,7 +36550,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis utiliza o Sparkle para gerir atualizações automáticas."
+            "value": "Stasis 使用 Sparkle 來處理自動更新。"
           }
         },
         "ru": {
@@ -36586,13 +36586,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis utiliza o Sparkle para gerir atualizações automáticas."
+            "value": "Stasis sử dụng Sparkle để xử lý các cập nhật tự động."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O Stasis utiliza o Sparkle para gerir atualizações automáticas."
+            "value": "Stasis는 Sparkle을 사용하여 자동 업데이트를 처리합니다."
           }
         },
         "fr": {
@@ -37176,7 +37176,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "システムのデフォルト"
           }
         },
         "zh-Hans": {
@@ -37188,7 +37188,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "系統預設值"
           }
         },
         "ru": {
@@ -37224,13 +37224,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "Mặc định hệ thống"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Predefinição do sistema"
+            "value": "시스템 기본값"
           }
         },
         "fr": {
@@ -37282,7 +37282,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura"
+            "value": "温度"
           }
         },
         "zh-Hans": {
@@ -37294,7 +37294,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura"
+            "value": "溫度"
           }
         },
         "ru": {
@@ -37330,13 +37330,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura"
+            "value": "Nhiệt độ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Temperatura"
+            "value": "온도"
           }
         },
         "fr": {
@@ -37495,7 +37495,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de temperatura"
+            "value": "温度制限"
           }
         },
         "zh-Hans": {
@@ -37507,7 +37507,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de temperatura"
+            "value": "溫度限制"
           }
         },
         "ru": {
@@ -37543,13 +37543,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de temperatura"
+            "value": "Giới hạn nhiệt độ"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limite de temperatura"
+            "value": "온도 제한"
           }
         },
         "fr": {
@@ -38243,7 +38243,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "ヘルパー デーモンは、バッテリーの充電状態を管理するためにバックグラウンドで実行されます。\n\n注: macOS は、バックグラウンド ヘルパーが登録解除された後でも、意図的にアプリを「アプリのバックグラウンド アクティビティ」リスト (システム設定) に保持します。 [アンインストール] をクリックすると、ヘルパーは実際に無効になりますが、macOS では、アプリ自体が Mac から削除されるまで、そのリストに Stasis が表示されたままになります。"
           }
         },
         "zh-Hans": {
@@ -38255,7 +38255,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "後台輔助服務會在背景執行，以管理電池充電狀態。\n\n注意：即使後台輔助程式已取消註冊，macOS 仍會刻意將 App 保留在「App 背景活動」列表（系統設定）中。按下「解除安裝」後，輔助程式確實已停用，但在你從 Mac 刪除 Stasis App 之前，macOS 仍會讓 Stasis 顯示於該列表中。"
           }
         },
         "ru": {
@@ -38291,13 +38291,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "Trình nền của trình trợ giúp chạy trong nền để quản lý trạng thái sạc pin.\n\nLưu ý: macOS cố tình giữ lại các ứng dụng trong danh sách \"Hoạt động nền của ứng dụng\" (Cài đặt hệ thống) ngay cả sau khi trình trợ giúp nền của chúng chưa được đăng ký. Sau khi bạn nhấp vào Gỡ cài đặt, trình trợ giúp thực sự bị tắt nhưng macOS sẽ giữ Stasis hiển thị trong danh sách đó cho đến khi chính ứng dụng đó bị xóa khỏi máy Mac của bạn."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "O serviço auxiliar é executado em segundo plano para gerir os estados de carregamento da bateria.\n\nNota: o macOS mantém intencionalmente as aplicações na lista \"Atividade da aplicação em segundo plano\" mesmo após a remoção do auxiliar. Após clicar em Desinstalar, o auxiliar é realmente desativado, mas o macOS manterá o Stasis visível nessa lista até que a aplicação seja removida do Mac."
+            "value": "도우미 데몬은 백그라운드에서 실행되어 배터리 충전 상태를 관리합니다.\n\n참고: macOS는 백그라운드 도우미가 등록 취소된 후에도 의도적으로 앱을 \"앱 백그라운드 활동\" 목록(시스템 설정)에 유지합니다. 제거를 클릭하면 도우미가 실제로 비활성화되지만 macOS는 앱 자체가 Mac에서 삭제될 때까지 해당 목록에 Stasis를 계속 표시합니다."
           }
         },
         "fr": {
@@ -38349,7 +38349,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limiar abaixo do limite"
+            "value": "限界値を下回るしきい値"
           }
         },
         "zh-Hans": {
@@ -38361,7 +38361,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limiar abaixo do limite"
+            "value": "閾值低於限制"
           }
         },
         "ru": {
@@ -38397,13 +38397,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limiar abaixo do limite"
+            "value": "Ngưỡng dưới giới hạn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Limiar abaixo do limite"
+            "value": "한도 미만의 임계값"
           }
         },
         "fr": {
@@ -38455,7 +38455,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo restante"
+            "value": "残り時間"
           }
         },
         "zh-Hans": {
@@ -38467,7 +38467,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo restante"
+            "value": "剩餘時間"
           }
         },
         "ru": {
@@ -38503,13 +38503,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo restante"
+            "value": "Thời gian còn lại"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo restante"
+            "value": "남은 시간"
           }
         },
         "fr": {
@@ -38561,7 +38561,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "時刻"
           }
         },
         "zh-Hans": {
@@ -38573,7 +38573,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "一天中的時間"
           }
         },
         "ru": {
@@ -38609,13 +38609,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "Thời gian trong ngày"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hora do dia"
+            "value": "하루 중 시간"
           }
         },
         "fr": {
@@ -38667,7 +38667,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "放電までの時間"
           }
         },
         "zh-Hans": {
@@ -38679,7 +38679,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "距離放電的時間"
           }
         },
         "ru": {
@@ -38715,13 +38715,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "Thời gian đến khi xả pin"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo até descarregar"
+            "value": "방전까지 남은 시간"
           }
         },
         "fr": {
@@ -38892,13 +38892,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "ヒント: [システム設定] -> [一般] -> [ログイン項目] を確認します。 Stasis がバックグラウンドで実行できるようにしてください。すでにオンになっている場合は、オフにしてから再度オンにしてみてください。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "팁: 시스템 설정 -> 일반 -> 로그인 항목을 확인하세요. Stasis가 백그라운드에서 실행될 수 있는지 확인하세요. 이미 켜져 있으면 껐다가 다시 켜보세요."
           }
         },
         "nl": {
@@ -38946,7 +38946,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "Mẹo: Kiểm tra Cài đặt hệ thống -> Chung -> Mục đăng nhập. Đảm bảo Stasis được phép chạy ở chế độ nền. Nếu nó đã được bật, hãy thử tắt và bật lại."
           }
         },
         "zh-Hans": {
@@ -38958,7 +38958,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dica: Verifique Definições do Sistema -> Geral -> Itens de Início. Certifique-se de que o Stasis tem permissão para executar em segundo plano. Se já estiver ativo, tente desativar e reativar."
+            "value": "提示：檢查系統設定->常規->登入項目。確保允許 Stasis 在背景運行。如果它已經打開，請嘗試將其關閉然後再次打開。"
           }
         }
       }
@@ -40377,7 +40377,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregar até ao limite"
+            "value": "上限まで充電"
           }
         },
         "zh-Hans": {
@@ -40389,7 +40389,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregar até ao limite"
+            "value": "充電至上限"
           }
         },
         "ru": {
@@ -40425,13 +40425,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregar até ao limite"
+            "value": "Sạc đến giới hạn"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Carregar até ao limite"
+            "value": "한도까지 충전"
           }
         },
         "fr": {
@@ -41230,7 +41230,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desinstalar serviço auxiliar (daemon)"
+            "value": "ヘルパーデーモンをアンインストールする"
           }
         },
         "zh-Hans": {
@@ -41242,7 +41242,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desinstalar serviço auxiliar (daemon)"
+            "value": "卸載幫助守護程序"
           }
         },
         "ru": {
@@ -41278,13 +41278,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desinstalar serviço auxiliar (daemon)"
+            "value": "Gỡ cài đặt trình nền trợ giúp"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desinstalar serviço auxiliar (daemon)"
+            "value": "도우미 데몬 제거"
           }
         },
         "fr": {
@@ -41349,13 +41349,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "不明"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "알 수 없음"
           }
         },
         "nl": {
@@ -41403,7 +41403,7 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "Không xác định"
           }
         },
         "zh-Hans": {
@@ -41415,7 +41415,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desconhecido"
+            "value": "未知"
           }
         }
       }
@@ -41550,7 +41550,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "アップデート"
           }
         },
         "zh-Hans": {
@@ -41562,7 +41562,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "更新"
           }
         },
         "ru": {
@@ -41598,13 +41598,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "Cập nhật"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Atualizações"
+            "value": "업데이트"
           }
         },
         "fr": {
@@ -41656,7 +41656,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo de atividade"
+            "value": "稼働時間"
           }
         },
         "zh-Hans": {
@@ -41668,7 +41668,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo de atividade"
+            "value": "正常運作時間"
           }
         },
         "ru": {
@@ -41704,13 +41704,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo de atividade"
+            "value": "Thời gian hoạt động"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tempo de atividade"
+            "value": "가동 시간"
           }
         },
         "fr": {
@@ -41762,7 +41762,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "ハードウェアのバッテリー残量を使用"
           }
         },
         "zh-Hans": {
@@ -41774,7 +41774,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "使用硬體回報的電池百分比"
           }
         },
         "ru": {
@@ -41810,13 +41810,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "Sử dụng phần trăm pin phần cứng"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar percentagem de hardware"
+            "value": "하드웨어 배터리 잔량 사용"
           }
         },
         "fr": {
@@ -41868,7 +41868,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "ハードウェアの生の状態値を使用"
           }
         },
         "zh-Hans": {
@@ -41880,7 +41880,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "使用原始硬體健康度"
           }
         },
         "ru": {
@@ -41916,13 +41916,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "Sử dụng giá trị tình trạng phần cứng thô"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar saúde bruta do hardware"
+            "value": "원시 하드웨어 상태 값 사용"
           }
         },
         "fr": {
@@ -41974,7 +41974,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "macOS の調整値の代わりに、生のバッテリーの割合を使用します。"
           }
         },
         "zh-Hans": {
@@ -41986,7 +41986,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "使用原始電池百分比而不是 macOS 校準值。"
           }
         },
         "ru": {
@@ -42022,13 +42022,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "Sử dụng phần trăm pin thô thay vì giá trị đã hiệu chỉnh macOS."
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Usar a percentagem bruta da bateria em vez do valor calibrado pelo macOS."
+            "value": "macOS 보정 값 대신 원시 배터리 비율을 사용합니다."
           }
         },
         "fr": {
@@ -42186,7 +42186,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ver no GitHub"
+            "value": "GitHub で見る"
           }
         },
         "zh-Hans": {
@@ -42198,7 +42198,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ver no GitHub"
+            "value": "在 GitHub 上查看"
           }
         },
         "ru": {
@@ -42234,13 +42234,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ver no GitHub"
+            "value": "Xem trên GitHub"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ver no GitHub"
+            "value": "GitHub에서 보기"
           }
         },
         "fr": {
@@ -42292,7 +42292,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "表示"
           }
         },
         "zh-Hans": {
@@ -42304,7 +42304,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "外觀"
           }
         },
         "ru": {
@@ -42340,13 +42340,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "Hiển thị"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Visuais"
+            "value": "시각 효과"
           }
         },
         "fr": {
@@ -42398,7 +42398,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "毎週"
           }
         },
         "zh-Hans": {
@@ -42410,7 +42410,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "每週"
           }
         },
         "ru": {
@@ -42446,13 +42446,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "hàng tuần"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semanalmente"
+            "value": "주간"
           }
         },
         "fr": {
@@ -42611,7 +42611,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quando forem encontradas atualizações"
+            "value": "アップデートが見つかったとき"
           }
         },
         "zh-Hans": {
@@ -42623,7 +42623,7 @@
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quando forem encontradas atualizações"
+            "value": "當發現更新時"
           }
         },
         "ru": {
@@ -42659,13 +42659,13 @@
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quando forem encontradas atualizações"
+            "value": "Khi tìm thấy bản cập nhật"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quando forem encontradas atualizações"
+            "value": "업데이트가 발견되면"
           }
         },
         "fr": {
