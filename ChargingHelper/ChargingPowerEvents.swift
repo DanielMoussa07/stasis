@@ -246,6 +246,11 @@ enum ChargingPowerEvents {
         try? session.endTopUpIfExpired()
         if chargingMode == .toFull {
             if percent < 100 {
+                // enablePowerAdapter rewrites the native ceiling, which would cancel the temporary
+                // lift, so it must run first and only when a discharge is actually in progress.
+                if ChargingPowerState.isPowerAdapterDisabled() {
+                    _ = ChargingPowerState.enablePowerAdapter(force: force)
+                }
                 do {
                     try session.beginTopUp()
                 } catch {
@@ -253,7 +258,6 @@ enum ChargingPowerEvents {
                     chargingMode = .standard
                     return (false, error.localizedDescription)
                 }
-                _ = ChargingPowerState.enablePowerAdapter(force: force)
                 return ChargingPowerState.enableCharging(force: force)
             }
             chargingMode = .standard
