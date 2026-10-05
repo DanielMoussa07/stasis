@@ -10,21 +10,27 @@ enum ChargingHelperStatus {
 
 /// Resumes a `CheckedContinuation` at most once, guarding against the XPC reply and a
 /// fallback timeout both firing (a double-resume is a runtime crash).
-private nonisolated final class ResumeOnce: @unchecked Sendable {
+private nonisolated final class ResumeOnce<Value: Sendable>: @unchecked Sendable {
     private let lock = NSLock()
     private var isResumed = false
-    private let continuation: CheckedContinuation<Void, Never>
+    private let continuation: CheckedContinuation<Value, Never>
 
-    init(_ continuation: CheckedContinuation<Void, Never>) {
+    init(_ continuation: CheckedContinuation<Value, Never>) {
         self.continuation = continuation
     }
 
-    func resume() {
+    func resume(returning value: Value) {
         lock.lock()
         defer { lock.unlock() }
         guard !isResumed else { return }
         isResumed = true
-        continuation.resume()
+        continuation.resume(returning: value)
+    }
+}
+
+private extension ResumeOnce where Value == Void {
+    nonisolated func resume() {
+        resume(returning: ())
     }
 }
 
@@ -35,6 +41,10 @@ class ChargingHelperManager {
 
     private static let machServiceName = "com.dinanathdash.stasis.charging-helper"
     private static let plistName = "com.dinanathdash.stasis.charging-helper.plist"
+
+    private static let upgradeAttemptLimit = 3
+    private static let responsivenessChecks = 4
+    private static let livenessTimeout: Duration = .seconds(3)
 
     private var service: SMAppService
     private var connection: NSXPCConnection?
@@ -76,37 +86,55 @@ class ChargingHelperManager {
         refreshStatus()
     }
 
-    func forceUpgrade() throws {
+    func forceUpgrade() {
         logger.info("Force upgrading charging helper daemon")
-        disconnect()
-        try? service.unregister()
+        Task { await upgradeUntilResponsive() }
+    }
 
-        // IMPORTANT: backgroundtaskmanagementd (BTM) has a notorious bug on macOS 13+
-        // where it aggressively caches the code signature of the previous daemon.
-        // If we register() too quickly after unregister(), BTM will throw errSecCSReqFailed (-67028)
-        // because its cache is in a race condition.
-        // We MUST wait at least 1.0 second before registering the new one.
-        // To avoid blocking the main thread during app launch, we do this asynchronously.
-        Task {
+    /// After a rebuild the helper's code signature changes, and backgroundtaskmanagementd
+    /// sometimes registers the new daemon with a stale launch constraint, so launchd refuses to
+    /// spawn it (EX_CONFIG) even though register() succeeded. A fresh unregister/register cycle
+    /// fixes it, so verify the helper actually answers and retry with a longer pause if not.
+    private func upgradeUntilResponsive() async {
+        for attempt in 1 ... Self.upgradeAttemptLimit {
+            disconnect()
             do {
-                try await Task.sleep(for: .seconds(1.5))
+                try await service.unregister()
+            } catch {
+                logger.warning("Unregister before upgrade failed (attempt \(attempt)): \(error.localizedDescription)")
+            }
 
-                // Re-instantiate to clear internal SMAppService state
+            // register() straight after unregister() races BTM's cached signature of the previous
+            // daemon and fails with errSecCSReqFailed (-67028).
+            try? await Task.sleep(for: .seconds(1.5 * Double(attempt)))
+
+            do {
                 let newService = SMAppService.daemon(plistName: Self.plistName)
                 try newService.register()
-
-                await MainActor.run {
-                    self.service = newService
-                    self.logger.info("Force upgrade register successful")
-                    self.refreshStatus()
-                }
+                service = newService
             } catch {
-                await MainActor.run {
-                    self.logger.error("Force upgrade register failed: \(error.localizedDescription)")
-                    self.refreshStatus()
-                }
+                logger.error("Force upgrade register failed (attempt \(attempt)): \(error.localizedDescription)")
+                continue
             }
+
+            if await waitUntilResponsive() {
+                logger.info("Force upgrade successful (attempt \(attempt))")
+                refreshStatus()
+                return
+            }
+            logger.warning("Helper unresponsive after register (attempt \(attempt)), retrying")
         }
+
+        logger.error("Force upgrade gave up: helper never became responsive")
+        refreshStatus()
+    }
+
+    private func waitUntilResponsive() async -> Bool {
+        for _ in 0 ..< Self.responsivenessChecks {
+            if await checkLiveness() { return true }
+            try? await Task.sleep(for: .seconds(1.5))
+        }
+        return false
     }
 
     func uninstall() async throws {
@@ -116,7 +144,7 @@ class ChargingHelperManager {
             // Wait briefly for the reset to complete before we destroy the daemon, without
             // blocking the main thread the way a DispatchSemaphore wait would.
             await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
-                let once = ResumeOnce(continuation)
+                let once = ResumeOnce<Void>(continuation)
                 helper.resetToDefaults { _, _ in once.resume() }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     once.resume()
@@ -150,16 +178,23 @@ class ChargingHelperManager {
     }
 
     private func checkLiveness() async -> Bool {
-        return await withCheckedContinuation { continuation in
+        await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            let once = ResumeOnce<Bool>(continuation)
             guard let helper = getHelper(errorHandler: { _ in
-                continuation.resume(returning: false)
+                once.resume(returning: false)
             }) else {
-                continuation.resume(returning: false)
+                once.resume(returning: false)
                 return
             }
 
             helper.ping { success in
-                continuation.resume(returning: success)
+                once.resume(returning: success)
+            }
+
+            // A daemon launchd refuses to spawn can leave the call with neither a reply nor an error.
+            Task {
+                try? await Task.sleep(for: Self.livenessTimeout)
+                once.resume(returning: false)
             }
         }
     }

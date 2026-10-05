@@ -85,11 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         // Or if it's a completely fresh installation / just wiped by the "Reset App" button.
         if ChargingHelperManager.shared.isInstalled {
             if launchState == .updated {
-                do {
-                    try ChargingHelperManager.shared.forceUpgrade()
-                } catch {
-                    print("ERROR: forceUpgrade failed with \(error)")
-                }
+                ChargingHelperManager.shared.forceUpgrade()
             } else {
                 try? ChargingHelperManager.shared.install()
             }
