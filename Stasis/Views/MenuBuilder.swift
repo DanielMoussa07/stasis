@@ -289,11 +289,21 @@ class MenuBuilder {
 
 struct BatteryMainInfoView: View {
     let viewModel: MenuViewModel
+    @Default(.manageCharging) private var manageCharging
+    @Default(.chargeLimit) private var chargeLimit
+
+    private var barColor: Color {
+        if viewModel.isCharging { return .green }
+        return viewModel.displayPercentage <= 10 ? .red : .secondary
+    }
 
     var body: some View {
         BatteryMainInfo(
             label: String(localized: "Battery"),
-            value: viewModel.batteryPercentageText
+            value: viewModel.batteryPercentageText,
+            percentage: viewModel.displayPercentage,
+            chargeLimit: manageCharging ? (viewModel.chargeLimitOverrideActive ? 100 : chargeLimit) : nil,
+            barColor: barColor
         )
     }
 }
