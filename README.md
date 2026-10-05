@@ -140,6 +140,16 @@ PRs are welcome! Please review our **[Contributing Guide](CONTRIBUTING.md)** and
 
 ## Acknowledgments
 
+This fork combines work from several Stasis forks. All are GPL-3.0.
+
+- [DinanathDash/Stasis](https://github.com/DinanathDash/Stasis): the base this fork builds on, including the macOS 27 native charge-limit backend.
+- [avcolgate/Stasis](https://github.com/avcolgate/Stasis): the charge bar with a charge-limit marker.
+- [Xu-Zhangsheng/Stasis](https://github.com/Xu-Zhangsheng/Stasis): the idea of a customizable, reorderable menu dashboard and a charge-limit slider in the menu.
+- [srimanachanta/Stasis](https://github.com/srimanachanta/Stasis): the original project.
+
+Added here: Top Up on macOS 27 through Apple's `temporarilyDisableMCL` API, the menu charge-limit slider for macOS 27's 80-100% range, and hiding the idle adapter in the power-flow diagram.
+
+
 - [SMCKit](https://github.com/srimanachanta/SMCKit) — SMC access library
 - [AsahiLinux](https://asahilinux.org/) — SMC key reverse engineering
 - [Battery-Toolkit](https://github.com/mhaeuser/Battery-Toolkit) — SMC key documentation

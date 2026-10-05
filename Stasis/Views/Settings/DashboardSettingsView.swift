@@ -69,11 +69,83 @@ struct DashboardSettingsView: View {
                 Toggle("Output ports text row", isOn: $showOutputPortsText)
                     .disabled(!showPowerDistribution || outputVisualizationMode == .off)
             }
+
+            MenuOrderSection()
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
         .contentMargins(.top, 4, for: .scrollContent)
         .scrollEdgeEffectStyleSoftIfAvailable()
+    }
+}
+
+private struct MenuOrderSection: View {
+    // Observing the stored order is what re-renders this section after a move.
+    @Default(.dashboardModuleOrder) private var moduleOrder
+    @Default(.dashboardItemOrder) private var itemOrder
+
+    var body: some View {
+        let modules = DashboardLayoutStore.orderedModules
+        Section {
+            ForEach(Array(modules.enumerated()), id: \.element) { index, module in
+                DisclosureGroup {
+                    let items = DashboardLayoutStore.orderedItems(in: module)
+                    ForEach(Array(items.enumerated()), id: \.element) { itemIndex, item in
+                        ReorderRow(
+                            title: item.title,
+                            canMoveUp: itemIndex > 0,
+                            canMoveDown: itemIndex < items.count - 1
+                        ) { delta in
+                            var reordered = items
+                            reordered.swapAt(itemIndex, itemIndex + delta)
+                            DashboardLayoutStore.saveItems(reordered, in: module)
+                        }
+                    }
+                } label: {
+                    ReorderRow(
+                        title: module.title,
+                        canMoveUp: index > 0,
+                        canMoveDown: index < modules.count - 1
+                    ) { delta in
+                        var reordered = modules
+                        reordered.swapAt(index, index + delta)
+                        DashboardLayoutStore.saveModules(reordered)
+                    }
+                }
+            }
+
+            Button("Restore Default Order") {
+                DashboardLayoutStore.restoreDefaults()
+            }
+        } header: {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Menu Order")
+                Text("Use the arrows to reorder sections, or the rows inside a section, in the menu dropdown.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+}
+
+private struct ReorderRow: View {
+    let title: String
+    let canMoveUp: Bool
+    let canMoveDown: Bool
+    let move: (_ delta: Int) -> Void
+
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Button { move(-1) } label: { Image(systemName: "chevron.up") }
+                .disabled(!canMoveUp)
+                .accessibilityLabel(Text("Move Up"))
+            Button { move(1) } label: { Image(systemName: "chevron.down") }
+                .disabled(!canMoveDown)
+                .accessibilityLabel(Text("Move Down"))
+        }
+        .buttonStyle(.borderless)
     }
 }
 

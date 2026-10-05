@@ -282,6 +282,18 @@ extension Defaults.Keys {
         "outputVisualizationMode",
         default: .always
     )
+    static let dashboardModuleOrder = Key<[String]>(
+        "dashboardModuleOrder",
+        default: DashboardModuleID.allCases.map(\.rawValue)
+    )
+    static let dashboardItemOrder = Key<[String]>(
+        "dashboardItemOrder",
+        default: DashboardModuleID.allCases.flatMap(\.defaultItems).map(\.rawValue)
+    )
+    static let showChargeLimitControl = Key<Bool>(
+        "showChargeLimitControl",
+        default: true
+    )
     static let showAdvancedChargingControls = Key<Bool>(
         "showAdvancedChargingControls",
         default: false

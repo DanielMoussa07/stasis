@@ -29,39 +29,11 @@ class MenuBuilder {
         )
         menu.addItem(mainInfoItem)
 
-        let sections: [[NSMenuItem]] = [
-            buildInfoSection(),
-            buildPowerMetricsSection(),
-            buildVisualizationSection(),
-            buildHardwareSection(),
-            buildEnergyImpactSection(),
-        ]
-
-        for section in sections where !section.isEmpty {
+        for module in DashboardLayoutStore.orderedModules {
+            let items = DashboardLayoutStore.orderedItems(in: module).flatMap(makeItems)
+            guard !items.isEmpty else { continue }
             menu.addItem(NSMenuItem.separator())
-            for item in section {
-                menu.addItem(item)
-            }
-        }
-
-        if viewModel.manageChargingEnabled {
-            menu.addItem(NSMenuItem.separator())
-            menu.addItem(createMenuItem(view: ChargeLimitSliderView(nativeMode: viewModel.nativeMode)))
-        }
-
-        if viewModel.manageChargingEnabled, viewModel.adapterConnected {
-            if Defaults[.showAdvancedChargingControls] {
-                menu.addItem(NSMenuItem.separator())
-                // Top Up works on every OS: SMC override on macOS 26, PowerUI temporary lift on 27.
-                if !viewModel.nativeMode {
-                    menu.addItem(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
-                }
-                menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
-                if !viewModel.nativeMode {
-                    menu.addItem(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
-                    menu.addItem(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))
-                }
-            }
+            items.forEach(menu.addItem)
         }
 
         menu.addItem(NSMenuItem.separator())
@@ -85,98 +57,80 @@ class MenuBuilder {
         menu.addItem(quitItem)
     }
 
-    private func buildInfoSection() -> [NSMenuItem] {
-        var items: [NSMenuItem] = []
-
-        if Defaults[.showPowerSource] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Power Source"),
-                    keyPath: \.powerSourceText
-                )
+    private func makeItems(for itemID: DashboardItemID) -> [NSMenuItem] {
+        switch itemID {
+        case .powerSource:
+            return infoItems(itemID, shown: Defaults[.showPowerSource], keyPath: \.powerSourceText)
+        case .timeRemaining:
+            return infoItems(itemID, shown: Defaults[.showTimeTillDischarge], keyPath: \.timeRemainingText)
+        case .uptime:
+            return infoItems(itemID, shown: Defaults[.showUptime], keyPath: \.uptimeText)
+        case .batteryMode:
+            return infoItems(itemID, shown: Defaults[.showBatteryMode], keyPath: \.batteryModeText)
+        case .batteryTemperature:
+            return infoItems(itemID, shown: Defaults[.showBatteryTemperature], keyPath: \.batteryTemperatureText)
+        case .internalPower:
+            return infoItems(itemID, shown: Defaults[.showInternalPower], keyPath: \.internalInputText)
+        case .externalPower:
+            return infoItems(itemID, shown: Defaults[.showExternalPower], keyPath: \.externalInputText)
+        case .sessionEnergy:
+            return infoItems(
+                itemID,
+                shown: Defaults[.showSessionEnergy] && viewModel.shouldShowSessionEnergy,
+                keyPath: \.sessionEnergyText
             )
-        }
-        if Defaults[.showTimeTillDischarge] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Time Remaining"),
-                    keyPath: \.timeRemainingText
-                )
+        case .powerDistribution:
+            guard Defaults[.showPowerDistribution] else { return [] }
+            return [createMenuItem(view: PowerSankeyViewWrapper(viewModel: viewModel))]
+        case .outputPorts:
+            return infoItems(
+                itemID,
+                shown: Defaults[.showPowerDistribution] && shouldShowOutputPortsTextRow,
+                keyPath: \.outputPortDetailsText
             )
+        case .cycleCount:
+            return infoItems(itemID, shown: Defaults[.showBatteryCycleCount], keyPath: \.cycleCountText)
+        case .batteryHealth:
+            return infoItems(itemID, shown: Defaults[.showBatteryHealth], keyPath: \.batteryHealthText)
+        case .significantEnergyApps:
+            guard Defaults[.showSignificantEnergyApps] else { return [] }
+            return [
+                createDynamicMenuItem(
+                    view: SignificantEnergyMenuView(service: viewModel.significantEnergyService)
+                ),
+            ]
+        case .chargeLimit:
+            guard viewModel.manageChargingEnabled, Defaults[.showChargeLimitControl] else { return [] }
+            return [createMenuItem(view: ChargeLimitSliderView(nativeMode: viewModel.nativeMode))]
+        case .advancedControls:
+            return makeAdvancedControlItems()
         }
-        if Defaults[.showUptime] {
-            items.append(createInfoItem(label: String(localized: "Uptime"), keyPath: \.uptimeText))
-        }
-        if Defaults[.showBatteryMode] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Battery Mode"),
-                    keyPath: \.batteryModeText
-                )
-            )
-        }
-        if Defaults[.showBatteryTemperature] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Battery Temperature"),
-                    keyPath: \.batteryTemperatureText
-                )
-            )
-        }
-
-        return items
     }
 
-    private func buildPowerMetricsSection() -> [NSMenuItem] {
-        var items: [NSMenuItem] = []
-
-        if Defaults[.showInternalPower] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Battery"),
-                    keyPath: \.internalInputText
-                )
-            )
-        }
-        if Defaults[.showExternalPower] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Adapter"),
-                    keyPath: \.externalInputText
-                )
-            )
-        }
-        if Defaults[.showSessionEnergy], viewModel.shouldShowSessionEnergy {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Session Energy"),
-                    keyPath: \.sessionEnergyText
-                )
-            )
-        }
-
-        return items
+    private func infoItems(
+        _ itemID: DashboardItemID,
+        shown: Bool,
+        keyPath: KeyPath<MenuViewModel, String>
+    ) -> [NSMenuItem] {
+        guard shown else { return [] }
+        return [createInfoItem(label: itemID.title, keyPath: keyPath)]
     }
 
-    private func buildVisualizationSection() -> [NSMenuItem] {
+    private func makeAdvancedControlItems() -> [NSMenuItem] {
+        guard viewModel.manageChargingEnabled, viewModel.adapterConnected,
+              Defaults[.showAdvancedChargingControls]
+        else { return [] }
+
+        // Top Up works on every OS: SMC override on macOS 26, PowerUI temporary lift on 27.
         var items: [NSMenuItem] = []
-
-        if Defaults[.showPowerDistribution] {
-            items.append(
-                createMenuItem(
-                    view: PowerSankeyViewWrapper(viewModel: viewModel)
-                )
-            )
-            if shouldShowOutputPortsTextRow {
-                items.append(
-                    createInfoItem(
-                        label: String(localized: "Output Ports"),
-                        keyPath: \.outputPortDetailsText
-                    )
-                )
-            }
+        if !viewModel.nativeMode {
+            items.append(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
         }
-
+        items.append(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
+        if !viewModel.nativeMode {
+            items.append(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
+            items.append(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))
+        }
         return items
     }
 
@@ -194,40 +148,6 @@ class MenuBuilder {
         case .always:
             return true
         }
-    }
-
-    private func buildHardwareSection() -> [NSMenuItem] {
-        var items: [NSMenuItem] = []
-
-        if Defaults[.showBatteryCycleCount] {
-            items.append(
-                createInfoItem(label: String(localized: "Cycle Count"), keyPath: \.cycleCountText)
-            )
-        }
-        if Defaults[.showBatteryHealth] {
-            items.append(
-                createInfoItem(
-                    label: String(localized: "Battery Health"),
-                    keyPath: \.batteryHealthText
-                )
-            )
-        }
-
-        return items
-    }
-
-    private func buildEnergyImpactSection() -> [NSMenuItem] {
-        var items: [NSMenuItem] = []
-
-        if Defaults[.showSignificantEnergyApps] {
-            items.append(
-                createDynamicMenuItem(
-                    view: SignificantEnergyMenuView(service: viewModel.significantEnergyService)
-                )
-            )
-        }
-
-        return items
     }
 
     private func createInfoItem(

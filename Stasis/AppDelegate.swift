@@ -207,6 +207,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .showOutputPortsText, .outputVisualizationMode,
                     .manageCharging, .showAdvancedChargingControls,
                     .appLanguage, .showSignificantEnergyApps,
+                    .dashboardModuleOrder, .dashboardItemOrder, .showChargeLimitControl,
                 ],
                 initial: false
             ) {
