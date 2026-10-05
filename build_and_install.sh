@@ -2,7 +2,16 @@
 set -e
 
 echo "Building Stasis..."
-xcodebuild -scheme stasis -configuration Debug -derivedDataPath ./build
+# Ad-hoc signed: this fork has no Apple Developer team. Restricted entitlements and hardened-runtime
+# flags from the Xcode signing step make launchd refuse the helper daemon (EX_CONFIG), so the
+# helper and app are re-signed below the same way the release workflow does.
+xcodebuild -scheme stasis -configuration Debug -derivedDataPath ./build \
+    CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER=
+
+BUILT_APP=build/Build/Products/Debug/Stasis.app
+codesign --force --sign - "$BUILT_APP/Contents/Library/LaunchServices/com.dinanathdash.stasis.charging-helper"
+codesign --force --deep --sign - "$BUILT_APP"
+codesign --force --sign - -r req.txt "$BUILT_APP"
 
 echo "Killing existing Stasis processes..."
 pkill -f "stasis.app/Contents/MacOS/stasis" || true
@@ -15,7 +24,7 @@ echo "Removing old Stasis from /Applications..."
 rm -rf /Applications/Stasis.app
 
 echo "Copying new Stasis to /Applications..."
-cp -R build/Build/Products/Debug/stasis.app /Applications/Stasis.app
+cp -R "$BUILT_APP" /Applications/Stasis.app
 
 echo "Registering app with Launch Services & resetting App Intents cache..."
 xattr -cr /Applications/Stasis.app 2>/dev/null || true
