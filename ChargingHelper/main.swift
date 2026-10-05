@@ -74,6 +74,17 @@ class ServiceDelegate: NSObject, NSXPCListenerDelegate {
             return false
         }
 
+        // The PID lookup above can race with PID reuse. Enforcing the same requirement on the
+        // connection makes XPC check every message against the sender's audit token instead.
+        var requirementString: CFString?
+        guard SecRequirementCopyString(validReq, [], &requirementString) == errSecSuccess,
+              let requirementString
+        else {
+            logger.error("Failed to serialize the app's Designated Requirement")
+            return false
+        }
+        newConnection.setCodeSigningRequirement(requirementString as String)
+
         logger.info("XPC connection accepted from valid Stasis process")
 
         newConnection.exportedInterface = NSXPCInterface(

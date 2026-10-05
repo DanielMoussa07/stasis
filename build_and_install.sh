@@ -5,7 +5,7 @@ echo "Building Stasis..."
 # Ad-hoc signed: this fork has no Apple Developer team. Restricted entitlements and hardened-runtime
 # flags from the Xcode signing step make launchd refuse the helper daemon (EX_CONFIG), so the
 # helper and app are re-signed below. The release workflow additionally pins the app to an
-# identifier-only requirement (req.txt); that is deliberately skipped here because the helper
+# identifier-only requirement; that is deliberately skipped here because the helper
 # validates XPC callers against the app's own requirement, and identifier-only lets any ad-hoc
 # binary with that name talk to the root helper. The default ad-hoc requirement pins the cdhash.
 xcodebuild -scheme stasis -configuration Debug -derivedDataPath ./build \
