@@ -208,6 +208,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     .manageCharging, .showAdvancedChargingControls,
                     .appLanguage, .showSignificantEnergyApps,
                     .dashboardModuleOrder, .dashboardItemOrder, .showChargeLimitControl,
+                    .showLowPowerModeToggle,
                 ],
                 initial: false
             ) {

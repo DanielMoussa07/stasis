@@ -172,6 +172,18 @@ class MenuViewModel {
         chargeManager.toggleChargeToLimit()
     }
 
+    func toggleLowPowerModeOptimistically() {
+        let newState = !isLowPowerModeEnabled
+        isLowPowerModeEnabled = newState
+        Task {
+            do {
+                try await toggleLowPowerMode()
+            } catch {
+                isLowPowerModeEnabled = !newState
+            }
+        }
+    }
+
     func toggleLowPowerMode() async throws {
         try await batteryService.toggleLowPowerMode()
     }
@@ -452,7 +464,7 @@ class MenuViewModel {
         hasMultiPort = safeMetrics.hasMultiPort
         connectedAccessories = safeMetrics.connectedAccessories
         powerSource = derivedPowerSource
-        isCharging = metrics.isCharging
+        isCharging = safeMetrics.isCharging
         adapterConnected = adapter.adapterConnected
 
         cycleCountText = "\(metrics.cycleCount)"

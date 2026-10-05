@@ -17,6 +17,8 @@ struct DashboardSettingsView: View {
     @Default(.showOutputPortsText) var showOutputPortsText
     @Default(.outputVisualizationMode) var outputVisualizationMode
     @Default(.showSignificantEnergyApps) var showSignificantEnergyApps
+    @Default(.showChargeLimitControl) var showChargeLimitControl
+    @Default(.showLowPowerModeToggle) var showLowPowerModeToggle
 
     var body: some View {
         Form {
@@ -46,6 +48,11 @@ struct DashboardSettingsView: View {
                 Toggle("Battery Power Metrics", isOn: $showInternalPower)
                 Toggle("Adapter Power Metrics", isOn: $showExternalPower)
                 Toggle("Session Energy", isOn: $showSessionEnergy)
+            }
+
+            Section("Controls") {
+                Toggle("Charge limit slider", isOn: $showChargeLimitControl)
+                Toggle("Low Power Mode toggle", isOn: $showLowPowerModeToggle)
             }
 
             Section("Energy Impact") {

@@ -294,6 +294,10 @@ extension Defaults.Keys {
         "showChargeLimitControl",
         default: true
     )
+    static let showLowPowerModeToggle = Key<Bool>(
+        "showLowPowerModeToggle",
+        default: true
+    )
     static let showAdvancedChargingControls = Key<Bool>(
         "showAdvancedChargingControls",
         default: false

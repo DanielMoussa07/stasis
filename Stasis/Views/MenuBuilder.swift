@@ -102,6 +102,9 @@ class MenuBuilder {
         case .chargeLimit:
             guard viewModel.manageChargingEnabled, Defaults[.showChargeLimitControl] else { return [] }
             return [createMenuItem(view: ChargeLimitSliderView(nativeMode: viewModel.nativeMode))]
+        case .lowPowerMode:
+            guard Defaults[.showLowPowerModeToggle] else { return [] }
+            return [createMenuItem(view: LowPowerModeToggleView(viewModel: viewModel))]
         case .advancedControls:
             return makeAdvancedControlItems()
         }
@@ -290,6 +293,31 @@ struct ChargeLimitSliderView: View {
             Text(chargeLimit.formattedPercentage)
                 .monospacedDigit()
                 .frame(width: 40, alignment: .trailing)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct LowPowerModeToggleView: View {
+    let viewModel: MenuViewModel
+
+    var body: some View {
+        HStack {
+            Text("Low Power Mode")
+            Spacer(minLength: 20)
+            Toggle(
+                "Low Power Mode",
+                isOn: Binding(
+                    get: { viewModel.isLowPowerModeEnabled },
+                    set: { _ in viewModel.toggleLowPowerModeOptimistically() }
+                )
+            )
+            .labelsHidden()
+            .toggleStyle(.switch)
+            .controlSize(.mini)
         }
         .foregroundColor(.secondary)
         .font(.callout)

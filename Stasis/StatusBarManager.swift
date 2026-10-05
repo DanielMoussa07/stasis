@@ -73,15 +73,7 @@ class StatusBarManager {
     }
 
     @objc private func toggleLowPowerModeAction() {
-        let newState = !self.viewModel.isLowPowerModeEnabled
-        self.viewModel.isLowPowerModeEnabled = newState // Optimistic UI update
-        Task {
-            do {
-                try await self.viewModel.toggleLowPowerMode()
-            } catch {
-                self.viewModel.isLowPowerModeEnabled = !newState // Revert on failure
-            }
-        }
+        viewModel.toggleLowPowerModeOptimistically()
     }
 
     @objc private func openSystemBatterySettings() {

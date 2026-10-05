@@ -16,6 +16,7 @@ enum DashboardItemID: String, CaseIterable, Identifiable, Sendable {
     case batteryHealth
     case significantEnergyApps
     case chargeLimit
+    case lowPowerMode
     case advancedControls
 
     var id: String { rawValue }
@@ -36,6 +37,7 @@ enum DashboardItemID: String, CaseIterable, Identifiable, Sendable {
         case .batteryHealth: String(localized: "Battery Health")
         case .significantEnergyApps: String(localized: "Apps using significant energy")
         case .chargeLimit: String(localized: "Charge limit")
+        case .lowPowerMode: String(localized: "Low Power Mode")
         case .advancedControls: String(localized: "Advanced charging controls")
         }
     }
@@ -76,7 +78,7 @@ enum DashboardModuleID: String, CaseIterable, Identifiable, Sendable {
         case .energyApps:
             [.significantEnergyApps]
         case .chargingControls:
-            [.chargeLimit, .advancedControls]
+            [.chargeLimit, .lowPowerMode, .advancedControls]
         }
     }
 }
