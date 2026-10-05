@@ -337,8 +337,7 @@ struct PowerSankeyViewWrapper: View {
                 : [],
             outputIcons: shouldShowOutput ? viewModel.outputIcons : [],
             hasMultiPort: viewModel.hasMultiPort,
-            connectedAccessories: viewModel.connectedAccessories,
-            adapterConnected: viewModel.adapterConnected
+            connectedAccessories: viewModel.connectedAccessories
         )
     }
 }

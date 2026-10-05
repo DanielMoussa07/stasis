@@ -12,7 +12,6 @@ struct PowerSankeyView: View {
     let outputIcons: [String]
     var hasMultiPort: Bool = false
     var connectedAccessories: [AccessoryType] = []
-    let adapterConnected: Bool
 
     private func safeIcon(at index: Int) -> String {
         if index < outputIcons.count {
@@ -21,7 +20,17 @@ struct PowerSankeyView: View {
         return "cable.connector"
     }
 
+    /// A plugged-in adapter that is not actually supplying power only adds an empty 0 W branch,
+    /// so it is drawn as running on battery alone.
+    private var effectiveSource: PowerSource {
+        if powerSource == .both, abs(adapterPower) < Layout.idleAdapterWatts {
+            return .battery
+        }
+        return powerSource
+    }
+
     private enum Layout {
+        static let idleAdapterWatts: Double = 0.5
         static let nodeWidth: CGFloat = 60
         static let gap: CGFloat = 5
         static let spacerHeight: CGFloat = 20
@@ -61,7 +70,7 @@ struct PowerSankeyView: View {
         let hasAnyOutput = outputPower > 0
         let hasTwoOutputs = outputPortPowers.count >= 2
 
-        switch powerSource {
+        switch effectiveSource {
         case .acAdapter:
             if batteryPower > 0 {
                 Canvas { context, size in
@@ -179,22 +188,12 @@ struct PowerSankeyView: View {
 
         case .battery:
             Canvas { context, size in
-                if adapterConnected {
-                    if hasTwoOutputs {
-                        drawTopHalfToTripleSplitSankeyFlow(context: context, size: size)
-                    } else if hasAnyOutput {
-                        drawTopHalfToSplitSankeyFlow(context: context, size: size)
-                    } else {
-                        drawTopHalfToCenteredSimpleFlow(context: context, size: size)
-                    }
+                if hasTwoOutputs {
+                    drawTripleSplitSankeyFlow(context: context, size: size)
+                } else if hasAnyOutput {
+                    drawSplitSankeyFlow(context: context, size: size)
                 } else {
-                    if hasTwoOutputs {
-                        drawTripleSplitSankeyFlow(context: context, size: size)
-                    } else if hasAnyOutput {
-                        drawSplitSankeyFlow(context: context, size: size)
-                    } else {
-                        drawSimpleFlow(context: context, size: size)
-                    }
+                    drawSimpleFlow(context: context, size: size)
                 }
             }
             GeometryReader { geo in
@@ -204,73 +203,34 @@ struct PowerSankeyView: View {
                 let LH = Layout.largeNodeHeight
                 let gap = Layout.spacerHeight
 
-                if adapterConnected {
-                    let nodeH = (H - gap) / 2
-                    if hasTwoOutputs {
-                        let totalGap = gap * 2
-                        let segH = (H - totalGap) / 3
+                if hasTwoOutputs {
+                    let leftTop = (H / 2) - (LH / 2)
+                    let left1 = leftTop + LH / 6
+                    let left2 = leftTop + LH / 2
+                    let left3 = leftTop + 5 * LH / 6
 
-                        let left1 = nodeH / 6
-                        let right1 = segH / 2
+                    let totalGap = gap * 2
+                    let segH = (H - totalGap) / 3
+                    let right1 = segH / 2
+                    let right2 = segH + gap + segH / 2
+                    let right3 = (2 * segH) + (2 * gap) + segH / 2
 
-                        let left2 = nodeH / 2
-                        let right2 = segH + gap + (segH / 2)
+                    flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
+                    flowLabel(for: outputPortPowers[0], leftY: left2, rightY: right2, width: w, midX: midX)
+                    flowLabel(for: outputPortPowers[1], leftY: left3, rightY: right3, width: w, midX: midX)
+                } else if hasAnyOutput {
+                    let leftTop = (H / 2) - (LH / 2)
+                    let left1 = leftTop + LH / 4
+                    let left2 = leftTop + 3 * LH / 4
 
-                        let left3 = 5 * nodeH / 6
-                        let right3 = (2 * segH) + (2 * gap) + (segH / 2)
+                    let smallH = (H - gap) / 2
+                    let right1 = smallH / 2
+                    let right2 = H - smallH / 2
 
-                        flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
-                        flowLabel(for: outputPortPowers[0], leftY: left2, rightY: right2, width: w, midX: midX)
-                        flowLabel(for: outputPortPowers[1], leftY: left3, rightY: right3, width: w, midX: midX)
-                    } else if hasAnyOutput {
-                        let left1 = nodeH / 4
-                        let right1 = nodeH / 2
-
-                        let left2 = 3 * nodeH / 4
-                        let right2 = H - (nodeH / 2)
-
-                        flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
-                        flowLabel(for: outputPower, leftY: left2, rightY: right2, width: w, midX: midX)
-                    } else {
-                        let left1 = nodeH / 2
-                        let right1 = H / 2
-                        flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
-                    }
-
-                    // Adapter Label (0W)
-                    PowerLabel(power: 0)
-                        .opacity(0.3)
-                        .position(x: midX, y: H - (nodeH / 2))
+                    flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
+                    flowLabel(for: outputPower, leftY: left2, rightY: right2, width: w, midX: midX)
                 } else {
-                    if hasTwoOutputs {
-                        let leftTop = (H / 2) - (LH / 2)
-                        let left1 = leftTop + LH / 6
-                        let left2 = leftTop + LH / 2
-                        let left3 = leftTop + 5 * LH / 6
-
-                        let totalGap = gap * 2
-                        let segH = (H - totalGap) / 3
-                        let right1 = segH / 2
-                        let right2 = segH + gap + segH / 2
-                        let right3 = (2 * segH) + (2 * gap) + segH / 2
-
-                        flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
-                        flowLabel(for: outputPortPowers[0], leftY: left2, rightY: right2, width: w, midX: midX)
-                        flowLabel(for: outputPortPowers[1], leftY: left3, rightY: right3, width: w, midX: midX)
-                    } else if hasAnyOutput {
-                        let leftTop = (H / 2) - (LH / 2)
-                        let left1 = leftTop + LH / 4
-                        let left2 = leftTop + 3 * LH / 4
-
-                        let smallH = (H - gap) / 2
-                        let right1 = smallH / 2
-                        let right2 = H - smallH / 2
-
-                        flowLabel(for: systemPower, leftY: left1, rightY: right1, width: w, midX: midX)
-                        flowLabel(for: outputPower, leftY: left2, rightY: right2, width: w, midX: midX)
-                    } else {
-                        flowLabel(for: systemPower, leftY: H / 2, rightY: H / 2, width: w, midX: midX)
-                    }
+                    flowLabel(for: systemPower, leftY: H / 2, rightY: H / 2, width: w, midX: midX)
                 }
             }
         }
@@ -280,7 +240,7 @@ struct PowerSankeyView: View {
     private var leftNodes: some View {
         let hasAnyOutput = outputPower > 0
         VStack(spacing: 0) {
-            switch powerSource {
+            switch effectiveSource {
             case .acAdapter:
                 if batteryPower > 0 {
                     NodeView(
@@ -310,18 +270,11 @@ struct PowerSankeyView: View {
                 Spacer(minLength: Layout.spacerHeight)
                 NodeView(icon: "powerplug.fill", value: nil, isLeftSide: true)
             case .battery:
-                if adapterConnected {
+                if hasAnyOutput {
                     NodeView(icon: "battery.100", value: nil, isLeftSide: true)
-                    Spacer(minLength: Layout.spacerHeight)
-                    NodeView(icon: "powerplug.fill", value: nil, isLeftSide: true)
-                        .opacity(0.3)
+                        .frame(height: Layout.largeNodeHeight)
                 } else {
-                    if hasAnyOutput {
-                        NodeView(icon: "battery.100", value: nil, isLeftSide: true)
-                            .frame(height: Layout.largeNodeHeight)
-                    } else {
-                        NodeView(icon: "battery.100", value: nil, isLeftSide: true)
-                    }
+                    NodeView(icon: "battery.100", value: nil, isLeftSide: true)
                 }
             }
         }
@@ -331,7 +284,7 @@ struct PowerSankeyView: View {
         VStack(spacing: 0) {
             let hasTwoOutputs = outputPortPowers.count >= 2
             let hasAnyOutput = outputPower > 0
-            switch powerSource {
+            switch effectiveSource {
             case .acAdapter:
                 if batteryPower > 0 {
                     NodeView(
@@ -384,35 +337,18 @@ struct PowerSankeyView: View {
                 )
                 .frame(height: Layout.largeNodeHeight)
             case .battery:
-                if adapterConnected {
-                    if hasTwoOutputs {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 1), value: nil, isLeftSide: false)
-                    } else if hasAnyOutput {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
-                    } else {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                            .frame(height: (Layout.viewHeight - Layout.spacerHeight) / 2)
-                    }
+                if hasTwoOutputs {
+                    NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
+                    Spacer(minLength: Layout.spacerHeight)
+                    NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
+                    Spacer(minLength: Layout.spacerHeight)
+                    NodeView(icon: safeIcon(at: 1), value: nil, isLeftSide: false)
+                } else if hasAnyOutput {
+                    NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
+                    Spacer(minLength: Layout.spacerHeight)
+                    NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
                 } else {
-                    if hasTwoOutputs {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 1), value: nil, isLeftSide: false)
-                    } else if hasAnyOutput {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                        Spacer(minLength: Layout.spacerHeight)
-                        NodeView(icon: safeIcon(at: 0), value: nil, isLeftSide: false)
-                    } else {
-                        NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
-                    }
+                    NodeView(icon: "laptopcomputer", value: nil, isLeftSide: false)
                 }
             }
         }
@@ -517,78 +453,6 @@ struct PowerSankeyView: View {
             topLeft: CGPoint(x: leftX, y: 0),
             bottomLeft: CGPoint(x: leftX, y: size.height),
             topRight: CGPoint(x: rightX, y: 0),
-            bottomRight: CGPoint(x: rightX, y: size.height)
-        )
-    }
-
-    private func drawTopHalfToCenteredSimpleFlow(context: GraphicsContext, size: CGSize) {
-        let leftX = Layout.nodeWidth + Layout.gap
-        let rightX = size.width - Layout.nodeWidth - Layout.gap
-        let nodeHeight = (size.height - Layout.spacerHeight) / 2
-
-        let rightNodeTop = (size.height - nodeHeight) / 2
-        let rightNodeBottom = rightNodeTop + nodeHeight
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: 0),
-            bottomLeft: CGPoint(x: leftX, y: nodeHeight),
-            topRight: CGPoint(x: rightX, y: rightNodeTop),
-            bottomRight: CGPoint(x: rightX, y: rightNodeBottom)
-        )
-    }
-
-    private func drawTopHalfToSplitSankeyFlow(context: GraphicsContext, size: CGSize) {
-        let leftX = Layout.nodeWidth + Layout.gap
-        let rightX = size.width - Layout.nodeWidth - Layout.gap
-        let nodeHeight = (size.height - Layout.spacerHeight) / 2
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: 0),
-            bottomLeft: CGPoint(x: leftX, y: nodeHeight / 2),
-            topRight: CGPoint(x: rightX, y: 0),
-            bottomRight: CGPoint(x: rightX, y: nodeHeight)
-        )
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: nodeHeight / 2),
-            bottomLeft: CGPoint(x: leftX, y: nodeHeight),
-            topRight: CGPoint(x: rightX, y: size.height - nodeHeight),
-            bottomRight: CGPoint(x: rightX, y: size.height)
-        )
-    }
-
-    private func drawTopHalfToTripleSplitSankeyFlow(context: GraphicsContext, size: CGSize) {
-        let leftX = Layout.nodeWidth + Layout.gap
-        let rightX = size.width - Layout.nodeWidth - Layout.gap
-        let leftNodeHeight = (size.height - Layout.spacerHeight) / 2
-
-        let totalGap = Layout.spacerHeight * 2
-        let segmentHeight = (size.height - totalGap) / 3
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: 0),
-            bottomLeft: CGPoint(x: leftX, y: leftNodeHeight / 3),
-            topRight: CGPoint(x: rightX, y: 0),
-            bottomRight: CGPoint(x: rightX, y: segmentHeight)
-        )
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: leftNodeHeight / 3),
-            bottomLeft: CGPoint(x: leftX, y: 2 * leftNodeHeight / 3),
-            topRight: CGPoint(x: rightX, y: segmentHeight + Layout.spacerHeight),
-            bottomRight: CGPoint(x: rightX, y: (2 * segmentHeight) + Layout.spacerHeight)
-        )
-
-        drawTube(
-            context: context,
-            topLeft: CGPoint(x: leftX, y: 2 * leftNodeHeight / 3),
-            bottomLeft: CGPoint(x: leftX, y: leftNodeHeight),
-            topRight: CGPoint(x: rightX, y: (2 * segmentHeight) + (2 * Layout.spacerHeight)),
             bottomRight: CGPoint(x: rightX, y: size.height)
         )
     }
@@ -727,8 +591,7 @@ struct NodeView: View {
                 systemPower: item.4,
                 outputPower: item.5,
                 outputPortPowers: item.6,
-                outputIcons: [],
-                adapterConnected: true
+                outputIcons: []
             )
             .frame(height: 125)
         }
