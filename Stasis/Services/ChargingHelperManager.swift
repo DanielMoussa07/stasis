@@ -101,7 +101,7 @@ class ChargingHelperManager {
             do {
                 try await service.unregister()
             } catch {
-                logger.warning("Unregister before upgrade failed (attempt \(attempt)): \(error.localizedDescription)")
+                logger.warning("Unregister before upgrade failed (attempt \(attempt)): \(String(describing: error), privacy: .public)")
             }
 
             // register() straight after unregister() races BTM's cached signature of the previous
@@ -113,8 +113,15 @@ class ChargingHelperManager {
                 try newService.register()
                 service = newService
             } catch {
-                logger.error("Force upgrade register failed (attempt \(attempt)): \(error.localizedDescription)")
+                logger.error("Force upgrade register failed (attempt \(attempt)): \(String(describing: error), privacy: .public)")
                 continue
+            }
+
+            // Retrying cannot help here: the user has to re-enable Stasis under Login Items.
+            if service.status == .requiresApproval {
+                logger.error("Helper registered but macOS requires approval under Login Items (attempt \(attempt))")
+                helperStatus = .requiresApproval
+                return
             }
 
             if await waitUntilResponsive() {
