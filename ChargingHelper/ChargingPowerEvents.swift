@@ -174,6 +174,7 @@ enum ChargingPowerEvents {
 
         if !isUnlimited {
             chargingMode = .standard
+            ChargingPowerState.endNativeTopUp()
             return ChargingPowerState.disableCharging(force: force)
         }
 
@@ -241,31 +242,47 @@ enum ChargingPowerEvents {
         let sailingActive = ChargingSettings.sailingMode && chargingMode == .standard
         let sailingThreshold = powerUISailingThreshold(limit: limit, session: session)
 
-        if percent >= limit {
-            if chargingMode == .toFull, percent < 100 {
-                ChargingPowerState.applyNativeLimit(100)
+        // Top Up: lift the native limit (stored limit untouched) until 100% or cancel.
+        try? session.endTopUpIfExpired()
+        if chargingMode == .toFull {
+            if percent < 100 {
+                do {
+                    try session.beginTopUp()
+                } catch {
+                    logger.error("Top Up failed: \(error.localizedDescription)")
+                    chargingMode = .standard
+                    return (false, error.localizedDescription)
+                }
                 _ = ChargingPowerState.enablePowerAdapter(force: force)
                 return ChargingPowerState.enableCharging(force: force)
-            } else {
-                // If they specifically ask for forced discharge, use it — disablePowerAdapter
-                // sets its own ceiling (the configured limit itself, the real discharge target).
-                // Otherwise, just raise the ceiling to avoid discharge, without ever setting it
-                // BELOW the current percentage (which would make the firmware actively discharge).
-                if ChargingSettings.automaticDischarge, percent > limit {
-                    if ChargingPowerState.isPowerAdapterDisabled() || percent > limit + microChargeDeadbandPercent {
-                        _ = ChargingPowerState.disablePowerAdapter(force: force)
-                    } else {
-                        // Inside deadband (e.g. 86). Quietly set native limit to the target limit
-                        // so firmware handles the 1% overshoot. We do not call enablePowerAdapter()
-                        // to avoid snapping the ceiling up to 90%, since powerDisabled is already false.
-                        ChargingPowerState.applyNativeLimit(Int(limit))
-                    }
-                } else {
-                    ChargingPowerState.applyNativePauseCeiling(atLeast: Int(percent))
-                    _ = ChargingPowerState.enablePowerAdapter(force: force)
-                }
-                return ChargingPowerState.disableCharging(force: force)
             }
+            chargingMode = .standard
+        }
+        if session.isTopUpActive {
+            do { try session.endTopUp() } catch {
+                logger.error("Failed to re-arm charge limit after Top Up: \(error.localizedDescription)")
+            }
+        }
+
+        if percent >= limit {
+            // If they specifically ask for forced discharge, use it — disablePowerAdapter
+            // sets its own ceiling (the configured limit itself, the real discharge target).
+            // Otherwise, just raise the ceiling to avoid discharge, without ever setting it
+            // BELOW the current percentage (which would make the firmware actively discharge).
+            if ChargingSettings.automaticDischarge, percent > limit {
+                if ChargingPowerState.isPowerAdapterDisabled() || percent > limit + microChargeDeadbandPercent {
+                    _ = ChargingPowerState.disablePowerAdapter(force: force)
+                } else {
+                    // Inside deadband (e.g. 86). Quietly set native limit to the target limit
+                    // so firmware handles the 1% overshoot. We do not call enablePowerAdapter()
+                    // to avoid snapping the ceiling up to 90%, since powerDisabled is already false.
+                    ChargingPowerState.applyNativeLimit(Int(limit))
+                }
+            } else {
+                ChargingPowerState.applyNativePauseCeiling(atLeast: Int(percent))
+                _ = ChargingPowerState.enablePowerAdapter(force: force)
+            }
+            return ChargingPowerState.disableCharging(force: force)
         } else if let threshold = sailingThreshold, Int(percent) >= threshold {
             // Sailing zone
             // Raise the ceiling to (at least) current percent to pause charging without draining

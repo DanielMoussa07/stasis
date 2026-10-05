@@ -27,6 +27,11 @@ public protocol NativeChargeBackend: AnyObject {
     var limits: [Int] { get }
     func readLimit() throws -> Int
     func writeLimit(_ value: Int) throws
+    /// Lifts the Maximum Charge Limit until `rearmLimit()` (or the OS) re-arms it. Keeps the
+    /// user's stored limit, unlike `writeLimit(100)`.
+    func temporarilyDisableLimit() throws
+    /// Re-arms the Maximum Charge Limit with the stored limit.
+    func rearmLimit() throws
 }
 
 // MARK: - Session
@@ -96,6 +101,39 @@ public final class NativeChargeSession {
         guard current != limit else { return }
         logger.info("Setting native charge limit: \(current)% → \(limit)%")
         _ = try writeAndVerify(limit)
+    }
+
+    // MARK: Top Up
+
+    /// Maximum time a Top Up may stay active before the limit is forcibly re-armed.
+    public static let topUpMaxDuration: TimeInterval = 12 * 60 * 60
+
+    private var topUpStartedAt: Date?
+
+    public var isTopUpActive: Bool { topUpStartedAt != nil }
+
+    /// Lifts the charge limit so the battery can charge to 100% without touching the stored limit.
+    /// Idempotent. Expires on its own after `topUpMaxDuration` via `endTopUpIfExpired()`.
+    public func beginTopUp() throws {
+        guard topUpStartedAt == nil else { return }
+        try backend.temporarilyDisableLimit()
+        topUpStartedAt = Date()
+        logger.info("Top Up started: native charge limit temporarily lifted")
+    }
+
+    /// Re-arms the stored limit. Pass `force` after a crash/restart, when the in-memory flag is
+    /// gone but the OS may still hold the temporary override.
+    public func endTopUp(force: Bool = false) throws {
+        guard topUpStartedAt != nil || force else { return }
+        try backend.rearmLimit()
+        topUpStartedAt = nil
+        logger.info("Top Up ended: native charge limit re-armed")
+    }
+
+    public func endTopUpIfExpired(now: Date = Date()) throws {
+        guard let started = topUpStartedAt,
+              now.timeIntervalSince(started) >= Self.topUpMaxDuration else { return }
+        try endTopUp()
     }
 
     public func restore() throws {
@@ -193,6 +231,26 @@ public final class PowerUIChargeBackend: NativeChargeBackend {
         let value = result == 0 ? 100 : Int(result)
         guard limits.contains(value) else { throw NativeChargeError.unsupportedLimit }
         return value
+    }
+
+    public func temporarilyDisableLimit() throws {
+        try callBoolWithError("temporarilyDisableMCL:", failure: "macOS rejected the temporary charge-limit lift.")
+        logger.info("PowerUI temporarily disabled MCL")
+    }
+
+    public func rearmLimit() throws {
+        try callBoolWithError("enableMCL:", failure: "macOS rejected re-arming the charge limit.")
+        logger.info("PowerUI re-armed MCL")
+    }
+
+    private func callBoolWithError(_ name: String, failure: String) throws {
+        let sel = NSSelectorFromString(name)
+        guard client.responds(to: sel) else { throw NativeChargeError.unavailable }
+        typealias Call = @convention(c) (AnyObject, Selector, ErrorPointer) -> Bool
+        var error: NSError?
+        let success = unsafeBitCast(client.method(for: sel), to: Call.self)(client, sel, &error)
+        if let error { throw error }
+        guard success else { throw NativeChargeError.failed(failure) }
     }
 
     public func writeLimit(_ value: Int) throws {

@@ -47,9 +47,12 @@ class MenuBuilder {
         if viewModel.manageChargingEnabled, viewModel.adapterConnected {
             if Defaults[.showAdvancedChargingControls] {
                 menu.addItem(NSMenuItem.separator())
+                // Top Up works on every OS: SMC override on macOS 26, PowerUI temporary lift on 27.
                 if !viewModel.nativeMode {
                     menu.addItem(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
-                    menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
+                }
+                menu.addItem(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
+                if !viewModel.nativeMode {
                     menu.addItem(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
                     menu.addItem(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))
                 }

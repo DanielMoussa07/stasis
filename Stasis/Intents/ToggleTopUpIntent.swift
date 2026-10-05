@@ -23,10 +23,6 @@ struct ToggleTopUpIntent: AppIntent {
             throw CustomIntentError.stasisNotReady
         }
 
-        if batteryService.deviceCapabilities.nativeMode {
-            throw CustomIntentError.unsupportedOnOS("Charge Limit Override")
-        }
-
         let targetState = enable ?? !chargeManager.chargeLimitOverrideActive
         if chargeManager.chargeLimitOverrideActive != targetState {
             chargeManager.toggleChargeLimitOverride()

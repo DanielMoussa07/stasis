@@ -39,6 +39,10 @@ enum ChargingPowerState {
                 let session = NativeChargeSession(backend: backend)
                 nativeSession = session
                 logger.info("PowerUI backend ready — using native charge control (macOS 27+)")
+                // A restarted helper has no Top Up in flight; re-arm in case the OS still holds one.
+                do { try session.endTopUp(force: true) } catch {
+                    logger.error("PowerUI Top Up re-arm failed: \(error.localizedDescription)")
+                }
                 // Recover from crash: restore journaled limit before applying management
                 do { try session.restore() } catch {
                     logger.error("PowerUI recovery failed: \(error.localizedDescription)")
@@ -107,6 +111,14 @@ enum ChargingPowerState {
     }
 
     // MARK: - Charge Control (macOS 27 PowerUI | Legacy SMC)
+
+    /// Re-arms the native charge limit if a Top Up is active. No-op otherwise.
+    static func endNativeTopUp() {
+        guard let session = nativeSession, session.isTopUpActive else { return }
+        do { try session.endTopUp() } catch {
+            logger.error("Failed to end Top Up: \(error.localizedDescription)")
+        }
+    }
 
     /// Apply a PowerUI charge limit, snapping to the nearest valid step.
     /// Call only when `nativeMode == true`. Returns success/failure.

@@ -57,17 +57,17 @@ struct ShortcutsHelpView: View {
                 description: "Enable or disable custom MagSafe LED color indication.",
                 urlString: "stasis://magsafe-led?enable=true",
                 exampleCLI: "open \"stasis://magsafe-led?enable=true\""
+            ),
+            ShortcutItem(
+                title: "Toggle Top-Up to 100 percent",
+                description: "Temporarily override the limit and charge to 100 percent (or cancel Top-Up).",
+                urlString: "stasis://topup?enable=true",
+                exampleCLI: "open \"stasis://topup?enable=true\""
             )
         ]
 
         if !capabilities.nativeMode {
             items.append(contentsOf: [
-                ShortcutItem(
-                    title: "Toggle Top-Up to 100 percent",
-                    description: "Temporarily override the limit and charge to 100 percent (or cancel Top-Up).",
-                    urlString: "stasis://topup?enable=true",
-                    exampleCLI: "open \"stasis://topup?enable=true\""
-                ),
                 ShortcutItem(
                     title: "Toggle Force Discharge",
                     description: "Enable or disable force discharging the battery while plugged into AC power.",
