@@ -1,10 +1,9 @@
 name: Build, Release, and Update Homebrew
 
+# Manual only. Running on every push would tag and publish a release each time, and this fork has
+# no SPARKLE_EDDSA_PRIVATE_KEY secret; the appcast and cask URLs below still point at upstream.
 on:
-  push:
-    branches:
-      - main # Triggers on merge/push to main branch
-  workflow_dispatch: # Allows manual triggering from the Actions tab
+  workflow_dispatch:
 
 jobs:
   release:
