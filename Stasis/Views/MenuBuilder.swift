@@ -44,6 +44,11 @@ class MenuBuilder {
             }
         }
 
+        if viewModel.manageChargingEnabled {
+            menu.addItem(NSMenuItem.separator())
+            menu.addItem(createMenuItem(view: ChargeLimitSliderView(nativeMode: viewModel.nativeMode)))
+        }
+
         if viewModel.manageChargingEnabled, viewModel.adapterConnected {
             if Defaults[.showAdvancedChargingControls] {
                 menu.addItem(NSMenuItem.separator())
@@ -335,6 +340,32 @@ struct PowerSankeyViewWrapper: View {
             connectedAccessories: viewModel.connectedAccessories,
             adapterConnected: viewModel.adapterConnected
         )
+    }
+}
+
+struct ChargeLimitSliderView: View {
+    let nativeMode: Bool
+    @Default(.chargeLimit) private var chargeLimit
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Text("Charge limit")
+            Slider(
+                value: Binding(
+                    get: { Double(chargeLimit) },
+                    set: { chargeLimit = Int($0) }
+                ),
+                in: (nativeMode ? 80.0 : 50.0) ... 100.0,
+                step: 5
+            )
+            Text(chargeLimit.formattedPercentage)
+                .monospacedDigit()
+                .frame(width: 40, alignment: .trailing)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
     }
 }
 
