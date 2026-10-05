@@ -63,17 +63,17 @@ struct ShortcutsHelpView: View {
                 description: "Temporarily override the limit and charge to 100 percent (or cancel Top-Up).",
                 urlString: "stasis://topup?enable=true",
                 exampleCLI: "open \"stasis://topup?enable=true\""
+            ),
+            ShortcutItem(
+                title: "Toggle Force Discharge",
+                description: "Enable or disable force discharging the battery while plugged into AC power.",
+                urlString: "stasis://force-discharge?enable=true",
+                exampleCLI: "open \"stasis://force-discharge?enable=true\""
             )
         ]
 
         if !capabilities.nativeMode {
             items.append(contentsOf: [
-                ShortcutItem(
-                    title: "Toggle Force Discharge",
-                    description: "Enable or disable force discharging the battery while plugged into AC power.",
-                    urlString: "stasis://force-discharge?enable=true",
-                    exampleCLI: "open \"stasis://force-discharge?enable=true\""
-                ),
                 ShortcutItem(
                     title: "Start Battery Calibration",
                     description: "Start a full battery calibration cycle in Stasis.",
