@@ -12,3 +12,5 @@ build_local_dmg/
 .DS_Store
 Stasis.wiki/
 Stasis_Local_Test.dmg
+dist/
+build-release/
