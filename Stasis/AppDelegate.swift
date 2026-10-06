@@ -212,7 +212,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         adapterObservation = Task { [weak self] in
             while !Task.isCancelled {
                 guard let self else { return }
-                self.rebuildMenu()
+                self.rebuildMenu(whileOpen: true)
                 await withCheckedContinuation { continuation in
                     withObservationTracking {
                         _ = self.viewModel.adapterConnected
@@ -254,8 +254,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
 
-    private func rebuildMenu() {
-        guard !isMenuOpen else {
+    /// Other rebuilds wait until the menu closes so rows don't jump under the cursor. A plug or
+    /// unplug changes which controls exist, so it is applied immediately even while the menu is open.
+    private func rebuildMenu(whileOpen: Bool = false) {
+        guard whileOpen || !isMenuOpen else {
             needsMenuRebuild = true
             return
         }
