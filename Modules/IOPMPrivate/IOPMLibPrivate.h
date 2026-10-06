@@ -1,56 +1,30 @@
-/*
- * Copyright (c) 2002 Apple Computer, Inc. All rights reserved.
- *
- * @APPLE_LICENSE_HEADER_START@
- *
- * The contents of this file constitute Original Code as defined in and
- * are subject to the Apple Public Source License Version 1.1 (the
- * "License").  You may not use this file except in compliance with the
- * License.  Please obtain a copy of the License at
- * http://www.apple.com/publicsource and read it before using this file.
- *
- * This Original Code and all software distributed under the License are
- * distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, EITHER
- * EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
- * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT.  Please see the
- * License for the specific language governing rights and limitations
- * under the License.
- *
- * @APPLE_LICENSE_HEADER_END@
- */
+// Copyright (C) 2026 Daniel Moussa
+// Part of Stasis, licensed under the GNU General Public License v3.0 (see LICENSE).
+//
+// Declarations for the few undocumented IOKit power-management calls Stasis uses.
+// They are exported by IOKit.framework but absent from the public SDK headers.
 
-#ifndef _IOPMLibPrivate_h_
-#define _IOPMLibPrivate_h_
+#ifndef IOPMLibPrivate_h
+#define IOPMLibPrivate_h
 
 #include <IOKit/IOKitLib.h>
-#include <CoreFoundation/CFArray.h>
+#include <CoreFoundation/CoreFoundation.h>
 
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/*
- * kIOPMSystemSleepAvailableAtAll
- *      System Power Setting (not power source specific)
- *      value = true/false
- */
-#define    kIOPMSleepDisabledKey    CFSTR("SleepDisabled")
+// System-wide setting that stops the Mac from sleeping (value is a CFBoolean).
+#define kIOPMSleepDisabledKey CFSTR("SleepDisabled")
 
-/*!
-@function IOPMCopySystemPowerSettings
-@abstract Returns System power settings.
-      System-wide power settings are not power source dependent.
- */
-CFDictionaryRef IOPMCopySystemPowerSettings( void );
+// Returns the system-wide power settings; the caller releases the result.
+CFDictionaryRef IOPMCopySystemPowerSettings(void);
 
-/*
-@function IOPMSetSystemPowerSetting
-@abstract Set a system-wide power management setting
-@param key Setting name
-@param value Setting value
-@result kIOReturnSuccess; or IOReturn error otherwise
- */
-IOReturn IOPMSetSystemPowerSetting( CFStringRef key, CFTypeRef value );
+// Sets one system-wide power setting and returns kIOReturnSuccess on success.
+IOReturn IOPMSetSystemPowerSetting(CFStringRef key, CFTypeRef value);
 
-__END_DECLS
+#ifdef __cplusplus
+}
+#endif
 
-#endif // _IOPMLibPrivate_h_
+#endif
