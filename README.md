@@ -23,7 +23,7 @@ macOS 27 removed the SMC charge controls that Stasis and similar apps relied on.
 - **Reorderable, hideable menu sections and rows** (Settings → Dashboard).
 - **Idle power source hidden** in the power-flow diagram.
 - **Toggles reset on unplug:** Top Up, Top-up to Limit and Pause no longer look active after you unplug.
-- **Hardened helper:** the helper checks each XPC connection against the app's own signature, and the app verifies the helper actually answers after an upgrade.
+- **Touch ID helper install:** one password or Touch ID prompt installs the helper; no Login Items approval. The helper only accepts the exact app build it was installed for.
 
 See [CHANGELOG.md](CHANGELOG.md) for each version.
 
@@ -68,15 +68,11 @@ This fork is **not signed with an Apple Developer ID or notarized**, so macOS Ga
    ```bash
    xattr -cr /Applications/Stasis.app
    ```
-4. Launch Stasis. When macOS shows "Background Items Added", open **System Settings → General → Login Items & Extensions** and turn Stasis on under *Allow in the Background*. That one approval installs the helper and also covers Low Power Mode.
+4. Launch Stasis. It asks for Touch ID or your password once to install its background helper (a root launch daemon). Nothing needs switching on in System Settings. The prompt appears again the first time you launch a new build, because the helper only talks to the exact app build it was installed for.
 
 ### If the helper won't start
 
-After an update the helper can sit in a stuck state. Quit Stasis, then:
-```bash
-defaults write com.dinanathdash.stasis storedAppVersion -string 0.0.0
-```
-Reopen Stasis. If it still fails, switch Stasis off and on again in Login Items, or use **Settings → General** to reinstall the helper.
+Open **Settings → General** and use the helper button to reinstall it, or click **Enable Helper** in the alert Stasis shows when it can't reach the helper.
 
 ### Updates
 
@@ -84,7 +80,7 @@ The in-app updater points at this repository and only offers builds signed for t
 
 ### Uninstall
 
-Remove the helper from **Settings → General**, quit the app, and delete `/Applications/Stasis.app`.
+Remove the helper from **Settings → General** (one more prompt), quit the app, and delete `/Applications/Stasis.app`. To remove it by hand: `sudo launchctl bootout system/com.dinanathdash.stasis.charging-helper; sudo rm -rf /Library/LaunchDaemons/com.dinanathdash.stasis.charging-helper.plist /Library/PrivilegedHelperTools/com.dinanathdash.stasis.charging-helper.d`.
 
 ---
 

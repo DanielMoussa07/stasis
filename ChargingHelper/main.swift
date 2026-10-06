@@ -18,6 +18,47 @@ do {
     exit(1)
 }
 
+/// The installer records the exact app requirement in a root-owned file. It is only trusted when
+/// root owns it and nobody else can write it; otherwise fall back to the bundle the helper ships in.
+private func loadTrustedRequirement() -> SecRequirement? {
+    let recordedPath = "/Library/PrivilegedHelperTools/com.dinanathdash.stasis.charging-helper.d/requirement"
+    var fileStatus = stat()
+    if stat(recordedPath, &fileStatus) == 0 {
+        guard fileStatus.st_uid == 0, fileStatus.st_mode & (S_IWGRP | S_IWOTH) == 0,
+              let text = try? String(contentsOfFile: recordedPath, encoding: .utf8)
+        else {
+            logger.error("Recorded app requirement exists but is not trustworthy")
+            return nil
+        }
+        var recorded: SecRequirement?
+        guard SecRequirementCreateWithString(text as CFString, [], &recorded) == errSecSuccess else {
+            logger.error("Recorded app requirement could not be parsed")
+            return nil
+        }
+        return recorded
+    }
+
+    var appURL = URL(fileURLWithPath: Bundle.main.bundlePath)
+    while appURL.path != "/" && appURL.pathExtension != "app" {
+        appURL = appURL.deletingLastPathComponent()
+    }
+    guard appURL.pathExtension == "app" else {
+        logger.error("Failed to find containing Stasis.app bundle")
+        return nil
+    }
+
+    var appStaticCode: SecStaticCode?
+    var requirement: SecRequirement?
+    guard SecStaticCodeCreateWithPath(appURL as CFURL, [], &appStaticCode) == errSecSuccess,
+          let appCode = appStaticCode,
+          SecCodeCopyDesignatedRequirement(appCode, [], &requirement) == errSecSuccess
+    else {
+        logger.error("Failed to copy Designated Requirement from app bundle")
+        return nil
+    }
+    return requirement
+}
+
 class ServiceDelegate: NSObject, NSXPCListenerDelegate {
     let helper: ChargingHelper
 
@@ -40,30 +81,7 @@ class ServiceDelegate: NSObject, NSXPCListenerDelegate {
             return false
         }
 
-        // Find the containing Stasis.app bundle
-        var appURL = URL(fileURLWithPath: Bundle.main.bundlePath)
-        while appURL.path != "/" && appURL.pathExtension != "app" {
-            appURL = appURL.deletingLastPathComponent()
-        }
-
-        guard appURL.pathExtension == "app" else {
-            logger.error("Failed to find containing Stasis.app bundle")
-            return false
-        }
-
-        var appStaticCode: SecStaticCode?
-        guard SecStaticCodeCreateWithPath(appURL as CFURL, [], &appStaticCode) == errSecSuccess,
-              let appCode = appStaticCode
-        else {
-            logger.error("Failed to create SecStaticCode for app bundle")
-            return false
-        }
-
-        var requirement: SecRequirement?
-        guard SecCodeCopyDesignatedRequirement(appCode, [], &requirement) == errSecSuccess,
-              let validReq = requirement
-        else {
-            logger.error("Failed to copy Designated Requirement from app bundle")
+        guard let validReq = loadTrustedRequirement() else {
             return false
         }
 

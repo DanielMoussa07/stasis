@@ -99,19 +99,15 @@ struct ChargingSettingsView: View {
                 )
                 .disabled(!hasAnyControl)
 
-                if helperManager.helperStatus == .requiresApproval {
+                if helperManager.helperStatus != .installed {
                     LabeledContent {
-                        HStack {
-                            Button("Open Settings") {
-                                SMAppService.openSystemSettingsLoginItems()
-                            }
-                            Button("Check Again") {
-                                checkApprovalStatus()
-                            }
+                        Button("Enable Helper") {
+                            Task { await installHelper() }
                         }
+                        .disabled(helperManager.isInstalling)
                     } label: {
                         Text(
-                            "Approve Stasis in System Settings \u{2192} Login Items to continue."
+                            "Approve with Touch ID or your password to install the background helper."
                         )
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
@@ -465,69 +461,42 @@ struct ChargingSettingsView: View {
     }
 
     private func toggleManageCharging(_ enabled: Bool) {
+        guard enabled else {
+            // Turning charge management off only updates the setting; ChargeManager syncs it to the
+            // daemon, which resets the firmware to defaults. The daemon stays installed so the XPC
+            // connection is not torn down.
+            manageCharging = false
+            return
+        }
+        guard helperManager.isInstalled else {
+            Task { await installHelper() }
+            return
+        }
+        enableChargeManagement()
+    }
+
+    private func installHelper() async {
+        NSApp.activate(ignoringOtherApps: true)
         do {
-            if enabled {
-                if !helperManager.isInstalled {
-                    try helperManager.install()
-                    if helperManager.helperStatus == .installed {
-                        chargeManager.forceSyncSettings()
-                    }
-                }
-                if helperManager.helperStatus == .installed {
-                    manageCharging = true
-                    Defaults[.launchAtLogin] = true
-                    LaunchAtLoginService.shared.setLaunchAtLogin(true)
-                } else if helperManager.helperStatus == .requiresApproval {
-                    manageCharging = true
-                }
-            } else {
-                // When turning off charge management, we just update the toggle.
-                // The ChargeManager will automatically sync 'manageCharging = false' to the daemon,
-                // which will reset SMC to defaults internally. We no longer uninstall the daemon here,
-                // which prevents the "daemon not synced" error caused by tearing down the XPC connection.
-                manageCharging = false
-            }
+            try await helperManager.install()
+            chargeManager.forceSyncSettings()
+            enableChargeManagement()
+        } catch PrivilegedHelperInstaller.InstallerError.cancelled {
+            logger.info("Helper install cancelled by the user")
         } catch {
-            logger.error(
-                "Failed to \(enabled ? "install" : "uninstall") charging helper: \(error)"
+            logger.error("Failed to install charging helper: \(error)")
+            NSAlert.show(
+                title: String(localized: "Failed to install charging helper"),
+                message: error.localizedDescription,
+                style: .warning
             )
-            let title = enabled
-                ? String(localized: "Failed to install charging helper")
-                : String(localized: "Failed to uninstall charging helper")
-            let msg = error.localizedDescription + "\n\n" + String(localized: "Tip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again.")
-            NSAlert.show(title: title, message: msg, style: .warning)
         }
     }
 
-    private func checkApprovalStatus() {
-        helperManager.refreshStatus()
-        if helperManager.helperStatus == .installed {
-            do {
-                try helperManager.install()
-                if helperManager.helperStatus == .installed {
-                    chargeManager.forceSyncSettings()
-                }
-            } catch {
-                logger.error(
-                    "Failed to install helper after approval: \(error)"
-                )
-            }
-            manageCharging = true
-            Defaults[.launchAtLogin] = true
-            LaunchAtLoginService.shared.setLaunchAtLogin(true)
-
-            NSAlert.show(
-                title: String(localized: "Success"),
-                message: String(localized: "Stasis background helper has been successfully approved and background charging is now active!")
-            )
-        } else {
-            NSAlert.show(
-                title: String(localized: "Approval Required"),
-                message: String(localized: "Stasis has not been approved yet.\n\nPlease enable the toggle for Stasis under 'App Background Activity' in the Login Items settings. You may also want to ensure Stasis is added to 'Open at Login'."),
-                style: .informational
-            )
-            SMAppService.openSystemSettingsLoginItems()
-        }
+    private func enableChargeManagement() {
+        manageCharging = true
+        Defaults[.launchAtLogin] = true
+        LaunchAtLoginService.shared.setLaunchAtLogin(true)
     }
 }
 

@@ -108,15 +108,15 @@ class ChargeManager {
     }
 
     private func showDaemonErrorAlertIfNeeded() {
-        guard !hasShownDaemonErrorAlert else { return }
+        guard !hasShownDaemonErrorAlert, !ChargingHelperManager.shared.isInstalling else { return }
         hasShownDaemonErrorAlert = true
 
         let alert = NSAlert()
         alert.icon = NSImage(named: "AppIcon")
         alert.messageText = String(localized: "Background Helper Disconnected")
-        alert.informativeText = String(localized: "Stasis lost connection to its background helper. Please go to System Settings > General > Login Items, turn Stasis off and back on under 'Allow in the Background', and restart the app.")
+        alert.informativeText = String(localized: "Stasis can't reach its background helper. Click Enable Helper and approve with Touch ID or your password.")
         alert.alertStyle = .critical
-        alert.addButton(withTitle: String(localized: "Open Settings"))
+        alert.addButton(withTitle: String(localized: "Enable Helper"))
         alert.addButton(withTitle: String(localized: "Dismiss"))
 
         alert.window.level = .screenSaver
@@ -129,7 +129,15 @@ class ChargeManager {
         NSSound.beep()
         let response = alert.runModal()
         if response == .alertFirstButtonReturn {
-            SMAppService.openSystemSettingsLoginItems()
+            Task {
+                do {
+                    try await ChargingHelperManager.shared.install()
+                    hasShownDaemonErrorAlert = false
+                    syncSettingsToDaemon()
+                } catch {
+                    logger.error("Enable Helper failed: \(error.localizedDescription)")
+                }
+            }
         }
     }
 

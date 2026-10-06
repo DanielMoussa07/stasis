@@ -83,15 +83,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         // Auto-update the Privileged Helper Daemon if it's already installed (e.g. after a Sparkle update)
         // Or if it's a completely fresh installation / just wiped by the "Reset App" button.
-        if ChargingHelperManager.shared.isInstalled {
-            if launchState == .updated {
-                ChargingHelperManager.shared.forceUpgrade()
-            } else {
-                try? ChargingHelperManager.shared.install()
-            }
-            forceSyncSettings()
-        } else if launchState == .firstRun {
-            try? ChargingHelperManager.shared.install()
+        Task {
+            await ChargingHelperManager.shared.ensureHelperCurrent(isFirstRun: launchState == .firstRun)
             forceSyncSettings()
         }
 

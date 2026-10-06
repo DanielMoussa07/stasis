@@ -78,17 +78,9 @@ struct HelperManagementDialog: View {
         do {
             if installing {
                 NSApp.activate(ignoringOtherApps: true)
-                try helperManager.install()
-                if helperManager.helperStatus == .requiresApproval {
-                    NSAlert.show(
-                        title: String(localized: "Action Required"),
-                        message: String(localized: "Please open System Settings -> General -> Login Items and allow Stasis to run in the background, then try again."),
-                        style: .warning
-                    )
-                } else {
-                    if let appDelegate = NSApp.delegate as? AppDelegate {
-                        appDelegate.forceSyncSettings()
-                    }
+                try await helperManager.install()
+                if let appDelegate = NSApp.delegate as? AppDelegate {
+                    appDelegate.forceSyncSettings()
                 }
             } else {
                 try await helperManager.uninstall()
@@ -98,12 +90,13 @@ struct HelperManagementDialog: View {
                 )
                 AppRestartHelper.restartApp()
             }
+        } catch PrivilegedHelperInstaller.InstallerError.cancelled {
+            return
         } catch {
             let prefix = installing
                 ? String(localized: "Failed to install charging helper")
                 : String(localized: "Failed to uninstall charging helper")
-            let tip = String(localized: "Tip: Check System Settings -> General -> Login Items. Ensure Stasis is allowed to run in the background. If it is already on, try toggling it off and on again.")
-            let msg = "\(prefix):\n\(error.localizedDescription)\n\n\(tip)"
+            let msg = "\(prefix):\n\(error.localizedDescription)"
             NSAlert.show(
                 title: String(localized: "Helper Status"),
                 message: msg,

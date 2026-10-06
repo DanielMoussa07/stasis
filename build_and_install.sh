@@ -37,6 +37,5 @@ sleep 1
 echo "Launching new Stasis app..."
 open /Applications/Stasis.app
 
-echo "Note: after a rebuild macOS sometimes leaves the helper daemon unlaunchable (launchctl shows EX_CONFIG)."
-echo "Fix: quit Stasis, run 'defaults write com.dinanathdash.stasis storedAppVersion -string 0.0.0', reopen it."
+echo "Note: each new build has a new signature, so Stasis asks for Touch ID/password once to reinstall its helper."
 echo "Done!"

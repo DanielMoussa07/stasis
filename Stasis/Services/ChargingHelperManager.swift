@@ -42,7 +42,6 @@ class ChargingHelperManager {
     private static let machServiceName = "com.dinanathdash.stasis.charging-helper"
     private static let plistName = "com.dinanathdash.stasis.charging-helper.plist"
 
-    private static let upgradeAttemptLimit = 3
     private static let responsivenessChecks = 4
     private static let livenessTimeout: Duration = .seconds(3)
 
@@ -54,6 +53,7 @@ class ChargingHelperManager {
     )
 
     private(set) var helperStatus: ChargingHelperStatus
+    private(set) var isInstalling = false
 
     var isInstalled: Bool {
         helperStatus == .installed
@@ -61,79 +61,53 @@ class ChargingHelperManager {
 
     private init() {
         service = SMAppService.daemon(plistName: Self.plistName)
-        switch SMAppService.daemon(plistName: Self.plistName).status {
-        case .enabled: helperStatus = .installed
-        case .requiresApproval: helperStatus = .requiresApproval
-        default: helperStatus = .notInstalled
+        helperStatus = PrivilegedHelperInstaller.isInstalled ? .installed : .notInstalled
+    }
+
+    /// Installs (or reinstalls) the helper behind one administrator prompt, then waits until it answers.
+    func install() async throws {
+        logger.info("Installing charging helper daemon")
+        isInstalling = true
+        defer { isInstalling = false }
+        disconnect()
+        // An earlier build registered the same label through Login Items; it must go first.
+        try? await service.unregister()
+        try await PrivilegedHelperInstaller.install()
+
+        if await waitUntilResponsive() {
+            logger.info("Charging helper installed and responding")
+            helperStatus = .installed
+        } else {
+            logger.error("Charging helper installed but not responding")
+            helperStatus = .notInstalled
+            throw PrivilegedHelperInstaller.InstallerError.scriptFailed(
+                String(localized: "The helper was installed but did not start.")
+            )
         }
     }
 
-    func install() throws {
-        logger.info("Registering charging helper daemon")
+    /// Called at launch. Prompts only when the helper is missing after an earlier install, or
+    /// was installed for a different build of the app (the helper pins the app's exact signature).
+    func ensureHelperCurrent(isFirstRun: Bool) async {
+        let hadLoginItemsHelper = service.status == .enabled || service.status == .requiresApproval
+        let needsInstall: Bool
+        if PrivilegedHelperInstaller.isInstalled {
+            needsInstall = !PrivilegedHelperInstaller.isCurrent()
+        } else {
+            needsInstall = isFirstRun || hadLoginItemsHelper
+        }
+
+        guard needsInstall else {
+            refreshStatus()
+            return
+        }
 
         do {
-            try service.register()
+            try await install()
         } catch {
-            // register() commonly throws "Operation not permitted" while macOS
-            // processes the background item notification, even though the
-            // registration advanced to requiresApproval or enabled.
-            let currentStatus = SMAppService.daemon(plistName: Self.plistName).status
-            if currentStatus != .enabled, currentStatus != .requiresApproval {
-                throw error
-            }
+            logger.error("Helper install at launch failed: \(String(describing: error), privacy: .public)")
+            refreshStatus()
         }
-
-        refreshStatus()
-    }
-
-    func forceUpgrade() {
-        logger.info("Force upgrading charging helper daemon")
-        Task { await upgradeUntilResponsive() }
-    }
-
-    /// After a rebuild the helper's code signature changes, and backgroundtaskmanagementd
-    /// sometimes registers the new daemon with a stale launch constraint, so launchd refuses to
-    /// spawn it (EX_CONFIG) even though register() succeeded. A fresh unregister/register cycle
-    /// fixes it, so verify the helper actually answers and retry with a longer pause if not.
-    private func upgradeUntilResponsive() async {
-        for attempt in 1 ... Self.upgradeAttemptLimit {
-            disconnect()
-            do {
-                try await service.unregister()
-            } catch {
-                logger.warning("Unregister before upgrade failed (attempt \(attempt)): \(String(describing: error), privacy: .public)")
-            }
-
-            // register() straight after unregister() races BTM's cached signature of the previous
-            // daemon and fails with errSecCSReqFailed (-67028).
-            try? await Task.sleep(for: .seconds(1.5 * Double(attempt)))
-
-            do {
-                let newService = SMAppService.daemon(plistName: Self.plistName)
-                try newService.register()
-                service = newService
-            } catch {
-                logger.error("Force upgrade register failed (attempt \(attempt)): \(String(describing: error), privacy: .public)")
-                continue
-            }
-
-            // Retrying cannot help here: the user has to re-enable Stasis under Login Items.
-            if service.status == .requiresApproval {
-                logger.error("Helper registered but macOS requires approval under Login Items (attempt \(attempt))")
-                helperStatus = .requiresApproval
-                return
-            }
-
-            if await waitUntilResponsive() {
-                logger.info("Force upgrade successful (attempt \(attempt))")
-                refreshStatus()
-                return
-            }
-            logger.warning("Helper unresponsive after register (attempt \(attempt)), retrying")
-        }
-
-        logger.error("Force upgrade gave up: helper never became responsive")
-        refreshStatus()
     }
 
     private func waitUntilResponsive() async -> Bool {
@@ -160,7 +134,8 @@ class ChargingHelperManager {
         }
 
         disconnect()
-        try await service.unregister()
+        try? await service.unregister()
+        try await PrivilegedHelperInstaller.uninstall()
         helperStatus = .notInstalled
 
         // Force the UI toggle off since the helper is gone
@@ -169,18 +144,12 @@ class ChargingHelperManager {
     }
 
     func refreshStatus() {
-        let currentStatus = SMAppService.daemon(plistName: Self.plistName).status
-        switch currentStatus {
-        case .enabled:
-            Task {
-                if await checkLiveness() {
-                    await MainActor.run { self.helperStatus = .installed }
-                } else {
-                    await MainActor.run { self.helperStatus = .notInstalled }
-                }
-            }
-        case .requiresApproval: helperStatus = .requiresApproval
-        default: helperStatus = .notInstalled
+        guard PrivilegedHelperInstaller.isInstalled else {
+            helperStatus = .notInstalled
+            return
+        }
+        Task {
+            helperStatus = await checkLiveness() ? .installed : .notInstalled
         }
     }
 

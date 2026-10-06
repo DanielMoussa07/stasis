@@ -10,6 +10,19 @@ All notable changes to Stasis are documented here.
 
 ---
 
+## 0.29.0 - 2026-10-06
+
+### Features
+- **Helper installs with Touch ID or your password.** The background helper is now installed through one administrator prompt, instead of asking you to switch it on in System Settings → Login Items. A helper that was previously approved in Login Items is migrated on first launch.
+- **Enable Helper button:** the "helper disconnected" alert and Settings → Charging now offer Enable Helper, which runs the same prompt.
+
+### Security
+- The helper is copied to a root-owned folder under `/Library/PrivilegedHelperTools`, its signature (and its framework's) is checked against the app's after the copy, and the exact app build allowed to talk to it is recorded in a root-owned file. The helper trusts that file only if root owns it and nobody else can write it.
+- A new build of the app has a different signature, so the helper is reinstalled (one prompt) the first time a new build launches.
+
+### Fixes
+- Removes the stuck-helper failure after updates that came from Login Items registration.
+
 ## 0.28.5 - 2026-10-06
 
 ### Changes
