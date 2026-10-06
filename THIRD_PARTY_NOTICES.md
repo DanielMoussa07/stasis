@@ -175,6 +175,6 @@ STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
 IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
-## IOPMPrivate headers (`Modules/IOPMPrivate`)
+## IOPMPrivate module map (`Modules/IOPMPrivate/module.modulemap`)
 
-`IOPMLibPrivate.h` carries Apple's original copyright and Apple Public Source License header (Copyright (c) 2002 Apple Computer, Inc.). `module.modulemap` carries a copyright notice by Marvin Häuser (2022 - 2024) under the BSD-3-Clause license (SPDX-License-Identifier: BSD-3-Clause), from the Battery Toolkit project. Both notices are kept unchanged in those files.
+Carries a copyright notice by Marvin Häuser (2022 - 2024) under the BSD-3-Clause license (SPDX-License-Identifier: BSD-3-Clause), from the Battery Toolkit project. The notice is kept unchanged in that file.
