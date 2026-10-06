@@ -10,6 +10,11 @@ All notable changes to Stasis are documented here.
 
 ---
 
+## 0.29.2 - 2026-10-06
+
+### Fixes
+- **Menu updates when you plug or unplug:** the dropdown now refreshes immediately while it is open, so Top Up on Next Plug-in and the charging controls appear and disappear without closing and reopening the menu.
+
 ## 0.29.1 - 2026-10-06
 
 ### Changes
