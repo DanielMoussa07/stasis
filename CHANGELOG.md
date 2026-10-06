@@ -10,6 +10,12 @@ All notable changes to Stasis are documented here.
 
 ---
 
+## 0.29.1 - 2026-10-06
+
+### Changes
+- **Translations:** the new menu, settings and helper-install strings are translated into all 17 languages.
+- **Cleanup:** removed the unused Login Items approval state and the old release workflow (it pointed at the upstream project and a removed Homebrew cask). Releases are built with `package_release.sh`.
+
 ## 0.29.0 - 2026-10-06
 
 ### Features
