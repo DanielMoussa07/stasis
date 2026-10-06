@@ -68,7 +68,7 @@ This fork is **not signed with an Apple Developer ID or notarized**, so macOS Ga
    ```bash
    xattr -cr /Applications/Stasis.app
    ```
-4. Launch Stasis. It asks for Touch ID or your password once to install its background helper (a root launch daemon). Nothing needs switching on in System Settings. The prompt appears again the first time you launch a new build, because the helper only talks to the exact app build it was installed for.
+4. Launch Stasis. It asks for your fingerprint or password once to install its background helper (a root launch daemon). A fingerprint prompt only appears if Touch ID for `sudo` is on (System Settings can't show it for third-party apps); otherwise it asks for your password. To turn it on: `sudo sh -c 'echo "auth       sufficient     pam_tid.so" > /etc/pam.d/sudo_local'`. Nothing needs switching on in System Settings. The prompt appears again the first time you launch a new build, because the helper only talks to the exact app build it was installed for.
 
 ### If the helper won't start
 

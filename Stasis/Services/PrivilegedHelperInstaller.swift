@@ -191,9 +191,14 @@ enum PrivilegedHelperInstaller {
 
     private static func runPrivileged(_ script: String) async throws {
         let outcome: PrivilegedOutcome = await Task.detached {
-            let outcome = runWithSystemAuthorization(script)
-            if case .unavailable = outcome { return runWithAppleScript(script) }
-            return outcome
+            // sudo is first because, with pam_tid enabled, it is the only prompt that offers Touch ID
+            // to a third-party app; Apple's authorization sheet shows a password field only.
+            for attempt in [runWithSudo, runWithSystemAuthorization] {
+                let outcome = attempt(script)
+                if case .unavailable = outcome { continue }
+                return outcome
+            }
+            return runWithAppleScript(script)
         }.value
 
         switch outcome {
@@ -286,6 +291,34 @@ enum PrivilegedHelperInstaller {
         let text = String(decoding: output, as: UTF8.self)
         guard let markerRange = text.range(of: exitMarker, options: .backwards) else {
             return .failed(text.isEmpty ? "The installer did not report a result." : text)
+        }
+        let exitCode = Int(text[markerRange.upperBound...].trimmingCharacters(in: .whitespacesAndNewlines)) ?? -1
+        if exitCode == 0 { return .succeeded }
+        let message = text[..<markerRange.lowerBound].trimmingCharacters(in: .whitespacesAndNewlines)
+        return .failed(message.isEmpty ? "The installer exited with status \(exitCode)." : message)
+    }
+
+    /// Runs the script through `sudo` with no terminal. Without Touch ID for sudo configured it
+    /// fails before running anything, which reports as unavailable so the next prompt is tried.
+    private nonisolated static func runWithSudo(_ script: String) -> PrivilegedOutcome {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/sudo")
+        process.arguments = ["-k", "/bin/sh", "-c", "( \(script)\n ); echo \(exitMarker)$?"]
+        let output = Pipe()
+        process.standardOutput = output
+        process.standardError = output
+        process.standardInput = FileHandle.nullDevice
+        do {
+            try process.run()
+        } catch {
+            return .unavailable
+        }
+        let data = output.fileHandleForReading.readDataToEndOfFile()
+        process.waitUntilExit()
+
+        let text = String(decoding: data, as: UTF8.self)
+        guard let markerRange = text.range(of: exitMarker, options: .backwards) else {
+            return .unavailable
         }
         let exitCode = Int(text[markerRange.upperBound...].trimmingCharacters(in: .whitespacesAndNewlines)) ?? -1
         if exitCode == 0 { return .succeeded }

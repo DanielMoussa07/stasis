@@ -13,7 +13,7 @@ All notable changes to Stasis are documented here.
 ## 0.29.0 - 2026-10-06
 
 ### Features
-- **Helper installs with Touch ID or your password.** The background helper is now installed through one administrator prompt, instead of asking you to switch it on in System Settings → Login Items. A helper that was previously approved in Login Items is migrated on first launch.
+- **Helper installs with Touch ID or your password.** The background helper is now installed through one administrator prompt, instead of asking you to switch it on in System Settings → Login Items. The fingerprint prompt needs Touch ID for `sudo` enabled (macOS only shows Touch ID in Apple's own authorization sheet for Apple-signed apps); without it, you get a password prompt. A helper that was previously approved in Login Items is migrated on first launch.
 - **Enable Helper button:** the "helper disconnected" alert and Settings → Charging now offer Enable Helper, which runs the same prompt.
 
 ### Security
