@@ -4,7 +4,6 @@ import ServiceManagement
 
 enum ChargingHelperStatus {
     case notInstalled
-    case requiresApproval
     case installed
 }
 
