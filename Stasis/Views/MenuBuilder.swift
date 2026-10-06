@@ -132,7 +132,9 @@ class MenuBuilder {
             items.append(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
         }
         items.append(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
-        items.append(createMenuItem(view: PauseChargingToggleView(viewModel: viewModel)))
+        if !viewModel.nativeMode {
+            items.append(createMenuItem(view: PauseChargingToggleView(viewModel: viewModel)))
+        }
         items.append(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
         if !viewModel.nativeMode {
             items.append(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))

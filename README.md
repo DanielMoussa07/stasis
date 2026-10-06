@@ -1,64 +1,90 @@
 # Stasis
 
-> ***This project is a fork of [srimanachanta/Stasis](https://github.com/srimanachanta/Stasis).***
+> ***A fork of [DinanathDash/Stasis](https://github.com/DinanathDash/Stasis), itself a fork of [srimanachanta/Stasis](https://github.com/srimanachanta/Stasis), with charge control that works on macOS 27.***
 
-**A smarter battery icon for your MacBook.** Monitor power metrics, manage charge limits, automate power profiles, and extend your battery's lifespan — all from the menu bar.
+**A smarter battery icon for your MacBook.** Monitor power metrics, manage charge limits, top up on demand, and extend your battery's lifespan from the menu bar.
 
-Stasis gives you real-time insight into your MacBook's power system and lets you control charging behavior directly, without relying on macOS's opaque "Optimized Battery Charging."
+macOS 27 removed the SMC charge controls that Stasis and similar apps relied on. This fork drives the charge limit through Apple's own PowerUI charge-limit client instead, so "limit at 80%, top up when I need to" works again.
 
-> **Apple Silicon only.** Fully supported on all Apple Silicon MacBooks (M-series chips).
->
-> Requires **macOS 14.8 – 27.0**.
+> **Apple Silicon only.** Requires **macOS 14.8 – 27.0**.
 
 ![Stasis Menu Bar](assets/images/FullApp.jpg)
 
 ---
 
+## What this fork adds
+
+- **Top Up on macOS 27** (Charge Limit Override): temporarily lifts the firmware limit with Apple's `temporarilyDisableMCL`, then puts the limit back on cancel, unplug, a 12 hour cap, or helper restart.
+- **Top Up on Next Plug-in:** while unplugged, ask for the limit to be bypassed the next time you plug in. It starts a couple of seconds after the adapter is detected.
+- **Force Discharge on macOS 27:** switch the adapter off while plugged in, so the Mac runs from the battery.
+- **Charge limit slider in the menu bar dropdown**, snapping to the firmware steps on macOS 27 (80, 85, 90, 95, 100%).
+- **Charge bar with a limit marker** under the battery percentage.
+- **Low Power Mode toggle** in the dropdown. The one-time helper approval covers it, so there is no admin prompt each time.
+- **Reorderable, hideable menu sections and rows** (Settings → Dashboard).
+- **Idle power source hidden** in the power-flow diagram.
+- **Toggles reset on unplug:** Top Up, Top-up to Limit and Pause no longer look active after you unplug.
+- **Hardened helper:** the helper checks each XPC connection against the app's own signature, and the app verifies the helper actually answers after an upgrade.
+
+See [CHANGELOG.md](CHANGELOG.md) for each version.
+
+## What macOS 27 can and can't do
+
+| Feature | macOS 14.8 – 26 | macOS 27 |
+| :--- | :--- | :--- |
+| Charge limit | 50–100%, any value | 80, 85, 90, 95, 100% only |
+| Top Up / Charge Limit Override | Yes | Yes |
+| Top Up on Next Plug-in | Yes | Yes |
+| Force Discharge (adapter off) | Yes | Yes |
+| Pause Charging at the current level | Yes | **No.** The firmware only holds at the fixed steps. A limit above the level keeps charging, one below it runs the Mac from the battery. |
+| Sailing Mode, Automatic Discharge, Calibration | Yes | Limited by the same fixed steps |
+| Heat Protection | Yes | Yes |
+
+These limits come from the private Apple API, not from this app.
+
+---
+
 ## Highlights
 
-- **Hardware Charge Limit** — Set a maximum charge level (50–100%) enforced at the hardware level via the SMC, remaining active even through system sleep or power cycling.
-- **Sailing Mode** *(macOS 14–26 only)* — Prevent micro-charging cycles by allowing the battery to float naturally within a configurable upper and lower percentage range.
-- **Automatic Discharge** *(macOS 14–26 only)* — Safely drain battery charge down to your target limit while plugged into power.
-- **Heat Protection** — Automatically pause charging when battery temperature exceeds your safety threshold.
-- **Apple Shortcuts & Siri Automation** — Native Apple Shortcuts and Siri support via 13 App Intents (Note: Manual charging control Intents are disabled on macOS 27+).
-- **Apps Using Significant Energy** — Real-time detection and menu bar display of apps consuming excessive energy, with a configurable dashboard toggle.
-- **Battery Calibration Service** — Guided 3-stage calibration workflow (**Discharge to 15% → Recharge to 100% → Rest at 100%**) to recalibrate your battery gauge and SMC sensors.
-- **Dynamic Island Notch HUD** — Sleek hardware notch overlay for charging state notifications and power alerts, powered by `TopWindowElevator` to stay visible above system UI and lock screens.
-- **Multi-Port & Accessory Detection** — Detects USB-C, MagSafe, and USB Hub power sources with custom icon rendering and a two-decimal high-precision power toggle.
-- **Live Power Dashboard** — Real-time voltage, current, wattage, temperature, battery health, and cycle count in a compact menu bar dropdown.
-- **Power Flow Diagram** — Dynamic Sankey visualization of real-time power distribution across charger, battery, and system.
-- **MagSafe LED Control** — Automatically sets your MagSafe LED indicator to green when at charge limit and orange while actively charging.
-- **Multi-Language Support** — Fully localized across 17 languages (including English, German, Spanish, French, Italian, Dutch, Brazilian & European Portuguese, Simplified & Traditional Chinese, Japanese, Korean, Russian, Turkish, Vietnamese, Slovak, and Slovenian) with an in-app language switcher.
-- **Helper Daemon Management** — Inspect status, reinstall, or remove the privileged SMC helper daemon (`com.dinanathdash.stasis.charging-helper`) directly from Settings.
-- **Auto-Updates** — Seamless background updates directly from GitHub Releases via Sparkle.
-- **Liquid Glass Interface** — Modern macOS Tahoe-inspired translucent settings UI with native macOS dialogs.
+- **Hardware Charge Limit** enforced by the firmware, so it stays active through sleep and power cycles.
+- **Sailing Mode** *(macOS 14–26 only)*: let the battery float inside a range instead of micro-charging.
+- **Automatic Discharge** *(macOS 14–26 only)*: drain down to your limit while plugged in.
+- **Heat Protection:** pause charging above a temperature you choose.
+- **Apple Shortcuts & Siri:** App Intents plus a `stasis://` URL scheme.
+- **Apps Using Significant Energy**, **Battery Calibration**, **Notch HUD**, **MagSafe LED control**, **multi-port and accessory detection**, a **live power dashboard**, a **power-flow diagram**, and **17 languages**.
+- **Helper daemon management:** inspect, reinstall or remove the privileged helper from Settings.
 
 ---
 
 ## Installation
 
-### Homebrew (Recommended)
+This fork is **not signed with an Apple Developer ID or notarized**, so macOS Gatekeeper will block it until you clear the quarantine flag. The app and its helper are ad-hoc signed; the helper only accepts connections from the exact build it shipped with.
 
-```bash
-brew tap dinanathdash/stasis https://github.com/DinanathDash/Stasis.git
-brew install --cask --no-quarantine dinanathdash/stasis/stasis
-```
-
-If macOS blocks launch after installation, remove the quarantine flag manually:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/Stasis.app
-```
-
-### Direct Download
-
-1. Download the latest release from [GitHub Releases](https://github.com/DinanathDash/Stasis/releases).
-2. Open the `.dmg` file and drag **Stasis** into `/Applications`.
-3. Remove the quarantine flag from Terminal:
+1. Download `Stasis.dmg` from this repository's [Releases](https://github.com/DanielMoussa07/stasis/releases). The repository is private, so use the GitHub CLI if the browser asks you to sign in:
+   ```bash
+   gh release download --repo DanielMoussa07/stasis --pattern 'Stasis.dmg'
+   ```
+2. Open the DMG and drag **Stasis** into `/Applications`.
+3. Clear the quarantine flag:
    ```bash
    xattr -cr /Applications/Stasis.app
    ```
-4. Launch Stasis from `/Applications`.
+4. Launch Stasis. When macOS shows "Background Items Added", open **System Settings → General → Login Items & Extensions** and turn Stasis on under *Allow in the Background*. That one approval installs the helper and also covers Low Power Mode.
+
+### If the helper won't start
+
+After an update the helper can sit in a stuck state. Quit Stasis, then:
+```bash
+defaults write com.dinanathdash.stasis storedAppVersion -string 0.0.0
+```
+Reopen Stasis. If it still fails, switch Stasis off and on again in Login Items, or use **Settings → General** to reinstall the helper.
+
+### Updates
+
+The in-app updater points at this repository and only offers builds signed for this fork. Until a signed update feed exists, install new versions from Releases.
+
+### Uninstall
+
+Remove the helper from **Settings → General**, quit the app, and delete `/Applications/Stasis.app`.
 
 ---
 
@@ -111,15 +137,15 @@ For step-by-step Apple Shortcuts setup, CLI examples, and the full command table
 
 ## Documentation & Wiki
 
-For comprehensive user guides, automation workflows, technical architecture, and FAQ, see the official **[Stasis GitHub Wiki](https://github.com/DinanathDash/Stasis/wiki)** and **[SHORTCUTS_AND_AUTOMATION.md](SHORTCUTS_AND_AUTOMATION.md)**.
+See **[SHORTCUTS_AND_AUTOMATION.md](SHORTCUTS_AND_AUTOMATION.md)** for automation, and the [upstream wiki](https://github.com/DinanathDash/Stasis/wiki) for general guides (it describes the upstream build).
 
 ---
 
 ## Building from Source
 
 ```bash
-git clone https://github.com/DinanathDash/Stasis.git
-cd Stasis
+git clone https://github.com/DanielMoussa07/stasis.git
+cd stasis
 open stasis.xcodeproj
 ```
 

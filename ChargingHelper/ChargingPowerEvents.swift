@@ -103,6 +103,12 @@ enum ChargingPowerEvents {
     }
 
     static func pauseCharging() -> (Bool, String?) {
+        // PowerUI only accepts the fixed 80/85/90/95/100% steps. A ceiling below the battery level
+        // makes the firmware run the system from the battery, and one above it keeps charging, so
+        // there is no way to hold at an arbitrary level.
+        guard !ChargingPowerState.nativeMode else {
+            return (false, "Pause Charging is not available on macOS 27: the firmware cannot hold at an arbitrary level.")
+        }
         chargingMode = .paused
         return evaluateState(force: true)
     }
@@ -170,7 +176,7 @@ enum ChargingPowerEvents {
             chargingMode = .standard
         }
         if chargingMode == .paused {
-            return applyPause(percent: percent, force: force)
+            return applyPause(force: force)
         }
 
         // Charging Management Off
@@ -236,17 +242,8 @@ enum ChargingPowerEvents {
         }
     }
 
-    private static func applyPause(percent: UInt8, force: Bool) -> (Bool, String?) {
-        if ChargingPowerState.nativeMode {
-            ChargingPowerState.endNativeTopUp()
-            // enablePowerAdapter rewrites the native ceiling, so the pause ceiling must be applied last.
-            if ChargingPowerState.isPowerAdapterDisabled() {
-                _ = ChargingPowerState.enablePowerAdapter(force: force)
-            }
-            ChargingPowerState.applyNativePauseCeiling(atLeast: Int(percent))
-        } else {
-            _ = ChargingPowerState.enablePowerAdapter(force: force)
-        }
+    private static func applyPause(force: Bool) -> (Bool, String?) {
+        _ = ChargingPowerState.enablePowerAdapter(force: force)
         return ChargingPowerState.disableCharging(force: force)
     }
 

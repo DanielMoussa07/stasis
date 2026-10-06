@@ -16,7 +16,7 @@
 	<key>SUEnableInstallerLauncherService</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/DinanathDash/Stasis/main/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/DanielMoussa07/stasis/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>q259SeFUiuniAFmoW4fv4BwGZvmZHQ1P2g/15790bss=</string>
 </dict>

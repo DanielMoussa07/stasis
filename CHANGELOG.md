@@ -10,6 +10,86 @@ All notable changes to Stasis are documented here.
 
 ---
 
+## 0.28.5 - 2026-10-06
+
+### Changes
+- **Pause Charging is hidden on macOS 27.** It was tested on a real Mac and cannot work there: the firmware only accepts the fixed 80/85/90/95/100% limits. A limit above the battery level keeps charging up to it, and a limit below it makes the system run from the battery until it drains to that step. Apple's target-override call rejects any other value. Use the charge limit slider instead. The helper refuses the request on macOS 27 as well.
+- **Updater no longer follows the upstream project.** The in-app update feed pointed at DinanathDash/Stasis, so a newer upstream release could have been offered as an update and replaced this fork. It now points at this repository's own feed, which is empty until this fork publishes signed updates.
+
+## 0.28.3 - 2026-10-06
+
+### Features
+- **Pause Charging (macOS 26):** a menu toggle that holds the battery at its current level while plugged in, using the SMC inhibit.
+- **Top Up on Next Plug-in:** while unplugged, a menu toggle requests that the next time you plug in, the charge limit is bypassed automatically (Top Up starts about two seconds after the adapter is detected).
+
+### Bug Fixes
+- **Stale toggles after unplug:** Charge Limit Override, Top-up to Limit and Pause no longer stay switched on in the menu after you unplug. The helper ends them on unplug; the app now follows.
+
+## 0.28.2 - 2026-10-05
+
+### Features
+- **Force Discharge on macOS 27:** the adapter can be switched off while plugged in (the Mac runs from the battery), through the helper's CHIE key. The Shortcuts intent and menu toggle no longer refuse to run on macOS 27.
+
+## 0.28.1 - 2026-10-05
+
+### Features
+- **Low Power Mode toggle in the menu:** switches Low Power Mode with no admin prompt each time. The one-time approval is the helper setup.
+
+### Bug Fixes
+- **Charge bar colour:** the bar no longer flashes green and lags behind until the menu is rebuilt. It now follows the stabilised charging state instead of the raw IOKit flag.
+
+## 0.27.1 - 2026-10-05
+
+### Features
+- **Reorderable menu:** reorder and hide whole sections and individual rows from Settings → Dashboard → Menu Order, with a Restore Default Order button.
+
+## 0.26.0 - 2026-10-05
+
+### Features
+- **Charge bar with a limit marker:** a bar under the battery percentage shows the current level and a marker at your charge limit (and at 100% while Top Up is active).
+
+## 0.25.2 - 2026-10-05
+
+### Features
+- **Power flow diagram:** the idle power source is hidden, so only the active path is drawn.
+
+## 0.25.0 - 2026-10-05
+
+### Features
+- **Charge limit slider in the menu:** set the limit from the dropdown. On macOS 27 it snaps to the firmware's 80/85/90/95/100% steps. It can be hidden in Settings → Dashboard → Controls.
+
+## 0.24.8 - 2026-10-05
+- Internal version bumps made while testing helper upgrades. No functional change.
+
+## 0.24.6 - 2026-10-05
+
+### Bug Fixes
+- **Helper upgrade is verified:** after an upgrade the app waits until the helper answers, retries the registration up to three times, and tells you when macOS is waiting for approval in Login Items. Registration errors are logged.
+
+## 0.24.3 - 2026-10-05
+
+### Security
+- **XPC caller check enforced:** the helper now applies the app's code-signing requirement to each incoming connection, in addition to the process-level check. The identifier-only requirement used by the old release workflow is gone; the requirement stays pinned to the app's own signature.
+
+### Bug Fixes
+- **Top Up holds on macOS 27:** re-enabling the adapter no longer rewrites the charge limit and cancels the temporary lift.
+
+## 0.24.2 - 2026-10-05
+- Build: stop requesting an identifier-only app requirement so verification stays pinned to the app's signature.
+
+## 0.24.1 - 2026-10-05
+- Build: ad-hoc sign the app and re-sign the helper the same way the release workflow does.
+
+## 0.24.0 - 2026-10-05
+
+### Features
+- **Top Up on macOS 27:** Charge Limit Override works again. It lifts the firmware limit with Apple's `temporarilyDisableMCL`, and puts it back on cancel, unplug, a 12 hour cap, or helper restart.
+
+### Notes
+- This is the first release of this fork. It is based on DinanathDash/Stasis 0.23.1 and carries the work of several Stasis forks; see the README acknowledgments.
+
+---
+
 ## 0.23.1 - 2026-09-23
 
 ### Features & Core Capabilities

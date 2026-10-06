@@ -4,58 +4,5 @@
         <title>Stasis</title>
         <description>Most recent changes for Stasis.</description>
         <language>en</language>
-        <item>
-            <title>0.23.1</title>
-            <pubDate>Wed, 23 Sep 2026 07:04:35 +0000</pubDate>
-            <sparkle:version>78</sparkle:version>
-            <sparkle:shortVersionString>0.23.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>Features &amp; Core Capabilities</h3>
-<ul>
-<li><strong>Heat Protection:</strong> Re-enabled Heat Protection for macOS 27 natively via <code>PowerUI</code> charge limits now that temperature data is correctly retrieved.</li>
-</ul>
-<h3>Bug Fixes &amp; Refinements</h3>
-<ul>
-<li><strong>Battery Temperature:</strong> Resolved an issue where battery temperature displayed as 0°C on Apple Silicon and macOS 27 by retrieving sensor data through SMC fallback instead of the deprecated IOKit property.</li>
-</ul>
-
-]]></description>
-            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.23.1/Stasis.dmg" length="4589618" type="application/octet-stream" sparkle:edSignature="5nqloGy7i5VALtHi4yrZOl7CCt4xdEgM/EyfiD3U6/QW/PyCM0GcAwcOpTbnfS1DTCK5CxK17HnNx3jv/3SkAg=="/>
-        </item>
-        <item>
-            <title>0.23.0</title>
-            <pubDate>Tue, 22 Sep 2026 08:51:50 +0000</pubDate>
-            <sparkle:version>77</sparkle:version>
-            <sparkle:shortVersionString>0.23.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h3>Features &amp; Core Capabilities</h3>
-<ul>
-<li><strong>Discharge Fallback:</strong> Added support for discharge-only fallback capabilities and migrated helper uninstallation to async/await.</li>
-<li><strong>macOS 27 Analysis:</strong> Added macOS 27 beta issue analysis tools, baselines, and reproduction scripts.</li>
-</ul>
-<h3>Bug Fixes &amp; Refinements</h3>
-<ul>
-<li><strong>Charging Stability:</strong> Added write retry logic for PowerUI limits, prevented startup race conditions, and refined discharge ceiling handling.</li>
-<li><strong>Charging Optimization:</strong> Optimized charging limit calculations and native power state logic to prevent battery discharge, and streamlined charging state evaluations by removing deadband logic.</li>
-</ul>
-
-]]></description>
-            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.23.0/Stasis.dmg" length="4588205" type="application/octet-stream" sparkle:edSignature="8jgx2U573fC8qfeVNp3L8jly9hKX+k4xQ4eGtnaqJOF7yKIRVL+3EwzlAa22pYxCgIBQvJZU8j7zLgdOTI/bBA=="/>
-        </item>
-        <item>
-            <title>0.22.2</title>
-            <pubDate>Wed, 16 Sep 2026 10:11:58 +0000</pubDate>
-            <sparkle:version>76</sparkle:version>
-            <sparkle:shortVersionString>0.22.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.8</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li><strong>Right-Click Context Menu:</strong> Added a native context menu via right-click on the battery menu bar icon, featuring a toggle for Low Power Mode and a shortcut to System Battery Settings.</li>
-<li><strong>MagSafe LED Behavior:</strong> Fixed MagSafe LED on macOS 27 native mode to accurately transition to &quot;paused&quot; (green) as soon as the native charge limit is reached.</li>
-<li><strong>Optimized UI Updates:</strong> Settings toggles now apply instantly by removing artificial interaction delays using optimistic updates and zero-delay polling.</li>
-</ul>
-
-]]></description>
-            <enclosure url="https://github.com/DinanathDash/Stasis/releases/download/v0.22.2/Stasis.dmg" length="4579861" type="application/octet-stream" sparkle:edSignature="CE04+bmGXTuvgaVhS0W+EaKPNNc088EPOu9CbbrJ6rpXR8QRCO9S/f9GeKjlWfUppRZMfnP2HHKZDIcc9nPDAw=="/>
-        </item>
     </channel>
 </rss>
