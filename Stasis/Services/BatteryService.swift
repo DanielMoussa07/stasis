@@ -28,6 +28,7 @@ class BatteryService {
     var metrics = BatteryMetrics()
     var adapterMetrics = AdapterMetrics()
     private(set) var controlState = BatteryControlState()
+    var onAdapterConnectionChange: ((Bool) -> Void)?
     private(set) var deviceCapabilities = DeviceCapabilities(
         chargingControl: false,
         adapterControl: false,
@@ -344,7 +345,11 @@ class BatteryService {
             batteryTemperature: metrics.batteryTemperature
         )
         if newState != controlState {
+            let adapterChanged = newState.adapterConnected != controlState.adapterConnected
             controlState = newState
+            if adapterChanged {
+                onAdapterConnectionChange?(newState.adapterConnected)
+            }
         }
     }
 
@@ -421,6 +426,27 @@ class BatteryService {
             }
 
             helper.disableCharging { success, errorMessage in
+                if success {
+                    continuation.resume(returning: ())
+                } else {
+                    continuation.resume(
+                        throwing: XPCError.commandFailed(errorMessage ?? "Unknown error")
+                    )
+                }
+            }
+        }
+    }
+
+    func pauseCharging() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            guard let helper = ChargingHelperManager.shared.getHelper(errorHandler: { error in
+                continuation.resume(throwing: XPCError.commandFailed(error.localizedDescription))
+            }) else {
+                continuation.resume(throwing: XPCError.helperUnavailable)
+                return
+            }
+
+            helper.pauseCharging { success, errorMessage in
                 if success {
                     continuation.resume(returning: ())
                 } else {

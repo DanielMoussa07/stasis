@@ -17,6 +17,8 @@ class ChargeManager {
     private(set) var chargeLimitOverrideActive = false
     private(set) var forceDischargeActive = false
     private(set) var chargeToLimitActive = false
+    private(set) var chargingPausedActive = false
+    private(set) var topUpOnNextPlugInRequested = false
     private(set) var daemonSyncError = false
     private(set) var daemonError: String?
     private var hasShownDaemonErrorAlert = false
@@ -28,6 +30,9 @@ class ChargeManager {
 
     init(batteryService: BatteryService) {
         self.batteryService = batteryService
+        batteryService.onAdapterConnectionChange = { [weak self] connected in
+            self?.handleAdapterConnectionChange(connected)
+        }
         startObservingSettings()
     }
 
@@ -133,6 +138,8 @@ class ChargeManager {
         if chargeLimitOverrideActive {
             forceDischargeActive = false
             chargeToLimitActive = false
+            chargingPausedActive = false
+            topUpOnNextPlugInRequested = false
             if Defaults[.calibrationStatus] != .idle {
                 Defaults[.calibrationStatus] = .idle
             }
@@ -160,6 +167,7 @@ class ChargeManager {
         if forceDischargeActive {
             chargeLimitOverrideActive = false
             chargeToLimitActive = false
+            chargingPausedActive = false
             if Defaults[.calibrationStatus] != .idle {
                 Defaults[.calibrationStatus] = .idle
             }
@@ -187,6 +195,7 @@ class ChargeManager {
         if chargeToLimitActive {
             chargeLimitOverrideActive = false
             forceDischargeActive = false
+            chargingPausedActive = false
             if Defaults[.calibrationStatus] != .idle {
                 Defaults[.calibrationStatus] = .idle
             }
@@ -206,6 +215,65 @@ class ChargeManager {
                 self.daemonError = error.localizedDescription
                 chargeToLimitActive.toggle() // revert on failure
             }
+        }
+    }
+
+    func togglePauseCharging() {
+        chargingPausedActive.toggle()
+        if chargingPausedActive {
+            chargeLimitOverrideActive = false
+            forceDischargeActive = false
+            chargeToLimitActive = false
+            if Defaults[.calibrationStatus] != .idle {
+                Defaults[.calibrationStatus] = .idle
+            }
+        }
+        Task {
+            do {
+                if chargingPausedActive {
+                    try await batteryService.pauseCharging()
+                } else {
+                    try await batteryService.cancelOverride()
+                    syncSettingsToDaemon()
+                }
+                batteryService.scheduleSinglePoll()
+                self.daemonError = nil
+            } catch {
+                logger.error("Failed to toggle pause charging: \(error.localizedDescription)")
+                self.daemonError = error.localizedDescription
+                chargingPausedActive.toggle() // revert on failure
+            }
+        }
+    }
+
+    func toggleTopUpOnNextPlugIn() {
+        topUpOnNextPlugInRequested.toggle()
+    }
+
+    // The helper ends every override when the adapter is removed, so the app-side flags must follow.
+    private func handleAdapterConnectionChange(_ connected: Bool) {
+        if !connected {
+            chargeLimitOverrideActive = false
+            chargeToLimitActive = false
+            chargingPausedActive = false
+            return
+        }
+        guard topUpOnNextPlugInRequested else { return }
+        topUpOnNextPlugInRequested = false
+        Task {
+            // Give the helper's power-source event time to observe the adapter first.
+            try? await Task.sleep(for: .seconds(2))
+            guard Defaults[.manageCharging] else { return }
+            chargeLimitOverrideActive = true
+            do {
+                try await batteryService.chargeToFull()
+                daemonError = nil
+            } catch {
+                logger.error("Failed to start Top Up on plug-in: \(error.localizedDescription)")
+                daemonError = error.localizedDescription
+                chargeLimitOverrideActive = false
+            }
+            batteryService.scheduleSinglePoll()
         }
     }
 

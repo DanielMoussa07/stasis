@@ -120,9 +120,11 @@ class MenuBuilder {
     }
 
     private func makeAdvancedControlItems() -> [NSMenuItem] {
-        guard viewModel.manageChargingEnabled, viewModel.adapterConnected,
-              Defaults[.showAdvancedChargingControls]
-        else { return [] }
+        guard viewModel.manageChargingEnabled, Defaults[.showAdvancedChargingControls] else { return [] }
+
+        guard viewModel.adapterConnected else {
+            return [createMenuItem(view: TopUpOnNextPlugInToggleView(viewModel: viewModel))]
+        }
 
         // Top Up works on every OS: SMC override on macOS 26, PowerUI temporary lift on 27.
         var items: [NSMenuItem] = []
@@ -130,6 +132,7 @@ class MenuBuilder {
             items.append(createMenuItem(view: ChargeToLimitToggleView(viewModel: viewModel)))
         }
         items.append(createMenuItem(view: ChargeLimitOverrideToggleView(viewModel: viewModel)))
+        items.append(createMenuItem(view: PauseChargingToggleView(viewModel: viewModel)))
         items.append(createMenuItem(view: ForceDischargeToggleView(viewModel: viewModel)))
         if !viewModel.nativeMode {
             items.append(createMenuItem(view: BatteryCalibrationToggleView(viewModel: viewModel)))
@@ -338,6 +341,56 @@ struct ChargeLimitOverrideToggleView: View {
                 isOn: Binding(
                     get: { viewModel.chargeLimitOverrideActive },
                     set: { _ in viewModel.toggleChargeLimitOverride() }
+                )
+            )
+            .labelsHidden()
+            .toggleStyle(.switch)
+            .controlSize(.mini)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct PauseChargingToggleView: View {
+    let viewModel: MenuViewModel
+
+    var body: some View {
+        HStack {
+            Text("Pause Charging")
+            Spacer(minLength: 20)
+            Toggle(
+                "Pause Charging",
+                isOn: Binding(
+                    get: { viewModel.chargingPausedActive },
+                    set: { _ in viewModel.togglePauseCharging() }
+                )
+            )
+            .labelsHidden()
+            .toggleStyle(.switch)
+            .controlSize(.mini)
+        }
+        .foregroundColor(.secondary)
+        .font(.callout)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 4)
+    }
+}
+
+struct TopUpOnNextPlugInToggleView: View {
+    let viewModel: MenuViewModel
+
+    var body: some View {
+        HStack {
+            Text("Top Up on Next Plug-in")
+            Spacer(minLength: 20)
+            Toggle(
+                "Top Up on Next Plug-in",
+                isOn: Binding(
+                    get: { viewModel.topUpOnNextPlugInRequested },
+                    set: { _ in viewModel.toggleTopUpOnNextPlugIn() }
                 )
             )
             .labelsHidden()

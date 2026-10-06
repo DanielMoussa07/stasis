@@ -79,6 +79,13 @@ final class ChargingHelper: NSObject, ChargingHelperProtocol, @unchecked Sendabl
         }
     }
 
+    func pauseCharging(reply: @escaping @Sendable (Bool, String?) -> Void) {
+        Task { @MainActor in
+            let (success, errorMessage) = ChargingPowerEvents.pauseCharging()
+            reply(success, errorMessage)
+        }
+    }
+
     func disablePowerAdapter(reply: @escaping @Sendable (Bool, String?) -> Void) {
         Task { @MainActor in
             let (success, errorMessage) = ChargingPowerEvents.forceDischarge()

@@ -13,6 +13,7 @@ enum ChargingPowerEvents {
         case toLimit
         case toFull
         case forceDischarge
+        case paused
     }
 
     static var chargingMode = ChargingMode.standard
@@ -101,6 +102,11 @@ enum ChargingPowerEvents {
         return ChargingPowerState.disableCharging(force: true)
     }
 
+    static func pauseCharging() -> (Bool, String?) {
+        chargingMode = .paused
+        return evaluateState(force: true)
+    }
+
     static func forceDischarge() -> (Bool, String?) {
         chargingMode = .forceDischarge
         return evaluateState(force: true)
@@ -157,6 +163,14 @@ enum ChargingPowerEvents {
         if chargingMode == .forceDischarge {
             _ = ChargingPowerState.disableCharging(force: force)
             return ChargingPowerState.disablePowerAdapter(force: force)
+        }
+
+        // Pause is a one-shot hold at the current level; unplugging ends it.
+        if chargingMode == .paused, !IOKitHelper.isDrawingUnlimitedPower() {
+            chargingMode = .standard
+        }
+        if chargingMode == .paused {
+            return applyPause(percent: percent, force: force)
         }
 
         // Charging Management Off
@@ -220,6 +234,20 @@ enum ChargingPowerEvents {
             }
             return ChargingPowerState.enableCharging(force: force)
         }
+    }
+
+    private static func applyPause(percent: UInt8, force: Bool) -> (Bool, String?) {
+        if ChargingPowerState.nativeMode {
+            ChargingPowerState.endNativeTopUp()
+            // enablePowerAdapter rewrites the native ceiling, so the pause ceiling must be applied last.
+            if ChargingPowerState.isPowerAdapterDisabled() {
+                _ = ChargingPowerState.enablePowerAdapter(force: force)
+            }
+            ChargingPowerState.applyNativePauseCeiling(atLeast: Int(percent))
+        } else {
+            _ = ChargingPowerState.enablePowerAdapter(force: force)
+        }
+        return ChargingPowerState.disableCharging(force: force)
     }
 
     // MARK: - macOS 27 PowerUI evaluation

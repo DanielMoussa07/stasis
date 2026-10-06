@@ -56,6 +56,14 @@ class MenuViewModel {
         chargeManager.forceDischargeActive
     }
 
+    var chargingPausedActive: Bool {
+        chargeManager.chargingPausedActive
+    }
+
+    var topUpOnNextPlugInRequested: Bool {
+        chargeManager.topUpOnNextPlugInRequested
+    }
+
     var chargeToLimitActive: Bool {
         chargeManager.chargeToLimitActive
     }
@@ -168,6 +176,14 @@ class MenuViewModel {
         chargeManager.toggleForceDischarge()
     }
 
+    func togglePauseCharging() {
+        chargeManager.togglePauseCharging()
+    }
+
+    func toggleTopUpOnNextPlugIn() {
+        chargeManager.toggleTopUpOnNextPlugIn()
+    }
+
     func toggleChargeToLimit() {
         chargeManager.toggleChargeToLimit()
     }
@@ -202,6 +218,9 @@ class MenuViewModel {
             }
             if chargeToLimitActive {
                 toggleChargeToLimit()
+            }
+            if chargingPausedActive {
+                togglePauseCharging()
             }
             Defaults[.calibrationStatus] = .discharging
         }
