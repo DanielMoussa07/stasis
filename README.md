@@ -182,4 +182,8 @@ Added here: Top Up on macOS 27 through Apple's `temporarilyDisableMCL` API, the 
 
 ## License
 
-[GPL-3.0](LICENSE)
+Stasis is free software under the [GNU GPL v3.0](LICENSE). Third-party components and their notices are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+This fork is a modified version of [DinanathDash/Stasis](https://github.com/DinanathDash/Stasis), which is itself based on [srimanachanta/Stasis](https://github.com/srimanachanta/Stasis). It was modified from 2026-10-05 onward by Daniel Moussa; the changes are listed with dates in [CHANGELOG.md](CHANGELOG.md) and in the git history. Changes in this fork: Copyright (C) 2026 Daniel Moussa. All earlier code remains copyrighted by its original authors.
+
+The complete corresponding source for every released binary is this repository at the matching version tag (each release also includes a source archive).
