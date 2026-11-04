@@ -22,7 +22,7 @@ struct SetChargeLimitIntent: AppIntent {
             throw CustomIntentError.stasisNotReady
         }
 
-        let clampedLimit = min(max(limit, 50), 100)
+        let clampedLimit = min(max(limit, SettingRanges.chargeLimit.lowerBound), SettingRanges.chargeLimit.upperBound)
         Defaults[.chargeLimit] = clampedLimit
         Defaults[.manageCharging] = true
         chargeManager.forceSyncSettings()
