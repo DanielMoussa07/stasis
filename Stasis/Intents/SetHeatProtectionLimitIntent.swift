@@ -27,7 +27,7 @@ struct SetHeatProtectionLimitIntent: AppIntent {
             throw CustomIntentError.unsupportedOnOS("Heat Protection")
         }
 
-        let clampedTemp = min(max(temperatureC, 30), 50)
+        let clampedTemp = min(max(temperatureC, SettingRanges.heatProtectionLimit.lowerBound), SettingRanges.heatProtectionLimit.upperBound)
         Defaults[.heatProtectionLimit] = clampedTemp
         Defaults[.enableHeatProtectionMode] = true
         Defaults[.manageCharging] = true

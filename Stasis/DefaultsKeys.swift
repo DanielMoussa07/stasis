@@ -5,6 +5,12 @@ import SwiftUI
 
 extension MagSafeLEDState: Defaults.Serializable {}
 
+enum SettingRanges {
+    static let chargeLimit = 50 ... 100
+    static let sailingModeLimit = 5 ... 20
+    static let heatProtectionLimit = 30 ... 50
+}
+
 enum OutputVisualizationMode: String, CaseIterable, Defaults.Serializable {
     case off
     case powerOnly

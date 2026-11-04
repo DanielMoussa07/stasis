@@ -106,7 +106,7 @@ final class StasisURLHandler: NSObject, UNUserNotificationCenterDelegate {
 
         case "charge-limit", "set-charge-limit", "limit":
             let targetValue = getIntParam(key: "value", fallback: Defaults[.chargeLimit])
-            let clampedLimit = min(max(targetValue, 50), 100)
+            let clampedLimit = min(max(targetValue, SettingRanges.chargeLimit.lowerBound), SettingRanges.chargeLimit.upperBound)
             Defaults[.chargeLimit] = clampedLimit
             Defaults[.manageCharging] = true
             chargeManager.forceSyncSettings()
@@ -129,7 +129,7 @@ final class StasisURLHandler: NSObject, UNUserNotificationCenterDelegate {
 
         case "sailing-limit", "set-sailing-mode-limit":
             let targetValue = getIntParam(key: "value", fallback: Defaults[.sailingModeLimit])
-            let clamped = min(max(targetValue, 5), 20)
+            let clamped = min(max(targetValue, SettingRanges.sailingModeLimit.lowerBound), SettingRanges.sailingModeLimit.upperBound)
             Defaults[.sailingModeLimit] = clamped
             showNotification(title: String(localized: "Stasis Sailing Mode Range"), message: String(localized: "Sailing drop percentage set to \(clamped)% below limit."))
 
@@ -177,7 +177,7 @@ final class StasisURLHandler: NSObject, UNUserNotificationCenterDelegate {
 
         case "heat-protection-limit", "set-heat-protection-limit", "heat-limit":
             let targetValue = getIntParam(key: "value", fallback: Defaults[.heatProtectionLimit])
-            let clamped = min(max(targetValue, 30), 50)
+            let clamped = min(max(targetValue, SettingRanges.heatProtectionLimit.lowerBound), SettingRanges.heatProtectionLimit.upperBound)
             Defaults[.heatProtectionLimit] = clamped
             showNotification(title: String(localized: "Stasis Heat Protection Threshold"), message: String(localized: "Heat Protection threshold set to \(clamped)°C."))
 
